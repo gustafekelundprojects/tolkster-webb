@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tolkster — AI-tolkning för verksamheter</title>
+  <!-- Real logo colors: navy #1B3A5C, medium blue #2e7ec8 for icon accent -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { font-size: 112%; } /* Base up ~10% — all rem values scale uniformly */
+    :root {
+      --navy: #1B3A5C;
+      --navy-dark: #122840;
+      --navy-light: #274d78;
+      --teal: #0D7377;
+      --teal-light: #14a3a8;
+      --teal-pale: #e8f6f6;
+      --white: #ffffff;
+      --off-white: #f8f9fb;
+      --gray-100: #f1f3f6;
+      --gray-200: #e2e6ed;
+      --gray-400: #9aa4b2;
+      --gray-600: #5a6475;
+      --gray-800: #2e3a4a;
+      --text: #1a2535;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 4px 24px rgba(27,58,92,0.10);
+      --shadow-lg: 0 12px 48px rgba(27,58,92,0.16);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { flex-shrink: 0; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta {
+      background: var(--navy);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--navy-light); color: var(--white); }
+
+    /* ─── HERO ───────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 55%, #1d4d72 100%);
+      color: var(--white);
+      padding: 96px 48px 80px;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(13,115,119,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: 30%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(13,115,119,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(13,115,119,0.25);
+      border: 1px solid rgba(13,115,119,0.5);
+      color: var(--teal-light);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--teal-light);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+
+    /* Hero mockup */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tablet-mockup {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 20px;
+      width: 320px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+    }
+
+    .tablet-screen {
+      background: #0f1f30;
+      border-radius: 12px;
+      padding: 24px 20px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tablet-mode-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .mode-chip {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .mode-chip.active {
+      background: var(--teal);
+      color: white;
+    }
+
+    .mode-chip.inactive {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.45);
+    }
+
+    .tablet-lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+
+    .lang-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .lang-arrow {
+      color: var(--teal-light);
+      font-size: 1.2rem;
+    }
+
+    .tablet-bubble {
+      background: rgba(13,115,119,0.2);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+    }
+
+    .tablet-bubble p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+
+    .tablet-bubble .bubble-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--teal-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .tablet-bubble-right {
+      background: rgba(255,255,255,0.06);
+      border-right: 3px solid rgba(255,255,255,0.3);
+      border-left: none;
+      border-radius: 8px 0 0 8px;
+      align-self: flex-end;
+      padding: 10px 14px;
+    }
+
+    .tablet-recording {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .rec-dot {
+      width: 10px;
+      height: 10px;
+      background: #e74c3c;
+      border-radius: 50%;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .rec-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+
+    /* ─── TRUST BAR ──────────────────────────────────── */
+    .trust-bar {
+      background: var(--navy-dark);
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .trust-icon {
+      color: var(--teal-light);
+      font-size: 1rem;
+    }
+
+    /* ─── SECTIONS ───────────────────────────────────── */
+    section {
+      padding: 96px 48px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* ─── HOW IT WORKS ───────────────────────────────── */
+    .how-section { background: var(--off-white); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .step-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .step-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* ─── SEGMENTS ───────────────────────────────────── */
+    .segments-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .segment-card {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+
+    .segment-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 24px rgba(13,115,119,0.12);
+    }
+
+    .segment-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .segment-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .segment-card p {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .segment-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--teal-pale);
+      color: var(--teal);
+    }
+
+    /* ─── MODES ──────────────────────────────────────── */
+    .modes-section { background: var(--navy); }
+
+    .modes-section .section-title { color: var(--white); }
+    .modes-section .section-sub { color: rgba(255,255,255,0.6); }
+    .modes-section .section-label { color: var(--teal-light); }
+
+    .modes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .mode-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .mode-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(13,115,119,0.5);
+    }
+
+    .mode-card.featured {
+      border-color: var(--teal);
+      background: rgba(13,115,119,0.12);
+    }
+
+    .mode-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .badge-teal { background: var(--teal); color: white; }
+    .badge-gold { background: #b8860b; color: white; }
+    .badge-gray { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); }
+
+    .mode-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .mode-card .mode-tagline {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--teal-light);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .mode-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+    }
+
+    .mode-card ul {
+      list-style: none;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mode-card ul li {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .mode-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--teal-light);
+      font-size: 0.75rem;
+    }
+
+    /* ─── WHY TOLKSTER ───────────────────────────────── */
+    .why-section { background: var(--off-white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .why-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .why-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--teal-pale);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .why-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* ─── DECISION GUIDE ─────────────────────────────── */
+    .decision-section { background: var(--white); }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .decision-card {
+      border-radius: var(--radius);
+      padding: 32px 28px;
+    }
+
+    .decision-card.ai {
+      background: var(--teal-pale);
+      border: 1.5px solid rgba(13,115,119,0.25);
+    }
+
+    .decision-card.human {
+      background: var(--gray-100);
+      border: 1.5px solid var(--gray-200);
+    }
+
+    .decision-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .decision-card.ai h3 { color: var(--teal); }
+    .decision-card.human h3 { color: var(--gray-800); }
+
+    .decision-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .decision-list li {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .check { color: var(--teal); font-weight: 700; flex-shrink: 0; }
+    .neutral { color: var(--gray-400); font-weight: 700; flex-shrink: 0; }
+
+    /* ─── SECURITY ───────────────────────────────────── */
+    .security-section { background: var(--navy-dark); }
+
+    .security-section .section-title { color: var(--white); }
+    .security-section .section-sub { color: rgba(255,255,255,0.6); }
+    .security-section .section-label { color: var(--teal-light); }
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .security-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .security-card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .security-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .security-card p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.55;
+    }
+
+    /* ─── PRICING ─────────────────────────────────────── */
+    .pricing-section { background: var(--white); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      align-items: start;
+    }
+
+    .pricing-card {
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--teal);
+      box-shadow: 0 8px 40px rgba(13,115,119,0.15);
+    }
+
+    .featured-ribbon {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .pricing-card .price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -1px;
+      margin: 16px 0 4px;
+    }
+
+    .pricing-card .price span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gray-400);
+    }
+
+    .pricing-card .price-sub {
+      font-size: 0.875rem;
+      color: var(--gray-400);
+      margin-bottom: 24px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .pricing-features li {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .btn-outline {
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s, color 0.2s;
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+      background: transparent;
+    }
+
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+    .btn-cta-full {
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: block;
+      background: var(--teal);
+      color: white;
+      transition: background 0.2s;
+    }
+
+    .btn-cta-full:hover { background: var(--teal-light); }
+
+    /* ─── FAQ ─────────────────────────────────────────── */
+    .faq-section { background: var(--off-white); }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* ─── CTA BLOCK ──────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      text-align: center;
+      padding: 96px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(13,115,119,0.2) 0%, transparent 70%);
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      padding: 48px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: -0.3px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .footer-legal {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 72px 24px 64px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-visual { display: none; }
+      section { padding: 64px 24px; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .segments-grid { grid-template-columns: 1fr 1fr; }
+      .modes-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .security-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .decision-grid { grid-template-columns: 1fr; }
+      .trust-bar { gap: 20px; }
+      footer { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .segments-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .security-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ════════════════════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <!-- Tolkster logo SVG recreation -->
+    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer circle -->
+      <circle cx="50" cy="50" r="44" stroke="#1B3A5C" stroke-width="5" fill="none"/>
+      <!-- Sound waves left -->
+      <path d="M18 35 Q10 50 18 65" stroke="#2e7ec8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <path d="M11 28 Q0 50 11 72" stroke="#2e7ec8" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <!-- Sound waves right -->
+      <path d="M82 35 Q90 50 82 65" stroke="#2e7ec8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <path d="M89 28 Q100 50 89 72" stroke="#2e7ec8" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <!-- Horizontal lines (stacked speech/text symbol) -->
+      <rect x="30" y="35" width="40" height="5.5" rx="2.5" fill="#1B3A5C"/>
+      <rect x="30" y="45" width="40" height="5.5" rx="2.5" fill="#2e7ec8"/>
+      <rect x="30" y="55" width="40" height="5.5" rx="2.5" fill="#1B3A5C"/>
+      <rect x="30" y="65" width="40" height="5.5" rx="2.5" fill="#2e7ec8"/>
+    </svg>
+    <span style="font-size:1.2rem;font-weight:800;color:#1B3A5C;letter-spacing:-0.5px;">Tolkster</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how">Så fungerar det</a></li>
+    <li><a href="#segments">Verksamheter</a></li>
+    <li><a href="#modes">Produktlägen</a></li>
+    <li><a href="#sprak">Språk</a></li>
+    <li><a href="#security">Säkerhet</a></li>
+    <li><a href="#pricing">Priser</a></li>
+    <li><a href="#om-oss">Om oss</a></li>
+    <li><a href="#contact" class="nav-cta">Boka demo</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">✦ AI-tolkning för offentlig sektor</div>
+      <h1>Förstå varandra.<br><span>Direkt.</span></h1>
+      <p class="hero-sub">
+        Tolkster är ett AI-drivet tolkverktyg byggt för frontlinjen — reception, socialtjänst, vård och myndighetsutövning. Kom igång på sekunder. Ingen bokning. Ingen väntetid.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Boka demo</a>
+        <a href="#how" class="btn-ghost">Se hur det fungerar</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">Språk</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">&lt; 3 sek</span>
+          <span class="stat-label">Uppstartstid</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Produktlägen</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Tablet frame -->
+      <div style="background:#1a1a1a;border-radius:20px;padding:12px 8px;width:360px;box-shadow:0 28px 72px rgba(0,0,0,0.45);">
+        <!-- Camera dot -->
+        <div style="width:6px;height:6px;background:#333;border-radius:50%;margin:0 auto 8px;"></div>
+        <!-- App screen -->
+        <div style="background:#f4f6f9;border-radius:12px;overflow:hidden;">
+          <!-- App top bar -->
+          <div style="background:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8ebf0;">
+            <div style="width:28px;height:28px;background:#f0f2f5;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;">🏠</div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <svg width="20" height="20" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="44" stroke="#1B3A5C" stroke-width="6" fill="none"/>
+                <path d="M18 35 Q10 50 18 65" stroke="#2e7ec8" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M82 35 Q90 50 82 65" stroke="#2e7ec8" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <rect x="30" y="35" width="40" height="6" rx="3" fill="#1B3A5C"/>
+                <rect x="30" y="46" width="40" height="6" rx="3" fill="#2e7ec8"/>
+                <rect x="30" y="57" width="40" height="6" rx="3" fill="#1B3A5C"/>
+                <rect x="30" y="68" width="40" height="6" rx="3" fill="#2e7ec8"/>
+              </svg>
+              <span style="font-size:0.9rem;font-weight:800;color:#1B3A5C;letter-spacing:-0.3px;">Tolkster</span>
+            </div>
+            <div style="width:28px;"></div>
+          </div>
+          <!-- App content -->
+          <div style="padding:20px 16px 16px;text-align:center;">
+            <h3 style="font-size:1.05rem;font-weight:700;color:#1B3A5C;margin-bottom:6px;">Välkommen</h3>
+            <p style="font-size:0.8rem;color:#6b7a8d;margin-bottom:20px;line-height:1.4;">Starta ditt AI-genererade tolkmöte direkt.</p>
+            <!-- Mode cards row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;">
+              <!-- Quick -->
+              <div style="background:#fff;border-radius:10px;padding:14px 8px;box-shadow:0 2px 8px rgba(27,58,92,0.1);">
+                <div style="margin-bottom:8px;">
+                  <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+                    <circle cx="40" cy="38" r="18" stroke="#2e7ec8" stroke-width="3.5" fill="none"/>
+                    <path d="M24 54 Q10 68 16 72" stroke="#2e7ec8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                    <path d="M14 35 Q7 40 14 45" stroke="#2e7ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M66 35 Q73 40 66 45" stroke="#2e7ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+                  </svg>
+                </div>
+                <div style="font-size:0.85rem;font-weight:700;color:#2e7ec8;">Quick</div>
+              </div>
+              <!-- Duo -->
+              <div style="background:#fff;border-radius:10px;padding:14px 8px;box-shadow:0 2px 8px rgba(27,58,92,0.1);">
+                <div style="margin-bottom:8px;">
+                  <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+                    <circle cx="40" cy="40" r="22" stroke="#1B3A5C" stroke-width="3.5" fill="none"/>
+                    <path d="M16 32 Q8 40 16 48" stroke="#2e7ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M64 32 Q72 40 64 48" stroke="#2e7ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <rect x="28" y="33" width="24" height="3.5" rx="1.5" fill="#1B3A5C"/>
+                    <rect x="28" y="40" width="24" height="3.5" rx="1.5" fill="#2e7ec8"/>
+                    <rect x="28" y="47" width="24" height="3.5" rx="1.5" fill="#1B3A5C"/>
+                  </svg>
+                </div>
+                <div style="font-size:0.85rem;font-weight:700;color:#1B3A5C;">Duo</div>
+              </div>
+              <!-- Multi -->
+              <div style="background:#fff;border-radius:10px;padding:14px 8px;box-shadow:0 2px 8px rgba(27,58,92,0.1);">
+                <div style="margin-bottom:8px;">
+                  <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+                    <rect x="18" y="18" width="44" height="44" rx="8" stroke="#1B3A5C" stroke-width="3.5" fill="none"/>
+                    <path d="M12 30 Q5 40 12 50" stroke="#2e7ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M68 30 Q75 40 68 50" stroke="#2e7ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <rect x="28" y="33" width="24" height="3.5" rx="1.5" fill="#1B3A5C"/>
+                    <rect x="28" y="40" width="24" height="3.5" rx="1.5" fill="#2e7ec8"/>
+                    <rect x="28" y="47" width="24" height="3.5" rx="1.5" fill="#1B3A5C"/>
+                  </svg>
+                </div>
+                <div style="font-size:0.85rem;font-weight:700;color:#1B3A5C;">Multi</div>
+              </div>
+            </div>
+            <!-- Info icons row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+              <div style="font-size:0.8rem;color:#9aa4b2;">ⓘ</div>
+              <div style="font-size:0.8rem;color:#9aa4b2;">ⓘ</div>
+              <div style="font-size:0.8rem;color:#9aa4b2;">ⓘ</div>
+            </div>
+          </div>
+          <!-- App bottom bar -->
+          <div style="background:#fff;padding:10px 16px;border-top:1px solid #e8ebf0;display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-size:0.75rem;color:#9aa4b2;">ⓘ</div>
+            <div style="font-size:0.75rem;color:#9aa4b2;">⚙️</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">🔒</span> GDPR-säkert</div>
+  <div class="trust-item"><span class="trust-icon">⚡</span> Redo att använda direkt</div>
+  <div class="trust-item"><span class="trust-icon">🏛️</span> Byggt för offentlig sektor</div>
+  <div class="trust-item"><span class="trust-icon">📋</span> Stödjer direktupphandling &lt; 700 kkr</div>
+  <div class="trust-item"><span class="trust-icon">💻</span> Levereras färdigkonfigurerad</div>
+</div>
+
+<!-- ═══ HOW IT WORKS ════════════════════════════════════ -->
+<section class="how-section" id="how">
+  <div class="section-inner">
+    <div class="section-label">Så fungerar det</div>
+    <h2 class="section-title">Från noll till samtal på sekunder</h2>
+    <p class="section-sub">Ingen utbildning krävs. Personal som aldrig använt Tolkster förstår direkt.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Slå på surfplattan</h3>
+        <p>Tolkster-appen öppnas automatiskt. Ingen inloggning, inga konton att hantera för personal.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Välj läge och språk</h3>
+        <p>Välj Quick för ett snabbt möte eller Duo för ett strukturerat samtal. Välj språkpar med ett tryck.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Prata naturligt</h3>
+        <p>Håll surfplattan framför dig och tala. Tolkster transkriberar och översätter i realtid — text och tal.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3>Mötet avslutas</h3>
+        <p>Beroende på läge sparas en sammanfattning automatiskt, eller avslutas sessionen utan att data lagras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEGMENTS ════════════════════════════════════════ -->
+<section id="segments">
+  <div class="section-inner">
+    <div class="section-label">Verksamheter</div>
+    <h2 class="section-title">Byggt för dem som inte kan vänta</h2>
+    <p class="section-sub">Tolkster är inte en konsumentapp. Det är ett operativt verktyg för verksamheter där språkbarriärer kostar tid, skapar fel och drabbar människor.</p>
+    <div class="segments-grid">
+      <div class="segment-card">
+        <span class="segment-icon">🏛️</span>
+        <h3>Kommuner</h3>
+        <p>Reception, medborgarkontor, socialtjänst och SFI hanterar dagligen besökare som inte talar svenska. Tolkster gör det möjligt att agera direkt — utan att boka tolk i förväg.</p>
+        <div class="segment-tags">
+          <span class="tag">Socialtjänst</span>
+          <span class="tag">Reception</span>
+          <span class="tag">SFI</span>
+          <span class="tag">Skola</span>
+        </div>
+      </div>
+      <div class="segment-card">
+        <span class="segment-icon">🏥</span>
+        <h3>Regioner och vård</h3>
+        <p>Primärvård, akutmottagning och folktandvård möter patienter med varierande språkbakgrund. Rätt kommunikation kan vara avgörande för säker vård.</p>
+        <div class="segment-tags">
+          <span class="tag">Primärvård</span>
+          <span class="tag">Akut</span>
+          <span class="tag">Folktandvård</span>
+          <span class="tag">Psykiatri</span>
+        </div>
+      </div>
+      <div class="segment-card">
+        <span class="segment-icon">⚖️</span>
+        <h3>Myndigheter och rättsväsende</h3>
+        <p>Polisen, Migrationsverket, domstolar och tillsynsmyndigheter ställer höga krav på korrekt kommunikation. Listen In-läget möjliggör realtidsverifiering av tolkkvalitet.</p>
+        <div class="segment-tags">
+          <span class="tag">Polis</span>
+          <span class="tag">Migration</span>
+          <span class="tag">Domstol</span>
+          <span class="tag">Tillsyn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MODES ════════════════════════════════════════════ -->
+<section class="modes-section" id="modes">
+  <div class="section-inner">
+    <div class="section-label">Produktlägen</div>
+    <h2 class="section-title">Rätt verktyg för varje situation</h2>
+    <p class="section-sub">En surfplatta. Fyra lägen. Från det snabbaste spontana mötet till komplex tolkverifiering.</p>
+    <div class="modes-grid">
+      <div class="mode-card">
+        <span class="mode-badge badge-teal">Quick</span>
+        <h3>Direktöversättning</h3>
+        <div class="mode-tagline">Snabbt · Enkelt · Inget att ställa in</div>
+        <p>För det spontana mötet. Välj språk och börja prata — Tolkster översätter direkt. Ingen session sparas.</p>
+        <ul>
+          <li>Tal till tal och tal till text</li>
+          <li>Inget konto eller inloggning krävs</li>
+          <li>Stateless — inget lagras efter mötet</li>
+          <li>Idealisk för reception och vägledning</li>
+        </ul>
+      </div>
+      <div class="mode-card">
+        <span class="mode-badge badge-teal">Duo</span>
+        <h3>Strukturerat samtal</h3>
+        <div class="mode-tagline">Dokumenterat · Sammanfattat · Arkiverat</div>
+        <p>För det planerade mötet. Tolkster transkriberar och skapar en sammanfattning på önskat språk när samtalet avslutas.</p>
+        <ul>
+          <li>Parallella textkolumner på båda språk</li>
+          <li>Automatisk sammanfattning</li>
+          <li>Spårbarhet för handläggning</li>
+          <li>Idealisk för socialtjänst och handläggning</li>
+        </ul>
+      </div>
+      <div class="mode-card featured">
+        <span class="mode-badge badge-gold">★ Listen In</span>
+        <h3>Tolkverifiering i realtid</h3>
+        <div class="mode-tagline">Unik produkt · Oberoende granskning · Inget annat system gör detta</div>
+        <p>Körs parallellt med en mänsklig tolk. Tolkster lyssnar, transkriberar och flaggar avvikelser i realtid — utan att avbryta samtalet.</p>
+        <ul>
+          <li>Oberoende av tolkförmedlingens egna kvalitetssystem</li>
+          <li>Realtidsflaggning av oklarheter och avvikelser</li>
+          <li>Komplett transkript på båda språk</li>
+          <li>Idealisk för rättsväsende, socialtjänst och tillsyn</li>
+        </ul>
+      </div>
+      <div class="mode-card">
+        <span class="mode-badge badge-gray">Multi</span>
+        <h3>Flerpartsmöten</h3>
+        <div class="mode-tagline">Komplex · Flera språk · Konferens</div>
+        <p>För möten med fler deltagare eller flera språk simultant. Tolkster koordinerar kommunikationen utan att tappa spåret.</p>
+        <ul>
+          <li>Stöd för flera språkpar parallellt</li>
+          <li>Lämplig för komplexa gruppmöten</li>
+          <li>Tillgänglig vid behov</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY TOLKSTER ═════════════════════════════════════ -->
+<section class="why-section" id="why">
+  <div class="section-inner">
+    <div class="section-label">Varför Tolkster</div>
+    <h2 class="section-title">Inte ytterligare ett AI-verktyg</h2>
+    <p class="section-sub">Tolkster är byggt specifikt för offentlig sektor och reglerade verksamheter — inte anpassat efteråt.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Operativ snabbhet</h3>
+        <p>Inget att boka. Inget att vänta på. Tolkster är redo när behovet uppstår — inte när en tolk är tillgänglig.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>Låg utbildningströskel</h3>
+        <p>Personal som aldrig använt Tolkster förstår direkt. Inga manualer. Inga IT-projekt. Levereras färdigkonfigurerat.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📦</div>
+        <h3>Redo att använda</h3>
+        <p>Tolkster levereras som en komplett lösning — surfplatta, SIM-kort, MDM och licens. Ni pluggar in och kör.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔐</div>
+        <h3>GDPR och säkerhet</h3>
+        <p>Designat för känsliga verksamhetsmiljöer. Krypterad kommunikation, kontrollerad datahantering och minimal lagring i Quick-läget.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏗️</div>
+        <h3>Byggd för upphandling</h3>
+        <p>Standardavtal och säkerhetsbilagor klara. Passar direktupphandling under 700 kkr — beslut kan fattas av verksamhetschef.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📈</div>
+        <h3>Skalbar per behov</h3>
+        <p>Börja med en enhet på en enhet. Expandera till hela förvaltningen. Onboarding av ny enhet tar minuter, inte veckor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LANGUAGES ════════════════════════════════════════ -->
+<section style="background:var(--off-white);padding:96px 48px;" id="sprak">
+  <div class="section-inner">
+    <div class="section-label">Språkstöd</div>
+    <h2 class="section-title">De språk som verkligen behövs</h2>
+    <p class="section-sub">Tolkster täcker de vanligaste behovsspråken i svensk offentlig sektor — samt samtliga fem nationella minoritetsspråk.</p>
+
+    <!-- Primary public sector languages -->
+    <div style="margin-top:48px;">
+      <p style="font-size:0.875rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">Vanligaste behovsspråken i offentlig sektor</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇸🇦 Arabiska</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇦🇫 Dari</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇸🇴 Somaliska</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇮🇷 Persiska / Farsi</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🏳️ Kurdiska (Kurmanji)</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🏳️ Kurdiska (Sorani)</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇪🇷 Tigrinja</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇦🇫 Pashto</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇦🇱 Albanska</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇵🇱 Polska</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇷🇴 Rumänska</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇷🇸 Bosniska / Serbiska</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇹🇷 Turkiska</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇨🇳 Mandarin</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇪🇸 Spanska</span>
+        <span style="background:#fff;border:1.5px solid var(--teal);color:var(--teal);font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇬🇧 Engelska</span>
+      </div>
+    </div>
+
+    <!-- National minority languages -->
+    <div style="margin-top:40px;background:#fff;border-radius:var(--radius);padding:28px 32px;border:1.5px solid var(--gray-200);">
+      <p style="font-size:0.875rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Sveriges nationella minoritetsspråk</p>
+      <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:20px;">Tolkster stödjer samtliga fem officiellt erkända minoritetsspråk enligt lagen om nationella minoriteter och minoritetsspråk (2009:724).</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <span style="background:var(--navy);color:#fff;font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🇫🇮 Finska</span>
+        <span style="background:var(--navy);color:#fff;font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🏔️ Meänkieli</span>
+        <span style="background:var(--navy);color:#fff;font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🏔️ Samiska</span>
+        <span style="background:var(--navy);color:#fff;font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">🏳️ Romani</span>
+        <span style="background:var(--navy);color:#fff;font-size:0.95rem;font-weight:600;padding:8px 18px;border-radius:100px;">✡️ Jiddisch</span>
+      </div>
+    </div>
+
+    <!-- 100+ note -->
+    <p style="margin-top:24px;font-size:0.9rem;color:var(--gray-400);">Tolkster stödjer totalt 100+ språk. <a href="#contact" style="color:var(--teal);font-weight:600;text-decoration:none;">Kontakta oss</a> för fullständig språklista.</p>
+  </div>
+</section>
+
+<!-- ═══ DECISION GUIDE ══════════════════════════════════ -->
+<section class="decision-section" id="guide">
+  <div class="section-inner">
+    <div class="section-label">Passar det oss?</div>
+    <h2 class="section-title">När räcker AI — och när behövs mänsklig tolk?</h2>
+    <p class="section-sub">Tolkster ersätter inte auktoriserade tolkar i situationer där dessa krävs. Men i många vardagssituationer är Tolkster snabbare, billigare och räcker fullt ut.</p>
+    <div class="decision-grid">
+      <div class="decision-card ai">
+        <h3>✓ Tolkster räcker</h3>
+        <ul class="decision-list">
+          <li><span class="check">✓</span> Spontana möten i reception och medborgarkontor</li>
+          <li><span class="check">✓</span> Vägledning, informationssamtal och SFI-stöd</li>
+          <li><span class="check">✓</span> Snabb kommunikation med patienter i primärvård</li>
+          <li><span class="check">✓</span> Inledande samtal och behovsinhämtning</li>
+          <li><span class="check">✓</span> Verksamheter med hög frekvens och kortare samtal</li>
+          <li><span class="check">✓</span> Kvalitetsgranskning av befintliga tolksamtal (Listen In)</li>
+        </ul>
+      </div>
+      <div class="decision-card human">
+        <h3>→ Mänsklig tolk rekommenderas</h3>
+        <ul class="decision-list">
+          <li><span class="neutral">→</span> Rättsliga processer och vittnesmål</li>
+          <li><span class="neutral">→</span> Ingripanden med rättslig verkan</li>
+          <li><span class="neutral">→</span> Komplexa medicinska samtal med diagnoser</li>
+          <li><span class="neutral">→</span> Situationer där auktoriserad tolk krävs enligt lag</li>
+          <li><span class="neutral">→</span> Samtal med hög emotionell komplexitet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECURITY ════════════════════════════════════════ -->
+<section class="security-section" id="security">
+  <div class="section-inner">
+    <div class="section-label">Säkerhet och integritet</div>
+    <h2 class="section-title">Byggt för känslig verksamhet</h2>
+    <p class="section-sub">Tolkster hanterar kommunikation i miljöer där sekretess, spårbarhet och dataskydd inte är valfritt.</p>
+    <div class="security-grid">
+      <div class="security-card">
+        <span class="icon">🔒</span>
+        <h4>GDPR-efterlevnad</h4>
+        <p>All datahantering följer GDPR. Personuppgifter hanteras strikt efter verksamhetens egna regler.</p>
+      </div>
+      <div class="security-card">
+        <span class="icon">🔐</span>
+        <h4>Krypterad kommunikation</h4>
+        <p>All trafik krypteras i transit. Tolkster lagrar inte mer data än nödvändigt för funktionen.</p>
+      </div>
+      <div class="security-card">
+        <span class="icon">🗑️</span>
+        <h4>Minimal lagring</h4>
+        <p>Quick-läget är stateless — ingenting sparas efter avslutat möte. Duo och Listen In loggar med kontrollerat scope.</p>
+      </div>
+      <div class="security-card">
+        <span class="icon">📋</span>
+        <h4>Spårbarhet och loggning</h4>
+        <p>Duo och Listen In skapar granskningsbara loggposter för verksamheter med dokumentationskrav.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ══════════════════════════════════════════ -->
+<section class="pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Priser och upplägg</div>
+    <h2 class="section-title">Enkelt. Skalbart. Direktupphandlingsbart.</h2>
+    <p class="section-sub">Tolksters standardavtal är utformat för direktupphandling under 700 kkr — inga långa upphandlingsprocesser för de flesta kommuner.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Pilot</h3>
+        <div class="price">Offert<span> /6 mån</span></div>
+        <div class="price-sub">Begränsat antal enheter · Utvärderingsperiod</div>
+        <ul class="pricing-features">
+          <li>2–5 surfplattor färdigkonfigurerade</li>
+          <li>Alla fyra lägen tillgängliga</li>
+          <li>Onboarding och support ingår</li>
+          <li>Underlag för direktupphandling klart</li>
+        </ul>
+        <a href="#contact" class="btn-outline">Diskutera pilot</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="featured-ribbon">Vanligast</div>
+        <h3>Standard</h3>
+        <div class="price">20 000<span> kr/mån</span></div>
+        <div class="price-sub">Upp till 10 enheter · 5 000 kr/enhet (engång)</div>
+        <ul class="pricing-features">
+          <li>Upp till 10 surfplattor</li>
+          <li>SIM-kort, MDM och licens ingår</li>
+          <li>Alla fyra produktlägen</li>
+          <li>Onboarding på plats eller digitalt</li>
+          <li>Support och uppdateringar</li>
+          <li>240 000 kr ARR per kund</li>
+        </ul>
+        <a href="#contact" class="btn-cta-full">Boka demo</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <div class="price">På offert</div>
+        <div class="price-sub">Regioner, myndigheter, fler förvaltningar</div>
+        <ul class="pricing-features">
+          <li>Mer än 10 enheter</li>
+          <li>Volymprissättning</li>
+          <li>Integrationer med befintliga system</li>
+          <li>Dedikerat kundansvar</li>
+          <li>Anpassade säkerhetsbilagor</li>
+        </ul>
+        <a href="#contact" class="btn-outline">Kontakta oss</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ══════════════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-label">Vanliga frågor</div>
+    <h2 class="section-title">Svar på det viktigaste</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Hur snabbt kan vi komma igång?</h4>
+        <p>Från signerat avtal till driftssatt surfplatta tar det normalt 1–2 veckor. Tolkster levereras färdigkonfigurerat — ingen IT-avdelning behöver involveras.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Vilka språk stödjer Tolkster?</h4>
+        <p>Tolkster stödjer 100+ språk inklusive arabiska, dari, persiska, kurdiska, albanska och de vanligaste europeiska språken. Kontakta oss för fullständig språklista och information om kvalitetsnivå per språk.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Hur hanteras GDPR och sekretess?</h4>
+        <p>Quick-läget är stateless och sparar ingenting efter mötet. Duo och Listen In loggar med kontrollerat scope och följer GDPR fullt ut. Personuppgiftsbiträdesavtal (DPA) ingår i standardavtalet.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Krävs upphandling för att köpa Tolkster?</h4>
+        <p>Nej, för de flesta kommuner. Standardpaketet ligger inom direktupphandlingsgränsen på 700 kkr, vilket innebär att verksamhetschef kan fatta beslut utan upphandlingsavdelningens medverkan.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Ersätter Tolkster auktoriserade tolkar?</h4>
+        <p>Nej. Tolkster är ett komplement. För situationer som kräver auktoriserad tolk — rättsliga processer, formella beslutsmöten — används fortfarande mänsklig tolk. Tolkster fyller gapet för alla övriga situationer.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Vad är Listen In och varför är det unikt?</h4>
+        <p>Listen In körs parallellt med en mänsklig tolk och granskar tolkningens korrekthet i realtid. Det är det enda systemet på marknaden som ger verksamheten ett oberoende granskningslager — utanför tolkförmedlingens egna kvalitetssystem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OM OSS ═══════════════════════════════════════════ -->
+<section style="background:#fff;padding:96px 48px;" id="om-oss">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+      <div>
+        <div class="section-label">Om Tolkster</div>
+        <h2 class="section-title">En ny era av tolkning</h2>
+        <p style="font-size:1rem;color:var(--gray-600);line-height:1.75;margin-bottom:20px;">
+          Tolkster grundades 2023 av Gustaf Ekelund, Andreas Massarsch, Ralf Engkvist och Anders Bjarby — med lång erfarenhet inom teknikutveckling, företagande och ett genuint intresse för samhällsfrågor.
+        </p>
+        <p style="font-size:1rem;color:var(--gray-600);line-height:1.75;margin-bottom:20px;">
+          Under 2023–24 genomförde vi djupintervjuer med branschfolk och analyserade de strukturella problemen inom tolkning: kapacitetsbrist, intressekonflikter och en marknad som levererar för långsamt och för dyrt i alltför många situationer.
+        </p>
+        <p style="font-size:1rem;color:var(--gray-600);line-height:1.75;">
+          Vår mission är att demokratisera tolkning — att skapa en värld där alla kan förstå och bli förstådda, till en signifikant lägre kostnad men med samma krav på säkerhet och precision som dagens lösningar kräver.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:24px 20px;">
+          <div style="font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-1px;margin-bottom:4px;">2023</div>
+          <div style="font-size:0.82rem;color:var(--gray-400);font-weight:600;">Grundat</div>
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:24px 20px;">
+          <div style="font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-1px;margin-bottom:4px;">100+</div>
+          <div style="font-size:0.82rem;color:var(--gray-400);font-weight:600;">Språk</div>
+        </div>
+        <div style="background:var(--teal-pale);border-radius:var(--radius);padding:24px 20px;border:1.5px solid rgba(13,115,119,0.2);">
+          <div style="font-size:2rem;font-weight:800;color:var(--teal);letter-spacing:-1px;margin-bottom:4px;">4</div>
+          <div style="font-size:0.82rem;color:var(--teal);font-weight:600;opacity:0.8;">Produktlägen</div>
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:24px 20px;">
+          <div style="font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-1px;margin-bottom:4px;">Jan 2025</div>
+          <div style="font-size:0.82rem;color:var(--gray-400);font-weight:600;">Lansering</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════════ -->
+<section class="cta-section" id="contact">
+  <div class="section-inner" style="text-align:center;">
+    <h2>Redo att testa i er verksamhet?</h2>
+    <p>Vi sätter upp en pilot anpassad till er situation. Ingen lång upphandlingsprocess — vi börjar enkelt.</p>
+    <div class="cta-actions">
+      <a href="mailto:hej@tolkster.ai" class="btn-primary">Boka demo</a>
+      <a href="mailto:hej@tolkster.ai" class="btn-ghost">Diskutera pilot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div style="display:flex;align-items:center;gap:6px;">
+      <svg width="24" height="24" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="44" stroke="rgba(255,255,255,0.7)" stroke-width="6" fill="none"/>
+        <path d="M18 35 Q10 50 18 65" stroke="#5bb8d4" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M82 35 Q90 50 82 65" stroke="#5bb8d4" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <rect x="30" y="35" width="40" height="6" rx="3" fill="rgba(255,255,255,0.8)"/>
+        <rect x="30" y="46" width="40" height="6" rx="3" fill="#5bb8d4"/>
+        <rect x="30" y="57" width="40" height="6" rx="3" fill="rgba(255,255,255,0.8)"/>
+        <rect x="30" y="68" width="40" height="6" rx="3" fill="#5bb8d4"/>
+      </svg>
+      <span class="footer-logo">Tolkster</span>
+    </div>
+      <div class="footer-legal" style="margin-top:6px">Global Instant Translations AB · Org.nr 559505-7307</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#">Produkter</a></li>
+      <li><a href="#">Säkerhet</a></li>
+      <li><a href="#">Upphandling</a></li>
+      <li><a href="#">Kontakt</a></li>
+    </ul>
+    <div class="footer-legal">© 2026 Tolkster · tolkster.ai</div>
+  </div>
+</footer>
+
+</body>
+</html>
