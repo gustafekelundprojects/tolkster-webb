@@ -30,12 +30,25 @@
   html { font-size: 112%; }
   body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
-  /* NAV */
-  nav { background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-200); padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    /* NAV */
+  nav { background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-200); padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 200; }
   .nav-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; font-size: 1.1rem; font-weight: 800; color: var(--navy); }
-  .nav-back { font-size: 0.875rem; font-weight: 600; color: var(--gray-600); text-decoration: none; display: flex; align-items: center; gap: 4px; }
-  .nav-back:hover { color: var(--navy); }
-  .nav-cta { background: var(--teal); color: white; padding: 8px 20px; border-radius: 6px; font-size: 0.875rem; font-weight: 700; text-decoration: none; }
+  .nav-links { display: flex; align-items: center; gap: 22px; list-style: none; }
+  .nav-links a { font-size: 0.875rem; color: var(--gray-600); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--navy); color: white !important; padding: 8px 20px; border-radius: 6px; font-size: 0.875rem; font-weight: 600; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+  .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; }
+  .dropdown-menu { display: none; position: absolute; top: 100%; left: -16px; padding-top: 8px; min-width: 240px; z-index: 300; }
+  .dropdown-menu-inner { background: var(--white); border: 1px solid var(--gray-200); border-radius: 12px; box-shadow: 0 12px 40px rgba(27,58,92,0.14); padding: 12px 0; }
+  .nav-dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-group { padding: 6px 0; }
+  .dropdown-group:not(:last-child) { border-bottom: 1px solid var(--gray-100); }
+  .dropdown-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9aa4b2; padding: 4px 20px 6px; display: block; }
+  .dropdown-menu a { display: block; padding: 7px 20px; font-size: 0.875rem; color: var(--gray-600); font-weight: 500; transition: background 0.15s, color 0.15s; }
+  .dropdown-menu a:hover { background: var(--teal-pale); color: var(--teal); }
+  @media (max-width: 900px) { .nav-links { display: none; } }
 
   /* HERO */
   .hero { background: linear-gradient(150deg, #122840 0%, var(--navy) 60%, #1d4d72 100%); padding: 72px 48px 64px; position: relative; overflow: hidden; }
@@ -131,8 +144,57 @@
     </svg>
     Tolkster
   </a>
-  <a href="index.html" class="nav-back">← Alla verksamheter</a>
-  <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – LSS" class="nav-cta">Boka demo</a>
+  <ul class="nav-links">
+    <li><a href="index.html#how">Så fungerar det</a></li>
+    <li class="nav-dropdown">
+      <a href="index.html#segments">Verksamheter</a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <div class="dropdown-group">
+            <span class="dropdown-label">Kommuner</span>
+            <a href="socialtjanst.html">Socialtjänst</a>
+            <a href="skola.html">Skola</a>
+            <a href="sfi.html">SFI</a>
+            <a href="forskola.html">Förskola</a>
+            <a href="medborgarkontor.html">Medborgarkontor</a>
+            <a href="flyktingmottagning.html">Flyktingmottagning</a>
+            <a href="lss.html">LSS</a>
+            <a href="hemtjanst.html">Hemtjänst</a>
+            <a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a>
+            <a href="familjeratt.html">Familjerätt</a>
+          </div>
+          <div class="dropdown-group">
+            <span class="dropdown-label">Regioner & Vård</span>
+            <a href="vardcentral.html">Vårdcentral</a>
+            <a href="akutmottagning.html">Akutmottagning</a>
+            <a href="psykiatri.html">Psykiatri</a>
+            <a href="folktandvarden.html">Folktandvård</a>
+            <a href="bvc.html">BVC</a>
+            <a href="mvc.html">MVC</a>
+            <a href="beroendevard.html">Beroendevård</a>
+          </div>
+          <div class="dropdown-group">
+            <span class="dropdown-label">Statliga myndigheter</span>
+            <a href="migrationsverket.html">Migrationsverket</a>
+            <a href="polis.html">Polis</a>
+            <a href="domstol.html">Domstol</a>
+            <a href="kriminalvard.html">Kriminalvård</a>
+            <a href="arbetsformedlingen.html">Arbetsförmedlingen</a>
+            <a href="tullverket.html">Tullverket</a>
+            <a href="kronofogden.html">Kronofogden</a>
+            <a href="aklagarmyndigheten.html">Åklagarmyndigheten</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a href="index.html#modes">Produktlägen</a></li>
+    <li><a href="index.html#sprak">Språk</a></li>
+    <li><a href="index.html#security">Säkerhet</a></li>
+    <li><a href="google-translate.html">Juridik</a></li>
+    <li><a href="index.html#pricing">Priser</a></li>
+    <li><a href="index.html#om-oss">Om oss</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Boka demo</a></li>
+  </ul>
 </nav>
 
 <div class="hero">
