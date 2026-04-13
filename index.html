@@ -45,7 +45,8 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
     .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; }
-    .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: -16px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); box-shadow: 0 12px 40px rgba(27,58,92,0.14); padding: 12px 0; min-width: 240px; z-index: 300; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: -16px; padding-top: 8px; min-width: 240px; z-index: 300; }
+    .dropdown-menu-inner { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); box-shadow: 0 12px 40px rgba(27,58,92,0.14); padding: 12px 0; }
     .nav-dropdown:hover .dropdown-menu { display: block; }
     .dropdown-group { padding: 6px 0; }
     .dropdown-group:not(:last-child) { border-bottom: 1px solid var(--gray-100); }
@@ -274,39 +275,41 @@
     <li class="nav-dropdown">
       <a href="#segments">Verksamheter</a>
       <div class="dropdown-menu">
-        <div class="dropdown-group">
-          <span class="dropdown-label">Kommuner</span>
-          <a href="socialtjanst.html">Socialtjänst</a>
-          <a href="skola.html">Skola</a>
-          <a href="sfi.html">SFI</a>
-          <a href="forskola.html">Förskola</a>
-          <a href="medborgarkontor.html">Medborgarkontor</a>
-          <a href="flyktingmottagning.html">Flyktingmottagning</a>
-          <a href="lss.html">LSS</a>
-          <a href="hemtjanst.html">Hemtjänst</a>
-          <a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a>
-          <a href="familjeratt.html">Familjerätt</a>
-        </div>
-        <div class="dropdown-group">
-          <span class="dropdown-label">Regioner & Vård</span>
-          <a href="vardcentral.html">Vårdcentral</a>
-          <a href="akutmottagning.html">Akutmottagning</a>
-          <a href="psykiatri.html">Psykiatri</a>
-          <a href="folktandvarden.html">Folktandvård</a>
-          <a href="bvc.html">BVC</a>
-          <a href="mvc.html">MVC</a>
-          <a href="beroendevard.html">Beroendevård</a>
-        </div>
-        <div class="dropdown-group">
-          <span class="dropdown-label">Statliga myndigheter</span>
-          <a href="migrationsverket.html">Migrationsverket</a>
-          <a href="polis.html">Polis</a>
-          <a href="domstol.html">Domstol</a>
-          <a href="kriminalvard.html">Kriminalvård</a>
-          <a href="arbetsformedlingen.html">Arbetsförmedlingen</a>
-          <a href="tullverket.html">Tullverket</a>
-          <a href="kronofogden.html">Kronofogden</a>
-          <a href="aklagarmyndigheten.html">Åklagarmyndigheten</a>
+        <div class="dropdown-menu-inner">
+          <div class="dropdown-group">
+            <span class="dropdown-label">Kommuner</span>
+            <a href="socialtjanst.html">Socialtjänst</a>
+            <a href="skola.html">Skola</a>
+            <a href="sfi.html">SFI</a>
+            <a href="forskola.html">Förskola</a>
+            <a href="medborgarkontor.html">Medborgarkontor</a>
+            <a href="flyktingmottagning.html">Flyktingmottagning</a>
+            <a href="lss.html">LSS</a>
+            <a href="hemtjanst.html">Hemtjänst</a>
+            <a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a>
+            <a href="familjeratt.html">Familjerätt</a>
+          </div>
+          <div class="dropdown-group">
+            <span class="dropdown-label">Regioner & Vård</span>
+            <a href="vardcentral.html">Vårdcentral</a>
+            <a href="akutmottagning.html">Akutmottagning</a>
+            <a href="psykiatri.html">Psykiatri</a>
+            <a href="folktandvarden.html">Folktandvård</a>
+            <a href="bvc.html">BVC</a>
+            <a href="mvc.html">MVC</a>
+            <a href="beroendevard.html">Beroendevård</a>
+          </div>
+          <div class="dropdown-group">
+            <span class="dropdown-label">Statliga myndigheter</span>
+            <a href="migrationsverket.html">Migrationsverket</a>
+            <a href="polis.html">Polis</a>
+            <a href="domstol.html">Domstol</a>
+            <a href="kriminalvard.html">Kriminalvård</a>
+            <a href="arbetsformedlingen.html">Arbetsförmedlingen</a>
+            <a href="tullverket.html">Tullverket</a>
+            <a href="kronofogden.html">Kronofogden</a>
+            <a href="aklagarmyndigheten.html">Åklagarmyndigheten</a>
+          </div>
         </div>
       </div>
     </li>
