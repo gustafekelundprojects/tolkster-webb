@@ -75,8 +75,8 @@
       background: #fff; border: 1px solid var(--gray-200); border-radius: 10px;
       padding: 28px 24px; border-top: 4px solid var(--blue-dark);
     }
-    .problem-icon { font-size: 24px; margin-bottom: 14px; display: block; }
-    .problem-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .problem-num { font-family: 'Fraunces', serif; font-size: 13px; font-weight: 700; color: #2B5BA8; letter-spacing: .06em; margin-bottom: 10px; text-transform: uppercase; }
+    .problem-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
     .problem-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin: 0; }
 
     /* PRODUCT MODES */
@@ -137,6 +137,60 @@
     .lp-cta-detail { font-size: 13px; color: rgba(255,255,255,.78); display: flex; align-items: center; gap: 6px; }
     .lp-cta-detail::before { content: '✓'; color: #6EC6FF; font-weight: 700; }
 
+
+    /* Mobile hamburger nav */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .2s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0; bottom: 0;
+      background: #1B3A6B;
+      z-index: 8888;
+      overflow-y: auto;
+      padding: 16px 0 40px;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 13px 28px;
+      color: rgba(255,255,255,.88);
+      text-decoration: none;
+      font-size: 16px;
+      font-family: 'DM Sans', sans-serif;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: background .15s;
+    }
+    .mobile-menu a:hover { background: rgba(255,255,255,.08); color: #fff; }
+    .mobile-menu .mobile-section {
+      padding: 18px 28px 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .mobile-menu .mobile-cta {
+      margin: 20px 28px 0;
+      display: block;
+      background: #fff;
+      color: #1B3A6B;
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+      padding: 14px;
+      border-radius: 6px;
+      border-bottom: none;
+    }
+    @media(max-width:800px) {
+      .nav-center { display: none !important; }
+      .hamburger { display: flex; }
+      body.menu-open { overflow: hidden; }
+    }
     @media(max-width:720px){
       .lp-hero { padding: 72px 24px 64px; }
       .lp-section { padding: 56px 24px; }
@@ -305,17 +359,17 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
   <p class="lp-lead">Sverige har 3,4 miljoner invånare med utländsk bakgrund. Varje dag genomförs tusentals möten i skola, vård och socialtjänst — utan fungerande kommunikation. Det är inte ett marginellt problem. Det är systemfel.</p>
   <div class="problem-grid">
     <div class="problem-card">
-      <span class="problem-icon">⏳</span>
+      <div class="problem-num">01</div>
       <h3>Tolkar uteblir eller saknas</h3>
       <p>Bokade tolkar uteblir. Svåra språk som somaliska och tigrinska kan ta dagar att tillsätta. Möten genomförs ändå — med kroppsspråk och gissningar som grund för beslut.</p>
     </div>
     <div class="problem-card">
-      <span class="problem-icon">⚖️</span>
+      <div class="problem-num">02</div>
       <h3>Rättssäkerheten är satt ur spel</h3>
       <p>Utredningar, förhör och asylintervjuer dokumenteras baserade på vad handläggaren trodde att den enskilde sa. Felöversättningar syns inte förrän i domstolen — eller aldrig.</p>
     </div>
     <div class="problem-card">
-      <span class="problem-icon">📱</span>
+      <div class="problem-num">03</div>
       <h3>Google Translate är inte ett alternativ</h3>
       <p>Konsumentverktyg skickar känsliga personuppgifter till servrar i USA. IMY har underkänt svenska kommuners Google-integrationer på exakt denna grund. Ändå används det dagligen.</p>
     </div>
