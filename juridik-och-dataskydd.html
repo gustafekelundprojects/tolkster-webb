@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juridik & Dataskydd — Tolkster</title>
+  <meta name="description" content="Tolkster — AI-driven realtidstolkning för juridik & dataskydd i offentlig sektor. GDPR-säkert, alltid redo, prissatt under direktupphandlingsgränsen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0M2ETWX4H"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-V0M2ETWX4H',{page_title:document.title,page_location:window.location.href});
+  </script>
+  <script>window._nQc="89238495";</script>
+  <script async src="https://serve.albacross.com/track.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      var p=window.location.pathname,sl='juridik';
+      var hi=['socialtjanst','skola','sfi','forskola','medborgarkontor','flyktingmottagning','lss','hemtjanst','ekonomiskt-bistand','familjeratt','vardcentral','akutmottagning','psykiatri','folktandvarden','bvc','mvc','beroendevard','migrationsverket','polis','domstol','kriminalvard','arbetsformedlingen','tullverket','kronofogden','aklagarmyndigheten'];
+      if(hi.indexOf(sl)!==-1)gtag('event','undersida_besok',{segment:sl,page_path:p});
+      document.querySelectorAll('a[href^="mailto"]').forEach(function(el){
+        el.addEventListener('click',function(){
+          var s=(el.href.match(/subject=([^&]*)/)||[])[1]||'';
+          gtag('event','mailto_click',{segment:sl,mailto_subject:decodeURIComponent(s),page_path:p});
+        });
+      });
+      document.querySelectorAll('a[href*="juridik"]').forEach(function(el){
+        el.addEventListener('click',function(){gtag('event','legal_page_click',{source_segment:sl,source_path:p});});
+      });
+      var m={25:false,50:false,75:false,100:false};
+      window.addEventListener('scroll',function(){
+        var pct=(window.scrollY+window.innerHeight)/document.body.scrollHeight*100;
+        [25,50,75,100].forEach(function(v){if(!m[v]&&pct>=v){m[v]=true;gtag('event','scroll_depth',{depth_percent:v,segment:sl,page_path:p});}});
+      },{passive:true});
+    });
+  </script>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="10" cy="10" r="9" stroke="white" stroke-width="1.5"/>
+  <rect x="6" y="7" width="8" height="1.4" rx=".7" fill="white"/>
+  <rect x="6" y="9.3" width="8" height="1.4" rx=".7" fill="white"/>
+  <rect x="6" y="11.6" width="8" height="1.4" rx=".7" fill="white"/>
+</svg></div>
+    <span class="nav-logo-text">Tolkster</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-back">← Alla verksamheter</a>
+    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="nav-cta">Kontakta oss</a>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Juridik &amp; Dataskydd</div>
+    <h1>Är Google Translate<br><em>lagligt</em> i er verksamhet?</h1>
+    <p class="hero-hook">De flesta kommuner, regioner och myndigheter använder konsumentverktyg för översättning i känsliga samtal varje dag — utan att inse den juridiska exponeringen det innebär.</p>
+  </div>
+</div>
+<div class="main">
+  <div class="intro-block">
+    <p>Google Translate skickar text till Googles servrar i USA för bearbetning. Det innebär att känsliga personuppgifter lämnar myndighetens kontroll och överförs till en tredjepartsaktör utan adekvat skyddsgaranti. IMY underkände 2022–2023 svenska kommuners Google-integrationer på exakt denna grund — samma logik gäller varje gång en handläggare klistrar in ett ärende i Google Translate.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Juridisk analys</div>
+    <h2>Fyra anledningar varför det inte håller</h2>
+    <div class="modes">
+      <div class="mode-card"><h3>1 — GDPR</h3><p>Google Translate skickar text till servrar i USA utan adekvat skyddsgaranti. IMY underkände 2022–2023 svenska kommuners Google-integrationer på exakt denna grund.</p></div>
+      <div class="mode-card"><h3>2 — OSL</h3><p>Uppgifter inom socialtjänst (26 kap.), hälso- och sjukvård (25 kap.) och rättsväsende är sekretessbelagda. Att föra in sådana uppgifter i ett konsumentverktyg utan personuppgiftsbiträdesavtal är sannolikt ett brott mot sekretesskyldigheten.</p></div>
+      <div class="mode-card"><h3>3 — Patientdatalagen (PDL)</h3><p>Google och Apple är inte personuppgiftsbiträden anpassade för svensk vård. Att skriva in patientinformation i Google Translate är hantering som vid tillsyn sannolikt bedöms som ett dataskyddsbrott.</p></div>
+      <div class="mode-card"><h3>4 — Ingen dokumentation</h3><p>Varken Google Translate eller Apple Translate loggar vad som sades eller om budskapet förstods. Vid JO-anmälan, IVO-tillsyn eller överklagande finns ingenting att visa.</p></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Risknivå per sektor</div>
+    <h2>Bedömning per verksamhet</h2>
+    <div class="risk-grid">
+      <div class="risk-row"><div><h3>Socialtjänst / IFO</h3><p>OSL 26 kap. + GDPR — känsliga uppgifter om barn och familjer</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
+      <div class="risk-row"><div><h3>Hälso- och sjukvård</h3><p>PDL + OSL 25 kap. — patientdata är strikt skyddad</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
+      <div class="risk-row"><div><h3>Polis och rättsväsende</h3><p>OSL flera kapitel — förundersökningssekretess</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
+      <div class="risk-row"><div><h3>Migrationsverket</h3><p>OSL 37 kap. + GDPR — asylskäl och utlänningsuppgifter</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
+      <div class="risk-row"><div><h3>Skola (elever under 18)</h3><p>GDPR + Skollag — IMY specifikt om barn och Google-tjänster</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
+      <div class="risk-row"><div><h3>Medborgarkontor / SFI / Förskola</h3><p>GDPR + Förvaltningslag — lägre känslighetsnivå men GDPR gäller</p></div><span class="badge badge-amber">Juridisk gråzon</span></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Jämförelse</div>
+    <h2>Google Translate vs Tolkster</h2>
+    <div class="compare-grid">
+      <div class="compare-card compare-bad">
+        <h3>✗ Google Translate</h3>
+        <div class="compare-item"><span>✗</span> Data skickas till Google i USA</div>
+        <div class="compare-item"><span>✗</span> Inget personuppgiftsbiträdesavtal</div>
+        <div class="compare-item"><span>✗</span> Ingen logg eller dokumentation</div>
+        <div class="compare-item"><span>✗</span> Ingen domänanpassning</div>
+        <div class="compare-item"><span>✗</span> Felöversättningar syns inte</div>
+        <div class="compare-item"><span>✗</span> Håller inte vid tillsyn</div>
+      </div>
+      <div class="compare-card compare-good">
+        <h3>✓ Tolkster</h3>
+        <div class="compare-item"><span>✓</span> GDPR-compliant infrastruktur inom EU</div>
+        <div class="compare-item"><span>✓</span> Sekretessanpassad hantering</div>
+        <div class="compare-item"><span>✓</span> Automatisk logg och arkivering</div>
+        <div class="compare-item"><span>✓</span> Domänlexikon per verksamhet</div>
+        <div class="compare-item"><span>✓</span> Listen In flaggar felöversättningar</div>
+        <div class="compare-item"><span>✓</span> Dokumentation som håller vid tillsyn</div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-section">
+    <h2>Byt till ett juridiskt hållbart alternativ</h2>
+    <p>Levereras som surfplatta med SIM-kort från dag ett. Ingen IT-installation. Under direktupphandlingsgränsen.</p>
+    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Juridik och dataskydd" class="cta-btn">Kontakta oss</a>
+  </div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Tolkster</span>
+    <p>Global Instant Translations AB · <a href="mailto:hej@tolkster.se">hej@tolkster.se</a> · <a href="/juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
+    <p>© 2026 Tolkster</p>
+  </div>
+</footer>
+</body>
+</html>

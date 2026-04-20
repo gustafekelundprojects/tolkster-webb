@@ -1,721 +1,211 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tolkster — AI-tolkning för verksamheter</title>
-  <meta name="description" content="Tolkster är ett AI-drivet tolkverktyg byggt för offentlig sektor. Kom igång på sekunder — ingen bokning, ingen väntetid.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-tolkning för offentlig sektor — Tolkster</title>
+  <meta name="description" content="Tolkster — AI-driven realtidstolkning för ai-tolkning för offentlig sektor i offentlig sektor. GDPR-säkert, alltid redo, prissatt under direktupphandlingsgränsen.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    html { font-size: 112%; }
-    :root {
-      --navy: #1B3A5C;
-      --navy-dark: #122840;
-      --navy-light: #274d78;
-      --teal: #0D7377;
-      --teal-light: #14a3a8;
-      --teal-pale: #e8f6f6;
-      --white: #ffffff;
-      --off-white: #f8f9fb;
-      --gray-100: #f1f3f6;
-      --gray-200: #e2e6ed;
-      --gray-400: #9aa4b2;
-      --gray-600: #5a6475;
-      --gray-800: #2e3a4a;
-      --text: #1a2535;
-      --radius: 12px;
-      --radius-sm: 8px;
-      --shadow: 0 4px 24px rgba(27,58,92,0.10);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-
-      /* ─── NAV ─── */
-  nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e6ed; padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-logo { font-size: 1.1rem; font-weight: 800; color: #1B3A5C; display: flex; align-items: center; gap: 6px; text-decoration: none; }
-  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 0.9rem; color: #5a6475; text-decoration: none; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: #1B3A5C; }
-  .nav-cta { background: #1B3A5C; color: #fff !important; padding: 8px 20px; border-radius: 6px; font-size: 0.875rem; font-weight: 600; transition: background 0.2s; }
-  .nav-cta:hover { background: #274d78 !important; color: #fff !important; }
-  .nav-dropdown { position: relative; }
-  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
-  .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; }
-  .dropdown-menu { display: none; position: absolute; top: 100%; left: -16px; padding-top: 8px; min-width: 240px; z-index: 300; }
-  .dropdown-menu-inner { background: #fff; border: 1px solid #e2e6ed; border-radius: 12px; box-shadow: 0 12px 40px rgba(27,58,92,0.14); padding: 12px 0; }
-  .nav-dropdown:hover .dropdown-menu { display: block; }
-  .dropdown-group { padding: 6px 0; }
-  .dropdown-group:not(:last-child) { border-bottom: 1px solid #f1f3f6; }
-  .dropdown-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9aa4b2; padding: 4px 20px 6px; display: block; }
-  .dropdown-menu a { display: block; padding: 7px 20px; font-size: 0.875rem; color: #5a6475; text-decoration: none; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .dropdown-menu a:hover { background: #e8f6f6; color: #0D7377; }
-  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } }
-
-    /* ─── HERO ─── */
-    .hero { background: linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 55%, #1d4d72 100%); color: var(--white); padding: 96px 48px 80px; min-height: 560px; display: flex; align-items: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -120px; right: -80px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(13,115,119,0.25) 0%, transparent 70%); pointer-events: none; }
-    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(13,115,119,0.25); border: 1px solid rgba(13,115,119,0.5); color: var(--teal-light); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase; }
-    .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.12; letter-spacing: -1px; margin-bottom: 20px; }
-    .hero h1 span { color: var(--teal-light); }
-    .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 36px; max-width: 480px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-primary { background: var(--teal); color: var(--white); padding: 14px 28px; border-radius: var(--radius-sm); font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: background 0.2s; display: inline-block; }
-    .btn-primary:hover { background: var(--teal-light); }
-    .btn-ghost { background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.25); padding: 14px 28px; border-radius: var(--radius-sm); font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: background 0.2s; display: inline-block; }
-    .btn-ghost:hover { background: rgba(255,255,255,0.18); }
-    .hero-stats { display: flex; gap: 32px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
-    .stat-number { font-size: 1.5rem; font-weight: 800; color: var(--white); display: block; }
-    .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; }
-
-    /* Tablet mockup */
-    .hero-visual { display: flex; justify-content: center; }
-    .tablet-frame { background: #1a1a1a; border-radius: 20px; padding: 12px 8px; width: 340px; box-shadow: 0 28px 72px rgba(0,0,0,0.45); }
-    .tablet-cam { width: 6px; height: 6px; background: #333; border-radius: 50%; margin: 0 auto 8px; }
-    .tablet-screen { background: #f4f6f9; border-radius: 12px; overflow: hidden; }
-    .tablet-bar { background: #fff; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e8ebf0; }
-    .tablet-content { padding: 20px 16px 16px; text-align: center; }
-    .tablet-welcome { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-    .tablet-sub { font-size: 0.72rem; color: #6b7a8d; margin-bottom: 20px; line-height: 1.4; }
-    .tablet-modes { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px; }
-    .tablet-mode { background: #fff; border-radius: 10px; padding: 14px 8px; box-shadow: 0 2px 8px rgba(27,58,92,0.1); font-size: 0.75rem; font-weight: 700; }
-    .tablet-footer { background: #fff; padding: 10px 16px; border-top: 1px solid #e8ebf0; display: flex; justify-content: space-between; }
-
-    /* ─── TRUST BAR ─── */
-    .trust-bar { background: var(--navy-dark); padding: 14px 48px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
-    .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.55); font-size: 0.85rem; font-weight: 600; }
-    .trust-icon { color: var(--teal-light); }
-
-    /* ─── SECTIONS ─── */
-    section { padding: 88px 48px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
-    .section-title { font-size: 2.2rem; font-weight: 800; color: var(--navy); line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 16px; }
-    .section-sub { font-size: 1rem; color: var(--gray-600); line-height: 1.7; max-width: 600px; }
-
-    /* ─── HOW ─── */
-    .how-section { background: var(--off-white); }
-    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 52px; }
-    .step-card { background: var(--white); border-radius: var(--radius); padding: 26px 22px; box-shadow: var(--shadow); }
-    .step-number { width: 34px; height: 34px; background: var(--navy); color: var(--white); border-radius: 50%; font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-    .step-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .step-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.6; }
-
-    /* ─── SEGMENTS ─── */
-    .segments-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
-    .segment-card { border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 32px 28px; transition: border-color 0.2s, box-shadow 0.2s; }
-    .segment-card:hover { border-color: var(--teal); box-shadow: 0 4px 24px rgba(13,115,119,0.1); }
-    .segment-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
-    .segment-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-    .segment-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; margin-bottom: 20px; }
-    .segment-links { display: flex; flex-wrap: wrap; gap: 8px; }
-    .segment-link { font-size: 0.825rem; font-weight: 600; color: var(--teal); text-decoration: none; background: var(--teal-pale); padding: 5px 12px; border-radius: 20px; transition: background 0.15s, color 0.15s; }
-    .segment-link:hover { background: var(--teal); color: var(--white); }
-
-    /* ─── MODES ─── */
-    .modes-section { background: var(--navy); }
-    .modes-section .section-title { color: var(--white); }
-    .modes-section .section-sub { color: rgba(255,255,255,0.6); }
-    .modes-section .section-label { color: var(--teal-light); }
-    .modes-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin-top: 52px; }
-    .mode-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 30px 26px; transition: background 0.2s; }
-    .mode-card:hover { background: rgba(255,255,255,0.08); }
-    .mode-card.featured { border-color: var(--teal); background: rgba(13,115,119,0.12); }
-    .mode-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 3px 12px; border-radius: 20px; margin-bottom: 14px; }
-    .badge-teal { background: var(--teal); color: white; }
-    .badge-gold { background: #b8860b; color: white; }
-    .badge-gray { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); }
-    .mode-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--white); margin-bottom: 8px; letter-spacing: -0.3px; }
-    .mode-tagline { font-size: 0.8rem; font-weight: 600; color: var(--teal-light); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .mode-card p { font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
-    .mode-card ul { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
-    .mode-card ul li { font-size: 0.85rem; color: rgba(255,255,255,0.6); padding-left: 16px; position: relative; line-height: 1.5; }
-    .mode-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--teal-light); font-size: 0.75rem; }
-
-    /* ─── WHY ─── */
-    .why-section { background: var(--off-white); }
-    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 52px; }
-    .why-card { background: var(--white); border-radius: var(--radius); padding: 26px 22px; box-shadow: var(--shadow); }
-    .why-icon { width: 42px; height: 42px; background: var(--teal-pale); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 14px; }
-    .why-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .why-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; }
-
-    /* ─── DECISION ─── */
-    .decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; }
-    .decision-card { border-radius: var(--radius); padding: 30px 26px; }
-    .decision-card.ai { background: var(--teal-pale); border: 1.5px solid rgba(13,115,119,0.2); }
-    .decision-card.human { background: var(--gray-100); border: 1.5px solid var(--gray-200); }
-    .decision-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 18px; }
-    .decision-card.ai h3 { color: var(--teal); }
-    .decision-card.human h3 { color: var(--gray-800); }
-    .decision-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .decision-list li { font-size: 0.875rem; color: var(--gray-600); display: flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
-    .check { color: var(--teal); font-weight: 700; flex-shrink: 0; }
-    .neutral { color: var(--gray-400); font-weight: 700; flex-shrink: 0; }
-
-    /* ─── SECURITY ─── */
-    .security-section { background: var(--navy-dark); }
-    .security-section .section-title { color: var(--white); }
-    .security-section .section-sub { color: rgba(255,255,255,0.6); }
-    .security-section .section-label { color: var(--teal-light); }
-    .security-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 52px; }
-    .security-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 22px 18px; text-align: center; }
-    .security-card .icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
-    .security-card h4 { font-size: 0.875rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .security-card p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.55; }
-
-    /* ─── GT TEASER ─── */
-    .gt-teaser { background: #fdecea; border: 1.5px solid rgba(192,57,43,0.2); border-radius: var(--radius); padding: 36px 44px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
-    .gt-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(192,57,43,0.12); border: 1px solid rgba(192,57,43,0.3); color: #c0392b; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; }
-    .gt-teaser h3 { font-size: 1.2rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-    .gt-teaser p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; }
-    .btn-red { background: #c0392b; color: #fff; padding: 13px 26px; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 700; text-decoration: none; white-space: nowrap; display: inline-block; }
-
-    /* ─── PRICING ─── */
-    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 52px; align-items: start; }
-    .pricing-card { border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 30px 26px; position: relative; }
-    .pricing-card.featured { border-color: var(--teal); box-shadow: 0 8px 40px rgba(13,115,119,0.15); }
-    .featured-ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--teal); color: white; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; }
-    .pricing-card h3 { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-    .pricing-card .price { font-size: 1.9rem; font-weight: 800; color: var(--navy); letter-spacing: -1px; margin: 14px 0 4px; }
-    .pricing-card .price span { font-size: 0.95rem; font-weight: 500; color: var(--gray-400); }
-    .price-sub { font-size: 0.8rem; color: var(--gray-400); margin-bottom: 22px; }
-    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
-    .pricing-features li { font-size: 0.875rem; color: var(--gray-600); display: flex; gap: 8px; }
-    .pricing-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
-    .btn-outline { width: 100%; text-align: center; padding: 11px; border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 700; text-decoration: none; display: block; border: 1.5px solid var(--navy); color: var(--navy); background: transparent; transition: background 0.2s, color 0.2s; }
-    .btn-outline:hover { background: var(--navy); color: var(--white); }
-    .btn-cta-full { width: 100%; text-align: center; padding: 11px; border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 700; text-decoration: none; display: block; background: var(--teal); color: white; }
-    .btn-cta-full:hover { background: var(--teal-light); }
-
-    /* ─── LANGUAGES ─── */
-    .lang-pills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
-    .lang-pill { background: var(--white); border: 1.5px solid var(--teal); color: var(--teal); font-size: 0.9rem; font-weight: 600; padding: 7px 16px; border-radius: 100px; }
-    .minority-block { background: var(--white); border-radius: var(--radius); padding: 26px 30px; border: 1.5px solid var(--gray-200); margin-top: 36px; }
-    .minority-block p { font-size: 0.875rem; color: var(--gray-600); margin-bottom: 16px; line-height: 1.65; }
-    .minority-pills { display: flex; flex-wrap: wrap; gap: 9px; }
-    .minority-pill { background: var(--navy); color: #fff; font-size: 0.9rem; font-weight: 600; padding: 7px 16px; border-radius: 100px; }
-
-    /* ─── FAQ ─── */
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 52px; }
-    .faq-item { background: var(--white); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
-    .faq-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-    .faq-item p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; }
-
-    /* ─── CTA BLOCK ─── */
-    .cta-section { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); text-align: center; padding: 88px 48px; }
-    .cta-section h2 { font-size: 2.2rem; font-weight: 800; color: var(--white); letter-spacing: -0.5px; margin-bottom: 14px; }
-    .cta-section p { font-size: 1rem; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
-    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* ─── OM OSS ─── */
-    .om-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .om-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .om-stat { background: var(--off-white); border-radius: var(--radius); padding: 22px 18px; }
-    .om-stat.teal { background: var(--teal-pale); border: 1.5px solid rgba(13,115,119,0.2); }
-    .om-stat-number { font-size: 1.8rem; font-weight: 800; color: var(--navy); letter-spacing: -1px; margin-bottom: 4px; }
-    .om-stat.teal .om-stat-number { color: var(--teal); }
-    .om-stat-label { font-size: 0.8rem; color: var(--gray-400); font-weight: 600; }
-    .om-p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 18px; }
-
-    /* ─── FOOTER ─── */
-    footer { background: var(--navy-dark); padding: 44px 48px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-logo { font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.8); }
-    .footer-links { display: flex; gap: 22px; list-style: none; }
-    .footer-links a { font-size: 0.875rem; color: rgba(255,255,255,0.4); text-decoration: none; }
-    .footer-links a:hover { color: rgba(255,255,255,0.8); }
-    .footer-legal { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 960px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .hero { padding: 64px 24px 56px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
-      .hero h1 { font-size: 2.2rem; }
-      .hero-visual { display: none; }
-      section { padding: 60px 24px; }
-      .steps-grid, .why-grid { grid-template-columns: 1fr 1fr; }
-      .segments-grid, .modes-grid, .decision-grid, .om-grid { grid-template-columns: 1fr; }
-      .security-grid { grid-template-columns: 1fr 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .faq-grid { grid-template-columns: 1fr; }
-      .gt-teaser { grid-template-columns: 1fr; }
-      footer { padding: 32px 24px; }
-    }
-    @media (max-width: 600px) {
-      .steps-grid, .why-grid, .security-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 18px; }
-      .om-stats { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0M2ETWX4H"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-V0M2ETWX4H',{page_title:document.title,page_location:window.location.href});
+  </script>
+  <script>window._nQc="89238495";</script>
+  <script async src="https://serve.albacross.com/track.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      var p=window.location.pathname,sl='index';
+      var hi=['socialtjanst','skola','sfi','forskola','medborgarkontor','flyktingmottagning','lss','hemtjanst','ekonomiskt-bistand','familjeratt','vardcentral','akutmottagning','psykiatri','folktandvarden','bvc','mvc','beroendevard','migrationsverket','polis','domstol','kriminalvard','arbetsformedlingen','tullverket','kronofogden','aklagarmyndigheten'];
+      if(hi.indexOf(sl)!==-1)gtag('event','undersida_besok',{segment:sl,page_path:p});
+      document.querySelectorAll('a[href^="mailto"]').forEach(function(el){
+        el.addEventListener('click',function(){
+          var s=(el.href.match(/subject=([^&]*)/)||[])[1]||'';
+          gtag('event','mailto_click',{segment:sl,mailto_subject:decodeURIComponent(s),page_path:p});
+        });
+      });
+      document.querySelectorAll('a[href*="juridik"]').forEach(function(el){
+        el.addEventListener('click',function(){gtag('event','legal_page_click',{source_segment:sl,source_path:p});});
+      });
+      var m={25:false,50:false,75:false,100:false};
+      window.addEventListener('scroll',function(){
+        var pct=(window.scrollY+window.innerHeight)/document.body.scrollHeight*100;
+        [25,50,75,100].forEach(function(v){if(!m[v]&&pct>=v){m[v]=true;gtag('event','scroll_depth',{depth_percent:v,segment:sl,page_path:p});}});
+      },{passive:true});
+    });
+  </script>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">
-    <svg width="26" height="26" viewBox="0 0 100 100" fill="none">
-      <circle cx="50" cy="50" r="44" stroke="#1B3A5C" stroke-width="6" fill="none"/>
-      <path d="M18 35 Q10 50 18 65" stroke="#2e7ec8" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <path d="M82 35 Q90 50 82 65" stroke="#2e7ec8" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <rect x="30" y="35" width="40" height="6" rx="3" fill="#1B3A5C"/>
-      <rect x="30" y="46" width="40" height="6" rx="3" fill="#2e7ec8"/>
-      <rect x="30" y="57" width="40" height="6" rx="3" fill="#1B3A5C"/>
-      <rect x="30" y="68" width="40" height="6" rx="3" fill="#2e7ec8"/>
-    </svg>
-    Tolkster
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="10" cy="10" r="9" stroke="white" stroke-width="1.5"/>
+  <rect x="6" y="7" width="8" height="1.4" rx=".7" fill="white"/>
+  <rect x="6" y="9.3" width="8" height="1.4" rx=".7" fill="white"/>
+  <rect x="6" y="11.6" width="8" height="1.4" rx=".7" fill="white"/>
+</svg></div>
+    <span class="nav-logo-text">Tolkster</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#how">Så fungerar det</a></li>
-    <li class="nav-dropdown">
-      <a href="#segments">Verksamheter</a>
-      <div class="dropdown-menu">
-        <div class="dropdown-menu-inner">
-          <div class="dropdown-group">
-            <span class="dropdown-label">Kommuner</span>
-            <a href="socialtjanst.html">Socialtjänst</a>
-            <a href="skola.html">Skola</a>
-            <a href="sfi.html">SFI</a>
-            <a href="forskola.html">Förskola</a>
-            <a href="medborgarkontor.html">Medborgarkontor</a>
-            <a href="flyktingmottagning.html">Flyktingmottagning</a>
-            <a href="lss.html">LSS</a>
-            <a href="hemtjanst.html">Hemtjänst</a>
-            <a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a>
-            <a href="familjeratt.html">Familjerätt</a>
-          </div>
-          <div class="dropdown-group">
-            <span class="dropdown-label">Regioner & Vård</span>
-            <a href="vardcentral.html">Vårdcentral</a>
-            <a href="akutmottagning.html">Akutmottagning</a>
-            <a href="psykiatri.html">Psykiatri</a>
-            <a href="folktandvarden.html">Folktandvård</a>
-            <a href="bvc.html">BVC</a>
-            <a href="mvc.html">MVC</a>
-            <a href="beroendevard.html">Beroendevård</a>
-          </div>
-          <div class="dropdown-group">
-            <span class="dropdown-label">Statliga myndigheter</span>
-            <a href="migrationsverket.html">Migrationsverket</a>
-            <a href="polis.html">Polis</a>
-            <a href="domstol.html">Domstol</a>
-            <a href="kriminalvard.html">Kriminalvård</a>
-            <a href="arbetsformedlingen.html">Arbetsförmedlingen</a>
-            <a href="tullverket.html">Tullverket</a>
-            <a href="kronofogden.html">Kronofogden</a>
-            <a href="aklagarmyndigheten.html">Åklagarmyndigheten</a>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li><a href="#modes">Produktlägen</a></li>
-    <li><a href="#sprak">Språk</a></li>
-    <li><a href="#security">Säkerhet</a></li>
-    <li><a href="google-translate.html">Juridik</a></li>
-    <li><a href="#pricing">Priser</a></li>
-    <li><a href="#om-oss">Om oss</a></li>
-    <li><a href="#contact" class="nav-cta">Boka demo</a></li>
-  </ul>
+  <div class="nav-links">
+    
+    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="nav-cta">Kontakta oss</a>
+  </div>
 </nav>
-
-<!-- HERO -->
-<section class="hero" id="top">
+<div class="hero">
   <div class="hero-inner">
-    <div>
-      <div class="hero-badge">✦ AI-tolkning för offentlig sektor</div>
-      <h1>Förstå varandra.<br><span>Direkt.</span></h1>
-      <p class="hero-sub">Tolkster är ett AI-drivet tolkverktyg byggt för frontlinjen — reception, socialtjänst, vård och myndighetsutövning. Kom igång på sekunder. Ingen bokning. Ingen väntetid.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Boka demo</a>
-        <a href="#how" class="btn-ghost">Se hur det fungerar</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-number">100+</span><span class="stat-label">Språk</span></div>
-        <div class="stat"><span class="stat-number">&lt; 3 sek</span><span class="stat-label">Uppstartstid</span></div>
-        <div class="stat"><span class="stat-number">4</span><span class="stat-label">Produktlägen</span></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="tablet-frame">
-        <div class="tablet-cam"></div>
-        <div class="tablet-screen">
-          <div class="tablet-bar">
-            <div style="width:26px;height:26px;background:#f0f2f5;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;">🏠</div>
-            <div style="display:flex;align-items:center;gap:5px;">
-              <svg width="18" height="18" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="44" stroke="#1B3A5C" stroke-width="6" fill="none"/><path d="M18 35 Q10 50 18 65" stroke="#2e7ec8" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M82 35 Q90 50 82 65" stroke="#2e7ec8" stroke-width="5" stroke-linecap="round" fill="none"/><rect x="30" y="35" width="40" height="6" rx="3" fill="#1B3A5C"/><rect x="30" y="46" width="40" height="6" rx="3" fill="#2e7ec8"/><rect x="30" y="57" width="40" height="6" rx="3" fill="#1B3A5C"/><rect x="30" y="68" width="40" height="6" rx="3" fill="#2e7ec8"/></svg>
-              <span style="font-size:0.85rem;font-weight:800;color:#1B3A5C;">Tolkster</span>
-            </div>
-            <div style="width:26px;"></div>
-          </div>
-          <div class="tablet-content">
-            <div class="tablet-welcome">Välkommen</div>
-            <div class="tablet-sub">Starta ditt AI-genererade tolkmöte direkt.</div>
-            <div class="tablet-modes">
-              <div class="tablet-mode" style="color:#2e7ec8;">Quick</div>
-              <div class="tablet-mode" style="color:#1B3A5C;">Duo</div>
-              <div class="tablet-mode" style="color:#1B3A5C;">Multi</div>
-            </div>
-          </div>
-          <div class="tablet-footer">
-            <span style="font-size:0.75rem;color:#9aa4b2;">ⓘ</span>
-            <span style="font-size:0.75rem;color:#9aa4b2;">⚙️</span>
-          </div>
-        </div>
-      </div>
+    <div class="hero-tag">Tolkster — AI-tolkning för offentlig sektor</div>
+    <h1>Språkstöd som<br><em>alltid är redo</em></h1>
+    <p class="hero-hook">Tolkster är ett AI-tolkningssystem för svenska kommuner, regioner och myndigheter — byggt som komplement till befintliga tolkavtal. Ingen bokning. Ingen väntetid. Full spårbarhet. Prissatt under direktupphandlingsgränsen.</p>
+    <div class="index-hero-stats">
+      <div class="stat"><div class="stat-num">260</div><div class="stat-label">av 290 kommuner under direktupphandlingsgränsen</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">språk inklusive somaliska, tigrinska och dari</div></div>
+      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">alltid redo — utan bokning eller väntetid</div></div>
     </div>
   </div>
-</section>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-item"><span class="trust-icon">🔒</span> GDPR-säkert</div>
-  <div class="trust-item"><span class="trust-icon">⚡</span> Redo att använda direkt</div>
-  <div class="trust-item"><span class="trust-icon">🏛️</span> Byggt för offentlig sektor</div>
-  <div class="trust-item"><span class="trust-icon">📋</span> Direktupphandling &lt; 700 kkr</div>
-  <div class="trust-item"><span class="trust-icon">💻</span> Levereras färdigkonfigurerad</div>
 </div>
-
-<!-- HOW -->
-<section class="how-section" id="how">
-  <div class="section-inner">
-    <div class="section-label">Så fungerar det</div>
-    <h2 class="section-title">Från noll till samtal på sekunder</h2>
-    <p class="section-sub">Ingen utbildning krävs. Personal som aldrig använt Tolkster förstår direkt.</p>
-    <div class="steps-grid">
-      <div class="step-card"><div class="step-number">1</div><h3>Slå på surfplattan</h3><p>Tolkster-appen öppnas automatiskt. Ingen inloggning eller konton att hantera.</p></div>
-      <div class="step-card"><div class="step-number">2</div><h3>Välj läge och språk</h3><p>Välj Quick för ett snabbt möte eller Duo för ett strukturerat samtal. Välj språkpar med ett tryck.</p></div>
-      <div class="step-card"><div class="step-number">3</div><h3>Prata naturligt</h3><p>Håll surfplattan framför dig och tala. Tolkster transkriberar och översätter i realtid — text och tal.</p></div>
-      <div class="step-card"><div class="step-number">4</div><h3>Mötet avslutas</h3><p>I Duo sparas en sammanfattning automatiskt. I Quick avslutas sessionen utan att data lagras.</p></div>
+<div class="main">
+  <div class="section">
+    <div class="section-label">Välj er verksamhet</div>
+    <h2>Hitta er verksamhet</h2>
+    <div class="sector-section">
+    <div class="sector-header">
+      <span class="sector-badge">Kommun</span>
+      <div class="sector-line"></div>
     </div>
+    <div class="unit-grid"><a href="/socialtjanst.html" class="unit-card">
+      <h3>Socialtjänst</h3>
+      <p>Rätt ord kan förändra ett barns liv. Fel ord kan göra detsamma.</p>
+    </a>
+<a href="/skola.html" class="unit-card">
+      <h3>Skola</h3>
+      <p>Nyanlända elever har rätt att förstå sin skoldag — inte bara sitta med i den.</p>
+    </a>
+<a href="/sfi.html" class="unit-card">
+      <h3>SFI — Svenska för invandrare</h3>
+      <p>De lär sig svenska — men behöver hjälp på vägen dit.</p>
+    </a>
+<a href="/forskola.html" class="unit-card">
+      <h3>Förskola</h3>
+      <p>Det börjar i förskolan — och kommunikationen måste fungera från dag ett.</p>
+    </a>
+<a href="/medborgarkontor.html" class="unit-card">
+      <h3>Medborgarkontor</h3>
+      <p>Kommunens ansikte utåt — för alla invånare, på alla språk.</p>
+    </a>
+<a href="/flyktingmottagning.html" class="unit-card">
+      <h3>Flyktingmottagning</h3>
+      <p>Det första mötet med Sverige sätter tonen. Det måste fungera.</p>
+    </a>
+<a href="/lss.html" class="unit-card">
+      <h3>LSS — Stöd och service</h3>
+      <p>Rätten till stöd är lagstadgad. Rätten att förstå det stödet borde vara det också.</p>
+    </a>
+<a href="/hemtjanst.html" class="unit-card">
+      <h3>Hemtjänst</h3>
+      <p>Hemmet är den mest privata platsen. Kommunikationen dit måste fungera.</p>
+    </a>
+<a href="/ekonomiskt-bistand.html" class="unit-card">
+      <h3>Ekonomiskt bistånd</h3>
+      <p>Rätten till försörjningsstöd avgörs i samtal. Samtalet måste fungera.</p>
+    </a>
+<a href="/familjeratt.html" class="unit-card">
+      <h3>Familjerätt</h3>
+      <p>Ord om barn väger tungt. De måste vara rätt från början.</p>
+    </a></div>
   </div>
-</section>
-
-<!-- SEGMENTS -->
-<section id="segments">
-  <div class="section-inner">
-    <div class="section-label">Verksamheter</div>
-    <h2 class="section-title">Byggt för dem som inte kan vänta</h2>
-    <p class="section-sub">Tolkster är ett operativt verktyg för verksamheter där språkbarriärer kostar tid, skapar fel och drabbar människor. Välj din verksamhet för specifikt lagstöd och konkreta användningsfall.</p>
-    <div class="segments-grid">
-      <div class="segment-card">
-        <span class="segment-icon">🏛️</span>
-        <h3>Kommuner</h3>
-        <p>Socialtjänst, skola, SFI, förskola, medborgarkontor, LSS, hemtjänst, ekonomiskt bistånd och familjerätt hanterar dagligen samtal där rätt ord kan förändra ett barns liv — eller ett besluts hållbarhet vid tillsyn.</p>
-        <div class="segment-links">
-          <a href="socialtjanst.html" class="segment-link">Socialtjänst</a>
-          <a href="skola.html" class="segment-link">Skola</a>
-          <a href="sfi.html" class="segment-link">SFI</a>
-          <a href="forskola.html" class="segment-link">Förskola</a>
-          <a href="medborgarkontor.html" class="segment-link">Medborgarkontor</a>
-          <a href="flyktingmottagning.html" class="segment-link">Flyktingmottagning</a>
-          <a href="lss.html" class="segment-link">LSS</a>
-          <a href="hemtjanst.html" class="segment-link">Hemtjänst</a>
-          <a href="ekonomiskt-bistand.html" class="segment-link">Ekonomiskt bistånd</a>
-          <a href="familjeratt.html" class="segment-link">Familjerätt</a>
-        </div>
-      </div>
-      <div class="segment-card">
-        <span class="segment-icon">🏥</span>
-        <h3>Regioner och vård</h3>
-        <p>Vårdcentral, akutmottagning, psykiatri, folktandvård, BVC, MVC och beroendevård möter patienter med varierande språkbakgrund. Rätt kommunikation är en patientsäkerhetsfråga.</p>
-        <div class="segment-links">
-          <a href="vardcentral.html" class="segment-link">Vårdcentral</a>
-          <a href="akutmottagning.html" class="segment-link">Akutmottagning</a>
-          <a href="psykiatri.html" class="segment-link">Psykiatri</a>
-          <a href="folktandvarden.html" class="segment-link">Folktandvård</a>
-          <a href="bvc.html" class="segment-link">BVC</a>
-          <a href="mvc.html" class="segment-link">MVC</a>
-          <a href="beroendevard.html" class="segment-link">Beroendevård</a>
-        </div>
-      </div>
-      <div class="segment-card">
-        <span class="segment-icon">⚖️</span>
-        <h3>Statliga myndigheter</h3>
-        <p>Migrationsverket, polis, domstol, kriminalvård, Arbetsförmedlingen, Tullverket, Kronofogden och Åklagarmyndigheten ställer absoluta krav på korrekt kommunikation.</p>
-        <div class="segment-links">
-          <a href="migrationsverket.html" class="segment-link">Migrationsverket</a>
-          <a href="polis.html" class="segment-link">Polis</a>
-          <a href="domstol.html" class="segment-link">Domstol</a>
-          <a href="kriminalvard.html" class="segment-link">Kriminalvård</a>
-          <a href="arbetsformedlingen.html" class="segment-link">Arbetsförmedlingen</a>
-          <a href="tullverket.html" class="segment-link">Tullverket</a>
-          <a href="kronofogden.html" class="segment-link">Kronofogden</a>
-          <a href="aklagarmyndigheten.html" class="segment-link">Åklagarmyndigheten</a>
-        </div>
-      </div>
+<div class="sector-section">
+    <div class="sector-header">
+      <span class="sector-badge">Region</span>
+      <div class="sector-line"></div>
     </div>
+    <div class="unit-grid"><a href="/vardcentral.html" class="unit-card">
+      <h3>Vårdcentral</h3>
+      <p>Patienten vet vad som gör ont. Vården måste förstå det.</p>
+    </a>
+<a href="/akutmottagning.html" class="unit-card">
+      <h3>Akutmottagning</h3>
+      <p>På akuten kan man inte vänta. På tolk kan man inte heller vänta.</p>
+    </a>
+<a href="/psykiatri.html" class="unit-card">
+      <h3>Psykiatri</h3>
+      <p>Psykiatrisk bedömning förutsätter att patienten kan berätta. Precist och fullständigt.</p>
+    </a>
+<a href="/folktandvarden.html" class="unit-card">
+      <h3>Folktandvården</h3>
+      <p>Tandvård utan kommunikation är inte vård — det är ingrepp.</p>
+    </a>
+<a href="/bvc.html" class="unit-card">
+      <h3>BVC — Barnavårdscentral</h3>
+      <p>Varje barn förtjänar en förälder som förstår — och en vård som når fram.</p>
+    </a>
+<a href="/mvc.html" class="unit-card">
+      <h3>MVC — Mödravårdscentral</h3>
+      <p>Graviditet väcker tusen frågor. Alla förtjänar svar de förstår.</p>
+    </a>
+<a href="/beroendevard.html" class="unit-card">
+      <h3>Beroendevård</h3>
+      <p>Förändring kräver förtroende. Förtroende kräver att orden når fram.</p>
+    </a></div>
   </div>
-</section>
-
-<!-- MODES -->
-<section class="modes-section" id="modes">
-  <div class="section-inner">
-    <div class="section-label">Produktlägen</div>
-    <h2 class="section-title">Rätt verktyg för varje situation</h2>
-    <p class="section-sub">En surfplatta. Fyra lägen. Från det snabbaste spontana mötet till komplex tolkverifiering.</p>
-    <div class="modes-grid">
-      <div class="mode-card">
-        <span class="mode-badge badge-teal">Quick</span>
-        <h3>Direktöversättning</h3>
-        <div class="mode-tagline">Snabbt · Enkelt · Inget att ställa in</div>
-        <p>För det spontana mötet. Välj språk och börja prata — Tolkster översätter direkt. Inget sparas efter mötet.</p>
-        <ul>
-          <li>Tal till tal och tal till text</li>
-          <li>Stateless — inget lagras</li>
-          <li>Idealisk för reception och vägledning</li>
-        </ul>
-      </div>
-      <div class="mode-card">
-        <span class="mode-badge badge-teal">Duo</span>
-        <h3>Strukturerat samtal</h3>
-        <div class="mode-tagline">Dokumenterat · Sammanfattat · Arkiverat</div>
-        <p>För det planerade mötet. Tolkster transkriberar och skapar en sammanfattning på önskat språk.</p>
-        <ul>
-          <li>Parallella textkolumner på båda språk</li>
-          <li>Automatisk sammanfattning</li>
-          <li>Spårbarhet för handläggning</li>
-        </ul>
-      </div>
-      <div class="mode-card featured">
-        <span class="mode-badge badge-gold">★ Listen In</span>
-        <h3>Tolkverifiering i realtid</h3>
-        <div class="mode-tagline">Unik produkt · Oberoende granskning</div>
-        <p>Körs parallellt med en mänsklig tolk. Tolkster lyssnar, transkriberar och flaggar avvikelser i realtid — utan att avbryta samtalet.</p>
-        <ul>
-          <li>Oberoende av tolkförmedlingens egna system</li>
-          <li>Realtidsflaggning av oklarheter</li>
-          <li>Idealisk för socialtjänst, polis och domstol</li>
-        </ul>
-      </div>
-      <div class="mode-card">
-        <span class="mode-badge badge-gray">Multi</span>
-        <h3>Flerpartsmöten</h3>
-        <div class="mode-tagline">Komplex · Flera språk · Konferens</div>
-        <p>För möten med fler deltagare eller flera språk simultant.</p>
-        <ul>
-          <li>Stöd för flera språkpar parallellt</li>
-          <li>Lämplig för komplexa gruppmöten</li>
-        </ul>
-      </div>
+<div class="sector-section">
+    <div class="sector-header">
+      <span class="sector-badge">Statlig myndighet</span>
+      <div class="sector-line"></div>
     </div>
+    <div class="unit-grid"><a href="/migrationsverket.html" class="unit-card">
+      <h3>Migrationsverket</h3>
+      <p>Asylprocessen avgörs i ord. De måste vara rätt.</p>
+    </a>
+<a href="/polis.html" class="unit-card">
+      <h3>Polis</h3>
+      <p>Ett förhör är bara så bra som kommunikationen det bygger på.</p>
+    </a>
+<a href="/domstol.html" class="unit-card">
+      <h3>Domstol</h3>
+      <p>Rättssäkerhet förutsätter kommunikation. Utan den finns ingen rättvisa.</p>
+    </a>
+<a href="/kriminalvard.html" class="unit-card">
+      <h3>Kriminalvård</h3>
+      <p>Återanpassning börjar med kommunikation. Utan den stannar den av.</p>
+    </a>
+<a href="/arbetsformedlingen.html" class="unit-card">
+      <h3>Arbetsförmedlingen</h3>
+      <p>Vägen till arbete börjar med ett samtal. Det måste fungera.</p>
+    </a>
+<a href="/tullverket.html" class="unit-card">
+      <h3>Tullverket</h3>
+      <p>Tull är lag. Lagen gäller alla — oavsett vilket språk de talar.</p>
+    </a>
+<a href="/kronofogden.html" class="unit-card">
+      <h3>Kronofogdemyndigheten</h3>
+      <p>Skuld är inte alltid ett val. Missförstånd om skulden är det inte heller.</p>
+    </a>
+<a href="/aklagarmyndigheten.html" class="unit-card">
+      <h3>Åklagarmyndigheten</h3>
+      <p>Åtalet grundar sig på vad som sades. Det måste ha sagts rätt.</p>
+    </a></div>
   </div>
-</section>
-
-<!-- WHY -->
-<section class="why-section" id="why">
-  <div class="section-inner">
-    <div class="section-label">Varför Tolkster</div>
-    <h2 class="section-title">Inte ytterligare ett AI-verktyg</h2>
-    <p class="section-sub">Tolkster är byggt specifikt för offentlig sektor och reglerade verksamheter — inte anpassat efteråt.</p>
-    <div class="why-grid">
-      <div class="why-card"><div class="why-icon">⚡</div><h3>Operativ snabbhet</h3><p>Inget att boka. Inget att vänta på. Tolkster är redo när behovet uppstår.</p></div>
-      <div class="why-card"><div class="why-icon">🎯</div><h3>Låg utbildningströskel</h3><p>Personal som aldrig använt Tolkster förstår direkt. Levereras färdigkonfigurerat.</p></div>
-      <div class="why-card"><div class="why-icon">📦</div><h3>Redo att använda</h3><p>Surfplatta, SIM-kort, MDM och licens. Ni pluggar in och kör.</p></div>
-      <div class="why-card"><div class="why-icon">🔐</div><h3>GDPR och säkerhet</h3><p>Krypterad kommunikation, kontrollerad datahantering och minimal lagring i Quick-läget.</p></div>
-      <div class="why-card"><div class="why-icon">🏗️</div><h3>Byggd för upphandling</h3><p>Passar direktupphandling under 700 kkr — beslut kan fattas av verksamhetschef.</p></div>
-      <div class="why-card"><div class="why-icon">📈</div><h3>Skalbar per behov</h3><p>Börja med en enhet. Expandera till hela förvaltningen. Onboarding tar minuter.</p></div>
-    </div>
   </div>
-</section>
-
-<!-- DECISION GUIDE -->
-<section id="guide">
-  <div class="section-inner">
-    <div class="section-label">Passar det oss?</div>
-    <h2 class="section-title">När räcker AI — och när behövs mänsklig tolk?</h2>
-    <p class="section-sub">Tolkster ersätter inte auktoriserade tolkar där dessa krävs. Men i många vardagssituationer är Tolkster snabbare, billigare och räcker fullt ut.</p>
-    <div class="decision-grid">
-      <div class="decision-card ai">
-        <h3>✓ Tolkster räcker</h3>
-        <ul class="decision-list">
-          <li><span class="check">✓</span> Spontana möten i reception och medborgarkontor</li>
-          <li><span class="check">✓</span> Vägledning, informationssamtal och SFI-stöd</li>
-          <li><span class="check">✓</span> Snabb kommunikation med patienter i primärvård</li>
-          <li><span class="check">✓</span> Inledande samtal och behovsinhämtning</li>
-          <li><span class="check">✓</span> Verksamheter med hög frekvens och kortare samtal</li>
-          <li><span class="check">✓</span> Kvalitetsgranskning av tolksamtal (Listen In)</li>
-        </ul>
-      </div>
-      <div class="decision-card human">
-        <h3>→ Mänsklig tolk rekommenderas</h3>
-        <ul class="decision-list">
-          <li><span class="neutral">→</span> Rättsliga processer och vittnesmål</li>
-          <li><span class="neutral">→</span> Ingripanden med rättslig verkan</li>
-          <li><span class="neutral">→</span> Komplexa medicinska samtal med diagnoser</li>
-          <li><span class="neutral">→</span> Situationer där auktoriserad tolk krävs enligt lag</li>
-          <li><span class="neutral">→</span> Samtal med hög emotionell komplexitet</li>
-        </ul>
-      </div>
-    </div>
+  <div class="google-snippet">
+    <p><strong>Använder ni Google Translate idag?</strong> Konsumentverktyg för översättning i känsliga samtal är juridiskt problematiskt i offentlig verksamhet — och saknar den dokumentation som krävs vid tillsyn. <a href="/juridik-och-dataskydd.html">Läs vad lagen säger →</a></p>
   </div>
-</section>
-
-<!-- SECURITY -->
-<section class="security-section" id="security">
-  <div class="section-inner">
-    <div class="section-label">Säkerhet och integritet</div>
-    <h2 class="section-title">Byggt för känslig verksamhet</h2>
-    <p class="section-sub">Tolkster hanterar kommunikation i miljöer där sekretess, spårbarhet och dataskydd inte är valfritt.</p>
-    <div class="security-grid">
-      <div class="security-card"><span class="icon">🔒</span><h4>GDPR-efterlevnad</h4><p>All datahantering följer GDPR. Personuppgifter hanteras strikt efter verksamhetens egna regler.</p></div>
-      <div class="security-card"><span class="icon">🔐</span><h4>Krypterad kommunikation</h4><p>All trafik krypteras i transit. Tolkster lagrar inte mer data än nödvändigt.</p></div>
-      <div class="security-card"><span class="icon">🗑️</span><h4>Minimal lagring</h4><p>Quick-läget är stateless — ingenting sparas efter avslutat möte.</p></div>
-      <div class="security-card"><span class="icon">📋</span><h4>Spårbarhet och loggning</h4><p>Duo och Listen In skapar granskningsbara loggposter för verksamheter med dokumentationskrav.</p></div>
-    </div>
+  <div class="cta-section">
+    <h2>Redo att ta nästa steg?</h2>
+    <p>Levereras som surfplatta med SIM-kort från dag ett. Ingen IT-installation. Under direktupphandlingsgränsen.</p>
+    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="cta-btn">Kontakta oss</a>
+    <a href="/juridik-och-dataskydd.html" class="cta-btn-outline">Juridik &amp; dataskydd</a>
   </div>
-</section>
-
-<!-- LANGUAGES -->
-<section style="background:var(--off-white);" id="sprak">
-  <div class="section-inner">
-    <div class="section-label">Språkstöd</div>
-    <h2 class="section-title">De språk som verkligen behövs</h2>
-    <p class="section-sub">Tolkster täcker de vanligaste behovsspråken i svensk offentlig sektor — samt samtliga fem nationella minoritetsspråk.</p>
-    <p style="font-size:0.8rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-top:40px;margin-bottom:16px;">Vanligaste behovsspråken i offentlig sektor</p>
-    <div class="lang-pills">
-      <span class="lang-pill">🇸🇦 Arabiska</span><span class="lang-pill">🇦🇫 Dari</span><span class="lang-pill">🇸🇴 Somaliska</span><span class="lang-pill">🇮🇷 Persiska / Farsi</span><span class="lang-pill">🏳️ Kurdiska (Kurmanji)</span><span class="lang-pill">🏳️ Kurdiska (Sorani)</span><span class="lang-pill">🇪🇷 Tigrinja</span><span class="lang-pill">🇦🇫 Pashto</span><span class="lang-pill">🇦🇱 Albanska</span><span class="lang-pill">🇵🇱 Polska</span><span class="lang-pill">🇷🇴 Rumänska</span><span class="lang-pill">🇷🇸 Bosniska / Serbiska</span><span class="lang-pill">🇹🇷 Turkiska</span><span class="lang-pill">🇨🇳 Mandarin</span><span class="lang-pill">🇪🇸 Spanska</span><span class="lang-pill">🇬🇧 Engelska</span>
-    </div>
-    <div class="minority-block">
-      <p style="font-size:0.8rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Sveriges nationella minoritetsspråk</p>
-      <p>Tolkster stödjer samtliga fem officiellt erkända minoritetsspråk enligt lagen om nationella minoriteter och minoritetsspråk (2009:724).</p>
-      <div class="minority-pills">
-        <span class="minority-pill">🇫🇮 Finska</span><span class="minority-pill">🏔️ Meänkieli</span><span class="minority-pill">🏔️ Samiska</span><span class="minority-pill">🏳️ Romani</span><span class="minority-pill">✡️ Jiddisch</span>
-      </div>
-    </div>
-    <p style="margin-top:20px;font-size:0.875rem;color:var(--gray-400);">Tolkster stödjer totalt 100+ språk. <a href="#contact" style="color:var(--teal);font-weight:600;text-decoration:none;">Kontakta oss</a> för fullständig språklista.</p>
-  </div>
-</section>
-
-<!-- GT TEASER -->
-<section style="background:var(--white);padding:0 48px 88px;">
-  <div class="section-inner">
-    <div class="gt-teaser">
-      <div>
-        <div class="gt-badge">⚠️ Juridik & dataskydd</div>
-        <h3>Använder er verksamhet Google Translate?</h3>
-        <p>IMY har underkänt svenska kommuners användning av Google-tjänster i verksamheten. Samma juridiska logik gäller Google Translate i känsliga samtal — inom socialtjänst, vård, skola och rättsväsende.</p>
-      </div>
-      <a href="google-translate.html" class="btn-red">Läs analysen →</a>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <div class="section-inner">
-    <div class="section-label">Priser och upplägg</div>
-    <h2 class="section-title">Enkelt. Skalbart. Direktupphandlingsbart.</h2>
-    <p class="section-sub">Tolksters standardavtal är utformat för direktupphandling under 700 kkr — inga långa upphandlingsprocesser för de flesta kommuner.</p>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3>Pilot</h3>
-        <div class="price">Offert<span> /6 mån</span></div>
-        <div class="price-sub">Begränsat antal enheter · Utvärderingsperiod</div>
-        <ul class="pricing-features">
-          <li>2–5 surfplattor färdigkonfigurerade</li>
-          <li>Alla fyra lägen tillgängliga</li>
-          <li>Onboarding och support ingår</li>
-          <li>Underlag för direktupphandling klart</li>
-        </ul>
-        <a href="#contact" class="btn-outline">Diskutera pilot</a>
-      </div>
-      <div class="pricing-card featured">
-        <div class="featured-ribbon">Vanligast</div>
-        <h3>Standard</h3>
-        <div class="price">20 000<span> kr/mån</span></div>
-        <div class="price-sub">Upp till 10 enheter · 5 000 kr/enhet (engång)</div>
-        <ul class="pricing-features">
-          <li>Upp till 10 surfplattor</li>
-          <li>SIM-kort, MDM och licens ingår</li>
-          <li>Alla fyra produktlägen</li>
-          <li>Onboarding på plats eller digitalt</li>
-          <li>Support och uppdateringar</li>
-        </ul>
-        <a href="#contact" class="btn-cta-full">Boka demo</a>
-      </div>
-      <div class="pricing-card">
-        <h3>Enterprise</h3>
-        <div class="price">På offert</div>
-        <div class="price-sub">Regioner, myndigheter, fler förvaltningar</div>
-        <ul class="pricing-features">
-          <li>Mer än 10 enheter</li>
-          <li>Volymprissättning</li>
-          <li>Anpassade säkerhetsbilagor</li>
-          <li>Dedikerat kundansvar</li>
-        </ul>
-        <a href="#contact" class="btn-outline">Kontakta oss</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section style="background:var(--off-white);" id="faq">
-  <div class="section-inner">
-    <div class="section-label">Vanliga frågor</div>
-    <h2 class="section-title">Svar på det viktigaste</h2>
-    <div class="faq-grid">
-      <div class="faq-item"><h4>Hur snabbt kan vi komma igång?</h4><p>Från signerat avtal till driftssatt surfplatta tar det normalt 1–2 veckor. Tolkster levereras färdigkonfigurerat — ingen IT-avdelning behöver involveras.</p></div>
-      <div class="faq-item"><h4>Vilka språk stödjer Tolkster?</h4><p>Tolkster stödjer 100+ språk inklusive arabiska, dari, persiska, kurdiska, albanska och de vanligaste europeiska språken. Kontakta oss för fullständig språklista.</p></div>
-      <div class="faq-item"><h4>Hur hanteras GDPR och sekretess?</h4><p>Quick-läget är stateless och sparar ingenting efter mötet. Duo och Listen In loggar med kontrollerat scope och följer GDPR fullt ut. DPA ingår i standardavtalet.</p></div>
-      <div class="faq-item"><h4>Krävs upphandling för att köpa Tolkster?</h4><p>Nej, för de flesta kommuner. Standardpaketet ligger inom direktupphandlingsgränsen på 700 kkr — verksamhetschef kan fatta beslut utan upphandlingsavdelningen.</p></div>
-      <div class="faq-item"><h4>Får vi använda Google Translate i verksamheten?</h4><p>Troligen inte i känsliga samtal. IMY har underkänt svenska kommuners Google-integrationer och samma logik gäller Google Translate. <a href="google-translate.html" style="color:var(--teal);font-weight:600;text-decoration:none;">Läs vår juridiska analys →</a></p></div>
-      <div class="faq-item"><h4>Vad är Listen In och varför är det unikt?</h4><p>Listen In körs parallellt med en mänsklig tolk och granskar tolkningens korrekthet i realtid — det enda systemet på marknaden med ett oberoende granskningslager utanför tolkförmedlingens egna system.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- OM OSS -->
-<section id="om-oss">
-  <div class="section-inner">
-    <div class="om-grid">
-      <div>
-        <div class="section-label">Om Tolkster</div>
-        <h2 class="section-title">En ny era av tolkning</h2>
-        <p class="om-p">Tolkster grundades 2023 av Gustaf Ekelund, Andreas Massarsch, Ralf Engkvist och Anders Bjarby — med lång erfarenhet inom teknikutveckling, företagande och ett genuint intresse för samhällsfrågor.</p>
-        <p class="om-p">Under 2023–24 genomförde vi djupintervjuer med branschfolk och analyserade de strukturella problemen inom tolkning: kapacitetsbrist, intressekonflikter och en marknad som levererar för långsamt och för dyrt.</p>
-        <p class="om-p">Vår mission är att demokratisera tolkning — att skapa en värld där alla kan förstå och bli förstådda, till en signifikant lägre kostnad men med samma krav på säkerhet och precision.</p>
-      </div>
-      <div class="om-stats">
-        <div class="om-stat"><div class="om-stat-number">2023</div><div class="om-stat-label">Grundat</div></div>
-        <div class="om-stat"><div class="om-stat-number">100+</div><div class="om-stat-label">Språk</div></div>
-        <div class="om-stat teal"><div class="om-stat-number">4</div><div class="om-stat-label">Produktlägen</div></div>
-        <div class="om-stat"><div class="om-stat-number">Jan 2025</div><div class="om-stat-label">Lansering</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section" id="contact">
-  <h2>Redo att testa i er verksamhet?</h2>
-  <p>Vi sätter upp en pilot anpassad till er situation. Ingen lång upphandlingsprocess.</p>
-  <div class="cta-actions">
-    <a href="mailto:hej@tolkster.ai" class="btn-primary">Boka demo</a>
-    <a href="mailto:hej@tolkster.ai" class="btn-ghost">Diskutera pilot</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
+</div>
 <footer>
   <div class="footer-inner">
-    <div>
-      <div class="footer-logo">Tolkster</div>
-      <div class="footer-legal" style="margin-top:6px;">Global Instant Translations AB · Org.nr 559505-7307</div>
-    </div>
-    <ul class="footer-links">
-      <li><a href="#modes">Produkter</a></li>
-      <li><a href="#security">Säkerhet</a></li>
-      <li><a href="google-translate.html">Juridik</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-    <div class="footer-legal">© 2026 Tolkster · tolkster.ai</div>
+    <span class="footer-logo">Tolkster</span>
+    <p>Global Instant Translations AB · <a href="mailto:hej@tolkster.se">hej@tolkster.se</a> · <a href="/juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
+    <p>© 2026 Tolkster</p>
   </div>
 </footer>
-
 </body>
 </html>

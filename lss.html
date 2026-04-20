@@ -1,293 +1,147 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LSS — Tolkster</title>
-<meta name="description" content="LSS tolkningstjänster med AI-stöd">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #1B3A5C;
-    --teal: #0D7377;
-    --teal-light: #14A0A5;
-    --teal-pale: #e8f6f6;
-    --cream: #F7F4EF;
-    --white: #ffffff;
-    --off-white: #f8f9fb;
-    --gray-100: #f1f3f6;
-    --gray-200: #e2e6ed;
-    --gray-600: #5a6475;
-    --text: #1a2535;
-    --red: #C0392B;
-    --red-light: #FDECEA;
-    --green: #1A7A4A;
-    --green-light: #E8F5EE;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 112%; }
-  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-
-      /* ─── NAV ─── */
-  nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e6ed; padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-logo { font-size: 1.1rem; font-weight: 800; color: #1B3A5C; display: flex; align-items: center; gap: 6px; text-decoration: none; }
-  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 0.9rem; color: #5a6475; text-decoration: none; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: #1B3A5C; }
-  .nav-cta { background: #1B3A5C; color: #fff !important; padding: 8px 20px; border-radius: 6px; font-size: 0.875rem; font-weight: 600; transition: background 0.2s; }
-  .nav-cta:hover { background: #274d78 !important; color: #fff !important; }
-  .nav-dropdown { position: relative; }
-  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
-  .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; }
-  .dropdown-menu { display: none; position: absolute; top: 100%; left: -16px; padding-top: 8px; min-width: 240px; z-index: 300; }
-  .dropdown-menu-inner { background: #fff; border: 1px solid #e2e6ed; border-radius: 12px; box-shadow: 0 12px 40px rgba(27,58,92,0.14); padding: 12px 0; }
-  .nav-dropdown:hover .dropdown-menu { display: block; }
-  .dropdown-group { padding: 6px 0; }
-  .dropdown-group:not(:last-child) { border-bottom: 1px solid #f1f3f6; }
-  .dropdown-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9aa4b2; padding: 4px 20px 6px; display: block; }
-  .dropdown-menu a { display: block; padding: 7px 20px; font-size: 0.875rem; color: #5a6475; text-decoration: none; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .dropdown-menu a:hover { background: #e8f6f6; color: #0D7377; }
-  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } }
-
-  /* HERO */
-  .hero { background: linear-gradient(150deg, #122840 0%, var(--navy) 60%, #1d4d72 100%); padding: 72px 48px 64px; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: -80px; right: -60px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(13,115,119,0.2) 0%, transparent 70%); }
-  .hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
-  .hero-tag { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-light); border: 1px solid rgba(13,115,119,0.5); padding: 5px 14px; border-radius: 2px; margin-bottom: 24px; }
-  .hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.5px; }
-  .hero h1 em { font-style: italic; color: var(--teal-light); }
-  .hero-lead { font-size: 1.05rem; color: rgba(255,255,255,0.72); max-width: 580px; line-height: 1.75; }
-
-  /* MAIN */
-  .main { max-width: 800px; margin: 0 auto; padding: 0 40px 80px; }
-
-  /* IGENKÄNNING */
-  .recognition { background: var(--cream); border-left: 4px solid var(--teal); padding: 36px 40px; margin: 48px 0; border-radius: 0 12px 12px 0; }
-  .recognition-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
-  .recognition p { font-size: 1.05rem; color: #2d3a4a; line-height: 1.85; font-style: italic; }
-
-  /* BENEFITS */
-  .benefits { margin: 48px 0; }
-  .benefits-title { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 24px; letter-spacing: -0.3px; }
-  .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .benefit-card { background: var(--off-white); border-radius: 10px; padding: 20px 22px; border: 1px solid var(--gray-200); }
-  .benefit-card strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-  .benefit-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.6; margin: 0; }
-
-  /* LAW — nedtonad */
-  .law { background: var(--gray-100); border-radius: 8px; padding: 20px 24px; margin: 48px 0; display: flex; gap: 14px; align-items: flex-start; }
-  .law-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-  .law-text { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; }
-  .law-text strong { color: var(--navy); font-weight: 600; }
-
-  /* MODES */
-  .modes { margin: 48px 0; }
-  .modes-title { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 24px; letter-spacing: -0.3px; }
-  .mode-card { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 10px; padding: 24px 26px; margin-bottom: 14px; }
-  .mode-card:last-child { margin-bottom: 0; }
-  .mode-label { display: inline-flex; align-items: center; gap: 6px; background: var(--teal); color: white; font-size: 0.75rem; font-weight: 700; padding: 3px 12px; border-radius: 20px; margin-bottom: 10px; letter-spacing: 0.3px; }
-  .mode-label.featured { background: #b8860b; }
-  .mode-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-  .mode-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; margin: 0; }
-
-  /* RESULT */
-  .result { background: linear-gradient(135deg, var(--navy) 0%, #122840 100%); border-radius: 12px; padding: 36px 40px; margin: 48px 0; }
-  .result h3 { font-size: 1.1rem; font-weight: 800; color: white; margin-bottom: 18px; }
-  .result ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .result ul li { font-size: 0.95rem; color: rgba(255,255,255,0.85); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
-  .result ul li::before { content: '✓'; color: var(--teal-light); font-weight: 700; flex-shrink: 0; }
-
-  /* INTEGRATION */
-  .integration { border-top: 1px solid var(--gray-200); padding-top: 32px; margin: 48px 0 0; }
-  .integration h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
-  .integration p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; }
-
-  /* GOOGLE TRANSLATE SNIPPET */
-  .gt-snippet { background: var(--red-light); border: 1px solid rgba(192,57,43,0.2); border-radius: 8px; padding: 20px 24px; margin: 48px 0; display: flex; gap: 14px; align-items: flex-start; }
-  .gt-snippet-icon { font-size: 1.1rem; flex-shrink: 0; }
-  .gt-snippet-text { font-size: 0.875rem; color: #5a1a14; line-height: 1.65; }
-  .gt-snippet-text a { color: var(--red); font-weight: 600; text-decoration: underline; }
-
-  /* CTA */
-  .cta { background: var(--teal); border-radius: 12px; padding: 44px 40px; text-align: center; margin-top: 48px; }
-  .cta h2 { font-size: 1.5rem; font-weight: 800; color: white; margin-bottom: 10px; letter-spacing: -0.3px; }
-  .cta p { font-size: 0.95rem; color: rgba(255,255,255,0.82); margin-bottom: 24px; }
-  .cta a { display: inline-block; background: white; color: var(--teal); font-size: 0.95rem; font-weight: 700; padding: 13px 32px; border-radius: 6px; text-decoration: none; }
-
-  /* DIVIDER */
-  .section-divider { height: 1px; background: var(--gray-200); margin: 0; }
-
-  @media (max-width: 700px) {
-    nav { padding: 0 20px; }
-    .hero { padding: 52px 24px 44px; }
-    .main { padding: 0 20px 60px; }
-    .benefits-grid { grid-template-columns: 1fr; }
-    .recognition { padding: 24px 22px; }
-    .result { padding: 28px 24px; }
-    .cta { padding: 32px 24px; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSS — Stöd och service — Tolkster</title>
+  <meta name="description" content="Tolkster — AI-driven realtidstolkning för lss — stöd och service i offentlig sektor. GDPR-säkert, alltid redo, prissatt under direktupphandlingsgränsen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0M2ETWX4H"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-V0M2ETWX4H',{page_title:document.title,page_location:window.location.href});
+  </script>
+  <script>window._nQc="89238495";</script>
+  <script async src="https://serve.albacross.com/track.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      var p=window.location.pathname,sl='lss';
+      var hi=['socialtjanst','skola','sfi','forskola','medborgarkontor','flyktingmottagning','lss','hemtjanst','ekonomiskt-bistand','familjeratt','vardcentral','akutmottagning','psykiatri','folktandvarden','bvc','mvc','beroendevard','migrationsverket','polis','domstol','kriminalvard','arbetsformedlingen','tullverket','kronofogden','aklagarmyndigheten'];
+      if(hi.indexOf(sl)!==-1)gtag('event','undersida_besok',{segment:sl,page_path:p});
+      document.querySelectorAll('a[href^="mailto"]').forEach(function(el){
+        el.addEventListener('click',function(){
+          var s=(el.href.match(/subject=([^&]*)/)||[])[1]||'';
+          gtag('event','mailto_click',{segment:sl,mailto_subject:decodeURIComponent(s),page_path:p});
+        });
+      });
+      document.querySelectorAll('a[href*="juridik"]').forEach(function(el){
+        el.addEventListener('click',function(){gtag('event','legal_page_click',{source_segment:sl,source_path:p});});
+      });
+      var m={25:false,50:false,75:false,100:false};
+      window.addEventListener('scroll',function(){
+        var pct=(window.scrollY+window.innerHeight)/document.body.scrollHeight*100;
+        [25,50,75,100].forEach(function(v){if(!m[v]&&pct>=v){m[v]=true;gtag('event','scroll_depth',{depth_percent:v,segment:sl,page_path:p});}});
+      },{passive:true});
+    });
+  </script>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">
-    <svg width="26" height="26" viewBox="0 0 100 100" fill="none">
-      <circle cx="50" cy="50" r="44" stroke="#1B3A5C" stroke-width="6" fill="none"/>
-      <path d="M18 35 Q10 50 18 65" stroke="#2e7ec8" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <path d="M82 35 Q90 50 82 65" stroke="#2e7ec8" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <rect x="30" y="35" width="40" height="6" rx="3" fill="#1B3A5C"/>
-      <rect x="30" y="46" width="40" height="6" rx="3" fill="#2e7ec8"/>
-      <rect x="30" y="57" width="40" height="6" rx="3" fill="#1B3A5C"/>
-      <rect x="30" y="68" width="40" height="6" rx="3" fill="#2e7ec8"/>
-    </svg>
-    Tolkster
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="10" cy="10" r="9" stroke="white" stroke-width="1.5"/>
+  <rect x="6" y="7" width="8" height="1.4" rx=".7" fill="white"/>
+  <rect x="6" y="9.3" width="8" height="1.4" rx=".7" fill="white"/>
+  <rect x="6" y="11.6" width="8" height="1.4" rx=".7" fill="white"/>
+</svg></div>
+    <span class="nav-logo-text">Tolkster</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html#how">Så fungerar det</a></li>
-    <li class="nav-dropdown">
-      <a href="index.html#segments">Verksamheter</a>
-      <div class="dropdown-menu">
-        <div class="dropdown-menu-inner">
-          <div class="dropdown-group">
-            <span class="dropdown-label">Kommuner</span>
-            <a href="socialtjanst.html">Socialtjänst</a>
-            <a href="skola.html">Skola</a>
-            <a href="sfi.html">SFI</a>
-            <a href="forskola.html">Förskola</a>
-            <a href="medborgarkontor.html">Medborgarkontor</a>
-            <a href="flyktingmottagning.html">Flyktingmottagning</a>
-            <a href="lss.html">LSS</a>
-            <a href="hemtjanst.html">Hemtjänst</a>
-            <a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a>
-            <a href="familjeratt.html">Familjerätt</a>
-          </div>
-          <div class="dropdown-group">
-            <span class="dropdown-label">Regioner & Vård</span>
-            <a href="vardcentral.html">Vårdcentral</a>
-            <a href="akutmottagning.html">Akutmottagning</a>
-            <a href="psykiatri.html">Psykiatri</a>
-            <a href="folktandvarden.html">Folktandvård</a>
-            <a href="bvc.html">BVC</a>
-            <a href="mvc.html">MVC</a>
-            <a href="beroendevard.html">Beroendevård</a>
-          </div>
-          <div class="dropdown-group">
-            <span class="dropdown-label">Statliga myndigheter</span>
-            <a href="migrationsverket.html">Migrationsverket</a>
-            <a href="polis.html">Polis</a>
-            <a href="domstol.html">Domstol</a>
-            <a href="kriminalvard.html">Kriminalvård</a>
-            <a href="arbetsformedlingen.html">Arbetsförmedlingen</a>
-            <a href="tullverket.html">Tullverket</a>
-            <a href="kronofogden.html">Kronofogden</a>
-            <a href="aklagarmyndigheten.html">Åklagarmyndigheten</a>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li><a href="index.html#modes">Produktlägen</a></li>
-    <li><a href="index.html#sprak">Språk</a></li>
-    <li><a href="index.html#security">Säkerhet</a></li>
-    <li><a href="google-translate.html">Juridik</a></li>
-    <li><a href="index.html#pricing">Priser</a></li>
-    <li><a href="index.html#om-oss">Om oss</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Boka demo</a></li>
-  </ul>
+  <div class="nav-links">
+    <a href="/" class="nav-back">← Alla verksamheter</a>
+    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="nav-cta">Kontakta oss</a>
+  </div>
 </nav>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Tolkster</a> / <a href="/">Verksamheter</a> / LSS — Stöd och service
+  </div>
+</div>
 
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">Kommun — Tolkster</div>
-    <h1>Rätt kommunikation gör skillnad</h1>
-    <p class="hero-lead">Rätten att förstå det stödet borde vara det också. Genomförandeplanen är skriven, signerad och inlagd i systemet. Men förstod brukaren vad de skrev under? Förstod de vilka insatser de har rätt till, och varför? Eller nickade de för att det förväntades — för att handläggaren var trevlig och situationen krävde ett svar. För LSS-brukare med ett annat modersmål är kommunikationsbristen dubbel: språket och ibland kognitiva förutsättningar. Kombinationen ställer höga krav på precision och tålamod. Idag hanteras det alldeles för ofta.</p>
+    <div class="hero-tag">Kommun</div>
+    <h1>LSS — Stöd och service</h1>
+    <p class="hero-hook">Rätten till stöd är lagstadgad. Rätten att förstå det stödet borde vara det också.</p>
   </div>
 </div>
 
 <div class="main">
 
-  <!-- IGENKÄNNING -->
-  <div class="recognition">
-    <div class="recognition-label">Känner du igen det här?</div>
-    <p>En genomförandeplan är ett juridiskt dokument. Den reglerar vilken hjälp en person med funktionsnedsättning har rätt till, när, hur och av vem. Den ska undertecknas av brukaren. Men vad händer om brukaren inte förstår vad de skriver under — inte för att de har en kognitiv funktionsnedsättning, utan för att dokumentet är skrivet på ett språk de inte behärskar fullt ut? Rätten till stöd stannar på pappret.</p>
+  <div class="intro-block">
+    <p>Genomförandeplanen är skriven, signerad och inlagd i systemet. Men förstod brukaren vad de skrev under? Förstod de vilka insatser de har rätt till, och varför?</p>
+<p>För LSS-brukare med annat modersmål är kommunikationsbristen dubbel: språket och ibland kognitiva förutsättningar. Kombinationen ställer höga krav på precision och tålamod.</p>
   </div>
 
-  <!-- FÖRDELAR -->
-  <div class="benefits">
-    <h2 class="benefits-title">Varför AI-tolkning gör skillnad</h2>
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Fördelar med AI-tolkning</div>
+    <h2>Varför Tolkster — och varför nu</h2>
     <div class="benefits-grid">
-      <div class="benefit-card">
-        <strong>Ingen tolkbokning, ingen väntetid, ingen tolkbrist. Tolkster finns på plattan dygnet runt</strong>
-        <p></p>
-      </div>
-      <div class="benefit-card">
-        <strong>oavsett om behovet uppstår planerat eller helt oväntat. Väsentligt lägre kostnad</strong>
-        <p></p>
-      </div>
-      <div class="benefit-card">
-        <strong>En inbokad tolk kostar ofta 700–1 500 kr per tillfälle plus restid. Tolkster ingår i en fast månadsavgift. Även ett samtal på fem minuter kan tolkas</strong>
-        <p></p>
-      </div>
-      <div class="benefit-card">
-        <strong>utan oproportionerlig kostnad. Inga improviserade lösningar</strong>
-        <p></p>
-      </div>
-      <div class="benefit-card">
-        <strong>Tolkbrist löses idag ofta med att en släkting, kollega eller ett äldre syskon används som tolk. Det är varken etiskt, juridiskt hållbart eller patientsäkert. Tolkster eliminerar behovet av sådana lösningar. Spårbarhet och dokumentation</strong>
-        <p></p>
-      </div>
-      <div class="benefit-card">
-        <strong>Varje samtal kan loggas, transkriberas och arkiveras. Ni har alltid dokumentation på att kommunikationen skedde</strong>
-        <p></p>
-      </div>
-
+      <div class="benefit-card"><h3>Alltid redo — ingen bokning</h3><p>Ingen tolkbokning, ingen väntetid, ingen tolkbrist. Tolkster finns på plattan dygnet runt oavsett om behovet uppstår planerat eller helt oväntat.</p></div>
+<div class="benefit-card"><h3>Väsentligt lägre kostnad</h3><p>En inbokad tolk kostar ofta 700–1 500 kr per tillfälle. Tolkster ingår i en fast månadsavgift. Även ett samtal på fem minuter kan tolkas utan oproportionerlig kostnad.</p></div>
+<div class="benefit-card"><h3>Inga improviserade lösningar</h3><p>Tolkbrist löses idag med släktingar, kollegor eller äldre syskon. Det är varken etiskt, juridiskt hållbart eller säkert. Tolkster eliminerar behovet av sådana lösningar.</p></div>
+<div class="benefit-card"><h3>Spårbarhet och dokumentation</h3><p>Varje samtal kan loggas, transkriberas och arkiveras. Dokumentation på att kommunikationen skedde — vad, när och hur. Håller vid tillsyn, överklaganden och JO-granskning.</p></div>
+<div class="benefit-card"><h3>Skalbart till alla möten</h3><p>Tolkster gör det möjligt att tolka samtal som idag inte tolkas alls — för korta, för frekventa eller för oförutsägbara. Kvalitetskommunikation blir normen, inte undantaget.</p></div>
+<div class="benefit-card specific"><h3>Stöd för daglig brukarkommunikation</h3><p>LSS-insatser sker varje dag. Tolkster ger personalen ett verktyg för daglig kommunikation: önskemål, rutiner, mående, anhörigkontakt — samtal som idag sker utan tolkstöd.</p></div>
     </div>
   </div>
 
-  <!-- LAG — liten och diskret -->
-  <div class="law">
-    <div class="law-icon">📋</div>
-    <div class="law-text"><strong>Laglig grund:</strong> LSS (1 § och 7 §) slår fast att insatser ska utformas med respekt för den enskildes självbestämmande och integritet. Socialstyrelsen kräver dokumenterade genomförandeplaner. IVO-tillsyn har upprepade gånger pekat på brister i brukardelaktighet.</div>
-  </div>
-
-  <!-- TOLKSTERS LÄGEN -->
-  <div class="modes">
-    <h2 class="modes-title">Tolkster i praktiken</h2>
-    <div class="mode-card">
-      <div class="mode-label">Quick</div>
-      <h3>Quick-läget</h3>
-      <p>för daglig kommunikation. Hembesök, daglig verksamhet, stödboende. Snabbt och utan bokning.</p>
-    </div>
-    <div class="mode-card">
-      <div class="mode-label">Duo</div>
-      <h3>Duo-läget</h3>
-      <p>för genomförandeplanssamtalet. Dokumenterat. Sammanfattning på brukarens eget språk.</p>
-    </div>
-    <div class="mode-card">
-      <div class="mode-label featured">Listen In</div>
-      <h3>Listen In-läget</h3>
-      <p>när insatssamordnare genomför möten med inbokad tolk. Säkerställer att brukarens vilja faktiskt förmedlas.</p>
-    </div>
-
-  </div>
-
-  <!-- GOOGLE TRANSLATE -->
-  <div class="gt-snippet">
-    <div class="gt-snippet-icon">⚠️</div>
-    <div class="gt-snippet-text">
-      <strong>Använder ni Google Translate idag?</strong> Konsumentverktyg för översättning i känsliga samtal är juridiskt problematiskt i offentlig verksamhet — och saknar den dokumentation som krävs vid tillsyn. <a href="google-translate.html">Läs vad lagen säger →</a>
+  <div class="section">
+    <div class="section-label">Juridik</div>
+    <h2>Vad lagen kräver</h2>
+    <div class="law-box">
+      <p>LSS (1 § och 7 §) slår fast att insatser ska utformas med respekt för den enskildes självbestämmande och integritet. Socialstyrelsen kräver dokumenterade genomförandeplaner.</p>
+<p>IVO-tillsyn har upprepade gånger pekat på brister i brukardelaktighet. Kommunikation är inte ett sidospår — det är grunden för hela insatsen.</p>
     </div>
   </div>
 
-  <!-- CTA -->
-  <div class="cta">
-    <h2>Vill ni se Tolkster i er verksamhet?</h2>
-    <p>Tolkster levereras som en surfplatta med SIM-kort, redo att användas från dag ett. Ingen IT-installation krävs. Prissatt under direktupphandlingsgränsen.</p>
-    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – LSS">Kontakta oss →</a>
+  <div class="section">
+    <div class="section-label">Produkt</div>
+    <h2>Tolksters stöd i lss — stöd och service</h2>
+    <div class="modes">
+      <div class="mode-card"><h3>Quick-läget</h3><p>för daglig kommunikation. Hembesök, daglig verksamhet, stödboende.</p></div>
+<div class="mode-card"><h3>Duo-läget</h3><p>för genomförandeplanssamtalet. Sammanfattning på brukarens eget språk.</p></div>
+<div class="mode-card"><h3>Listen In-läget</h3><p>när insatssamordnare genomför möten med inbokad tolk.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Integration</div>
+    <h2>Fungerar med er befintliga tolkresurs</h2>
+    <div class="integration-box"><p>Tolksters dokumentationslogg skapar kontinuitet — det som sagts i tidigare samtal utgör underlag till nästa genomförandeplan.</p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Resultat</div>
+    <h2>Vad det innebär i praktiken</h2>
+    <div class="result-box"><p>Brukare som förstår sin insatsplan och kan påverka den. Dokumentation som håller vid IVO-tillsyn.</p></div>
+  </div>
+
+  <div class="google-snippet">
+    <p><strong>Använder ni Google Translate idag?</strong> Konsumentverktyg för översättning i känsliga samtal är juridiskt problematiskt i offentlig verksamhet — och saknar den dokumentation som krävs vid tillsyn. Tolkster är byggt för att ersätta det på ett säkert och hållbart sätt. <a href="/juridik-och-dataskydd.html">Läs vad lagen säger →</a></p>
+  </div>
+
+  <div class="cta-section">
+    <h2>Vill ni se Tolkster i lss — stöd och service?</h2>
+    <p>Levereras som surfplatta med SIM-kort från dag ett. Ingen IT-installation. Under direktupphandlingsgränsen.</p>
+    <a href="mailto:hej@tolkster.se?subject=Intresseanm%C3%A4lan%20%E2%80%93%20LSS%20%E2%80%94%20St%C3%B6d%20och%20service" class="cta-btn">Kontakta oss</a>
+    <a href="/" class="cta-btn-outline">Se alla verksamheter</a>
   </div>
 
 </div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Tolkster</span>
+    <p>Global Instant Translations AB · <a href="mailto:hej@tolkster.se">hej@tolkster.se</a> · <a href="/juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
+    <p>© 2026 Tolkster</p>
+  </div>
+</footer>
 </body>
 </html>
