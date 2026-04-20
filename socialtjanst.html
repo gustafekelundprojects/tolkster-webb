@@ -7,7 +7,285 @@
   <meta name="description" content="Tolkster — AI-driven realtidstolkning för socialtjänst i offentlig sektor. GDPR-säkert, alltid redo, prissatt under direktupphandlingsgränsen.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+  <style>
+:root {
+  --blue:        #2B5BA8;
+  --blue-dark:   #1B3A6B;
+  --blue-mid:    #3A6EC0;
+  --blue-light:  #EBF2FF;
+  --blue-pale:   #F0F5FF;
+  --white:       #FFFFFF;
+  --gray-50:     #F8FAFC;
+  --gray-100:    #EFF3F8;
+  --gray-200:    #DDE4EF;
+  --gray-400:    #9AAABB;
+  --text:        #0F1F3D;
+  --text-body:   #374868;
+  --text-muted:  #6B7FA3;
+  --red:         #C0392B;
+  --red-bg:      #FDE8E8;
+  --green:       #1A7A4A;
+  --green-bg:    #E8F5EE;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--text);line-height:1.7;}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav{
+  background:var(--blue-dark);
+  padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 16px rgba(0,0,0,.2);
+}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.nav-logo-icon{width:28px;height:28px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.nav-logo-icon svg{width:14px;height:14px;}
+.nav-logo-text{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:-.02em;}
+
+.nav-center{display:flex;align-items:center;gap:4px;}
+.nav-dropdown{position:relative;}
+.nav-dropdown-btn{
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.8);font-size:13px;font-family:'DM Sans',sans-serif;
+  padding:8px 12px;border-radius:4px;display:flex;align-items:center;gap:5px;
+  transition:background .15s,color .15s;
+}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.open{background:rgba(255,255,255,.1);color:#fff;}
+.nav-dropdown-btn svg{width:10px;height:10px;transition:transform .15s;}
+.nav-dropdown-btn.open svg{transform:rotate(180deg);}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 8px);left:0;
+  background:#fff;border-radius:8px;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);
+  border:0.5px solid var(--gray-200);
+  min-width:200px;padding:6px;
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .15s,transform .15s,visibility .15s;
+  z-index:300;
+}
+.nav-dropdown-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{
+  display:block;padding:8px 12px;font-size:13px;color:var(--text-body);
+  text-decoration:none;border-radius:5px;transition:background .1s,color .1s;
+}
+.nav-dropdown-menu a:hover{background:var(--blue-light);color:var(--blue);}
+.nav-dropdown-divider{height:0.5px;background:var(--gray-200);margin:4px 0;}
+.nav-dropdown-label{padding:6px 12px 2px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-400);}
+
+.nav-right{display:flex;align-items:center;gap:8px;}
+.nav-back{color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;padding:6px 10px;border-radius:4px;transition:all .15s;}
+.nav-back:hover{color:#fff;background:rgba(255,255,255,.1);}
+.nav-cta{background:#fff;color:var(--blue-dark);font-size:13px;font-weight:600;padding:8px 20px;border-radius:5px;text-decoration:none;transition:opacity .2s;flex-shrink:0;}
+.nav-cta:hover{opacity:.88;}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.hero{
+  background:linear-gradient(135deg, var(--blue-dark) 0%, #0D2347 100%);
+  padding:72px 48px 64px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 85% 30%, rgba(43,91,168,.5) 0%, transparent 55%),
+             radial-gradient(ellipse at 15% 80%, rgba(43,91,168,.3) 0%, transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2);
+  padding:4px 12px;border-radius:20px;margin-bottom:24px;
+}
+.hero-tag::before{content:'';display:inline-block;width:5px;height:5px;background:#6EC6FF;border-radius:50%;}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,4.5vw,50px);font-weight:700;
+  color:#fff;line-height:1.12;margin-bottom:18px;letter-spacing:-.02em;
+}
+.hero h1 em{font-style:italic;color:#6EC6FF;}
+.hero-hook{font-size:17px;color:rgba(255,255,255,.72);line-height:1.8;max-width:560px;font-weight:300;}
+
+/* stats bar */
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;margin-top:36px;overflow:hidden;
+}
+.stat{background:rgba(255,255,255,.07);padding:16px 20px;}
+.stat-num{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:#fff;}
+.stat-label{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;line-height:1.4;}
+
+/* ── BREADCRUMB ──────────────────────────────────────────────── */
+.breadcrumb{background:var(--blue-dark);border-bottom:1px solid rgba(255,255,255,.08);padding:9px 48px;}
+.breadcrumb-inner{max-width:760px;margin:0 auto;font-size:12px;color:rgba(255,255,255,.45);}
+.breadcrumb-inner a{color:rgba(255,255,255,.65);text-decoration:none;}
+.breadcrumb-inner a:hover{color:#fff;}
+
+/* ── MAIN ────────────────────────────────────────────────────── */
+.main{max-width:760px;margin:0 auto;padding:56px 48px 100px;}
+
+/* ── INTRO ───────────────────────────────────────────────────── */
+.intro-block{margin-bottom:44px;}
+.intro-block p{font-size:17px;color:var(--text-body);line-height:1.85;margin-bottom:16px;}
+.intro-block p:last-child{margin-bottom:0;}
+
+/* ── SECTION ─────────────────────────────────────────────────── */
+.section{margin-bottom:52px;}
+.section-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:10px;
+}
+.section-label::before{content:'';display:inline-block;width:14px;height:2px;background:var(--blue);border-radius:2px;}
+h2{font-family:'Fraunces',serif;font-size:25px;font-weight:600;color:var(--text);margin-bottom:18px;line-height:1.3;letter-spacing:-.01em;}
+p{font-size:16px;color:var(--text-body);margin-bottom:14px;line-height:1.8;}
+p:last-child{margin-bottom:0;}
+
+/* ── BENEFITS GRID ───────────────────────────────────────────── */
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+.benefit-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:18px 20px;border-top:3px solid var(--blue);
+  transition:box-shadow .2s,transform .2s;
+}
+.benefit-card:hover{box-shadow:0 4px 16px rgba(43,91,168,.1);transform:translateY(-1px);}
+.benefit-card h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px;}
+.benefit-card p{font-size:13px;color:var(--text-muted);line-height:1.6;margin:0;}
+.benefit-card.specific{border-top-color:var(--blue-dark);background:var(--blue-light);}
+.benefit-card.specific h3{color:var(--blue-dark);}
+
+/* ── MODES ───────────────────────────────────────────────────── */
+.modes{display:grid;gap:8px;margin-top:18px;}
+.mode-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:18px 22px;border-left:4px solid var(--blue);
+  display:grid;grid-template-columns:100px 1fr;gap:0 16px;align-items:start;
+  transition:border-color .15s,box-shadow .15s;
+}
+.mode-card:hover{border-left-color:var(--blue-mid);box-shadow:0 2px 10px rgba(43,91,168,.08);}
+.mode-card h3{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;padding-top:2px;}
+.mode-card p{font-size:14px;color:var(--text-body);margin:0;line-height:1.65;}
+
+/* ── LAW BOX ─────────────────────────────────────────────────── */
+.law-box{
+  background:var(--blue-dark);border-radius:8px;padding:28px 32px;margin-top:18px;
+}
+.law-box p{font-size:15px;color:rgba(255,255,255,.82);line-height:1.8;}
+.law-box p+p{margin-top:12px;}
+
+/* ── INTEGRATION ─────────────────────────────────────────────── */
+.integration-box{
+  background:var(--blue-light);border-radius:8px;padding:22px 26px;
+  border:1px solid rgba(43,91,168,.15);margin-top:18px;
+}
+.integration-box p{font-size:15px;color:var(--text-body);margin:0;}
+
+/* ── RESULT ──────────────────────────────────────────────────── */
+.result-box{
+  background:var(--blue);border-radius:8px;padding:28px 32px;margin-top:18px;
+}
+.result-box p{color:#fff;font-size:16px;margin:0;line-height:1.8;}
+
+/* ── DIVIDER ─────────────────────────────────────────────────── */
+.divider{height:1px;background:var(--gray-200);margin:44px 0;}
+
+/* ── GOOGLE SNIPPET ──────────────────────────────────────────── */
+.google-snippet{
+  background:var(--red-bg);border:1px solid rgba(192,57,43,.15);
+  border-left:4px solid var(--red);border-radius:0 8px 8px 0;
+  padding:16px 22px;margin:44px 0 22px;
+}
+.google-snippet p{font-size:14px;color:#3d3d3d;margin:0;line-height:1.7;}
+.google-snippet strong{color:var(--red);}
+.google-snippet a{color:var(--blue);font-weight:500;text-decoration:underline;}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.cta-section{
+  background:linear-gradient(135deg,var(--blue-dark) 0%,#0D2347 100%);
+  border-radius:10px;padding:44px 40px;text-align:center;
+}
+.cta-section h2{color:#fff;font-size:24px;margin-bottom:10px;}
+.cta-section p{color:rgba(255,255,255,.75);font-size:15px;margin-bottom:26px;}
+.cta-btn{
+  display:inline-block;background:#fff;color:var(--blue-dark);
+  font-weight:700;font-size:14px;padding:13px 32px;border-radius:6px;
+  text-decoration:none;letter-spacing:.02em;transition:all .2s;
+  box-shadow:0 2px 12px rgba(0,0,0,.15);
+}
+.cta-btn:hover{background:var(--blue-light);transform:translateY(-1px);}
+.cta-btn-outline{
+  display:inline-block;background:transparent;color:rgba(255,255,255,.8);
+  font-size:13px;font-weight:500;padding:10px 22px;border-radius:6px;
+  text-decoration:none;border:1px solid rgba(255,255,255,.3);margin-left:10px;
+  transition:all .2s;
+}
+.cta-btn-outline:hover{background:rgba(255,255,255,.1);color:#fff;}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer{background:var(--blue-dark);padding:32px 48px;border-top:1px solid rgba(255,255,255,.08);}
+.footer-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer p{color:rgba(255,255,255,.4);font-size:12px;margin:0;}
+footer a{color:rgba(255,255,255,.55);text-decoration:none;}
+footer a:hover{color:#6EC6FF;}
+.footer-logo{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#fff;}
+
+/* ── INDEX ───────────────────────────────────────────────────── */
+.sector-section{margin-bottom:44px;}
+.sector-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.sector-badge{
+  display:inline-block;background:var(--blue-dark);color:#fff;
+  font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;white-space:nowrap;
+}
+.sector-line{flex:1;height:1px;background:var(--gray-200);}
+.unit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
+.unit-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:16px 18px;text-decoration:none;transition:all .2s;display:block;
+  border-bottom:3px solid transparent;
+}
+.unit-card:hover{border-color:var(--blue);border-bottom-color:var(--blue);box-shadow:0 4px 16px rgba(43,91,168,.1);transform:translateY(-2px);}
+.unit-card h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.unit-card p{font-size:11.5px;color:var(--text-muted);margin:0;line-height:1.5;}
+
+/* ── JURIDIK ─────────────────────────────────────────────────── */
+.risk-grid{display:grid;gap:6px;margin-top:18px;}
+.risk-row{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;
+  background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:12px 16px;
+}
+.risk-row h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.risk-row p{font-size:12px;color:var(--text-muted);margin:0;}
+.badge{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.badge-red{background:var(--red-bg);color:var(--red);}
+.badge-amber{background:#FEF3E2;color:#C07000;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+.compare-card{border-radius:8px;padding:22px;}
+.compare-bad{background:var(--red-bg);border:1px solid rgba(192,57,43,.15);}
+.compare-good{background:var(--green-bg);border:1px solid rgba(26,122,74,.15);}
+.compare-card h3{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+.compare-bad h3{color:var(--red);}
+.compare-good h3{color:var(--green);}
+.compare-item{display:flex;gap:8px;margin-bottom:8px;font-size:13px;color:var(--text-body);line-height:1.5;}
+
+@media(max-width:680px){
+  nav{padding:0 16px;}
+  .nav-center{display:none;}
+  .hero{padding:52px 20px 48px;}
+  .breadcrumb{padding:8px 20px;}
+  .main{padding:36px 20px 80px;}
+  .benefits-grid{grid-template-columns:1fr;}
+  .mode-card{grid-template-columns:1fr;gap:3px;}
+  .compare-grid{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr;}
+  .cta-section{padding:32px 20px;}
+  .cta-btn-outline{display:none;}
+  footer{padding:24px 20px;}
+  .footer-inner{flex-direction:column;gap:6px;}
+}
+</style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0M2ETWX4H"></script>
   <script>
     window.dataLayer=window.dataLayer||[];
@@ -41,78 +319,77 @@
 </head>
 <body>
 
+
+<style id="nav-styles">
+nav{background:#1B3A6B;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:9000;box-shadow:0 2px 16px rgba(0,0,0,.2);}
+.nl{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.ni{width:28px;height:28px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.nt{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:-.02em;}
+.nc{display:flex;align-items:center;gap:2px;position:relative;}
+.np{color:rgba(255,255,255,.75);font-size:13px;text-decoration:none;padding:8px 11px;border-radius:4px;font-family:'DM Sans',sans-serif;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:5px;transition:background .15s,color .15s;}
+.np:hover,.np.active{background:rgba(255,255,255,.12);color:#fff;}
+.np svg{width:9px;height:9px;transition:transform .2s;}
+.np.active svg{transform:rotate(180deg);}
+.dm{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid #DDE4EF;min-width:190px;padding:5px;display:none;z-index:9999;}
+.dm.show{display:block;}
+.dm a{display:block;padding:8px 12px;font-size:13px;color:#374868;text-decoration:none;border-radius:5px;font-family:'DM Sans',sans-serif;}
+.dm a:hover{background:#EBF2FF;color:#2B5BA8;}
+.nr{display:flex;align-items:center;gap:8px;}
+.nb{color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;padding:7px 11px;border-radius:4px;transition:all .15s;}
+.nb:hover{color:#fff;background:rgba(255,255,255,.1);}
+.nk{background:#fff;color:#1B3A6B;font-size:13px;font-weight:700;padding:8px 20px;border-radius:5px;text-decoration:none;transition:opacity .2s;}
+.nk:hover{opacity:.88;}
+@media(max-width:720px){.nc{display:none;}}
+</style>
+<script>
+(function(){
+  function closeAll(){document.querySelectorAll('.dm').forEach(function(d){d.classList.remove('show');});document.querySelectorAll('.np').forEach(function(b){b.classList.remove('active');});}
+  window.tg=function(id){
+    var menu=document.getElementById(id);
+    var btn=document.getElementById('b-'+id);
+    if(!menu)return;
+    var isOpen=menu.classList.contains('show');
+    closeAll();
+    if(!isOpen){menu.classList.add('show');if(btn)btn.classList.add('active');}
+  };
+  document.addEventListener('click',function(e){if(!e.target.closest('.nc'))closeAll();});
+})();
+</script>
 <nav>
-  <a href="index.html" class="nav-logo">
-    <div class="nav-logo-icon"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="8.5" stroke="white" stroke-width="1.4"/><rect x="6" y="7" width="8" height="1.3" rx=".65" fill="white"/><rect x="6" y="9.35" width="8" height="1.3" rx=".65" fill="white"/><rect x="6" y="11.7" width="8" height="1.3" rx=".65" fill="white"/></svg></div>
-    <span class="nav-logo-text">Tolkster</span>
+  <a href="index.html" class="nl">
+    <div class="ni"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="white" stroke-width="1.4"/><rect x="6" y="7" width="8" height="1.3" rx=".65" fill="white"/><rect x="6" y="9.35" width="8" height="1.3" rx=".65" fill="white"/><rect x="6" y="11.7" width="8" height="1.3" rx=".65" fill="white"/></svg></div>
+    <span class="nt">Tolkster</span>
   </a>
-  <div class="nav-center">
-    <div class="nav-dropdown" id="dd-kommun">
-  <button class="nav-dropdown-btn" onclick="toggleDD('kommun')">
-    Kommun
-    <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-  </button>
-  <div class="nav-dropdown-menu" id="ddm-kommun"><a href="socialtjanst.html">Socialtjänst</a>
-<a href="skola.html">Skola</a>
-<a href="sfi.html">SFI</a>
-<a href="forskola.html">Förskola</a>
-<a href="medborgarkontor.html">Medborgarkontor</a>
-<a href="flyktingmottagning.html">Flyktingmottagning</a>
-<a href="lss.html">LSS</a>
-<a href="hemtjanst.html">Hemtjänst</a>
-<a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a>
-<a href="familjeratt.html">Familjerätt</a></div>
-</div>
-    <div class="nav-dropdown" id="dd-region">
-  <button class="nav-dropdown-btn" onclick="toggleDD('region')">
-    Region
-    <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-  </button>
-  <div class="nav-dropdown-menu" id="ddm-region"><a href="vardcentral.html">Vårdcentral</a>
-<a href="akutmottagning.html">Akutmottagning</a>
-<a href="psykiatri.html">Psykiatri</a>
-<a href="folktandvarden.html">Folktandvården</a>
-<a href="bvc.html">BVC</a>
-<a href="mvc.html">MVC</a>
-<a href="beroendevard.html">Beroendevård</a></div>
-</div>
-    <div class="nav-dropdown" id="dd-myndighet">
-  <button class="nav-dropdown-btn" onclick="toggleDD('myndighet')">
-    Myndigheter
-    <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-  </button>
-  <div class="nav-dropdown-menu" id="ddm-myndighet"><a href="migrationsverket.html">Migrationsverket</a>
-<a href="polis.html">Polis</a>
-<a href="domstol.html">Domstol</a>
-<a href="kriminalvard.html">Kriminalvård</a>
-<a href="arbetsformedlingen.html">Arbetsförmedlingen</a>
-<a href="tullverket.html">Tullverket</a>
-<a href="kronofogden.html">Kronofogden</a>
-<a href="aklagarmyndigheten.html">Åklagarmyndigheten</a></div>
-</div>
-    <a href="juridik-och-dataskydd.html" class="nav-plain-link">Juridik</a>
+  <div class="nc">
+    
+    <div style="position:relative;">
+    <button class="np" id="b-dm-k" onclick="tg('dm-k')">
+      Kommun
+      <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <div class="dm" id="dm-k"><a href="socialtjanst.html">Socialtjänst</a><a href="skola.html">Skola</a><a href="sfi.html">SFI</a><a href="forskola.html">Förskola</a><a href="medborgarkontor.html">Medborgarkontor</a><a href="flyktingmottagning.html">Flyktingmottagning</a><a href="lss.html">LSS</a><a href="hemtjanst.html">Hemtjänst</a><a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a><a href="familjeratt.html">Familjerätt</a></div>
   </div>
-  <div class="nav-right">
-    <a href="index.html" class="nav-back">← Startsidan</a>
-    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="nav-cta">Kontakta oss</a>
+    <div style="position:relative;">
+    <button class="np" id="b-dm-r" onclick="tg('dm-r')">
+      Region
+      <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <div class="dm" id="dm-r"><a href="vardcentral.html">Vårdcentral</a><a href="akutmottagning.html">Akutmottagning</a><a href="psykiatri.html">Psykiatri</a><a href="folktandvarden.html">Folktandvården</a><a href="bvc.html">BVC</a><a href="mvc.html">MVC</a><a href="beroendevard.html">Beroendevård</a></div>
+  </div>
+    <div style="position:relative;">
+    <button class="np" id="b-dm-m" onclick="tg('dm-m')">
+      Myndigheter
+      <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <div class="dm" id="dm-m"><a href="migrationsverket.html">Migrationsverket</a><a href="polis.html">Polis</a><a href="domstol.html">Domstol</a><a href="kriminalvard.html">Kriminalvård</a><a href="arbetsformedlingen.html">Arbetsförmedlingen</a><a href="tullverket.html">Tullverket</a><a href="kronofogden.html">Kronofogden</a><a href="aklagarmyndigheten.html">Åklagarmyndigheten</a></div>
+  </div>
+    <a href="juridik-och-dataskydd.html" class="np" style="text-decoration:none;">Juridik</a>
+  </div>
+  <div class="nr">
+    <a href="index.html" class="nb">← Startsidan</a>
+    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="nk">Kontakta oss</a>
   </div>
 </nav>
-<script>
-function toggleDD(id){
-  var btn=document.querySelector('#dd-'+id+' .nav-dropdown-btn');
-  var menu=document.getElementById('ddm-'+id);
-  var open=menu.classList.contains('open');
-  document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
-  document.querySelectorAll('.nav-dropdown-btn').forEach(function(b){b.classList.remove('open');});
-  if(!open){menu.classList.add('open');btn.classList.add('open');}
-}
-document.addEventListener('click',function(e){
-  if(!e.target.closest('.nav-dropdown')){
-    document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
-    document.querySelectorAll('.nav-dropdown-btn').forEach(function(b){b.classList.remove('open');});
-  }
-});
-</script>
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
     <a href="index.html">Tolkster</a> / <a href="index.html">Verksamheter</a> / Socialtjänst
