@@ -42,23 +42,86 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">
-    <div class="nav-logo-icon"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="10" cy="10" r="9" stroke="white" stroke-width="1.5"/>
-  <rect x="6" y="7" width="8" height="1.4" rx=".7" fill="white"/>
-  <rect x="6" y="9.3" width="8" height="1.4" rx=".7" fill="white"/>
-  <rect x="6" y="11.6" width="8" height="1.4" rx=".7" fill="white"/>
-</svg></div>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="8.5" stroke="white" stroke-width="1.4"/><rect x="6" y="7" width="8" height="1.3" rx=".65" fill="white"/><rect x="6" y="9.35" width="8" height="1.3" rx=".65" fill="white"/><rect x="6" y="11.7" width="8" height="1.3" rx=".65" fill="white"/></svg></div>
     <span class="nav-logo-text">Tolkster</span>
   </a>
-  <div class="nav-links">
-    <a href="/" class="nav-back">← Alla verksamheter</a>
+  <div class="nav-center">
+    <div class="nav-dropdown" id="dd-kommun">
+  <button class="nav-dropdown-btn" onclick="toggleDD('kommun')">
+    Kommun
+    <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </button>
+  <div class="nav-dropdown-menu" id="ddm-kommun">
+    <a href="socialtjanst.html">Socialtjänst</a>
+<a href="skola.html">Skola</a>
+<a href="sfi.html">SFI</a>
+<a href="forskola.html">Förskola</a>
+<a href="medborgarkontor.html">Medborgarkontor</a>
+<a href="flyktingmottagning.html">Flyktingmottagning</a>
+<a href="lss.html">LSS</a>
+<a href="hemtjanst.html">Hemtjänst</a>
+<a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a>
+<a href="familjeratt.html">Familjerätt</a>
+  </div>
+</div>
+    <div class="nav-dropdown" id="dd-region">
+  <button class="nav-dropdown-btn" onclick="toggleDD('region')">
+    Region
+    <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </button>
+  <div class="nav-dropdown-menu" id="ddm-region">
+    <a href="vardcentral.html">Vårdcentral</a>
+<a href="akutmottagning.html">Akutmottagning</a>
+<a href="psykiatri.html">Psykiatri</a>
+<a href="folktandvarden.html">Folktandvården</a>
+<a href="bvc.html">BVC</a>
+<a href="mvc.html">MVC</a>
+<a href="beroendevard.html">Beroendevård</a>
+  </div>
+</div>
+    <div class="nav-dropdown" id="dd-myndighet">
+  <button class="nav-dropdown-btn" onclick="toggleDD('myndighet')">
+    Statliga myndigheter
+    <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </button>
+  <div class="nav-dropdown-menu" id="ddm-myndighet">
+    <a href="migrationsverket.html">Migrationsverket</a>
+<a href="polis.html">Polis</a>
+<a href="domstol.html">Domstol</a>
+<a href="kriminalvard.html">Kriminalvård</a>
+<a href="arbetsformedlingen.html">Arbetsförmedlingen</a>
+<a href="tullverket.html">Tullverket</a>
+<a href="kronofogden.html">Kronofogden</a>
+<a href="aklagarmyndigheten.html">Åklagarmyndigheten</a>
+  </div>
+</div>
+    <a href="juridik-och-dataskydd.html" style="color:rgba(255,255,255,.8);font-size:13px;text-decoration:none;padding:8px 12px;border-radius:4px;transition:all .15s;" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.8)'">Juridik</a>
+  </div>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Alla verksamheter</a>
     <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="nav-cta">Kontakta oss</a>
   </div>
 </nav>
+<script>
+function toggleDD(id){
+  var btn=document.querySelector('#dd-'+id+' .nav-dropdown-btn');
+  var menu=document.getElementById('ddm-'+id);
+  var open=menu.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  document.querySelectorAll('.nav-dropdown-btn').forEach(function(b){b.classList.remove('open');});
+  if(!open){menu.classList.add('open');btn.classList.add('open');}
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.nav-dropdown')){
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+    document.querySelectorAll('.nav-dropdown-btn').forEach(function(b){b.classList.remove('open');});
+  }
+});
+</script>
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
-    <a href="/">Tolkster</a> / <a href="/">Verksamheter</a> / Kriminalvård
+    <a href="index.html">Tolkster</a> / <a href="index.html">Verksamheter</a> / Kriminalvård
   </div>
 </div>
 
@@ -124,14 +187,14 @@
   </div>
 
   <div class="google-snippet">
-    <p><strong>Använder ni Google Translate idag?</strong> Konsumentverktyg för översättning i känsliga samtal är juridiskt problematiskt i offentlig verksamhet — och saknar den dokumentation som krävs vid tillsyn. Tolkster är byggt för att ersätta det på ett säkert och hållbart sätt. <a href="/juridik-och-dataskydd.html">Läs vad lagen säger →</a></p>
+    <p><strong>Använder ni Google Translate idag?</strong> Konsumentverktyg för översättning i känsliga samtal är juridiskt problematiskt i offentlig verksamhet — och saknar den dokumentation som krävs vid tillsyn. Tolkster är byggt för att ersätta det på ett säkert och hållbart sätt. <a href="juridik-och-dataskydd.html">Läs vad lagen säger →</a></p>
   </div>
 
   <div class="cta-section">
     <h2>Vill ni se Tolkster i kriminalvård?</h2>
     <p>Levereras som surfplatta med SIM-kort från dag ett. Ingen IT-installation. Under direktupphandlingsgränsen.</p>
     <a href="mailto:hej@tolkster.se?subject=Intresseanm%C3%A4lan%20%E2%80%93%20Kriminalv%C3%A5rd" class="cta-btn">Kontakta oss</a>
-    <a href="/" class="cta-btn-outline">Se alla verksamheter</a>
+    <a href="index.html" class="cta-btn-outline">Se alla verksamheter</a>
   </div>
 
 </div>
@@ -139,7 +202,7 @@
 <footer>
   <div class="footer-inner">
     <span class="footer-logo">Tolkster</span>
-    <p>Global Instant Translations AB · <a href="mailto:hej@tolkster.se">hej@tolkster.se</a> · <a href="/juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
+    <p>Global Instant Translations AB · <a href="mailto:hej@tolkster.se">hej@tolkster.se</a> · <a href="juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
     <p>© 2026 Tolkster</p>
   </div>
 </footer>
