@@ -97,7 +97,16 @@
       });
     });
   </script>
-</head>
+<style>
+@media(max-width:800px){
+  #mob-btn{display:flex!important;}
+  .nav-center{display:none!important;}
+  .nav-back{display:none!important;}
+  .nav-dd{display:none!important;}
+  .nav-link{display:none!important;}
+}
+</style>
+<style>@media(max-width:800px){#mob-btn{display:flex!important;}.nav-center{display:none!important;}.nav-back{display:none!important;}}</style></head>
 <body>
 
 <style>
@@ -122,20 +131,20 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
 .nav-back:hover{color:#fff;background:rgba(255,255,255,.1);}
 .nav-cta{background:#fff;color:#1B3A6B;font-size:13px;font-weight:700;padding:8px 18px;border-radius:5px;text-decoration:none;}
 .nav-cta:hover{opacity:.88;}
-@media(max-width:800px){.nav-center{display:none;}}
+@media(max-width:800px){.nav-center{display:none!important;}.nav-back{display:none!important;}}
 
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;}
+
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .2s;}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:#1B3A6B;z-index:8888;overflow-y:auto;padding:16px 0 40px;}
-.mobile-menu.open{display:block;}
-.mobile-menu a{display:block;padding:13px 28px;color:rgba(255,255,255,.88);text-decoration:none;font-size:16px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);transition:background .15s;}
+
+
+
 .mobile-menu a:hover{background:rgba(255,255,255,.08);color:#fff;}
-.mobile-section{padding:18px 28px 6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);}
-.mobile-cta{margin:20px 28px 0!important;display:block;background:#fff;color:#1B3A6B!important;font-weight:700;font-size:15px;text-align:center;padding:14px;border-radius:6px;border-bottom:none!important;}
-@media(max-width:800px){.nav-center{display:none!important;}.nav-back{display:none!important;}.hamburger{display:flex;}body.menu-open{overflow:hidden;}}
+
+
+@media(max-width:800px){.nav-center{display:none!important;}.nav-back{display:none!important;}body.menu-open{overflow:hidden;}}
 </style>
 <script>
 !function(){
@@ -157,67 +166,35 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
   <div class="nav-right">
     <a href="index.html" class="nav-back">← Startsidan</a>
-    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
-      <span></span><span></span><span></span>
+    
+    <button id="mob-btn" style="display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;margin-left:8px;" aria-label="Öppna meny">
+      <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;margin:5px 0"></span>
+      <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;margin:5px 0"></span>
+      <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;margin:5px 0"></span>
     </button>
     <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="nav-cta">Kontakta oss</a>
   </div>
 </nav>
-
-<div class="mobile-menu" id="mobile-menu">
-  <a href="index.html">Startsidan</a>
-  <a href="index.html#utmaningen">Utmaningen</a>
-  <a href="index.html#losningen">Lösningen</a>
-  <a href="galleri.html">Galleri & Demo</a>
-  <a href="juridik-och-dataskydd.html">Juridik & Dataskydd</a>
-  <div class="mobile-section">Kommun</div>
-  <a href="socialtjanst.html">Socialtjänst</a>
-  <a href="skola.html">Skola</a>
-  <a href="sfi.html">SFI</a>
-  <a href="forskola.html">Förskola</a>
-  <a href="medborgarkontor.html">Medborgarkontor</a>
-  <a href="flyktingmottagning.html">Flyktingmottagning</a>
-  <a href="lss.html">LSS</a>
-  <a href="hemtjanst.html">Hemtjänst</a>
-  <a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a>
-  <a href="familjeratt.html">Familjerätt</a>
-  <div class="mobile-section">Region</div>
-  <a href="vardcentral.html">Vårdcentral</a>
-  <a href="akutmottagning.html">Akutmottagning</a>
-  <a href="psykiatri.html">Psykiatri</a>
-  <a href="folktandvarden.html">Folktandvården</a>
-  <a href="bvc.html">BVC</a>
-  <a href="mvc.html">MVC</a>
-  <a href="beroendevard.html">Beroendevård</a>
-  <div class="mobile-section">Statliga myndigheter</div>
-  <a href="migrationsverket.html">Migrationsverket</a>
-  <a href="polis.html">Polis</a>
-  <a href="domstol.html">Domstol</a>
-  <a href="kriminalvard.html">Kriminalvård</a>
-  <a href="arbetsformedlingen.html">Arbetsförmedlingen</a>
-  <a href="tullverket.html">Tullverket</a>
-  <a href="kronofogden.html">Kronofogden</a>
-  <a href="aklagarmyndigheten.html">Åklagarmyndigheten</a>
-  <a href="mailto:hej@tolkster.se?subject=Intresseanmälan" class="mobile-cta">Kontakta oss</a>
+<div id="mob-menu" style="display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:#1B3A6B;z-index:8888;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px 0 48px;">
+  <a href="index.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Startsidan</a><a href="galleri.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Galleri &amp; Demo</a><a href="juridik-och-dataskydd.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Juridik &amp; Dataskydd</a><div style="padding:16px 24px 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);font-family:'DM Sans',sans-serif;">Kommun</div><a href="socialtjanst.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Socialtjänst</a><a href="skola.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Skola</a><a href="sfi.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">SFI</a><a href="forskola.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Förskola</a><a href="medborgarkontor.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Medborgarkontor</a><a href="flyktingmottagning.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Flyktingmottagning</a><a href="lss.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">LSS</a><a href="hemtjanst.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Hemtjänst</a><a href="ekonomiskt-bistand.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Ekonomiskt bistånd</a><a href="familjeratt.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Familjerätt</a><div style="padding:16px 24px 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);font-family:'DM Sans',sans-serif;">Region</div><a href="vardcentral.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Vårdcentral</a><a href="akutmottagning.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Akutmottagning</a><a href="psykiatri.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Psykiatri</a><a href="folktandvarden.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Folktandvården</a><a href="bvc.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">BVC</a><a href="mvc.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">MVC</a><a href="beroendevard.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Beroendevård</a><div style="padding:16px 24px 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);font-family:'DM Sans',sans-serif;">Myndigheter</div><a href="migrationsverket.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Migrationsverket</a><a href="polis.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Polis</a><a href="domstol.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Domstol</a><a href="kriminalvard.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Kriminalvård</a><a href="arbetsformedlingen.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Arbetsförmedlingen</a><a href="tullverket.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Tullverket</a><a href="kronofogden.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Kronofogden</a><a href="aklagarmyndigheten.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Åklagarmyndigheten</a>
+  <div style="padding:20px 24px 0;"><a href="mailto:hej@tolkster.se?subject=Intresseanmälan" style="display:block;background:#fff;color:#1B3A6B;font-weight:700;font-size:15px;text-align:center;padding:14px;border-radius:6px;text-decoration:none;font-family:'DM Sans',sans-serif;">Kontakta oss</a></div>
 </div>
 <script>
-function toggleMobileMenu(){
-  var menu=document.getElementById('mobile-menu');
-  var btn=document.getElementById('hamburger');
-  menu.classList.toggle('open');
-  btn.classList.toggle('open');
-  document.body.classList.toggle('menu-open');
-}
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('#mobile-menu a').forEach(function(a){
-    a.addEventListener('click',function(){
-      document.getElementById('mobile-menu').classList.remove('open');
-      document.getElementById('hamburger').classList.remove('open');
-      document.body.classList.remove('menu-open');
-    });
+(function(){
+  var m=document.getElementById('mob-menu');
+  var b=document.getElementById('mob-btn');
+  if(!m||!b)return;
+  function close(){m.style.display='none';document.body.style.overflow='';b.setAttribute('data-open','0');}
+  b.addEventListener('click',function(){
+    var open=b.getAttribute('data-open')==='1';
+    if(open){close();}else{m.style.display='block';document.body.style.overflow='hidden';b.setAttribute('data-open','1');}
   });
-});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+})();
 </script>
+
+
+
 
 <!-- HERO -->
 <div class="gallery-hero">
