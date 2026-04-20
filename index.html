@@ -147,6 +147,21 @@
       .lp-hero-stats { grid-template-columns: 1fr; }
       .lp-cta-details { flex-direction: column; align-items: center; gap: 12px; }
     }
+  
+.nav-plain-link {
+  color: rgba(255,255,255,.75);
+  font-size: 13px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all .15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.nav-plain-link:hover {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+}
+
   </style>
 
   <!-- GA4 -->
@@ -184,6 +199,9 @@
     <span class="nav-logo-text">Tolkster</span>
   </a>
   <div class="nav-center">
+    <a href="#utmaningen" class="nav-plain-link">Utmaningen</a>
+    <a href="#losningen" class="nav-plain-link">Lösningen</a>
+    <a href="#fordelar" class="nav-plain-link">Fördelar</a>
     <div class="nav-dropdown" id="dd-kommun">
   <button class="nav-dropdown-btn" onclick="toggleDD('kommun')">
     Kommun
@@ -215,7 +233,7 @@
 </div>
     <div class="nav-dropdown" id="dd-myndighet">
   <button class="nav-dropdown-btn" onclick="toggleDD('myndighet')">
-    Statliga myndigheter
+    Myndigheter
     <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
   </button>
   <div class="nav-dropdown-menu" id="ddm-myndighet"><a href="migrationsverket.html">Migrationsverket</a>
@@ -269,7 +287,7 @@ document.addEventListener('click',function(e){
 </div>
 
 <!-- ═══ PROBLEMET ══════════════════════════════════════════════════════════ -->
-<div style="background:#fff;">
+<div id="utmaningen" style="background:#fff;">
 <div class="lp-section narrow">
   <div class="eyebrow">Utmaningen</div>
   <h2 class="lp-h2">Tolkbristen kostar mer än pengar</h2>
@@ -295,7 +313,7 @@ document.addEventListener('click',function(e){
 </div>
 
 <!-- ═══ LÖSNINGEN ══════════════════════════════════════════════════════════ -->
-<div class="lp-section dark">
+<div id="losningen" class="lp-section dark">
 <div class="lp-inner">
   <div class="eyebrow light">Lösningen</div>
   <h2 class="lp-h2 light">Tolkster — inte en tolkapp.<br>Ett vertikalt språksystem.</h2>
@@ -324,7 +342,7 @@ document.addEventListener('click',function(e){
 </div>
 
 <!-- ═══ FÖRDELARNA ═════════════════════════════════════════════════════════ -->
-<div class="lp-section gray">
+<div id="fordelar" class="lp-section gray">
 <div class="lp-inner">
   <div class="eyebrow">Varför Tolkster</div>
   <h2 class="lp-h2">AI-tolkning löser det som<br>bokad tolk aldrig kan</h2>
@@ -378,7 +396,7 @@ document.addEventListener('click',function(e){
 </div>
 
 <!-- ═══ VERKSAMHETER ════════════════════════════════════════════════════════ -->
-<div style="background:#fff;" id="verksamheter">
+<div id="verksamheter" style="background:#fff;">
 <div class="catalog-section">
   <div class="eyebrow">Verksamheter</div>
   <h2 class="lp-h2" style="margin-bottom:6px;">Hitta er verksamhet</h2>
