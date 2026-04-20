@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galleri & Demo — Tolkster</title>
+  <meta name="description" content="Se Tolkster i aktion — skärmdumpar från systemet och demovideor som visar hur kommunikationsstödet fungerar i verkliga situationer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Gallery specific */
+    .gallery-hero { background:linear-gradient(150deg,#0D2347 0%,#1B3A6B 100%); padding:72px 48px 64px; position:relative; overflow:hidden; }
+    .gallery-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 80% 30%,rgba(43,91,168,.4) 0%,transparent 55%); pointer-events:none; }
+    .gallery-hero-inner { max-width:760px; margin:0 auto; position:relative; z-index:1; }
+    .hero-tag { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7); border:1px solid rgba(255,255,255,.2); padding:4px 12px; border-radius:20px; margin-bottom:24px; }
+    .hero-tag::before { content:''; display:inline-block; width:5px; height:5px; background:#6EC6FF; border-radius:50%; }
+
+    .gallery-main { max-width:960px; margin:0 auto; padding:64px 48px 100px; }
+
+    /* Section headers */
+    .g-section { margin-bottom:64px; }
+    .g-eyebrow { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#2B5BA8; margin-bottom:10px; }
+    .g-eyebrow::before { content:''; display:inline-block; width:14px; height:2px; background:#2B5BA8; border-radius:2px; }
+    .g-h2 { font-family:'Fraunces',serif; font-size:28px; font-weight:700; color:#0F1F3D; margin-bottom:8px; letter-spacing:-.02em; }
+    .g-lead { font-size:16px; color:#374868; line-height:1.75; margin-bottom:32px; max-width:620px; }
+
+    /* Screenshot grid */
+    .screenshot-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .screenshot-card { background:#fff; border:1px solid #DDE4EF; border-radius:10px; overflow:hidden; cursor:pointer; transition:all .2s; }
+    .screenshot-card:hover { box-shadow:0 8px 32px rgba(43,91,168,.15); transform:translateY(-3px); border-color:#2B5BA8; }
+    .screenshot-card img { width:100%; display:block; border-bottom:1px solid #EFF3F8; }
+    .screenshot-card-body { padding:16px 18px; }
+    .screenshot-card-label { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#2B5BA8; margin-bottom:4px; }
+    .screenshot-card-title { font-size:15px; font-weight:600; color:#0F1F3D; margin-bottom:5px; }
+    .screenshot-card-desc { font-size:13px; color:#6B7FA3; line-height:1.6; margin:0; }
+
+    /* Lightbox */
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(11,25,56,.92); z-index:99999; align-items:center; justify-content:center; padding:24px; }
+    .lightbox.open { display:flex; }
+    .lightbox-img { max-width:90vw; max-height:85vh; border-radius:8px; box-shadow:0 24px 80px rgba(0,0,0,.5); }
+    .lightbox-close { position:fixed; top:20px; right:24px; background:rgba(255,255,255,.1); border:none; color:#fff; font-size:24px; width:44px; height:44px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; }
+    .lightbox-close:hover { background:rgba(255,255,255,.2); }
+    .lightbox-caption { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.75); font-size:14px; font-family:'DM Sans',sans-serif; text-align:center; }
+
+    /* Video grid */
+    .video-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
+    .video-card { background:#fff; border:1px solid #DDE4EF; border-radius:10px; overflow:hidden; transition:all .2s; }
+    .video-card:hover { box-shadow:0 8px 32px rgba(43,91,168,.12); transform:translateY(-2px); }
+    .video-wrapper { position:relative; padding-top:56.25%; background:#0D2347; }
+    .video-wrapper iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+    .video-card-body { padding:16px 18px; }
+    .video-label { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#2B5BA8; margin-bottom:4px; }
+    .video-title { font-size:14px; font-weight:600; color:#0F1F3D; margin-bottom:4px; }
+    .video-desc { font-size:12.5px; color:#6B7FA3; line-height:1.55; margin:0; }
+
+    /* Full-width video for main demo */
+    .video-main { background:#fff; border:1px solid #DDE4EF; border-radius:10px; overflow:hidden; margin-bottom:24px; }
+    .video-main .video-wrapper { padding-top:50%; }
+    .video-main .video-card-body { padding:20px 24px; }
+    .video-main .video-title { font-size:17px; }
+
+    /* CTA */
+    .g-cta { background:linear-gradient(135deg,#1B3A6B 0%,#0D2347 100%); border-radius:10px; padding:48px 40px; text-align:center; margin-top:64px; }
+    .g-cta h2 { font-family:'Fraunces',serif; font-size:28px; font-weight:700; color:#fff; margin-bottom:10px; }
+    .g-cta p { font-size:16px; color:rgba(255,255,255,.72); margin-bottom:28px; }
+    .g-cta-btn { display:inline-block; background:#fff; color:#1B3A6B; font-weight:700; font-size:14px; padding:13px 32px; border-radius:6px; text-decoration:none; transition:all .2s; }
+    .g-cta-btn:hover { background:#EBF2FF; transform:translateY(-1px); }
+
+    @media(max-width:720px) {
+      .gallery-hero { padding:52px 20px 48px; }
+      .gallery-main { padding:40px 20px 80px; }
+      .screenshot-grid { grid-template-columns:1fr; }
+      .video-grid { grid-template-columns:1fr; }
+      .g-cta { padding:36px 20px; }
+    }
+    @media(min-width:721px) and (max-width:900px) {
+      .video-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0M2ETWX4H"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-V0M2ETWX4H',{page_title:document.title,page_location:window.location.href});
+  </script>
+  <!-- Albacross -->
+  <script>window._nQc="89238495";</script>
+  <script async src="https://serve.albacross.com/track.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      document.querySelectorAll('a[href^="mailto"]').forEach(function(el){
+        el.addEventListener('click',function(){gtag('event','mailto_click',{segment:'galleri'});});
+      });
+    });
+  </script>
+</head>
+<body>
+
+<style>
+nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:9999;box-shadow:0 2px 16px rgba(0,0,0,.25);}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.nav-logo-icon{width:28px;height:28px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.nav-logo-text{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:-.02em;}
+.nav-center{display:flex;align-items:center;gap:2px;}
+.nav-dd{position:relative;}
+.nav-dd-btn{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.8);font-size:13px;font-family:'DM Sans',sans-serif;padding:8px 12px;border-radius:4px;display:flex;align-items:center;gap:5px;transition:background .15s,color .15s;white-space:nowrap;}
+.nav-dd-btn:hover,.nav-dd-btn.is-open{background:rgba(255,255,255,.12);color:#fff;}
+.nav-dd-btn.is-open svg{transform:rotate(180deg);}
+.nav-dd-btn svg{transition:transform .15s;}
+.nav-dd-menu{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid #DDE4EF;min-width:195px;padding:5px;display:none;z-index:99999;}
+.nav-dd-menu.is-open{display:block;}
+.nav-dd-menu a{display:block;padding:8px 12px;font-size:13px;color:#374868;text-decoration:none;border-radius:5px;font-family:'DM Sans',sans-serif;}
+.nav-dd-menu a:hover{background:#EBF2FF;color:#2B5BA8;}
+.nav-link{color:rgba(255,255,255,.8);font-size:13px;text-decoration:none;padding:8px 12px;border-radius:4px;font-family:'DM Sans',sans-serif;transition:background .15s,color .15s;}
+.nav-link:hover{background:rgba(255,255,255,.12);color:#fff;}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.nav-back{color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;padding:7px 11px;border-radius:4px;font-family:'DM Sans',sans-serif;}
+.nav-back:hover{color:#fff;background:rgba(255,255,255,.1);}
+.nav-cta{background:#fff;color:#1B3A6B;font-size:13px;font-weight:700;padding:8px 18px;border-radius:5px;text-decoration:none;}
+.nav-cta:hover{opacity:.88;}
+@media(max-width:800px){.nav-center{display:none;}}
+</style>
+<script>
+!function(){
+  function closeAll(){document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.classList.remove('is-open');});document.querySelectorAll('.nav-dd-menu').forEach(function(m){m.classList.remove('is-open');});}
+  window._navToggle=function(id){var menu=document.getElementById('ndm-'+id);var btn=document.getElementById('ndb-'+id);if(!menu||!btn)return;var wasOpen=menu.classList.contains('is-open');closeAll();if(!wasOpen){menu.classList.add('is-open');btn.classList.add('is-open');}};
+  document.addEventListener('click',function(e){if(!e.target.closest('.nav-dd'))closeAll();});
+}();
+</script>
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-icon"><svg width="14" height="14" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="white" stroke-width="1.4"/><rect x="6" y="7" width="8" height="1.3" rx=".65" fill="white"/><rect x="6" y="9.35" width="8" height="1.3" rx=".65" fill="white"/><rect x="6" y="11.7" width="8" height="1.3" rx=".65" fill="white"/></svg></div><span class="nav-logo-text">Tolkster</span></a>
+  <div class="nav-center">
+    <a href="index.html#utmaningen" class="nav-link">Utmaningen</a>
+    <a href="index.html#losningen" class="nav-link">Lösningen</a>
+    <div class="nav-dd"><button class="nav-dd-btn" id="ndb-k" onclick="_navToggle('k')">Kommun <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="nav-dd-menu" id="ndm-k"><a href="socialtjanst.html">Socialtjänst</a><a href="skola.html">Skola</a><a href="sfi.html">SFI</a><a href="forskola.html">Förskola</a><a href="medborgarkontor.html">Medborgarkontor</a><a href="flyktingmottagning.html">Flyktingmottagning</a><a href="lss.html">LSS</a><a href="hemtjanst.html">Hemtjänst</a><a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a><a href="familjeratt.html">Familjerätt</a></div></div>
+    <div class="nav-dd"><button class="nav-dd-btn" id="ndb-r" onclick="_navToggle('r')">Region <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="nav-dd-menu" id="ndm-r"><a href="vardcentral.html">Vårdcentral</a><a href="akutmottagning.html">Akutmottagning</a><a href="psykiatri.html">Psykiatri</a><a href="folktandvarden.html">Folktandvården</a><a href="bvc.html">BVC</a><a href="mvc.html">MVC</a><a href="beroendevard.html">Beroendevård</a></div></div>
+    <div class="nav-dd"><button class="nav-dd-btn" id="ndb-m" onclick="_navToggle('m')">Myndigheter <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="nav-dd-menu" id="ndm-m"><a href="migrationsverket.html">Migrationsverket</a><a href="polis.html">Polis</a><a href="domstol.html">Domstol</a><a href="kriminalvard.html">Kriminalvård</a><a href="arbetsformedlingen.html">Arbetsförmedlingen</a><a href="tullverket.html">Tullverket</a><a href="kronofogden.html">Kronofogden</a><a href="aklagarmyndigheten.html">Åklagarmyndigheten</a></div></div>
+    <a href="galleri.html" class="nav-link">Galleri</a>
+    <a href="juridik-och-dataskydd.html" class="nav-link">Juridik</a>
+  </div>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Startsidan</a>
+    <a href="mailto:hej@tolkster.se?subject=Intresseanmälan – Tolkster" class="nav-cta">Kontakta oss</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="gallery-hero">
+  <div class="gallery-hero-inner">
+    <div class="hero-tag">Produkt</div>
+    <h1 style="font-family:'Fraunces',serif;font-size:clamp(28px,4.5vw,48px);font-weight:700;color:#fff;line-height:1.12;letter-spacing:-.02em;margin-bottom:16px;">Galleri & <em style="font-style:italic;color:#6EC6FF;">Demo</em></h1>
+    <p style="font-size:17px;color:rgba(255,255,255,.72);line-height:1.8;max-width:520px;font-weight:300;">Se Tolkster i aktion — skärmdumpar från systemet och demovideor som visar hur kommunikationsstödet fungerar i verkliga situationer.</p>
+  </div>
+</div>
+
+<div class="gallery-main">
+
+  <!-- ── VIDEOS ───────────────────────────────────────────────── -->
+  <div class="g-section">
+    <div class="g-eyebrow">Demovideor</div>
+    <h2 class="g-h2">Se systemet i verkliga situationer</h2>
+    <p class="g-lead">Tre scenarier från vardagen i offentlig sektor — Tull, Läkarbesök och Migrationsmöte — alla med svenska och tyska för att illustrera flödet.</p>
+
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.tolkster.ai/video" title="Demo: Tullverket" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-card-body">
+          <div class="video-label">Demo — Tullverket</div>
+          <div class="video-title">Svenska–Tyska: Resandekontroll</div>
+          <p class="video-desc">Kontrollsamtal vid tullpassage. Systemet möjliggör omedelbar kommunikation utan tolk på plats.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.tolkster.ai/video" title="Demo: Läkarbesök" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-card-body">
+          <div class="video-label">Demo — Vård</div>
+          <div class="video-title">Svenska–Tyska: Läkarbesök</div>
+          <p class="video-desc">Anamnessamtal på vårdcentral. Patienten beskriver symtom, läkaren ställer följdfrågor — i realtid.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.tolkster.ai/video" title="Demo: Migrationsmöte" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-card-body">
+          <div class="video-label">Demo — Migrationsverket</div>
+          <div class="video-title">Svenska–Tyska: Migrationsmöte</div>
+          <p class="video-desc">Strukturerat möte med dokumentation. Samtalet transkriberas automatiskt och kan arkiveras.</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:#9AAABB;margin-top:14px;text-align:center;">
+      Videorna visar Duo-läget. Systemet stöder 50+ språk inklusive arabiska, somaliska, tigrinska och dari.
+    </p>
+  </div>
+
+  <!-- ── SCREENSHOTS ──────────────────────────────────────────── -->
+  <div class="g-section">
+    <div class="g-eyebrow">Skärmdumpar</div>
+    <h2 class="g-h2">Systemet — vy för vy</h2>
+    <p class="g-lead">Tolkster levereras förinstallerat på en surfplatta. Inga inloggningar, ingen IT-avdelning, ingen konfiguration — redo att användas från dag ett.</p>
+
+    <div class="screenshot-grid">
+      <div class="screenshot-card" onclick="openLightbox('images/sprakval.webp','Språkval — Välj språk för deltagaren')">
+        <img src="images/sprakval.webp" alt="Tolkster språkval — välj bland 50+ språk" loading="lazy">
+        <div class="screenshot-card-body">
+          <div class="screenshot-card-label">Uppstart</div>
+          <div class="screenshot-card-title">Välj språk — 50+ alternativ</div>
+          <p class="screenshot-card-desc">Svenska är förvalt. Välj deltagarens språk med ett tryck — arabiska, somaliska, tigrinska, dari och 46 till.</p>
+        </div>
+      </div>
+
+      <div class="screenshot-card" onclick="openLightbox('images/deltagare.webp','Deltagare — lägg till mötesdeltagare')">
+        <img src="images/deltagare.webp" alt="Tolkster — lägg till deltagare" loading="lazy">
+        <div class="screenshot-card-body">
+          <div class="screenshot-card-label">Duo-läget</div>
+          <div class="screenshot-card-title">Lägg till deltagare</div>
+          <p class="screenshot-card-desc">Namn, språk och roll registreras inför mötet. Deltagare kan sparas för framtida möten — sparar tid vid återkommande kontakter.</p>
+        </div>
+      </div>
+
+      <div class="screenshot-card" onclick="openLightbox('images/duo-normal.webp','Duo-läget — tvåvägssamtal med transkription')">
+        <img src="images/duo-normal.webp" alt="Tolkster Duo-läget — tvåvägssamtal" loading="lazy">
+        <div class="screenshot-card-body">
+          <div class="screenshot-card-label">Duo-läget</div>
+          <div class="screenshot-card-title">Tvåvägssamtal med transkription</div>
+          <p class="screenshot-card-desc">Båda deltagarna ser sin text i realtid. Varje replik transkriberas och sparas automatiskt. Kan arkiveras och skickas till respektive part.</p>
+        </div>
+      </div>
+
+      <div class="screenshot-card" onclick="openLightbox('images/duo-flippad.webp','Duo-läget — flippad vy för face-to-face samtal')">
+        <img src="images/duo-flippad.webp" alt="Tolkster Duo-läget — flippad vy" loading="lazy">
+        <div class="screenshot-card-body">
+          <div class="screenshot-card-label">Duo-läget</div>
+          <div class="screenshot-card-title">Flippad vy — för samtal ansikte mot ansikte</div>
+          <p class="screenshot-card-desc">Plattan läggs på ett bord mellan deltagarna. Texten vänds automatiskt så att varje part läser sin sida rätt vänd — inget som behöver förklaras.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LÄGESÖVERSIKT ────────────────────────────────────────── -->
+  <div class="g-section">
+    <div class="g-eyebrow">Produkt</div>
+    <h2 class="g-h2">Tre lägen — en platta</h2>
+    <p class="g-lead">Tolkster täcker hela spektrumet av kommunikationsbehov i offentlig sektor — från det oplanerade korta mötet till det formella dokumenterade samtalet.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+      <div style="background:#fff;border:1px solid #DDE4EF;border-top:3px solid #2B5BA8;border-radius:8px;padding:22px 20px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2B5BA8;margin-bottom:8px;">Quick</div>
+        <div style="font-size:15px;font-weight:600;color:#0F1F3D;margin-bottom:8px;">Omedelbar kommunikation</div>
+        <p style="font-size:13px;color:#6B7FA3;line-height:1.6;margin:0;">Ingen bokning. Ingen väntetid. Välj språk, tryck — kommunikationen börjar. Perfekt för reception, tambur och hembesök.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #DDE4EF;border-top:3px solid #2B5BA8;border-radius:8px;padding:22px 20px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2B5BA8;margin-bottom:8px;">Duo</div>
+        <div style="font-size:15px;font-weight:600;color:#0F1F3D;margin-bottom:8px;">Strukturerade möten</div>
+        <p style="font-size:13px;color:#6B7FA3;line-height:1.6;margin:0;">Tvåvägskommunikation med automatisk transkription och arkivering. Sammanfattning kan skickas till deltagarna. Juridiskt hållbar dokumentation.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #DDE4EF;border-top:3px solid #1B3A6B;border-radius:8px;padding:22px 20px;background:#EBF2FF;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1B3A6B;margin-bottom:8px;">Listen In ★</div>
+        <div style="font-size:15px;font-weight:600;color:#0F1F3D;margin-bottom:8px;">Kvalitetsskydd av tolken</div>
+        <p style="font-size:13px;color:#6B7FA3;line-height:1.6;margin:0;">Körs parallellt med inbokad tolk. Transkriberar i realtid och flaggar avvikelser. Unikt på marknaden — inget annat system erbjuder detta.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTA ──────────────────────────────────────────────────── -->
+  <div class="g-cta">
+    <h2>Vill ni se en live-demo?</h2>
+    <p>Vi visar systemet i er verksamhet eller via videomöte. Tar 20 minuter.</p>
+    <a href="mailto:hej@tolkster.se?subject=Demo-förfrågan – Tolkster" class="g-cta-btn">Boka demo →</a>
+  </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+function openLightbox(src, caption) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  gtag('event', 'screenshot_view', {image: src});
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox({target: document.getElementById('lightbox')}); });
+</script>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Tolkster</span>
+    <p>Global Instant Translations AB &nbsp;·&nbsp; <a href="mailto:hej@tolkster.se">hej@tolkster.se</a> &nbsp;·&nbsp; <a href="juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
+    <p>© 2026 Tolkster</p>
+  </div>
+</footer>
+</body>
+</html>
