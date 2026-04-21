@@ -728,6 +728,12 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
   m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
 })();
 </script>
+<script>
+  function fmt(n) {
+    if (n >= 1000000) return (n/1000000).toFixed(1).replace('.0','') + ' Mkr';
+    if (n >= 1000) return Math.round(n/1000) + ' kkr';
+    return n + ' kr';
+  }
   function fmtFull(n) {
     return n.toLocaleString('sv-SE') + ' kr';
   }
