@@ -474,6 +474,23 @@ textarea { resize: vertical; min-height: 90px; }
 
     <!-- SEKTION 1: OM SKOLAN -->
     <div class="form-section">
+      <div class="form-section-title">Kontaktuppgifter (valfritt)</div>
+      <p class="hint" style="margin-bottom:16px;">Fyll i om ni vill att vi ska kunna återkoppla eller koppla svaret till er skola i vår databas. Lämnas tomt om du vill svara anonymt.</p>
+      <div class="form-group">
+        <label class="q" for="kontakt_namn"><span class="q-num" style="background:#6B7FA3;">N</span>Ditt namn</label>
+        <input type="text" id="kontakt_namn" name="kontakt_namn" placeholder="Förnamn Efternamn">
+      </div>
+      <div class="form-group">
+        <label class="q" for="kontakt_roll"><span class="q-num" style="background:#6B7FA3;">R</span>Din roll på skolan</label>
+        <input type="text" id="kontakt_roll" name="kontakt_roll" placeholder="T.ex. rektor, elevhälsochef, specialpedagog">
+      </div>
+      <div class="form-group">
+        <label class="q" for="kontakt_email"><span class="q-num" style="background:#6B7FA3;">@</span>E-postadress</label>
+        <input type="email" id="kontakt_email" name="kontakt_email" placeholder="namn@skola.se">
+      </div>
+    </div>
+
+    <div class="form-section">
       <div class="form-section-title">Om skolan</div>
 
       <div class="form-group">
@@ -532,8 +549,29 @@ textarea { resize: vertical; min-height: 90px; }
       </div>
 
       <div class="form-group">
-        <label class="q" for="q7"><span class="q-num">7</span>Vilka är de vanligaste språken på skolan?</label>
-        <textarea id="q7" name="vanliga_sprak" placeholder="T.ex. arabiska, somaliska, dari..."></textarea>
+        <label class="q"><span class="q-num">7</span>Vilka är de vanligaste språken på skolan? (flera val möjliga)</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="vanliga_sprak" value="Arabiska"><span>Arabiska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Somaliska"><span>Somaliska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Dari"><span>Dari</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Tigrinska"><span>Tigrinska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Persiska/Farsi"><span>Persiska / Farsi</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Kurdiska (Kurmanji)"><span>Kurdiska (Kurmanji)</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Kurdiska (Sorani)"><span>Kurdiska (Sorani)</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Turkiska"><span>Turkiska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Pashto"><span>Pashto</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Polska"><span>Polska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Bosniska/Serbiska/Kroatiska"><span>Bosniska / Serbiska / Kroatiska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Albanska"><span>Albanska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Spanska"><span>Spanska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Ukrainska"><span>Ukrainska</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Romani"><span>Romani</span></label>
+          <label><input type="checkbox" name="vanliga_sprak" value="Swahili"><span>Swahili</span></label>
+        </div>
+        <div style="margin-top:10px;">
+          <label style="font-size:13px;color:var(--text-muted);display:block;margin-bottom:5px;">Övriga språk</label>
+          <input type="text" name="vanliga_sprak_ovriga" placeholder="Ange andra språk...">
+        </div>
       </div>
     </div>
 
@@ -621,15 +659,6 @@ textarea { resize: vertical; min-height: 90px; }
         <label class="q" for="q14"><span class="q-num">14</span>Vilket stöd får ni från kommunen idag kring språkstöd och flerspråkig kommunikation?</label>
         <textarea id="q14" name="kommunalt_stod" placeholder="Beskriv gärna..."></textarea>
       </div>
-
-      <div class="form-group">
-        <label class="q"><span class="q-num">15</span>Har ni fått riktlinjer kring användning av barn eller anhöriga som översättningsstöd?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="riktlinjer" value="Ja"><span>Ja</span></label>
-          <label><input type="radio" name="riktlinjer" value="Nej"><span>Nej</span></label>
-          <label><input type="radio" name="riktlinjer" value="Vet ej"><span>Vet ej</span></label>
-        </div>
-      </div>
     </div>
 
     <!-- SEKTION 5: DIGITALT & FRAMTID -->
@@ -642,41 +671,6 @@ textarea { resize: vertical; min-height: 90px; }
           <label><input type="radio" name="ai_idag" value="Ja"><span>Ja</span></label>
           <label><input type="radio" name="ai_idag" value="Nej"><span>Nej</span></label>
           <label><input type="radio" name="ai_idag" value="Testas informellt"><span>Testas endast informellt</span></label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="q"><span class="q-num">17</span>Hur positivt ser ni på framtida vertikala språkstödssystem för skola och elevhälsa?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="positivitet" value="Mycket positivt"><span>Mycket positivt</span></label>
-          <label><input type="radio" name="positivitet" value="Positivt"><span>Positivt</span></label>
-          <label><input type="radio" name="positivitet" value="Neutral"><span>Neutral</span></label>
-          <label><input type="radio" name="positivitet" value="Skeptisk"><span>Skeptisk</span></label>
-          <label><input type="radio" name="positivitet" value="Mycket skeptisk"><span>Mycket skeptisk</span></label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="q"><span class="q-num">18</span>Vilka funktioner skulle vara viktigast i ett framtida system? (flera val möjliga)</label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="funktioner" value="Realtidsöversättning"><span>Realtidsöversättning</span></label>
-          <label><input type="checkbox" name="funktioner" value="Tal till tal"><span>Tal till tal</span></label>
-          <label><input type="checkbox" name="funktioner" value="Automatisk transkribering"><span>Automatisk transkribering</span></label>
-          <label><input type="checkbox" name="funktioner" value="Journalloggning"><span>Journalloggning</span></label>
-          <label><input type="checkbox" name="funktioner" value="GDPR/säkerhet"><span>GDPR / säkerhet</span></label>
-          <label><input type="checkbox" name="funktioner" value="Domänanpassat språk"><span>Domänanpassat språk</span></label>
-          <label><input type="checkbox" name="funktioner" value="Integration med skolplattformar"><span>Integration med skolplattformar</span></label>
-          <label><input type="checkbox" name="funktioner" value="Statistik/uppföljning"><span>Statistik / uppföljning</span></label>
-          <label><input type="checkbox" name="funktioner" value="Annat"><span>Annat</span></label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="q"><span class="q-num">19</span>Skulle ni kunna tänka er att delta i pilotprojekt eller referensdialog kring framtida språkstödssystem?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="pilot" value="Ja"><span>Ja</span></label>
-          <label><input type="radio" name="pilot" value="Kanske"><span>Kanske</span></label>
-          <label><input type="radio" name="pilot" value="Nej"><span>Nej</span></label>
         </div>
       </div>
 
