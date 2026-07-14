@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informationssäkerhet &amp; KTR — Tolkster</title>
+  <meta name="description" content="Tolkster — Informationssäkerhet, KTR-klassning och GDPR i offentlig sektor. GDPR-säkert, alltid redo, prissatt under direktupphandlingsgränsen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --blue:        #2B5BA8;
+  --blue-dark:   #1B3A6B;
+  --blue-mid:    #3A6EC0;
+  --blue-light:  #EBF2FF;
+  --blue-pale:   #F0F5FF;
+  --white:       #FFFFFF;
+  --gray-50:     #F8FAFC;
+  --gray-100:    #EFF3F8;
+  --gray-200:    #DDE4EF;
+  --gray-400: #6B7FA3;
+  --text: #0A1628;
+  --text-body: #243255;
+  --text-muted: #4A5D80;
+  --red:         #C0392B;
+  --red-bg:      #FDE8E8;
+  --green:       #1A7A4A;
+  --green-bg:    #E8F5EE;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--text);line-height:1.7;}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav{
+  background:var(--blue-dark);
+  padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 16px rgba(0,0,0,.2);
+}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.nav-logo-icon{width:28px;height:28px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.nav-logo-icon svg{width:14px;height:14px;}
+.nav-logo-text{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:-.02em;}
+
+.nav-center{display:flex;align-items:center;gap:4px;}
+.nav-dropdown{position:relative;}
+.nav-dropdown-btn{
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.8);font-size:13px;font-family:'DM Sans',sans-serif;
+  padding:8px 12px;border-radius:4px;display:flex;align-items:center;gap:5px;
+  transition:background .15s,color .15s;
+}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.open{background:rgba(255,255,255,.1);color:#fff;}
+.nav-dropdown-btn svg{width:10px;height:10px;transition:transform .15s;}
+.nav-dropdown-btn.open svg{transform:rotate(180deg);}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 8px);left:0;
+  background:#fff;border-radius:8px;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);
+  border:0.5px solid var(--gray-200);
+  min-width:200px;padding:6px;
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .15s,transform .15s,visibility .15s;
+  z-index:300;
+}
+.nav-dropdown-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{
+  display:block;padding:8px 12px;font-size:13px;color:var(--text-body);
+  text-decoration:none;border-radius:5px;transition:background .1s,color .1s;
+}
+.nav-dropdown-menu a:hover{background:var(--blue-light);color:var(--blue);}
+.nav-dropdown-divider{height:0.5px;background:var(--gray-200);margin:4px 0;}
+.nav-dropdown-label{padding:6px 12px 2px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-400);}
+
+.nav-right{display:flex;align-items:center;gap:8px;}
+.nav-back{color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;padding:6px 10px;border-radius:4px;transition:all .15s;}
+.nav-back:hover{color:#fff;background:rgba(255,255,255,.1);}
+.nav-cta{background:#fff;color:var(--blue-dark);font-size:13px;font-weight:600;padding:8px 20px;border-radius:5px;text-decoration:none;transition:opacity .2s;flex-shrink:0;}
+.nav-cta:hover{opacity:.88;}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.hero{
+  background:linear-gradient(135deg, var(--blue-dark) 0%, #0D2347 100%);
+  padding:72px 48px 64px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 85% 30%, rgba(43,91,168,.5) 0%, transparent 55%),
+             radial-gradient(ellipse at 15% 80%, rgba(43,91,168,.3) 0%, transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2);
+  padding:4px 12px;border-radius:20px;margin-bottom:24px;
+}
+.hero-tag::before{content:'';display:inline-block;width:5px;height:5px;background:#6EC6FF;border-radius:50%;}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,4.5vw,50px);font-weight:700;
+  color:#fff;line-height:1.12;margin-bottom:18px;letter-spacing:-.02em;
+}
+.hero h1 em{font-style:italic;color:#6EC6FF;}
+.hero-hook{font-size:17px;color:rgba(255,255,255,.72);line-height:1.8;max-width:560px;font-weight:300;}
+
+/* stats bar */
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;margin-top:36px;overflow:hidden;
+}
+.stat{background:rgba(255,255,255,.07);padding:16px 20px;}
+.stat-num{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:#fff;}
+.stat-label{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;line-height:1.4;}
+
+/* ── BREADCRUMB ──────────────────────────────────────────────── */
+.breadcrumb{background:var(--blue-dark);border-bottom:1px solid rgba(255,255,255,.08);padding:9px 48px;}
+.breadcrumb-inner{max-width:760px;margin:0 auto;font-size:12px;color:rgba(255,255,255,.70);}
+.breadcrumb-inner a{color:rgba(255,255,255,.65);text-decoration:none;}
+.breadcrumb-inner a:hover{color:#fff;}
+
+/* ── MAIN ────────────────────────────────────────────────────── */
+.main{max-width:760px;margin:0 auto;padding:56px 48px 100px;}
+
+/* ── INTRO ───────────────────────────────────────────────────── */
+.intro-block{margin-bottom:44px;}
+.intro-block p{font-size:17px;color:var(--text-body);line-height:1.85;margin-bottom:16px;}
+.intro-block p:last-child{margin-bottom:0;}
+
+/* ── SECTION ─────────────────────────────────────────────────── */
+.section{margin-bottom:52px;}
+.section-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:10px;
+}
+.section-label::before{content:'';display:inline-block;width:14px;height:2px;background:var(--blue);border-radius:2px;}
+h2{font-family:'Fraunces',serif;font-size:25px;font-weight:600;color:var(--text);margin-bottom:18px;line-height:1.3;letter-spacing:-.01em;}
+p{font-size:16px;color:var(--text-body);margin-bottom:14px;line-height:1.8;}
+p:last-child{margin-bottom:0;}
+
+/* ── BENEFITS GRID ───────────────────────────────────────────── */
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+.benefit-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:18px 20px;border-top:3px solid var(--blue);
+  transition:box-shadow .2s,transform .2s;
+}
+.benefit-card:hover{box-shadow:0 4px 16px rgba(43,91,168,.1);transform:translateY(-1px);}
+.benefit-card h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px;}
+.benefit-card p{font-size:13px;color:var(--text-muted);line-height:1.6;margin:0;}
+.benefit-card.specific{border-top-color:var(--blue-dark);background:var(--blue-light);}
+.benefit-card.specific h3{color:var(--blue-dark);}
+
+/* ── MODES ───────────────────────────────────────────────────── */
+.modes{display:grid;gap:8px;margin-top:18px;}
+.mode-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:18px 22px;border-left:4px solid var(--blue);
+  display:grid;grid-template-columns:100px 1fr;gap:0 16px;align-items:start;
+  transition:border-color .15s,box-shadow .15s;
+}
+.mode-card:hover{border-left-color:var(--blue-mid);box-shadow:0 2px 10px rgba(43,91,168,.08);}
+.mode-card h3{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;padding-top:2px;}
+.mode-card p{font-size:14px;color:var(--text-body);margin:0;line-height:1.65;}
+
+/* ── LAW BOX ─────────────────────────────────────────────────── */
+.law-box{
+  background:var(--blue-dark);border-radius:8px;padding:28px 32px;margin-top:18px;
+}
+.law-box p{font-size:15px;color:rgba(255,255,255,.82);line-height:1.8;}
+.law-box p+p{margin-top:12px;}
+
+/* ── INTEGRATION ─────────────────────────────────────────────── */
+.integration-box{
+  background:var(--blue-light);border-radius:8px;padding:22px 26px;
+  border:1px solid rgba(43,91,168,.15);margin-top:18px;
+}
+.integration-box p{font-size:15px;color:var(--text-body);margin:0;}
+
+/* ── RESULT ──────────────────────────────────────────────────── */
+.result-box{
+  background:var(--blue);border-radius:8px;padding:28px 32px;margin-top:18px;
+}
+.result-box p{color:#fff;font-size:16px;margin:0;line-height:1.8;}
+
+/* ── DIVIDER ─────────────────────────────────────────────────── */
+.divider{height:1px;background:var(--gray-200);margin:44px 0;}
+
+/* ── GOOGLE SNIPPET ──────────────────────────────────────────── */
+.google-snippet{
+  background:var(--red-bg);border:1px solid rgba(192,57,43,.15);
+  border-left:4px solid var(--red);border-radius:0 8px 8px 0;
+  padding:16px 22px;margin:44px 0 22px;
+}
+.google-snippet p{font-size:14px;color:#3d3d3d;margin:0;line-height:1.7;}
+.google-snippet strong{color:var(--red);}
+.google-snippet a{color:var(--blue);font-weight:500;text-decoration:underline;}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.cta-section{
+  background:linear-gradient(135deg,var(--blue-dark) 0%,#0D2347 100%);
+  border-radius:10px;padding:44px 40px;text-align:center;
+}
+.cta-section h2{color:#fff;font-size:24px;margin-bottom:10px;}
+.cta-section p{color:rgba(255,255,255,.75);font-size:15px;margin-bottom:26px;}
+.cta-btn{
+  display:inline-block;background:#fff;color:var(--blue-dark);
+  font-weight:700;font-size:14px;padding:13px 32px;border-radius:6px;
+  text-decoration:none;letter-spacing:.02em;transition:all .2s;
+  box-shadow:0 2px 12px rgba(0,0,0,.15);
+}
+.cta-btn:hover{background:var(--blue-light);transform:translateY(-1px);}
+.cta-btn-outline{
+  display:inline-block;background:transparent;color:rgba(255,255,255,.8);
+  font-size:13px;font-weight:500;padding:10px 22px;border-radius:6px;
+  text-decoration:none;border:1px solid rgba(255,255,255,.3);margin-left:10px;
+  transition:all .2s;
+}
+.cta-btn-outline:hover{background:rgba(255,255,255,.1);color:#fff;}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer{background:var(--blue-dark);padding:32px 48px;border-top:1px solid rgba(255,255,255,.08);}
+.footer-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer p{color:rgba(255,255,255,.65);font-size:12px;margin:0;}
+footer a{color:rgba(255,255,255,.8);text-decoration:none;}
+footer a:hover{color:#6EC6FF;}
+.footer-logo{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#fff;}
+
+/* ── INDEX ───────────────────────────────────────────────────── */
+.sector-section{margin-bottom:44px;}
+.sector-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.sector-badge{
+  display:inline-block;background:var(--blue-dark);color:#fff;
+  font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;white-space:nowrap;
+}
+.sector-line{flex:1;height:1px;background:var(--gray-200);}
+.unit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
+.unit-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:16px 18px;text-decoration:none;transition:all .2s;display:block;
+  border-bottom:3px solid transparent;
+}
+.unit-card:hover{border-color:var(--blue);border-bottom-color:var(--blue);box-shadow:0 4px 16px rgba(43,91,168,.1);transform:translateY(-2px);}
+.unit-card h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.unit-card p{font-size:11.5px;color:var(--text-muted);margin:0;line-height:1.5;}
+
+/* ── JURIDIK ─────────────────────────────────────────────────── */
+.risk-grid{display:grid;gap:6px;margin-top:18px;}
+.risk-row{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;
+  background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:12px 16px;
+}
+.risk-row h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.risk-row p{font-size:12px;color:var(--text-muted);margin:0;}
+.badge{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.badge-red{background:var(--red-bg);color:var(--red);}
+.badge-amber{background:#FEF3E2;color:#C07000;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+.compare-card{border-radius:8px;padding:22px;}
+.compare-bad{background:var(--red-bg);border:1px solid rgba(192,57,43,.15);}
+.compare-good{background:var(--green-bg);border:1px solid rgba(26,122,74,.15);}
+.compare-card h3{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+.compare-bad h3{color:var(--red);}
+.compare-good h3{color:var(--green);}
+.compare-item{display:flex;gap:8px;margin-bottom:8px;font-size:13px;color:var(--text-body);line-height:1.5;}
+
+@media(max-width:680px){
+  nav{padding:0 16px;}
+  .nav-center{display:none;}
+  .hero{padding:52px 20px 48px;}
+  .breadcrumb{padding:8px 20px;}
+  .main{padding:36px 20px 80px;}
+  .benefits-grid{grid-template-columns:1fr;}
+  .mode-card{grid-template-columns:1fr;gap:3px;}
+  .compare-grid{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr;}
+  .cta-section{padding:32px 20px;}
+  .cta-btn-outline{display:none;}
+  footer{padding:24px 20px;}
+  .footer-inner{flex-direction:column;gap:6px;}
+}
+
+.positioning-note{
+  background:#EFF3F8;
+  border:1px solid #DDE4EF;
+  border-left:4px solid #1B3A6B;
+  border-radius:0 8px 8px 0;
+  padding:16px 22px;
+  margin:0 0 22px;
+}
+.positioning-note p{font-size:13.5px;color:#374868;margin:0;line-height:1.7;}
+.positioning-note strong{color:#1B3A6B;}
+</style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0M2ETWX4H"></script>
+
+<style>
+/* KTR PAGE */
+.ktr-hero {
+  background: linear-gradient(135deg, #0D1F3C 0%, #1B3A6B 100%);
+  padding: 72px 48px 64px; position: relative; overflow: hidden;
+}
+.ktr-hero::before {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(43,91,168,.3) 0%, transparent 65%);
+  pointer-events: none;
+}
+.ktr-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+.ktr-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.18);
+  padding: 4px 13px; border-radius: 20px; margin-bottom: 22px;
+}
+.ktr-tag::before { content: ''; width: 5px; height: 5px; background: #6EC6FF; border-radius: 50%; display: inline-block; }
+.ktr-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 4.5vw, 48px); font-weight: 700;
+  color: #fff; line-height: 1.12; margin-bottom: 18px; letter-spacing: -.02em;
+}
+.ktr-hero h1 em { font-style: italic; color: #6EC6FF; }
+.ktr-hero-lead { font-size: 17px; color: rgba(255,255,255,.72); line-height: 1.8; max-width: 580px; font-weight: 300; }
+.ktr-score-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px; margin-top: 40px; overflow: hidden;
+}
+.ktr-score { background: rgba(255,255,255,.07); padding: 18px 22px; }
+.ktr-score .letter { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 700; color: #6EC6FF; line-height: 1; }
+.ktr-score .klass { font-size: 24px; font-weight: 700; color: #fff; margin-left: 4px; }
+.ktr-score .desc { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; }
+
+/* MAIN */
+.ktr-main { max-width: 860px; margin: 0 auto; padding: 64px 48px 100px; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.section-eyebrow::before { content: ''; display: inline-block; width: 14px; height: 2px; background: var(--blue); border-radius: 2px; }
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(22px, 3.5vw, 32px); font-weight: 700;
+  color: var(--text); line-height: 1.2; margin-bottom: 14px;
+}
+.section-lead { font-size: 16px; color: var(--text-body); max-width: 680px; margin-bottom: 40px; line-height: 1.8; }
+
+/* KTR FÖRKLARING */
+.ktr-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 56px; }
+.ktr-card {
+  background: #fff; border: 1px solid var(--gray-200);
+  border-radius: 12px; padding: 28px 24px;
+  position: relative; overflow: hidden;
+}
+.ktr-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+}
+.ktr-card.k::before { background: #2B5BA8; }
+.ktr-card.t::before { background: #0D7377; }
+.ktr-card.r::before { background: #8B3A8F; }
+.ktr-card-letter {
+  font-family: 'Fraunces', serif; font-size: 48px; font-weight: 700;
+  line-height: 1; margin-bottom: 8px;
+}
+.ktr-card.k .ktr-card-letter { color: #2B5BA8; }
+.ktr-card.t .ktr-card-letter { color: #0D7377; }
+.ktr-card.r .ktr-card-letter { color: #8B3A8F; }
+.ktr-card-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+.ktr-card-desc { font-size: 14px; color: var(--text-body); line-height: 1.7; margin-bottom: 14px; }
+.ktr-card-fraga {
+  font-size: 13px; font-style: italic; color: var(--text-muted);
+  border-top: 1px solid var(--gray-200); padding-top: 12px;
+}
+.ktr-card-fraga strong { color: var(--text); font-style: normal; }
+
+/* TOLKSTER KTR-TABELL */
+.ktr-table-wrap { margin-bottom: 56px; }
+.ktr-table {
+  width: 100%; border-collapse: collapse;
+  border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden;
+  font-size: 14px;
+}
+.ktr-table th {
+  background: var(--blue-dark); color: #fff;
+  padding: 12px 16px; text-align: left; font-weight: 600;
+  font-size: 12px; letter-spacing: .04em;
+}
+.ktr-table td { padding: 14px 16px; border-bottom: 1px solid var(--gray-200); color: var(--text-body); vertical-align: top; }
+.ktr-table tr:last-child td { border-bottom: none; }
+.ktr-table tr:nth-child(even) td { background: var(--gray-50); }
+.klass-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  font-weight: 700; font-size: 14px; color: #fff;
+}
+.klass-1 { background: #4CAF50; }
+.klass-2 { background: #FF9800; }
+.klass-3 { background: #E53935; }
+
+/* ÅTGÄRDER */
+.atgard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 56px; }
+.atgard-card {
+  background: #fff; border: 1px solid var(--gray-200);
+  border-radius: 10px; padding: 24px 22px;
+}
+.atgard-icon { font-size: 24px; margin-bottom: 12px; }
+.atgard-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.atgard-desc { font-size: 13px; color: var(--text-body); line-height: 1.7; }
+.atgard-badge {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 4px; margin-top: 8px;
+  background: var(--blue-light); color: var(--blue-dark);
+}
+
+/* CYCI */
+.cyci-block {
+  background: var(--blue-pale); border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--blue); border-radius: 10px;
+  padding: 28px 28px; margin-bottom: 56px;
+}
+.cyci-block h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: var(--blue-dark); margin-bottom: 10px; }
+.cyci-block p { font-size: 15px; color: var(--text-body); line-height: 1.8; }
+.cyci-block strong { color: var(--blue-dark); }
+
+/* RIKTIGHET-VARNING */
+.riktighet-warn {
+  background: #FFF8E1; border: 1px solid #FFD54F;
+  border-left: 4px solid #FF8F00; border-radius: 10px;
+  padding: 24px 28px; margin-bottom: 56px;
+}
+.riktighet-warn h3 { font-size: 15px; font-weight: 600; color: #5D4037; margin-bottom: 8px; }
+.riktighet-warn p { font-size: 14px; color: #5D4037; line-height: 1.7; }
+
+/* CTA */
+.ktr-cta {
+  background: var(--blue-dark); border-radius: 12px;
+  padding: 48px 44px; text-align: center;
+}
+.ktr-cta h3 { font-family: 'Fraunces', serif; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: #fff; margin-bottom: 12px; }
+.ktr-cta p { font-size: 15px; color: rgba(255,255,255,.65); margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.ktr-cta a {
+  display: inline-block; background: #fff; color: var(--blue-dark);
+  padding: 13px 34px; border-radius: 5px; font-size: 14px; font-weight: 700;
+  text-decoration: none; transition: opacity .2s;
+}
+.ktr-cta a:hover { opacity: .9; }
+
+@media(max-width:680px){
+  .ktr-hero { padding: 48px 20px 40px; }
+  .ktr-main { padding: 40px 20px 60px; }
+  .ktr-grid, .atgard-grid { grid-template-columns: 1fr; }
+  .ktr-score-row { grid-template-columns: 1fr; }
+  .ktr-table { font-size: 13px; }
+  .ktr-table th, .ktr-table td { padding: 10px 12px; }
+}
+</style>
+
+<!-- HERO -->
+<div class="ktr-hero">
+  <div class="ktr-hero-inner">
+    <div class="ktr-tag">Informationssäkerhet</div>
+    <h1>Tolkster och <em>KTR</em></h1>
+    <p class="ktr-hero-lead">Hur Tolkster förhåller sig till Konfidentialitet, Tillgänglighet och Riktighet — de tre grundläggande säkerhetsaspekterna som styr informationsklassning i svenska kommuner och myndigheter.</p>
+    <div class="ktr-score-row">
+      <div class="ktr-score">
+        <div><span class="letter">K</span><span class="klass">2</span></div>
+        <div class="desc">Konfidentialitet — skyddad, ej lagrad</div>
+      </div>
+      <div class="ktr-score">
+        <div><span class="letter">T</span><span class="klass">2</span></div>
+        <div class="desc">Tillgänglighet — hög driftsäkerhet</div>
+      </div>
+      <div class="ktr-score">
+        <div><span class="letter">R</span><span class="klass">2</span></div>
+        <div class="desc">Riktighet — handläggaren fattar beslut</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="ktr-main">
+
+  <!-- VAD ÄR KTR -->
+  <div class="section-eyebrow">Bakgrund</div>
+  <h2 class="section-title">Vad är KTR?</h2>
+  <p class="section-lead">KTR är en metod för informationsklassning som används av svenska kommuner, regioner och myndigheter för att avgöra vilka säkerhetsåtgärder som krävs för ett givet IT-system eller informationsflöde. Den bygger på MSBs vägledning och ISO 27000-standarden.</p>
+
+  <div class="ktr-grid">
+    <div class="ktr-card k">
+      <div class="ktr-card-letter">K</div>
+      <div class="ktr-card-title">Konfidentialitet</div>
+      <div class="ktr-card-desc">Skyddar information från obehörig åtkomst. Handlar om vem som får läsa, bearbeta eller vidarebefordra information.</div>
+      <div class="ktr-card-fraga"><strong>Frågan:</strong> Vem får ta del av informationen?</div>
+    </div>
+    <div class="ktr-card t">
+      <div class="ktr-card-letter">T</div>
+      <div class="ktr-card-title">Tillgänglighet</div>
+      <div class="ktr-card-desc">Säkerställer att system och information finns tillgängliga när de behövs — dygnet runt och utan oplanerade avbrott.</div>
+      <div class="ktr-card-fraga"><strong>Frågan:</strong> Kan rätt person komma åt informationen i rätt tid?</div>
+    </div>
+    <div class="ktr-card r">
+      <div class="ktr-card-letter">R</div>
+      <div class="ktr-card-title">Riktighet</div>
+      <div class="ktr-card-desc">Säkerställer att information är korrekt, fullständig och inte har manipulerats. Grunden för att kunna fatta rättssäkra beslut.</div>
+      <div class="ktr-card-fraga"><strong>Frågan:</strong> Går det att lita på informationen?</div>
+    </div>
+  </div>
+
+  <!-- TOLKSTER KTR-KLASSNING -->
+  <div class="section-eyebrow">Tolksters klassning</div>
+  <h2 class="section-title">Hur klassas Tolkster?</h2>
+  <p class="section-lead">Tolkster är ett kommunikations- och dokumentationssystem — inte ett journalsystem eller ärendehanteringssystem. Klassningen utgår från att Tolkster används som ett komplement i första linje, med handläggaren som beslutsfattare.</p>
+
+  <div class="ktr-table-wrap">
+    <table class="ktr-table">
+      <thead>
+        <tr>
+          <th>Aspekt</th>
+          <th>Klass</th>
+          <th>Motivering</th>
+          <th>Tolksters åtgärd</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>K — Konfidentialitet</strong></td>
+          <td><span class="klass-badge klass-2">2</span></td>
+          <td>Tolkster behandlar samtalsinformation i realtid. Inga personuppgifter eller journaldata lagras av Tolkster efter samtalets slut. Transkript stannar i handläggarens system, inte hos Tolkster.</td>
+          <td>Krypterad överföring (TLS), ingen persistent lagring av samtalsinneåll, GDPR-DPA på plats med samtliga underprocessorer.</td>
+        </tr>
+        <tr>
+          <td><strong>T — Tillgänglighet</strong></td>
+          <td><span class="klass-badge klass-2">2</span></td>
+          <td>Tolkster är ett stödsystem, inte ett primärt verksamhetssystem. Ett avbrott är problematiskt men stoppar inte kärnverksamheten — handläggaren kan alltid falla tillbaka på befintligt tolkavtal (CYCI-funktionen).</td>
+          <td>Hög driftsäkerhet via molninfrastruktur, redundans och automatisk failover. Azure TTS som backup om primär TTS-leverantör är otillgänglig.</td>
+        </tr>
+        <tr>
+          <td><strong>R — Riktighet</strong></td>
+          <td><span class="klass-badge klass-2">2</span></td>
+          <td>AI-baserad maskinöversättning kan inte garantera klass 3-riktighet i alla situationer, särskilt för ovanligare språkpar. Tolkster är ett kommunikationsverktyg — beslutsfattandet ligger alltid hos handläggaren.</td>
+          <td>CYCI-funktion (Contact Your Contracted Interpreter) för eskalering, tydlig handläggardokumentation, proaktiv information om kända språkparbegränsningar (somaliska, tigrinska).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RIKTIGHET-VARNING -->
+  <div class="riktighet-warn">
+    <h3>⚠ Viktigt om Riktighet (R) i rättsliga och medicinska sammanhang</h3>
+    <p>För ärenden där en felaktig tolkning kan leda till rättsliga konsekvenser — asylutredningar, domstolsförhandlingar, diagnosbeslut — klassas riktigheten som klass 3. I dessa situationer ska alltid auktoriserad tolk anlitas via er tolkförmedling. Tolkster är inte avsett för och ska inte användas som primärt kommunikationsmedel i klass 3-situationer.</p>
+  </div>
+
+  <!-- CYCI -->
+  <div class="cyci-block">
+    <h3>CYCI — den inbyggda eskaleringsfunktionen</h3>
+    <p>Tolkster innehåller en inbyggd fallback-funktion kallad <strong>CYCI (Contact Your Contracted Interpreter)</strong>. Med ett tryck kopplar systemet handläggaren till er kommuns befintliga tolkförmedling — utan att lämna Tolkster-gränssnittet. Det är den strukturella lösningen på riktighetsproblemet: Tolkster identifierar sin begränsning och lämnar över till en människa. Det är också det som håller Tolkster juridiskt klassificerat som ett IT-system, inte en tolkförmedling.</p>
+  </div>
+
+  <!-- ÅTGÄRDER -->
+  <div class="section-eyebrow">Tekniska skyddsåtgärder</div>
+  <h2 class="section-title">Vad Tolkster gör för att möta KTR-kraven</h2>
+  <p class="section-lead">Nedan följer de konkreta tekniska och organisatoriska åtgärder som Tolkster vidtagit i relation till KTR-klassningen.</p>
+
+  <div class="atgard-grid">
+    <div class="atgard-card">
+      <div class="atgard-icon">🔐</div>
+      <div class="atgard-title">Krypterad kommunikation</div>
+      <div class="atgard-desc">All data i transit krypteras med TLS 1.2 eller högre. Inga samtal eller transskript skickas i klartext.</div>
+      <span class="atgard-badge">K-åtgärd</span>
+    </div>
+    <div class="atgard-card">
+      <div class="atgard-icon">🗑️</div>
+      <div class="atgard-title">Ingen persistent lagring</div>
+      <div class="atgard-desc">Tolkster lagrar inte samtalsinneåll efter sessionen. Eventuell transkription hanteras av handläggaren i det egna verksamhetssystemet.</div>
+      <span class="atgard-badge">K-åtgärd</span>
+    </div>
+    <div class="atgard-card">
+      <div class="atgard-icon">⚡</div>
+      <div class="atgard-title">Redundant infrastruktur</div>
+      <div class="atgard-desc">Tolkster körs på molninfrastruktur med automatisk redundans. Azure TTS fungerar som automatisk backup vid avbrott hos primär leverantör.</div>
+      <span class="atgard-badge">T-åtgärd</span>
+    </div>
+    <div class="atgard-card">
+      <div class="atgard-icon">📋</div>
+      <div class="atgard-title">GDPR-DPA med underprocessorer</div>
+      <div class="atgard-desc">Personuppgiftsbiträdesavtal tecknade med samtliga underprocessorer. Databehandling sker inom EU/EES-området.</div>
+      <span class="atgard-badge">K-åtgärd</span>
+    </div>
+    <div class="atgard-card">
+      <div class="atgard-icon">🧑‍⚖️</div>
+      <div class="atgard-title">Handläggaren fattar beslut</div>
+      <div class="atgard-desc">Tolkster levererar kommunikationsunderlag — aldrig bindande beslut. Allt beslutsfattande stannar hos behörig handläggare i enlighet med myndighetens egna riktlinjer.</div>
+      <span class="atgard-badge">R-åtgärd</span>
+    </div>
+    <div class="atgard-card">
+      <div class="atgard-icon">🔁</div>
+      <div class="atgard-title">CYCI-eskalering</div>
+      <div class="atgard-desc">Inbyggd funktion för direkt koppling till er tolkförmedling när AI-stöd inte är tillräckligt. Aktiveras med ett tryck, utan att lämna systemet.</div>
+      <span class="atgard-badge">R-åtgärd</span>
+    </div>
+    <div class="atgard-card">
+      <div class="atgard-icon">📊</div>
+      <div class="atgard-title">Spårbarhet och loggning</div>
+      <div class="atgard-desc">Varje session loggas med tidpunkt, längd, språkpar och enhet. Loggar kan exporteras för intern granskning och tillsynsmyndigheternas behov.</div>
+      <span class="atgard-badge">K + R-åtgärd</span>
+    </div>
+    <div class="atgard-card">
+      <div class="atgard-icon">🌐</div>
+      <div class="atgard-title">Domänlexikon per verksamhet</div>
+      <div class="atgard-desc">Tolkster injicerar verksamhetsspecifika termer vid sessionsstart, vilket förbättrar precision i juridiska, medicinska och sociala termer inom respektive domän.</div>
+      <span class="atgard-badge">R-åtgärd</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="ktr-cta">
+    <h3>Vill ni gå igenom KTR-klassningen för er verksamhet?</h3>
+    <p>Vi tar fram ett anpassat KTR-underlag för er specifika verksamhetstyp och säkerhetsklassning — kostnadsfritt inför ett eventuellt pilotprojekt.</p>
+    <a href="mailto:info@tolkster.ai?subject=KTR-underlag%20%E2%80%94%20fr%C3%A5ga%20om%20Tolkster">Begär KTR-underlag</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Tolkster</span>
+    <p>Global Instant Translations AB · <a href="mailto:info@tolkster.ai">info@tolkster.ai</a> · <a href="juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
+    <p>© 2026 Tolkster</p>
+  </div>
+</footer>
+</body>
+</html>
