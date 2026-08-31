@@ -373,6 +373,25 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <a href="mailto:info@tolkster.ai?subject=Intresseanm%C3%A4lan%20%E2%80%94%20Tolkster%20Kommun" class="nav-cta">Kontakta oss</a>
   </div>
 </nav>
+<script>
+!function(){
+  function closeAll(){
+    document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.classList.remove('is-open');});
+    document.querySelectorAll('.nav-dd-menu').forEach(function(m){m.classList.remove('is-open');});
+  }
+  window._navToggle=function(id){
+    var menu=document.getElementById('ndm-'+id);
+    var btn=document.getElementById('ndb-'+id);
+    if(!menu||!btn)return;
+    var wasOpen=menu.classList.contains('is-open');
+    closeAll();
+    if(!wasOpen){menu.classList.add('is-open');btn.classList.add('is-open');}
+  };
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.nav-dd'))closeAll();
+  });
+}();
+</script>
 <div id="mob-menu" style="display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:#1B3A6B;z-index:8888;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px 0 48px;">
 <a href="index.html#utmaningen" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Utmaningen</a>
 <a href="produkt-core.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Lösningen</a>
