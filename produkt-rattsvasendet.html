@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tolkster Rättsväsende — Tolkster</title>
+  <meta name="description" content="Tolkster — AI-driven realtidskommunikation för socialtjänst i offentlig sektor. GDPR-säkert, alltid redo, prissatt under direktupphandlingsgränsen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script>(function(ss,ex){window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));};(function(d,s){fs=d.getElementsByTagName(s)[0];function ce(src){var cs=d.createElement(s);cs.src=src;cs.async=1;fs.parentNode.insertBefore(cs,fs);};ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js');})( document,'script');})('Xbp1oaE5PzvaEdVj');</script>
+<style>
+:root {
+  --blue:        #2B5BA8;
+  --blue-dark:   #1B3A6B;
+  --blue-mid:    #3A6EC0;
+  --blue-light:  #EBF2FF;
+  --blue-pale:   #F0F5FF;
+  --white:       #FFFFFF;
+  --gray-50:     #F8FAFC;
+  --gray-100:    #EFF3F8;
+  --gray-200:    #DDE4EF;
+  --gray-400: #6B7FA3;
+  --text: #0A1628;
+  --text-body: #243255;
+  --text-muted: #4A5D80;
+  --red:         #C0392B;
+  --red-bg:      #FDE8E8;
+  --green:       #1A7A4A;
+  --green-bg:    #E8F5EE;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--text);line-height:1.7;}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav{
+  background:var(--blue-dark);
+  padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 16px rgba(0,0,0,.2);
+}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.nav-logo-icon{width:28px;height:28px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.nav-logo-icon svg{width:14px;height:14px;}
+.nav-logo-text{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:-.02em;}
+
+.nav-center{display:flex;align-items:center;gap:4px;}
+.nav-dropdown{position:relative;}
+.nav-dropdown-btn{
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.8);font-size:13px;font-family:'DM Sans',sans-serif;
+  padding:8px 12px;border-radius:4px;display:flex;align-items:center;gap:5px;
+  transition:background .15s,color .15s;
+}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.open{background:rgba(255,255,255,.1);color:#fff;}
+.nav-dropdown-btn svg{width:10px;height:10px;transition:transform .15s;}
+.nav-dropdown-btn.open svg{transform:rotate(180deg);}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 8px);left:0;
+  background:#fff;border-radius:8px;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);
+  border:0.5px solid var(--gray-200);
+  min-width:200px;padding:6px;
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .15s,transform .15s,visibility .15s;
+  z-index:300;
+}
+.nav-dropdown-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{
+  display:block;padding:8px 12px;font-size:13px;color:var(--text-body);
+  text-decoration:none;border-radius:5px;transition:background .1s,color .1s;
+}
+.nav-dropdown-menu a:hover{background:var(--blue-light);color:var(--blue);}
+.nav-dropdown-divider{height:0.5px;background:var(--gray-200);margin:4px 0;}
+.nav-dropdown-label{padding:6px 12px 2px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-400);}
+
+.nav-right{display:flex;align-items:center;gap:8px;}
+.nav-back{color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;padding:6px 10px;border-radius:4px;transition:all .15s;}
+.nav-back:hover{color:#fff;background:rgba(255,255,255,.1);}
+.nav-cta{background:#fff;color:var(--blue-dark);font-size:13px;font-weight:600;padding:8px 20px;border-radius:5px;text-decoration:none;transition:opacity .2s;flex-shrink:0;}
+.nav-cta:hover{opacity:.88;}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.hero{
+  background:linear-gradient(135deg, var(--blue-dark) 0%, #0D2347 100%);
+  padding:72px 48px 64px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 85% 30%, rgba(43,91,168,.5) 0%, transparent 55%),
+             radial-gradient(ellipse at 15% 80%, rgba(43,91,168,.3) 0%, transparent 45%);
+  pointer-events:none;
+}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2);
+  padding:4px 12px;border-radius:20px;margin-bottom:24px;
+}
+.hero-tag::before{content:'';display:inline-block;width:5px;height:5px;background:#6EC6FF;border-radius:50%;}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,4.5vw,50px);font-weight:700;
+  color:#fff;line-height:1.12;margin-bottom:18px;letter-spacing:-.02em;
+}
+.hero h1 em{font-style:italic;color:#6EC6FF;}
+.hero-hook{font-size:17px;color:rgba(255,255,255,.72);line-height:1.8;max-width:560px;font-weight:300;}
+
+/* stats bar */
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;margin-top:36px;overflow:hidden;
+}
+.stat{background:rgba(255,255,255,.07);padding:16px 20px;}
+.stat-num{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:#fff;}
+.stat-label{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;line-height:1.4;}
+
+/* ── BREADCRUMB ──────────────────────────────────────────────── */
+.breadcrumb{background:var(--blue-dark);border-bottom:1px solid rgba(255,255,255,.08);padding:9px 48px;}
+.breadcrumb-inner{max-width:760px;margin:0 auto;font-size:12px;color:rgba(255,255,255,.70);}
+.breadcrumb-inner a{color:rgba(255,255,255,.65);text-decoration:none;}
+.breadcrumb-inner a:hover{color:#fff;}
+
+/* ── MAIN ────────────────────────────────────────────────────── */
+.main{max-width:760px;margin:0 auto;padding:56px 48px 100px;}
+
+/* ── INTRO ───────────────────────────────────────────────────── */
+.intro-block{margin-bottom:44px;}
+.intro-block p{font-size:17px;color:var(--text-body);line-height:1.85;margin-bottom:16px;}
+.intro-block p:last-child{margin-bottom:0;}
+
+/* ── SECTION ─────────────────────────────────────────────────── */
+.section{margin-bottom:52px;}
+.section-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:10px;
+}
+.section-label::before{content:'';display:inline-block;width:14px;height:2px;background:var(--blue);border-radius:2px;}
+h2{font-family:'Fraunces',serif;font-size:25px;font-weight:600;color:var(--text);margin-bottom:18px;line-height:1.3;letter-spacing:-.01em;}
+p{font-size:16px;color:var(--text-body);margin-bottom:14px;line-height:1.8;}
+p:last-child{margin-bottom:0;}
+
+/* ── BENEFITS GRID ───────────────────────────────────────────── */
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+.benefit-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:18px 20px;border-top:3px solid var(--blue);
+  transition:box-shadow .2s,transform .2s;
+}
+.benefit-card:hover{box-shadow:0 4px 16px rgba(43,91,168,.1);transform:translateY(-1px);}
+.benefit-card h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px;}
+.benefit-card p{font-size:13px;color:var(--text-muted);line-height:1.6;margin:0;}
+.benefit-card.specific{border-top-color:var(--blue-dark);background:var(--blue-light);}
+.benefit-card.specific h3{color:var(--blue-dark);}
+
+/* ── MODES ───────────────────────────────────────────────────── */
+.modes{display:grid;gap:8px;margin-top:18px;}
+.mode-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:18px 22px;border-left:4px solid var(--blue);
+  display:grid;grid-template-columns:100px 1fr;gap:0 16px;align-items:start;
+  transition:border-color .15s,box-shadow .15s;
+}
+.mode-card:hover{border-left-color:var(--blue-mid);box-shadow:0 2px 10px rgba(43,91,168,.08);}
+.mode-card h3{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;padding-top:2px;}
+.mode-card p{font-size:14px;color:var(--text-body);margin:0;line-height:1.65;}
+
+/* ── LAW BOX ─────────────────────────────────────────────────── */
+.law-box{
+  background:var(--blue-dark);border-radius:8px;padding:28px 32px;margin-top:18px;
+}
+.law-box p{font-size:15px;color:rgba(255,255,255,.82);line-height:1.8;}
+.law-box p+p{margin-top:12px;}
+
+/* ── INTEGRATION ─────────────────────────────────────────────── */
+.integration-box{
+  background:var(--blue-light);border-radius:8px;padding:22px 26px;
+  border:1px solid rgba(43,91,168,.15);margin-top:18px;
+}
+.integration-box p{font-size:15px;color:var(--text-body);margin:0;}
+
+/* ── RESULT ──────────────────────────────────────────────────── */
+.result-box{
+  background:var(--blue);border-radius:8px;padding:28px 32px;margin-top:18px;
+}
+.result-box p{color:#fff;font-size:16px;margin:0;line-height:1.8;}
+
+/* ── DIVIDER ─────────────────────────────────────────────────── */
+.divider{height:1px;background:var(--gray-200);margin:44px 0;}
+
+/* ── GOOGLE SNIPPET ──────────────────────────────────────────── */
+.google-snippet{
+  background:var(--red-bg);border:1px solid rgba(192,57,43,.15);
+  border-left:4px solid var(--red);border-radius:0 8px 8px 0;
+  padding:16px 22px;margin:44px 0 22px;
+}
+.google-snippet p{font-size:14px;color:#3d3d3d;margin:0;line-height:1.7;}
+.google-snippet strong{color:var(--red);}
+.google-snippet a{color:var(--blue);font-weight:500;text-decoration:underline;}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.cta-section{
+  background:linear-gradient(135deg,var(--blue-dark) 0%,#0D2347 100%);
+  border-radius:10px;padding:44px 40px;text-align:center;
+}
+.cta-section h2{color:#fff;font-size:24px;margin-bottom:10px;}
+.cta-section p{color:rgba(255,255,255,.75);font-size:15px;margin-bottom:26px;}
+.cta-btn{
+  display:inline-block;background:#fff;color:var(--blue-dark);
+  font-weight:700;font-size:14px;padding:13px 32px;border-radius:6px;
+  text-decoration:none;letter-spacing:.02em;transition:all .2s;
+  box-shadow:0 2px 12px rgba(0,0,0,.15);
+}
+.cta-btn:hover{background:var(--blue-light);transform:translateY(-1px);}
+.cta-btn-outline{
+  display:inline-block;background:transparent;color:rgba(255,255,255,.8);
+  font-size:13px;font-weight:500;padding:10px 22px;border-radius:6px;
+  text-decoration:none;border:1px solid rgba(255,255,255,.3);margin-left:10px;
+  transition:all .2s;
+}
+.cta-btn-outline:hover{background:rgba(255,255,255,.1);color:#fff;}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer{background:var(--blue-dark);padding:32px 48px;border-top:1px solid rgba(255,255,255,.08);}
+.footer-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer p{color:rgba(255,255,255,.65);font-size:12px;margin:0;}
+footer a{color:rgba(255,255,255,.8);text-decoration:none;}
+footer a:hover{color:#6EC6FF;}
+.footer-logo{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#fff;}
+
+/* ── INDEX ───────────────────────────────────────────────────── */
+.sector-section{margin-bottom:44px;}
+.sector-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.sector-badge{
+  display:inline-block;background:var(--blue-dark);color:#fff;
+  font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;white-space:nowrap;
+}
+.sector-line{flex:1;height:1px;background:var(--gray-200);}
+.unit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
+.unit-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:8px;
+  padding:16px 18px;text-decoration:none;transition:all .2s;display:block;
+  border-bottom:3px solid transparent;
+}
+.unit-card:hover{border-color:var(--blue);border-bottom-color:var(--blue);box-shadow:0 4px 16px rgba(43,91,168,.1);transform:translateY(-2px);}
+.unit-card h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.unit-card p{font-size:11.5px;color:var(--text-muted);margin:0;line-height:1.5;}
+
+/* ── JURIDIK ─────────────────────────────────────────────────── */
+.risk-grid{display:grid;gap:6px;margin-top:18px;}
+.risk-row{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;
+  background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:12px 16px;
+}
+.risk-row h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.risk-row p{font-size:12px;color:var(--text-muted);margin:0;}
+.badge{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.badge-red{background:var(--red-bg);color:var(--red);}
+.badge-amber{background:#FEF3E2;color:#C07000;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+.compare-card{border-radius:8px;padding:22px;}
+.compare-bad{background:var(--red-bg);border:1px solid rgba(192,57,43,.15);}
+.compare-good{background:var(--green-bg);border:1px solid rgba(26,122,74,.15);}
+.compare-card h3{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+.compare-bad h3{color:var(--red);}
+.compare-good h3{color:var(--green);}
+.compare-item{display:flex;gap:8px;margin-bottom:8px;font-size:13px;color:var(--text-body);line-height:1.5;}
+
+@media(max-width:680px){
+  nav{padding:0 16px;}
+  .nav-center{display:none;}
+  .hero{padding:52px 20px 48px;}
+  .breadcrumb{padding:8px 20px;}
+  .main{padding:36px 20px 80px;}
+  .benefits-grid{grid-template-columns:1fr;}
+  .mode-card{grid-template-columns:1fr;gap:3px;}
+  .compare-grid{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr;}
+  .cta-section{padding:32px 20px;}
+  .cta-btn-outline{display:none;}
+  footer{padding:24px 20px;}
+  .footer-inner{flex-direction:column;gap:6px;}
+}
+
+.positioning-note{
+  background:#EFF3F8;
+  border:1px solid #DDE4EF;
+  border-left:4px solid #1B3A6B;
+  border-radius:0 8px 8px 0;
+  padding:16px 22px;
+  margin:0 0 22px;
+}
+.positioning-note p{font-size:13.5px;color:#374868;margin:0;line-height:1.7;}
+.positioning-note strong{color:#1B3A6B;}
+</style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0M2ETWX4H"></script><style>
+.prod-hero{background:linear-gradient(135deg,#0D1F3C 0%,#1B3A6B 100%);padding:72px 48px 64px;position:relative;overflow:hidden;}
+.prod-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(43,91,168,.3) 0%,transparent 65%);pointer-events:none;}
+.prod-hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1;}
+.prod-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.18);padding:4px 13px;border-radius:20px;margin-bottom:22px;}
+.prod-tag::before{content:'';width:5px;height:5px;background:#6EC6FF;border-radius:50%;display:inline-block;}
+.prod-hero h1{font-family:'Fraunces',serif;font-size:clamp(28px,4.5vw,50px);font-weight:700;color:#fff;line-height:1.12;margin-bottom:18px;letter-spacing:-.02em;}
+.prod-hero h1 em{font-style:italic;color:#6EC6FF;}
+.prod-hero-lead{font-size:17px;color:rgba(255,255,255,.72);line-height:1.8;max-width:600px;font-weight:300;margin-bottom:32px;}
+.prod-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-prim{background:#0D7377;color:#fff;padding:13px 28px;border-radius:5px;font-size:14px;font-weight:600;text-decoration:none;transition:background .2s;}
+.btn-prim:hover{background:#14A0A5;}
+.btn-sec{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:12px 28px;border-radius:5px;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;}
+.btn-sec:hover{background:rgba(255,255,255,.18);}
+.prod-main{max-width:860px;margin:0 auto;padding:64px 48px 100px;}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#2B5BA8;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.eyebrow::before{content:'';display:inline-block;width:14px;height:2px;background:#2B5BA8;border-radius:2px;}
+.prod-h2{font-family:'Fraunces',serif;font-size:clamp(22px,3.5vw,32px);font-weight:700;color:#1a1a1a;line-height:1.2;margin-bottom:14px;}
+.prod-lead{font-size:16px;color:#4a5568;max-width:680px;margin-bottom:40px;line-height:1.8;}
+.prod-section{margin-bottom:56px;}
+.problem-block{background:#fff;border:1px solid #DDE4EF;border-left:4px solid #2B5BA8;border-radius:10px;padding:28px 32px;margin-bottom:40px;}
+.problem-block p{font-size:16px;color:#2d3748;line-height:1.8;}
+.domain-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
+.domain-pill{background:#EBF2FF;color:#1B3A6B;border:1px solid #BDD0F5;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;}
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px;}
+.feature-card{background:#fff;border:1px solid #DDE4EF;border-radius:10px;padding:24px 22px;}
+.feature-icon{font-size:22px;margin-bottom:10px;}
+.feature-title{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:7px;}
+.feature-desc{font-size:13px;color:#4a5568;line-height:1.7;}
+.principle-block{background:#0D1F3C;border-radius:12px;padding:36px 40px;margin-bottom:40px;text-align:center;}
+.principle-block p{font-size:22px;font-weight:600;color:#fff;font-family:'Fraunces',serif;}
+.principle-block em{color:#6EC6FF;font-style:italic;}
+.cta-block{background:#1B3A6B;border-radius:12px;padding:48px 44px;text-align:center;}
+.cta-block h3{font-family:'Fraunces',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:#fff;margin-bottom:12px;}
+.cta-block p{font-size:15px;color:rgba(255,255,255,.65);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+.calc-callout{background:#E8F5EE;border:1px solid #86C8A0;border-radius:10px;padding:28px 32px;margin:32px 0;font-size:16px;color:#1A4731;line-height:1.8;}
+.calc-callout strong{color:#0D5C2E;font-size:18px;}
+.verticals-table{width:100%;border-collapse:collapse;border:1px solid #DDE4EF;border-radius:10px;overflow:hidden;margin-bottom:40px;}
+.verticals-table th{background:#1B3A6B;color:#fff;padding:12px 18px;text-align:left;font-size:13px;font-weight:600;}
+.verticals-table td{padding:14px 18px;border-bottom:1px solid #DDE4EF;font-size:14px;color:#2d3748;}
+.verticals-table tr:last-child td{border-bottom:none;}
+.verticals-table td:first-child{font-weight:600;color:#1B3A6B;}
+.verticals-table a{color:#0D7377;text-decoration:none;font-weight:600;}
+.verticals-table a:hover{text-decoration:underline;}
+.core-bullets{list-style:none;padding:0;margin:0 0 40px;}
+.core-bullets li{padding:12px 0;border-bottom:1px solid #EDF2F7;font-size:15px;color:#2d3748;display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.core-bullets li:last-child{border-bottom:none;}
+.core-bullets li::before{content:'→';color:#0D7377;font-weight:700;flex-shrink:0;margin-top:1px;}
+.core-bullets li strong{color:#1B3A6B;}
+@media(max-width:680px){
+  .prod-hero{padding:48px 20px 40px;}
+  .prod-main{padding:40px 20px 60px;}
+  .features-grid{grid-template-columns:1fr;}
+  .cta-block{padding:36px 20px;}
+  .principle-block{padding:28px 20px;}
+}
+</style>
+
+<div class="prod-hero">
+  <div class="prod-hero-inner">
+    <div class="prod-tag">Rättsväsende</div>
+    <h1>Språkstöd tillgängligt <em>i samma stund som situationen kräver det</em></h1>
+    <p class="prod-hero-lead">Från första kontakt till förhör och rättegång — Tolkster Rättsväsende ger rättskedjan tillgång till språkstöd direkt, med mänsklig tolk kvar som säkerhetsventil när situationen kräver det.</p>
+    <div class="prod-btns">
+      <a href="mailto:info@tolkster.ai?subject=Demo%20%E2%80%94%20Tolkster%20R%C3%A4ttsv%C3%A4sende" class="btn-prim">Boka en demo</a>
+      <a href="mailto:info@tolkster.ai?subject=Produktblad%20Tolkster%20R%C3%A4ttsv%C3%A4sende" class="btn-sec">Ladda ner produktbladet</a>
+    </div>
+  </div>
+</div>
+
+<main class="prod-main">
+
+<div class="prod-section">
+  <div class="eyebrow">Problemet vi löser</div>
+  <h2 class="prod-h2">Tolkbehov uppstår ofta plötsligt — att vänta är sällan ett alternativ</h2>
+  <div class="problem-block">
+    <p>I rättskedjan uppstår behovet av tolkning ofta vid ett gripande, ett spontant förhör, en initial kontakt. Att vänta på en bokad tolk är sällan ett alternativ, samtidigt som varje moment ställer höga krav på korrekt och rättssäker kommunikation.</p>
+  </div>
+</div>
+
+<div class="prod-section">
+  <div class="eyebrow">Domänbibliotek</div>
+  <h2 class="prod-h2">Byggt för rättskedjan</h2>
+  <p class="prod-lead">Tolkster Rättsväsende riktar sig till Polis, Åklagarmyndigheten, Domstolsverket och Kriminalvården — med domänbibliotek och funktioner anpassade för varje led i rättskedjan.</p>
+  <div class="domain-pills">
+    <span class="domain-pill">Förhör</span><span class="domain-pill">Arrest</span><span class="domain-pill">Initiala kontakter</span><span class="domain-pill">Klientkommunikation</span><span class="domain-pill">Kriminalvård</span><span class="domain-pill">Domstol</span><span class="domain-pill">Rättslig terminologi</span>
+  </div>
+</div>
+
+<div class="prod-section">
+  <div class="eyebrow">Principen</div>
+  <h2 class="prod-h2">AI first. Human when required.</h2>
+  <div class="principle-block">
+    <p>Vissa situationer inom rättsväsendet kräver alltid en mänsklig tolk. Tolkster Rättsväsende är byggt kring den principen: <em>AI hanterar volymen direkt</em> — Human finns som säkerhetsventil när situationen kräver det.</p>
+  </div>
+</div>
+
+<div class="prod-section">
+  <div class="eyebrow">Vad verksamheten får</div>
+  <h2 class="prod-h2">Omedelbar tillgänglighet — rättssäker dokumentation</h2>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-title">Omedelbar tillgänglighet</div><div class="feature-desc">Språkstöd även vid oplanerade och akuta situationer — utan bokning.</div></div>
+    <div class="feature-card"><div class="feature-icon">⚖️</div><div class="feature-title">Rättssäker dokumentation</div><div class="feature-desc">Varje tolkat moment loggas automatiskt via Journal — tidpunkt, språk, längd.</div></div>
+    <div class="feature-card"><div class="feature-icon">📚</div><div class="feature-title">Anpassad terminologi</div><div class="feature-desc">Domänbibliotek byggda för rättskedjans specifika behov och juridiska terminologi.</div></div>
+    <div class="feature-card"><div class="feature-icon">🔁</div><div class="feature-title">Human som säkerhetsventil</div><div class="feature-desc">Mänsklig tolk tillgänglig direkt i gränssnittet när situationen kräver det.</div></div>
+  </div>
+</div>
+
+  <div class="cta-block">
+    <h3>Boka en demo</h3>
+    <p>Vi anpassar genomgången efter er verksamhet och er nuvarande situation.</p>
+    <div class="prod-btns" style="justify-content:center;">
+      <a href="mailto:info@tolkster.ai?subject=Demo%20%E2%80%94%20Tolkster%20R%C3%A4ttsv%C3%A4sende" class="btn-prim">Boka en demo</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Tolkster</span>
+    <p>Global Instant Translations AB · <a href="mailto:info@tolkster.ai">info@tolkster.ai</a> · <a href="juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
+    <p>© 2026 Tolkster</p>
+  </div>
+</footer>
+</body>
+</html>
