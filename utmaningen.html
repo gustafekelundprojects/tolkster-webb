@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utmaningen — Tolkster</title>
+  <meta name="description" content="Varför traditionell tolkförmedling inte längre räcker — och vad det kostar svenska kommuner, regioner och myndigheter i tid, pengar och rättssäkerhet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script>(function(ss,ex){window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));};(function(d,s){fs=d.getElementsByTagName(s)[0];function ce(src){var cs=d.createElement(s);cs.src=src;cs.async=1;fs.parentNode.insertBefore(cs,fs);};ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js');})( document,'script');})('Xbp1oaE5PzvaEdVj');</script>
+  <style>
+nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:9999;box-shadow:0 2px 16px rgba(0,0,0,.25);}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.nav-logo-img{height:36px;width:auto;display:block;filter:brightness(0) invert(1);}
+.nav-center{display:flex;align-items:center;gap:2px;}
+.nav-dd{position:relative;}
+.nav-dd-btn{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.8);font-size:13px;font-family:'DM Sans',sans-serif;padding:8px 12px;border-radius:4px;display:flex;align-items:center;gap:5px;transition:background .15s,color .15s;white-space:nowrap;}
+.nav-dd-btn:hover,.nav-dd-btn.is-open{background:rgba(255,255,255,.12);color:#fff;}
+.nav-dd-btn svg{transition:transform .15s;}
+.nav-dd-btn.is-open svg{transform:rotate(180deg);}
+.nav-dd-menu{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid #DDE4EF;min-width:195px;padding:5px;display:none;z-index:99999;}
+.nav-dd-menu.is-open{display:block;}
+.nav-dd-menu a{display:block;padding:8px 12px;font-size:13px;color:#374868;text-decoration:none;border-radius:5px;font-family:'DM Sans',sans-serif;white-space:nowrap;}
+.nav-dd-menu a:hover{background:#EBF2FF;color:#2B5BA8;}
+.nav-link{color:rgba(255,255,255,.8);font-size:13px;text-decoration:none;padding:8px 12px;border-radius:4px;font-family:'DM Sans',sans-serif;transition:background .15s,color .15s;white-space:nowrap;}
+.nav-link:hover{background:rgba(255,255,255,.12);color:#fff;}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.nav-cta{background:#fff;color:#1B3A6B;font-size:13px;font-weight:700;padding:8px 18px;border-radius:5px;text-decoration:none;transition:opacity .2s;white-space:nowrap;}
+.nav-cta:hover{opacity:.88;}
+#mob-btn{display:none;}
+@media(max-width:800px){#mob-btn{display:flex!important;}.nav-center{display:none!important;}.nav-cta{display:none!important;}body.menu-open{overflow:hidden;}}
+</style>
+  <style>
+/* PAGE */
+:root {
+  --navy: #1B3A6B;
+  --teal: #0D7377;
+  --teal-light: #14A0A5;
+  --cream: #F7F4EF;
+  --red: #C0392B;
+  --red-bg: #FDE8E8;
+  --amber: #D97706;
+  --amber-bg: #FEF3C7;
+  --green: #1A7A4A;
+  --green-bg: #E8F5EE;
+  --border: #DDE4EF;
+  --text: #0A1628;
+  --muted: #4A5D80;
+}
+body { background: #F8FAFC; font-family: 'DM Sans', sans-serif; color: var(--text); line-height: 1.7; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0D1F3C 0%, #1B3A6B 100%);
+  padding: 72px 48px 64px; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(192,57,43,.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.18);
+  padding: 4px 13px; border-radius: 20px; margin-bottom: 22px;
+}
+.hero-tag::before { content: ''; width: 5px; height: 5px; background: #FF6B6B; border-radius: 50%; display: inline-block; }
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 4.5vw, 50px); font-weight: 700;
+  color: #fff; line-height: 1.12; margin-bottom: 18px; letter-spacing: -.02em;
+}
+.hero h1 em { font-style: italic; color: #FF9B9B; }
+.hero-lead { font-size: 17px; color: rgba(255,255,255,.72); line-height: 1.8; max-width: 600px; font-weight: 300; }
+
+/* STATS ROW */
+.stat-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px; margin-top: 40px; overflow: hidden;
+}
+.stat-box { background: rgba(255,255,255,.06); padding: 20px 22px; }
+.stat-n { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 700; color: #fff; line-height: 1; }
+.stat-l { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; line-height: 1.4; }
+
+/* MAIN */
+.main { max-width: 900px; margin: 0 auto; padding: 64px 48px 100px; }
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--navy); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.eyebrow::before { content: ''; display: inline-block; width: 14px; height: 2px; background: var(--navy); border-radius: 2px; }
+.section-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(22px, 3.5vw, 32px); font-weight: 700;
+  color: var(--text); line-height: 1.2; margin-bottom: 14px;
+}
+.section-lead { font-size: 16px; color: var(--muted); max-width: 680px; margin-bottom: 40px; line-height: 1.8; }
+.section { margin-bottom: 64px; }
+
+/* PROBLEM CARDS */
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+.prob {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px 26px;
+  border-top: 4px solid transparent;
+}
+.prob.red { border-top-color: var(--red); }
+.prob.amber { border-top-color: var(--amber); }
+.prob.navy { border-top-color: var(--navy); }
+.prob.teal { border-top-color: var(--teal); }
+.prob-icon { font-size: 28px; margin-bottom: 12px; }
+.prob-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.prob-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.prob-stat {
+  margin-top: 14px; padding-top: 12px; border-top: 1px solid #EDF2F7;
+  font-size: 13px; font-weight: 500;
+}
+.prob.red .prob-stat { color: var(--red); }
+.prob.amber .prob-stat { color: var(--amber); }
+.prob.navy .prob-stat { color: var(--navy); }
+.prob.teal .prob-stat { color: var(--teal); }
+
+/* INFOGRAPHIC-STYLE BLOCKS */
+.cost-block {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; margin-bottom: 40px;
+}
+.cost-header {
+  background: var(--navy); padding: 20px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cost-header h3 { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: #fff; }
+.cost-header span { font-size: 12px; color: rgba(255,255,255,.6); }
+.cost-rows { padding: 0 28px; }
+.cost-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; border-bottom: 1px solid #EDF2F7;
+  font-size: 14px;
+}
+.cost-row:last-child { border-bottom: none; }
+.cost-row .label { color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.cost-row .price { font-weight: 600; color: var(--navy); }
+.cost-row .price.high { color: var(--red); }
+
+/* POTENTIAL BAR */
+.potential-block {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 32px 28px; margin-bottom: 40px;
+}
+.potential-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 20px; }
+.bar-row { margin-bottom: 16px; }
+.bar-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+.bar-label .bl { font-weight: 500; color: var(--text); }
+.bar-label .br { color: var(--muted); }
+.bar-track { height: 36px; background: #EDF2F7; border-radius: 6px; overflow: hidden; position: relative; }
+.bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 12px; }
+.bar-fill span { font-size: 14px; font-weight: 700; color: #fff; }
+.bar-green { background: linear-gradient(90deg, #1A7A4A, #2ECC71); }
+.bar-amber { background: linear-gradient(90deg, #D97706, #F59E0B); }
+.bar-red { background: linear-gradient(90deg, #C0392B, #E74C3C); }
+
+/* QUOTE / HIGHLIGHT */
+.highlight-block {
+  background: var(--amber-bg); border: 1px solid #FDE68A;
+  border-left: 4px solid var(--amber); border-radius: 10px;
+  padding: 24px 28px; margin-bottom: 40px;
+}
+.highlight-block p { font-size: 15px; color: #92400E; line-height: 1.8; }
+.highlight-block strong { color: #78350F; }
+
+.alert-block {
+  background: var(--red-bg); border: 1px solid #FECACA;
+  border-left: 4px solid var(--red); border-radius: 10px;
+  padding: 24px 28px; margin-bottom: 40px;
+}
+.alert-block p { font-size: 15px; color: #7F1D1D; line-height: 1.8; }
+.alert-block strong { color: #6B1919; }
+
+/* SOLUTION BRIDGE */
+.bridge {
+  background: linear-gradient(135deg, #0D1F3C, #1B3A6B);
+  border-radius: 16px; padding: 52px 48px; margin-top: 16px;
+  position: relative; overflow: hidden;
+}
+.bridge::before {
+  content: ''; position: absolute; bottom: -60px; right: -60px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(13,115,119,.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+.bridge h2 {
+  font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700; color: #fff; margin-bottom: 16px; position: relative;
+}
+.bridge h2 em { font-style: italic; color: #6EC6FF; }
+.bridge-lead { font-size: 16px; color: rgba(255,255,255,.72); line-height: 1.8; margin-bottom: 32px; max-width: 600px; position: relative; }
+.bridge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; position: relative; }
+.bridge-item {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px; padding: 18px 18px;
+}
+.bridge-item-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 5px; }
+.bridge-item-desc { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.6; }
+.bridge-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal); color: #fff;
+  padding: 13px 28px; border-radius: 5px; font-size: 14px; font-weight: 600;
+  text-decoration: none; transition: background .2s; position: relative;
+}
+.bridge-cta:hover { background: var(--teal-light); }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 32px; margin-bottom: 40px; }
+.timeline::before {
+  content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--border);
+}
+.tl-item { position: relative; margin-bottom: 24px; }
+.tl-item::before {
+  content: ''; position: absolute; left: -28px; top: 6px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--red); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--red);
+}
+.tl-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.tl-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+@media(max-width:680px){
+  .hero { padding: 48px 20px 40px; }
+  .main { padding: 40px 20px 60px; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .bridge-grid { grid-template-columns: 1fr; }
+  .bridge { padding: 36px 20px; }
+  .cost-header, .cost-rows { padding-left: 20px; padding-right: 20px; }
+}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-tolkster.png" alt="Tolkster" class="nav-logo-img">
+  </a>
+  <div class="nav-center">
+  <a href="index.html#utmaningen" class="nav-link">Utmaningen</a>
+    <div class="nav-dd">
+  <button class="nav-dd-btn" id="ndb-l" onclick="_navToggle('l')">Lösningen <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <div class="nav-dd-menu" id="ndm-l"><a href="produkt-core.html">Tolkster Core</a><a href="produkt-kommun.html">Tolkster Kommun</a><a href="produkt-vard.html">Tolkster Vård</a><a href="produkt-myndighet.html">Tolkster Myndighet</a><a href="produkt-rattsvasendet.html">Tolkster Rättsväsende</a><a href="produkt-juridik.html">Tolkster Juridik</a></div>
+</div>
+    <div class="nav-dd">
+  <button class="nav-dd-btn" id="ndb-k" onclick="_navToggle('k')">Kommun <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <div class="nav-dd-menu" id="ndm-k"><a href="socialtjanst.html">Socialtjänst</a><a href="skola.html">Skola</a><a href="sfi.html">SFI</a><a href="forskola.html">Förskola</a><a href="medborgarkontor.html">Medborgarkontor</a><a href="flyktingmottagning.html">Flyktingmottagning</a><a href="lss.html">LSS</a><a href="hemtjanst.html">Hemtjänst</a><a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a><a href="familjeratt.html">Familjerätt</a></div>
+</div>
+    <div class="nav-dd">
+  <button class="nav-dd-btn" id="ndb-r" onclick="_navToggle('r')">Region <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <div class="nav-dd-menu" id="ndm-r"><a href="vardcentral.html">Vårdcentral</a><a href="akutmottagning.html">Akutmottagning</a><a href="psykiatri.html">Psykiatri</a><a href="folktandvarden.html">Folktandvården</a><a href="bvc.html">BVC</a><a href="mvc.html">MVC</a><a href="beroendevard.html">Beroendevård</a></div>
+</div>
+    <div class="nav-dd">
+  <button class="nav-dd-btn" id="ndb-m" onclick="_navToggle('m')">Myndigheter <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <div class="nav-dd-menu" id="ndm-m"><a href="migrationsverket.html">Migrationsverket</a><a href="polis.html">Polis</a><a href="domstol.html">Domstol</a><a href="kriminalvard.html">Kriminalvård</a><a href="arbetsformedlingen.html">Arbetsförmedlingen</a><a href="tullverket.html">Tullverket</a><a href="kronofogden.html">Kronofogden</a><a href="aklagarmyndigheten.html">Åklagarmyndigheten</a></div>
+</div>
+    <div class="nav-dd">
+  <button class="nav-dd-btn" id="ndb-pv" onclick="_navToggle('pv')">Privata <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <div class="nav-dd-menu" id="ndm-pv"><a href="produkt-juridik.html">Advokatbyrå / Juridik</a><a href="produkt-vard.html">Privat sjukvård</a><a href="produkt-turism.html">Turism &amp; Upplevelser</a></div>
+</div>
+    <a href="galleri.html" class="nav-link">Galleri</a>
+    <a href="juridik-och-dataskydd.html" class="nav-link">Juridik</a>
+    <a href="besparing.html" class="nav-link">Besparing</a>
+  
+  </div>
+  <div class="nav-right">
+    <button id="mob-btn" style="display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px;" aria-label="Meny">
+      <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;"></span>
+    </button>
+    <a href="mailto:info@tolkster.ai?subject=Jag%20vill%20veta%20mer%20om%20Tolkster%20f%C3%B6r%20Socialtj%C3%A4nst" class="nav-cta">Kontakta oss</a>
+  </div>
+</nav>
+<div id="mob-menu" style="display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:#1B3A6B;z-index:8888;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px 0 48px;">
+<a href="index.html#utmaningen" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Utmaningen</a>
+<a href="produkt-core.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Lösningen</a>
+<a href="produkt-core.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Core</a>
+<a href="produkt-kommun.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Kommun</a>
+<a href="produkt-vard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Vård</a>
+<a href="produkt-myndighet.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Myndighet</a>
+<a href="produkt-juridik.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Juridik</a>
+<a href="socialtjanst.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Kommun</a>
+<a href="socialtjanst.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Socialtjänst</a>
+<a href="skola.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Skola</a>
+<a href="sfi.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">SFI</a>
+<a href="forskola.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Förskola</a>
+<a href="medborgarkontor.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Medborgarkontor</a>
+<a href="flyktingmottagning.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Flyktingmottagning</a>
+<a href="lss.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">LSS</a>
+<a href="hemtjanst.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Hemtjänst</a>
+<a href="ekonomiskt-bistand.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Ekonomiskt bistånd</a>
+<a href="familjeratt.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Familjerätt</a>
+<a href="vardcentral.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Region</a>
+<a href="vardcentral.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Vårdcentral</a>
+<a href="akutmottagning.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Akutmottagning</a>
+<a href="psykiatri.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Psykiatri</a>
+<a href="folktandvarden.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Folktandvården</a>
+<a href="bvc.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">BVC</a>
+<a href="mvc.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">MVC</a>
+<a href="beroendevard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Beroendevård</a>
+<a href="migrationsverket.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Myndigheter</a>
+<a href="migrationsverket.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Migrationsverket</a>
+<a href="polis.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Polis</a>
+<a href="domstol.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Domstol</a>
+<a href="kriminalvard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Kriminalvård</a>
+<a href="arbetsformedlingen.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Arbetsförmedlingen</a>
+<a href="tullverket.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tullverket</a>
+<a href="kronofogden.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Kronofogden</a>
+<a href="aklagarmyndigheten.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Åklagarmyndigheten</a>
+<a href="produkt-juridik.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Privata</a>
+<a href="produkt-juridik.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Advokatbyrå / Juridik</a>
+<a href="produkt-vard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Privat sjukvård</a>
+<a href="produkt-turism.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Turism &amp; Upplevelser</a>
+<a href="mailto:info@tolkster.ai" style="display:block;margin:16px 16px 0;padding:14px;color:#fff;font-weight:600;text-align:center;background:#0D7377;border-radius:6px;text-decoration:none;font-family:\'DM Sans\',sans-serif;">Kontakta oss</a></div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('mob-menu');
+  var b=document.getElementById('mob-btn');
+  if(!m||!b)return;
+  function close(){m.style.display='none';document.body.style.overflow='';b.setAttribute('data-open','0');}
+  b.addEventListener('click',function(){
+    var open=b.getAttribute('data-open')==='1';
+    if(open){close();}else{m.style.display='block';document.body.style.overflow='hidden';b.setAttribute('data-open','1');}
+  });
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+})();
+</script>
+<script>
+!function(){
+  function closeAll(){
+    document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.classList.remove('is-open');});
+    document.querySelectorAll('.nav-dd-menu').forEach(function(m){m.classList.remove('is-open');});
+  }
+  window._navToggle=function(id){
+    var menu=document.getElementById('ndm-'+id);
+    var btn=document.getElementById('ndb-'+id);
+    if(!menu||!btn)return;
+    var wasOpen=menu.classList.contains('is-open');
+    closeAll();
+    if(!wasOpen){menu.classList.add('is-open');btn.classList.add('is-open');}
+  };
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.nav-dd'))closeAll();
+  });
+}();
+</script>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Problembild</div>
+    <h1>Språkbarriären kostar mer<br>än <em>tolkfakturan</em></h1>
+    <p class="hero-lead">Offentlig sektor spenderar 1,6 miljarder kronor per år på professionell tolkning — och utöver det finns ett lika stort mörkertal av samtal som aldrig tolkas alls. Det är inte ett tolkproblem. Det är ett systemfel.</p>
+    <div class="stat-row">
+      <div class="stat-box"><div class="stat-n">1,6 mdr</div><div class="stat-l">kronor/år i professionell tolkningsvolym (SOU 2026:23)</div></div>
+      <div class="stat-box"><div class="stat-n">48–72h</div><div class="stat-l">typisk väntetid för bokad tolk i offentlig sektor</div></div>
+      <div class="stat-box"><div class="stat-n">~70%</div><div class="stat-l">av tolksamtal har inga juridiska krav på auktoriserad tolk</div></div>
+      <div class="stat-box"><div class="stat-n">+60%</div><div class="stat-l">dyrare med akuttolk jämfört med ordinarie telefontolk</div></div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- PROBLEM 1: TILLGÄNGLIGHET -->
+  <div class="section">
+    <div class="eyebrow">Problem 1</div>
+    <h2 class="section-h2">Tolken finns inte när behovet uppstår</h2>
+    <p class="section-lead">Tolkbehovet är sällan planerat. En familj dyker upp på socialtjänsten utan förbokning. En patient söker akut. En polis genomför ett ingripande. Den traditionella tolkmodellen — boka i förväg, vänta 48–72 timmar — är strukturellt inkompatibel med hur verksamheten faktiskt fungerar.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-title">Mötet uppstår spontant</div>
+        <div class="tl-desc">Handläggaren möter en klient som inte talar svenska. Ingen tolk är bokad. Mötet skjuts upp — eller genomförs ändå, på bristande svenska.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-title">Tolk bokas — väntan börjar</div>
+        <div class="tl-desc">I bästa fall finns tillgänglig tolk inom 24–48 timmar. I praktiken kan väntetiden vara längre, särskilt för ovanligare språk eller vid hög belastning.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-title">Tolken uteblir eller avbokas</div>
+        <div class="tl-desc">Tolkbristen är strukturell. Rätt tolk för rätt dialekt eller specialisering är inte alltid tillgänglig — och klienten har redan tagit sig till kontoret.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-title">Resultatet: mötet äger rum utan adekvat stöd</div>
+        <div class="tl-desc">Utredningen genomförs på bristande svenska. Viktig information missas. Beslutet fattas på ett bristfälligt underlag.</div>
+      </div>
+    </div>
+
+    <div class="highlight-block">
+      <p><strong>Socialstyrelsens kartläggning</strong> visar att samtliga undersökta verksamheter inom primärvård, ekonomiskt bistånd och LSS använde minderåriga barn eller andra anhöriga som tolkar i vissa situationer — särskilt vid oplanerade kontakter. Det är inte ett undantagsfall. Det är vardag.</p>
+    </div>
+  </div>
+
+  <!-- PROBLEM 2: KOSTNAD -->
+  <div class="section">
+    <div class="eyebrow">Problem 2</div>
+    <h2 class="section-h2">Kostnaden är hög — och dold</h2>
+    <p class="section-lead">Tolkfakturan är det som syns i budgeten. Men den verkliga kostnaden är större: outnyttjad bokad tid, akutkostnader, administration och de samtal som aldrig sker alls.</p>
+
+    <div class="cost-block">
+      <div class="cost-header">
+        <h3>Tolktjänster idag — kostnader i korthet</h3>
+        <span>Priser från offentliga ramavtal</span>
+      </div>
+      <div class="cost-rows">
+        <div class="cost-row">
+          <span class="label">📞 Telefontolk 30 min (ordinarie)</span>
+          <span class="price">250–365 kr</span>
+        </div>
+        <div class="cost-row">
+          <span class="label">📞 Telefontolk 60 min (ordinarie)</span>
+          <span class="price">510–730 kr</span>
+        </div>
+        <div class="cost-row">
+          <span class="label">📞 Telefontolk 30 min (akut)</span>
+          <span class="price high">≈ 600 kr (+60%)</span>
+        </div>
+        <div class="cost-row">
+          <span class="label">👤 Platstolk 30–60 min + resa</span>
+          <span class="price high">500–800 kr + resa</span>
+        </div>
+        <div class="cost-row">
+          <span class="label">🕐 Outnyttjad bokad tid</span>
+          <span class="price high">≈ 9% av bokad tid faktureras ändå</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-block">
+      <p>En mellanstor kommun med en tolkbudget på 2–3 Mkr/år betalar i genomsnitt 60% mer för akuttolkning jämfört med ordinarie telefontolk. Outnyttjad bokad tid kostar ytterligare hundratusentals kronor per år — <strong>utan att ett enda samtal tolkas.</strong></p>
+    </div>
+  </div>
+
+  <!-- PROBLEM 3: MÖRKERTALET -->
+  <div class="section">
+    <div class="eyebrow">Problem 3</div>
+    <h2 class="section-h2">Mörkertalet — de samtal som aldrig tolkas</h2>
+    <p class="section-lead">Tolkfakturan visar 100 samtal. Hur många samtal skedde egentligen — och hur hanterades de utan tolk?</p>
+
+    <div class="potential-block">
+      <div class="potential-title">Av 100 samtal med språkbarriär</div>
+      <div class="bar-row">
+        <div class="bar-label"><span class="bl">Professionell tolk bokad</span><span class="br">Syns på tolkfakturan</span></div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width:30%;"><span>~30</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span class="bl">Anhörig, kollega eller barn tolkar</span><span class="br">Syns inte — men kostar ändå</span></div>
+        <div class="bar-track"><div class="bar-fill bar-amber" style="width:35%;"><span>~35</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span class="bl">Hanteras på bristande svenska</span><span class="br">Kvalitetsrisk, rättssäkerhetsrisk</span></div>
+        <div class="bar-track"><div class="bar-fill bar-red" style="width:25%;"><span>~25</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span class="bl">Mötet skjuts upp eller ställs in</span><span class="br">Produktionsbortfall</span></div>
+        <div class="bar-track"><div class="bar-fill bar-red" style="width:10%;"><span>~10</span></div></div>
+      </div>
+    </div>
+
+    <div class="highlight-block">
+      <p>SOU 2026:23 konstaterar uttryckligen att det inte är känt hur ofta anhöriga, närstående och vänner används som tolkar — men att det förekommer systematiskt. Svenska studier inom barnonkologi visar att familjemedlemmar, syskon och ibland patienterna själva översätter, primärt på grund av <strong>tidsbrist och bristande tillgänglighet</strong> av professionell tolk.</p>
+    </div>
+  </div>
+
+  <!-- PROBLEM 4: KVALITET OCH KONTROLL -->
+  <div class="section">
+    <div class="eyebrow">Problem 4</div>
+    <h2 class="section-h2">Ingen oberoende kvalitetskontroll</h2>
+    <p class="section-lead">Tolkförmedlingen levererar tolken, bedömer klagomål på tolken och hanterar reklamation — i samma organisation. Köparen saknar ett oberoende granskningslager.</p>
+
+    <div class="problem-grid">
+      <div class="prob red">
+        <div class="prob-icon">⚖️</div>
+        <div class="prob-title">Intressekonflikt i systemet</div>
+        <div class="prob-desc">Samma aktör som förmedlar och fakturerar tolken hanterar också kvalitetsfrågor och klagomål. Det finns inget strukturellt incitament att flagga kvalitetsbrister.</div>
+        <div class="prob-stat">Ingen oberoende granskning av tolkningars riktighet</div>
+      </div>
+      <div class="prob amber">
+        <div class="prob-icon">📝</div>
+        <div class="prob-title">Ingen automatisk dokumentation</div>
+        <div class="prob-desc">Vad som faktiskt sades i det tolkade samtalet dokumenteras inte. Om ett beslut överklagas finns ingen oberoende källa att verifiera mot — bara handläggarens egna anteckningar.</div>
+        <div class="prob-stat">Rättssäkerhetsrisk vid överklagande eller tillsyn</div>
+      </div>
+      <div class="prob navy">
+        <div class="prob-icon">🌐</div>
+        <div class="prob-title">Dialekt- och specialiseringsbrist</div>
+        <div class="prob-desc">Arabiska har minst fem huvuddialekter med signifikanta skillnader. Tillgången till tolk med rätt dialektkompetens och verksamhetsspecifik terminologi är ojämn och opålitlig.</div>
+        <div class="prob-stat">Risken är störst för somaliska, tigrinska och ovanligare språkpar</div>
+      </div>
+      <div class="prob teal">
+        <div class="prob-icon">📋</div>
+        <div class="prob-title">Administration utan värde</div>
+        <div class="prob-desc">Bokning, ombokning, avbokning, fakturahantering och uppföljning av tolkuppdrag tar tid från kärnverksamheten — utan att ett enda samtal blir bättre.</div>
+        <div class="prob-stat">Administrativ kostnad ofta underskattad i tolkbudgeten</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM 5: AI-POTENTIALEN -->
+  <div class="section">
+    <div class="eyebrow">Problem 5</div>
+    <h2 class="section-h2">70% av tolksamtalen kräver inte auktoriserad tolk</h2>
+    <p class="section-lead">De flesta tolkade samtal i offentlig sektor handlar om rutinärenden: uppföljning, vägledning, administrativa frågor, inskrivning, enklare information. De kräver inte auktoriserad tolk enligt lag — men de bokas ändå till full kostnad.</p>
+
+    <div class="potential-block">
+      <div class="potential-title">Juridiska krav — av 100 tolksamtal</div>
+      <div class="bar-row">
+        <div class="bar-label"><span class="bl">Inget krav på auktoriserad tolk</span><span class="br">~75 av 100 samtal</span></div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width:75%;"><span>~75%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span class="bl">Högre risk / situationsbedömt</span><span class="br">~15 av 100 samtal</span></div>
+        <div class="bar-track"><div class="bar-fill bar-amber" style="width:15%;"><span>~15%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span class="bl">Rättsväsende / formella processer</span><span class="br">Kräver alltid auktoriserad tolk</span></div>
+        <div class="bar-track"><div class="bar-fill bar-red" style="width:10%;"><span>~10%</span></div></div>
+      </div>
+    </div>
+
+    <div class="highlight-block">
+      <p>AI kan realistiskt adressera <strong>70–80% av dagens professionellt tolkade samtal</strong> — de situationer där det inte finns juridiska krav på auktoriserad tolk, och där den verkliga bristvaran inte är tolkens utbildning utan tillgängligheten. Dessutom finns ett stort mörkertal av samtal som idag inte får något tolkstöd alls.</p>
+    </div>
+  </div>
+
+  <!-- BRIDGE TO SOLUTION -->
+  <div class="bridge">
+    <h2>Det är ett systemfel — och det<br>har en <em>systemlösning</em></h2>
+    <p class="bridge-lead">Tolkster är inte ett försök att ersätta tolkar. Det är ett kommunikationssystem som fyller de luckor som det befintliga systemet strukturellt inte kan fylla — och som gör det möjligt att reservera professionell tolkning för de situationer som faktiskt kräver det.</p>
+    <div class="bridge-grid">
+      <div class="bridge-item">
+        <div class="bridge-item-title">Quick — direkt utan bokning</div>
+        <div class="bridge-item-desc">Starta ett tolkat samtal på sekunder. Ingen bokning, ingen väntetid. 50+ språk alltid tillgängliga.</div>
+      </div>
+      <div class="bridge-item">
+        <div class="bridge-item-title">Journal — automatisk dokumentation</div>
+        <div class="bridge-item-desc">Transkription, sammanfattning och logg skapas automatiskt. Underlag finns när beslutet ska granskas.</div>
+      </div>
+      <div class="bridge-item">
+        <div class="bridge-item-title">Human — din tolkförmedling kvar</div>
+        <div class="bridge-item-desc">Med ett tryck kopplas handläggaren till er befintliga tolkförmedling — för de situationer som kräver det.</div>
+      </div>
+      <div class="bridge-item">
+        <div class="bridge-item-title">Listen In (beta) — oberoende verifiering</div>
+        <div class="bridge-item-desc">Körs parallellt med inbokad tolk och transkriberar i realtid. Det enda systemet som granskar tolkkvalitet oberoende av tolkförmedlingen.</div>
+      </div>
+    </div>
+    <a href="produkt-core.html" class="bridge-cta">Se hur Tolkster fungerar →</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Tolkster</span>
+    <p>Global Instant Translations AB · <a href="mailto:info@tolkster.ai">info@tolkster.ai</a> · <a href="juridik-och-dataskydd.html">Juridik &amp; dataskydd</a></p>
+    <p>© 2026 Tolkster</p>
+  </div>
+</footer>
+</body>
+</html>
+</body>
+</html>
