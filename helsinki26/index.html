@@ -159,6 +159,7 @@ const ANS = ["", "T", "P", "T+P", "P + T", "ej valt", "–"];
 const STATUS = ["", "Klar", "Delvis", "Gap"];
 function statusClass(s){return s==="Klar"?"st-g":s==="Delvis"?"st-o":s==="Gap"?"st-r":"st-blank";}
 const state = {}; // doc -> {status, ansvar, comment, svar, at, by}
+const rowByDoc = {}; // doc -> data row object (for filter-aware counts)
 let db=null, userApi=null, canWrite=true, names={};
 const $ = s=>document.querySelector(s);
 const main=$("#main");
@@ -201,7 +202,7 @@ function build(){
       const rows=document.createElement("div");rows.className="rows";
       for(const r of sub.rows){
         seq++;
-        r.sub=sub.key; r.seq=seq;
+        r.sub=sub.key; r.seq=seq; rowByDoc[r.doc]=r;
         const row=document.createElement("div");row.className="row";row.dataset.doc=r.doc;row.dataset.part=part.key;row.dataset.sub=sub.key;row.dataset.text=(r.id+" "+r.text+" "+(r.fi||"")).toLowerCase();
         row.innerHTML=rowMarkup(r,"",true);
         rows.appendChild(row);
@@ -250,32 +251,46 @@ function applyRow(doc){
     if(s.at){const d=new Date(s.at);w.textContent=(s.by&&names[s.by]?names[s.by]+" · ":"")+d.toLocaleDateString("sv-SE")+" "+d.toLocaleTimeString("sv-SE",{hour:"2-digit",minute:"2-digit"});}else w.textContent="";
   });
 }
+// ---- filters (declared here so counts() below can use them for filter-aware stats)
+let fState="all",fAns="",q="";
+function matchesFilter(r){
+  if(!r)return true;
+  const s=state[r.doc];let ok=true;
+  const cls=statusClass(s.status);
+  if(fState==="g")ok=cls==="st-g";else if(fState==="o")ok=cls==="st-o";else if(fState==="r")ok=cls==="st-r";else if(fState==="cmt")ok=!!(s.comment&&s.comment.trim());
+  if(ok&&fAns){ok=(s.ansvar||"").replace(/\s/g,"")===fAns.replace(/\s/g,"")||(fAns==="P"&&(s.ansvar||"").startsWith("P"))||(fAns==="T"&&/^T( \(|$)/.test(s.ansvar||""));}
+  if(ok&&q){const text=(r.id+" "+r.text+" "+(r.fi||"")).toLowerCase();ok=(text+" "+(s.comment||"").toLowerCase()+" "+(s.svar||"").toLowerCase()).includes(q);}
+  return ok;
+}
 function counts(){
   const tot={},done={};
-  for(const part of DATA){tot[part.key]=0;done[part.key]=0;for(const sub of part.subs){tot[sub.key]=sub.rows.length;done[sub.key]=sub.rows.filter(r=>state[r.doc].status==="Klar").length;tot[part.key]+=tot[sub.key];done[part.key]+=done[sub.key];}}
+  for(const part of DATA){tot[part.key]=0;done[part.key]=0;for(const sub of part.subs){
+    const visible=sub.rows.filter(matchesFilter);
+    tot[sub.key]=visible.length;done[sub.key]=visible.filter(r=>state[r.doc].status==="Klar").length;
+    tot[part.key]+=tot[sub.key];done[part.key]+=done[sub.key];
+  }}
   document.querySelectorAll("[data-cnt]").forEach(el=>{const k=el.dataset.cnt;el.textContent=`${done[k]} / ${tot[k]}`;});
   const p=$("#progress");p.innerHTML="";
   let allT=0,allD=0;
   for(const part of DATA){allT+=tot[part.key];allD+=done[part.key];
     p.insertAdjacentHTML("beforeend",`<div class="ptile"><div class="lab">${part.key}. ${esc(part.title.split(" – ")[0])}</div><div class="num">${done[part.key]} <small>/ ${tot[part.key]} klara</small></div><div class="bar"><span style="width:${tot[part.key]?100*done[part.key]/tot[part.key]:0}%"></span></div></div>`);}
-  p.insertAdjacentHTML("afterbegin",`<div class="ptile"><div class="lab">Totalt</div><div class="num">${allD} <small>/ ${allT} klara</small></div><div class="bar"><span style="width:${allT?100*allD/allT:0}%"></span></div></div>`);
+  p.insertAdjacentHTML("afterbegin",`<div class="ptile"><div class="lab">Totalt${fState!=="all"||fAns||q?" (filtrerat)":""}</div><div class="num">${allD} <small>/ ${allT} klara</small></div><div class="bar"><span style="width:${allT?100*allD/allT:0}%"></span></div></div>`);
   let g=0,o=0,r=0,b=0;
-  Object.values(state).forEach(s=>{const c=statusClass(s.status);if(c==="st-g")g++;else if(c==="st-o")o++;else if(c==="st-r")r++;else b++;});
+  for(const part of DATA)for(const sub of part.subs)for(const rr of sub.rows){
+    if(!matchesFilter(rr))continue;
+    const c=statusClass(state[rr.doc].status);
+    if(c==="st-g")g++;else if(c==="st-o")o++;else if(c==="st-r")r++;else b++;
+  }
   const st3=$("#stats3");if(st3)st3.innerHTML=`<span class="g"><i></i>${g} klar</span><span class="o"><i></i>${o} delvis</span><span class="r"><i></i>${r} gap</span>`+(b?`<span class="i"><i></i>${b} obesvarad</span>`:"");
 }
-// ---- filters
-let fState="all",fAns="",q="";
 function filter(){
   document.querySelectorAll(".row").forEach(row=>{
-    const s=state[row.dataset.doc];let ok=true;
-    const cls=statusClass(s.status);
-    if(fState==="g")ok=cls==="st-g";else if(fState==="o")ok=cls==="st-o";else if(fState==="r")ok=cls==="st-r";else if(fState==="cmt")ok=!!(s.comment&&s.comment.trim());
-    if(ok&&fAns){ok=(s.ansvar||"").replace(/\s/g,"")===fAns.replace(/\s/g,"")||(fAns==="P"&&(s.ansvar||"").startsWith("P"))||(fAns==="T"&&/^T( \(|$)/.test(s.ansvar||""));}
-    if(ok&&q)ok=(row.dataset.text+" "+(s.comment||"").toLowerCase()+" "+(s.svar||"").toLowerCase()).includes(q);
+    const ok=matchesFilter(rowByDoc[row.dataset.doc]);
     row.classList.toggle("hidden",!ok);
   });
   document.querySelectorAll(".sub").forEach(sub=>{sub.hidden=![...sub.querySelectorAll(".row")].some(r=>!r.classList.contains("hidden"));});
   document.querySelectorAll("section.part").forEach(sec=>{sec.hidden=![...sec.querySelectorAll(".sub")].some(s=>!s.hidden);});
+  counts();
 }
 $("#q").addEventListener("input",e=>{q=e.target.value.trim().toLowerCase();filter();});
 $("#fstate").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;fState=b.dataset.f;[...e.currentTarget.children].forEach(c=>c.classList.toggle("active",c===b));filter();});
