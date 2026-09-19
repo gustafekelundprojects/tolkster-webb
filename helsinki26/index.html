@@ -123,6 +123,7 @@ section.part>h2 .cnt{font-family:"IBM Plex Mono",monospace;font-size:13px;color:
     <span>Anbud senast <b>20 okt 12:00</b></span>
     <span>Beslutsgrind <b>22 sep</b></span>
     <span class="sync" id="sync"><i></i><span id="synctxt">Ansluter…</span></span>
+    <button id="seedAll" class="chip" type="button" title="Skickar alla 267 raders nuvarande status/svar/ansvar till Google Sheet (kör en gång, tar cirka en minut)">Skicka alla till Sheet</button>
   </div>
   <div id="banner" class="banner">Detta är intern statusspårning inför beslutsgrinden – i själva anbudet (bilaga 2) måste varje rad slutligen besvaras med <b>Kyllä</b>. <b>Grönt (Klar)</b> = uppfyllt idag. <b>Orange (Delvis)</b> = delvis uppfyllt eller löses via finsk partner. <b>Rött (Gap)</b> = gap eller måste verifieras innan vi kan svara Kyllä. Vitt = ingen status vald ännu.</div>
   <div class="progress" id="progress"></div>
@@ -302,7 +303,7 @@ function getName(){
 async function save(doc,patch){
   Object.assign(state[doc],patch,{at:new Date().toISOString(),by:me});
   applyRow(doc);counts();
-  const body={doc,status:state[doc].status||"",done:state[doc].status==="Uppfyllt",ansvar:state[doc].ansvar||"",comment:state[doc].comment||"",svar:state[doc].svar||"",at:state[doc].at,by:me||""};
+  const body={doc,status:state[doc].status||"",done:state[doc].status==="Klar",ansvar:state[doc].ansvar||"",comment:state[doc].comment||"",svar:state[doc].svar||"",at:state[doc].at,by:me||""};
   try{localStorage.setItem("hki-"+doc,JSON.stringify(body));}catch(_){}
   try{
     await fetch(SHEET_API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)});
@@ -337,6 +338,33 @@ async function poll(){
     setSync("on","Delad – synkad");
   }catch(e){setSync("off","Synk pausad – försöker igen…");}
 }
+async function seedAll(){
+  const btn=$("#seedAll");
+  const docs=Object.keys(state);
+  btn.disabled=true;
+  const origLabel=btn.textContent;
+  let done=0;
+  const CONCURRENCY=5;
+  async function pushOne(doc){
+    const body={doc,status:state[doc].status||"",done:state[doc].status==="Klar",ansvar:state[doc].ansvar||"",comment:state[doc].comment||"",svar:state[doc].svar||"",at:state[doc].at||new Date().toISOString(),by:state[doc].by||me||""};
+    try{
+      await fetch(SHEET_API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)});
+    }catch(e){/* keep going even if one row fails */}
+    done++;
+    btn.textContent=`Skickar… (${done}/${docs.length})`;
+  }
+  for(let i=0;i<docs.length;i+=CONCURRENCY){
+    const chunk=docs.slice(i,i+CONCURRENCY);
+    await Promise.all(chunk.map(pushOne));
+  }
+  btn.textContent=origLabel;
+  btn.disabled=false;
+  setSync("on","Delad – alla rader skickade");
+}
+$("#seedAll").addEventListener("click",()=>{
+  if(!confirm(`Skicka alla ${Object.keys(state).length} raders nuvarande status/ansvar/svar till Google Sheet? Kör en gång, tar ungefär en minut. Rader som redan finns i Sheet skrivs över med det som visas på sidan just nu.`))return;
+  seedAll();
+});
 async function boot(){
   build();
   me=getName();
