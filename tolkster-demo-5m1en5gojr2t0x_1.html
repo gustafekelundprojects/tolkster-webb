@@ -10,29 +10,30 @@
     --serif: Georgia, Cambria, "Times New Roman", Times, serif;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 
-    --navy: #1E2761;
-    --navy-deep: #12173F;
-    --teal: #1C7293;
-    --teal-deep: #145467;
-    --ice: #CADCFC;
-    --terracotta: #C1553B;
-    --terracotta-deep: #A6432C;
+    /* Tolksters riktiga app-formspråk: krämvit yta, svart som primärfärg, blå loggaccent */
+    --navy: #141311;
+    --navy-deep: #0C0B09;
+    --teal: #3D6FF2;
+    --teal-deep: #2451C4;
+    --ice: #EAEFFC;
+    --terracotta: #6B6859;
+    --terracotta-deep: #4A4840;
 
     /* semantic — fasta, byts aldrig med temat */
     --ok: #2E7D53;
-    --ok-tint: #E4F3EA;
-    --warn: #B4791F;
-    --warn-tint: #FBF0DE;
+    --ok-tint: #E6F2EA;
+    --warn: #8A6A1F;
+    --warn-tint: #F5EFDD;
     --danger: #C0392B;
     --danger-tint: #FBE4E1;
 
-    --bg: #F3F6FC;
+    --bg: #F2F0E7;
     --surface: #FFFFFF;
-    --ink: #171B2E;
-    --muted: #5B6478;
-    --line: #DDE3F2;
-    --radius: 14px;
-    --shadow: 0 18px 40px -22px rgba(23,27,54,.28), 0 2px 6px rgba(23,27,54,.05);
+    --ink: #18170F;
+    --muted: #6F6C60;
+    --line: #E7E2D3;
+    --radius: 20px;
+    --shadow: 0 10px 28px -16px rgba(20,18,10,.16), 0 2px 7px rgba(20,18,10,.05);
   }
   *{box-sizing:border-box;}
   select{max-width:100%;}
@@ -42,7 +43,7 @@
     line-height:1.45;
   }
   button,input,select,textarea{font-family:inherit;font-size:14px;}
-  h1,h2,h3{font-family:var(--serif);margin:0;}
+  h1,h2,h3{font-family:var(--sans);font-weight:800;letter-spacing:-.01em;margin:0;}
   .hidden{display:none!important;}
 
   /* ---------- Topbar ---------- */
@@ -53,15 +54,15 @@
   }
   .brand{display:flex;align-items:center;gap:11px;}
   .brand .badge{
-    width:38px;height:38px;border-radius:50%;flex:none;
-    background:linear-gradient(135deg,var(--teal),var(--navy));
+    width:34px;height:34px;border-radius:50%;flex:none;
+    background:var(--teal);
     display:flex;align-items:center;justify-content:center;
-    color:#fff;font-weight:800;font-size:12px;letter-spacing:.4px;
   }
-  .brand .name{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--navy);}
+  .brand .badge svg{width:18px;height:18px;}
+  .brand .name{font-family:var(--sans);font-size:17px;font-weight:800;color:var(--teal);}
   .demo-pill{
     margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
-    color:var(--terracotta-deep);background:#FBEEEA;border:1px solid #F0D3C8;
+    color:var(--muted);background:var(--bg);border:1px solid var(--line);
     padding:4px 10px;border-radius:100px;
   }
 
@@ -74,8 +75,8 @@
     appearance:none;border:1px solid var(--line);background:#fff;color:var(--muted);
     padding:9px 16px;border-radius:100px;font-weight:700;font-size:13.5px;cursor:pointer;
   }
-  .roletab:hover{border-color:var(--teal);}
-  .roletab.active{background:linear-gradient(135deg,var(--navy),var(--teal-deep));border-color:transparent;color:#fff;}
+  .roletab:hover{border-color:var(--ink);}
+  .roletab.active{background:var(--ink);border-color:var(--ink);color:#fff;}
 
   .content{max-width:1180px;margin:0 auto;padding:20px 22px 60px 22px;}
   .role-panel{display:none;}
@@ -83,7 +84,7 @@
 
   .card{
     background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    box-shadow:var(--shadow);padding:20px 22px;
+    box-shadow:var(--shadow);padding:22px 24px;
   }
   .card + .card{margin-top:18px;}
   .card h2{font-size:17px;color:var(--ink);}
@@ -93,32 +94,19 @@
   .boka-grid{display:grid;grid-template-columns:440px 1fr;gap:18px;align-items:start;}
   @media (max-width:820px){.boka-grid{grid-template-columns:1fr;}}
 
-  /* ---------- Bokningsportalens visuella polish (designtokens: navy/teal/terrakotta, gradient-accent, djupare skugga, tonad yta, eyebrow-etikett) ---------- */
-  .boka-grid .card{position:relative;overflow:hidden;}
-  .boka-grid .card::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:4px;
-    background:linear-gradient(90deg,var(--navy),var(--teal),var(--terracotta));
-  }
-  .boka-grid .card-narrow{
-    box-shadow:0 24px 52px -22px rgba(18,23,63,.38), 0 3px 9px rgba(18,23,63,.06);
-  }
-  .boka-grid .card:not(.card-narrow){
-    background:radial-gradient(130% 160% at 100% 0%, var(--ice) 0%, rgba(202,220,252,0) 55%), var(--surface);
-  }
+  /* ---------- Bokningsportalens formspråk: anpassat efter appens egna skärmar (krämvitt, svart, blå accent, inga gradienter) ---------- */
   .card-eyebrow{
-    display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;
-    letter-spacing:.5px;text-transform:uppercase;color:var(--terracotta-deep);
-    background:#FBEFEA;border-radius:100px;padding:4px 11px;margin-bottom:12px;
+    display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;
+    letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;
   }
-  .card-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--terracotta);flex:none;}
-  .card-eyebrow.is-live{color:var(--navy-deep);background:var(--ice);}
+  .card-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none;}
   .card-eyebrow.is-live .dot{
-    background:#DC4C41;box-shadow:0 0 0 0 rgba(220,76,65,.5);animation:liveping 1.8s ease-out infinite;
+    background:#34A853;box-shadow:0 0 0 0 rgba(52,168,83,.5);animation:liveping 1.8s ease-out infinite;
   }
   @keyframes liveping{
-    0%{box-shadow:0 0 0 0 rgba(220,76,65,.45);}
-    70%{box-shadow:0 0 0 7px rgba(220,76,65,0);}
-    100%{box-shadow:0 0 0 0 rgba(220,76,65,0);}
+    0%{box-shadow:0 0 0 0 rgba(52,168,83,.45);}
+    70%{box-shadow:0 0 0 7px rgba(52,168,83,0);}
+    100%{box-shadow:0 0 0 0 rgba(52,168,83,0);}
   }
   @media (max-width:480px){
     .assign-box{flex-direction:column;align-items:stretch;}
@@ -136,8 +124,8 @@
     appearance:none;border:1px solid var(--line);background:#fff;color:var(--muted);
     padding:8px 15px;border-radius:100px;font-weight:700;font-size:13px;cursor:pointer;
   }
-  .seg-btn:hover{border-color:var(--teal);}
-  .seg-btn.active{background:var(--ice);border-color:var(--ice);color:var(--navy-deep);}
+  .seg-btn:hover{border-color:var(--ink);}
+  .seg-btn.active{background:#fff;border-color:var(--ink);color:var(--ink);}
 
   /* ---------- Footer ---------- */
   .sitefooter{
@@ -153,23 +141,23 @@
   .field{display:flex;flex-direction:column;gap:5px;margin-bottom:13px;}
   .field label{font-size:12px;font-weight:700;color:var(--muted);}
   .field input,.field select,.field textarea{
-    border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff;color:var(--ink);
+    border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;color:var(--ink);
   }
-  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--teal);outline-offset:1px;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--ink);outline-offset:1px;}
   .field-row{display:flex;gap:10px;}
   .field-row .field{flex:1;}
 
   .btn{
-    appearance:none;border:none;border-radius:9px;padding:10px 16px;font-weight:700;font-size:13.5px;
+    appearance:none;border:none;border-radius:100px;padding:11px 20px;font-weight:700;font-size:13.5px;
     cursor:pointer;display:inline-flex;align-items:center;gap:6px;
   }
-  .btn-primary{background:linear-gradient(135deg,var(--navy),var(--teal-deep));color:#fff;}
-  .btn-primary:hover{filter:brightness(1.06);}
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-primary:hover{background:var(--navy-deep);}
   .btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink);}
-  .btn-ghost:hover{border-color:var(--teal);}
+  .btn-ghost:hover{border-color:var(--ink);}
   .btn-danger{background:var(--danger);color:#fff;}
   .btn-ok{background:var(--ok);color:#fff;}
-  .btn-sm{padding:6px 11px;font-size:12.5px;}
+  .btn-sm{padding:7px 14px;font-size:12.5px;}
   .btn:disabled{opacity:.45;cursor:not-allowed;}
 
   .confirm-note{
@@ -187,17 +175,17 @@
   /* ---------- Register search ---------- */
   .register-filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:14px;}
   .register-filters input,.register-filters select{
-    border:1px solid var(--line);border-radius:9px;padding:8px 11px;background:#fff;
+    border:1px solid var(--line);border-radius:12px;padding:9px 12px;background:#fff;
   }
   .register-filters input{flex:1;min-width:160px;}
   .register-count{font-size:12.5px;color:var(--muted);margin-bottom:10px;}
   .tolk-list{display:flex;flex-direction:column;gap:8px;}
   .tolk-row{
-    display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--line);
-    border-radius:10px;background:#fff;
+    display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap;padding:12px 14px;border:1px solid var(--line);
+    border-radius:14px;background:#fff;
   }
   .tolk-row .avatar{
-    width:34px;height:34px;border-radius:50%;background:var(--ice);color:var(--navy-deep);
+    width:34px;height:34px;border-radius:50%;background:var(--ice);color:var(--teal-deep);
     display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none;
   }
   .tolk-row .info{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;}
@@ -207,10 +195,10 @@
     font-size:10.5px;font-weight:700;letter-spacing:.2px;text-transform:uppercase;
     padding:3px 8px;border-radius:100px;white-space:nowrap;
   }
-  .lvl-auk{background:var(--ice);color:var(--navy-deep);}
-  .lvl-uni,.lvl-yh{background:#F0EAFB;color:#4B3480;}
-  .lvl-fb{background:#EEF2F7;color:#48505E;}
-  .lvl-teck{background:#FBEEEA;color:var(--terracotta-deep);}
+  .lvl-auk{background:var(--ice);color:var(--teal-deep);}
+  .lvl-uni,.lvl-yh{background:#F1ECFA;color:#4B3480;}
+  .lvl-fb{background:#EFECE2;color:#48505E;}
+  .lvl-teck{background:#EFECE2;color:var(--terracotta-deep);}
   .lvl-konf{background:#DDF3EA;color:#1F6B44;}
 
   .pagination{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:14px;}
@@ -218,74 +206,74 @@
 
   /* ---------- Förmedling / bookings ---------- */
   .req-row{
-    padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;
+    padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;
     display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px;
   }
   .req-main{flex:1;min-width:220px;}
   .req-main .kund{font-weight:700;font-size:14px;}
   .req-main .meta{font-size:12.5px;color:var(--muted);margin-top:2px;}
   .flagchip{
-    display:inline-flex;align-items:center;gap:5px;background:var(--ice);color:var(--navy-deep);
+    display:inline-flex;align-items:center;gap:5px;background:var(--ice);color:var(--teal-deep);
     padding:2px 9px;border-radius:100px;font-size:11.5px;font-weight:700;margin-left:6px;
   }
   .status-pill{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:4px 10px;border-radius:100px;}
   .st-ny{background:var(--warn-tint);color:var(--warn);}
-  .st-tilldelad{background:#EAF0FB;color:var(--navy);}
+  .st-tilldelad{background:var(--ice);color:var(--teal-deep);}
   .st-bekraftad{background:var(--ok-tint);color:var(--ok);}
-  .st-avslutad{background:#EEF0F5;color:var(--muted);}
+  .st-avslutad{background:#EFECE2;color:var(--muted);}
 
   .assign-box{display:flex;gap:8px;flex-wrap:wrap;align-items:center;width:100%;}
-  .assign-box select{border:1px solid var(--line);border-radius:9px;padding:7px 9px;flex:1 1 220px;min-width:0;max-width:100%;}
+  .assign-box select{border:1px solid var(--line);border-radius:12px;padding:8px 11px;flex:1 1 220px;min-width:0;max-width:100%;}
 
   .cust-row{
     display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid var(--line);
-    border-radius:10px;margin-bottom:9px;
+    border-radius:14px;margin-bottom:9px;
   }
   .cust-row .nm{font-weight:700;flex:1;}
   .cust-row .cnt{font-size:12.5px;color:var(--muted);}
 
   /* ---------- Tolkportal ---------- */
   .persona-select{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-  .persona-select select{border:1px solid var(--line);border-radius:9px;padding:9px 11px;flex:1 1 280px;min-width:0;max-width:100%;}
+  .persona-select select{border:1px solid var(--line);border-radius:12px;padding:9px 11px;flex:1 1 280px;min-width:0;max-width:100%;}
   .persona-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
-  .persona-tags span{font-size:11px;background:var(--ice);color:var(--navy-deep);padding:3px 9px;border-radius:100px;font-weight:700;}
+  .persona-tags span{font-size:11px;background:var(--ice);color:var(--teal-deep);padding:3px 9px;border-radius:100px;font-weight:700;}
 
   .assign-actions{display:flex;gap:8px;margin-left:auto;}
   .empty-note{color:var(--muted);font-size:13px;padding:8px 0;}
 
   .stars{display:inline-flex;gap:3px;}
   .stars button{
-    appearance:none;border:none;background:none;cursor:pointer;padding:0;font-size:19px;color:#D8DEEC;line-height:1;
+    appearance:none;border:none;background:none;cursor:pointer;padding:0;font-size:19px;color:var(--line);line-height:1;
   }
   .stars button.on{color:#E3A537;}
   .rated-note{font-size:12px;color:var(--ok);font-weight:700;}
 
   /* ---------- Modal ---------- */
   .modal-backdrop{
-    position:fixed;inset:0;background:rgba(18,23,63,.5);display:flex;align-items:flex-start;
+    position:fixed;inset:0;background:rgba(20,18,10,.5);display:flex;align-items:flex-start;
     justify-content:center;padding:40px 16px;overflow-y:auto;z-index:100;
   }
   .modal-box{
-    background:#fff;border-radius:16px;max-width:640px;width:100%;padding:26px 26px 22px 26px;
-    box-shadow:0 30px 70px -20px rgba(18,23,63,.45);
+    background:#fff;border-radius:20px;max-width:640px;width:100%;padding:26px 26px 22px 26px;
+    box-shadow:0 30px 70px -20px rgba(20,18,10,.4);
   }
   .modal-box.wide{max-width:900px;}
   .modal-close{
-    float:right;border:none;background:#F1F4FB;color:var(--muted);width:30px;height:30px;border-radius:50%;
+    float:right;border:none;background:#EFECE2;color:var(--muted);width:30px;height:30px;border-radius:50%;
     cursor:pointer;font-size:15px;
   }
   .modal-eyebrow{font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);}
-  .modal-title{font-family:var(--serif);font-size:19px;margin:4px 0 10px 0;}
-  .kv-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #F0F2F8;font-size:13.5px;}
+  .modal-title{font-family:var(--sans);font-weight:800;font-size:19px;margin:4px 0 10px 0;}
+  .kv-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #EEEAE0;font-size:13.5px;}
   .kv-row.total{font-weight:800;font-size:15px;border-bottom:none;padding-top:12px;}
 
   .inv-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px;}
   .inv-table th{text-align:left;color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.3px;padding:0 12px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap;}
-  .inv-table td{padding:9px 12px 9px 0;border-bottom:1px solid #F0F2F8;vertical-align:top;}
+  .inv-table td{padding:9px 12px 9px 0;border-bottom:1px solid #EEEAE0;vertical-align:top;}
   .inv-table th:last-child,.inv-table td:last-child{padding-right:0;text-align:right;white-space:nowrap;}
   .inv-desc{display:block;color:var(--muted);font-size:11.5px;line-height:1.6;margin-top:3px;}
   .inv-internal{
-    margin-top:16px;padding:12px 14px;border-radius:10px;border:1.5px dashed #D6DCEC;background:var(--bg);
+    margin-top:16px;padding:12px 14px;border-radius:14px;border:1.5px dashed var(--line);background:var(--bg);
   }
   .inv-internal .lbl{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--muted);margin-bottom:6px;}
   .inv-internal .row{display:flex;justify-content:space-between;font-size:12.5px;padding:3px 0;}
@@ -293,13 +281,13 @@
   .modal-fine{font-size:11.5px;color:var(--muted);margin-top:14px;}
 
   .detail-chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-  .detail-chip{background:#F1F4FB;color:var(--ink);font-size:12px;padding:3px 9px;border-radius:100px;}
+  .detail-chip{background:#EFECE2;color:var(--ink);font-size:12px;padding:3px 9px;border-radius:100px;}
 </style>
 </head>
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="badge">TS</span><span class="name">Tolkster</span></div>
+  <div class="brand"><span class="badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11.5C4 7.36 7.58 4 12 4s8 3.36 8 7.5-3.58 7.5-8 7.5c-.9 0-1.76-.14-2.56-.4L5.5 20l1.06-3.1A7.26 7.26 0 0 1 4 11.5Z" fill="#fff"/></svg></span><span class="name">Tolkster</span></div>
   <span class="demo-pill">Konceptdemo — Human</span>
 </header>
 
