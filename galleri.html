@@ -25,7 +25,7 @@
     .g-h2 { font-family:'Fraunces',serif; font-size:28px; font-weight:700; color:#0F1F3D; margin-bottom:8px; letter-spacing:-.02em; }
     .g-lead { font-size:16px; color:#374868; line-height:1.75; margin-bottom:32px; max-width:620px; }
 
-    /* Screenshot grid */
+    /* Screenshot grid — desktop (iPad/tablet views) */
     .screenshot-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
     .screenshot-card { background:#fff; border:1px solid #DDE4EF; border-radius:10px; overflow:hidden; cursor:pointer; transition:all .2s; }
     .screenshot-card:hover { box-shadow:0 8px 32px rgba(43,91,168,.15); transform:translateY(-3px); border-color:#2B5BA8; }
@@ -34,6 +34,22 @@
     .screenshot-card-label { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#2B5BA8; margin-bottom:4px; }
     .screenshot-card-title { font-size:15px; font-weight:600; color:#0F1F3D; margin-bottom:5px; }
     .screenshot-card-desc { font-size:13px; color:#6B7FA3; line-height:1.6; margin:0; }
+
+    /* Mobile phone grid */
+    .phone-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .phone-card { cursor:pointer; transition:transform .2s; }
+    .phone-card:hover { transform:translateY(-4px); }
+    .phone-frame { background:#111; border-radius:22px; padding:8px; box-shadow:0 8px 24px rgba(0,0,0,.22); position:relative; }
+    .phone-frame::before { content:''; display:block; width:36px; height:4px; background:rgba(255,255,255,.15); border-radius:4px; margin:0 auto 6px; }
+    .phone-frame img { width:100%; display:block; border-radius:14px; }
+    .phone-card-body { padding:10px 4px 0; text-align:center; }
+    .phone-card-label { font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#2B5BA8; margin-bottom:3px; }
+    .phone-card-title { font-size:12px; font-weight:600; color:#0F1F3D; line-height:1.4; }
+
+    /* Device type badge */
+    .device-badge { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; background:#EBF2FF; color:#1B3A6B; border-radius:20px; padding:4px 12px; margin-bottom:16px; }
+
+    @media(max-width:720px) { .phone-grid { grid-template-columns:repeat(2,1fr); } }
 
     /* Lightbox */
     .lightbox { display:none; position:fixed; inset:0; background:rgba(11,25,56,.92); z-index:99999; align-items:center; justify-content:center; padding:24px; }
@@ -278,40 +294,34 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <h2 class="g-h2">Omedelbar kommunikation — inga steg</h2>
     <p class="g-lead">Välj språk, tryck — tolkstödet börjar. Perfekt för reception, tambur och hembesök. Ingen bokning, ingen väntetid.</p>
 
-    <div class="screenshot-grid">
-      <div class="screenshot-card" onclick="openLightbox('images/quick-start.png','Quick — Startskärm')">
-        <img src="images/quick-start.png" alt="Tolkster Quick — startskärm" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Quick</div>
-          <div class="screenshot-card-title">Startskärm — redo på sekunden</div>
-          <p class="screenshot-card-desc">Systemet startar direkt utan inloggning. Ett tryck sätter igång tolkstödet.</p>
+    <div class="device-badge">📱 Mobilapp — iPhone</div>
+    <div class="phone-grid">
+      <div class="phone-card" onclick="openLightbox('images/quick-start.png','Quick — Startskärm')">
+        <div class="phone-frame"><img src="images/quick-start.png" alt="Quick startskärm" loading="lazy"></div>
+        <div class="phone-card-body">
+          <div class="phone-card-label">Steg 1</div>
+          <div class="phone-card-title">Startskärm</div>
         </div>
       </div>
-
-      <div class="screenshot-card" onclick="openLightbox('images/quick-language.png','Quick — Välj språk')">
-        <img src="images/quick-language.png" alt="Tolkster Quick — språkval" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Quick</div>
-          <div class="screenshot-card-title">Välj språk — 50+ alternativ</div>
-          <p class="screenshot-card-desc">Arabiska, somaliska, tigrinska, dari och 46 till. Svenska är förvalt.</p>
+      <div class="phone-card" onclick="openLightbox('images/quick-language.png','Quick — Välj språk')">
+        <div class="phone-frame"><img src="images/quick-language.png" alt="Quick språkval" loading="lazy"></div>
+        <div class="phone-card-body">
+          <div class="phone-card-label">Steg 2</div>
+          <div class="phone-card-title">Välj språk</div>
         </div>
       </div>
-
-      <div class="screenshot-card" onclick="openLightbox('images/quick-active.png','Quick — Aktiv tolkning')">
-        <img src="images/quick-active.png" alt="Tolkster Quick — aktiv tolkning" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Quick</div>
-          <div class="screenshot-card-title">Aktiv tolkning i realtid</div>
-          <p class="screenshot-card-desc">Översättningen visas omedelbart. Handläggaren talar svenska, deltagaren förstår sitt språk.</p>
+      <div class="phone-card" onclick="openLightbox('images/quick-active.png','Quick — Aktiv tolkning')">
+        <div class="phone-frame"><img src="images/quick-active.png" alt="Quick aktiv tolkning" loading="lazy"></div>
+        <div class="phone-card-body">
+          <div class="phone-card-label">Steg 3</div>
+          <div class="phone-card-title">Aktiv tolkning</div>
         </div>
       </div>
-
-      <div class="screenshot-card" onclick="openLightbox('images/quick-feedback.png','Quick — Avslut och feedback')">
-        <img src="images/quick-feedback.png" alt="Tolkster Quick — feedback" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Quick</div>
-          <div class="screenshot-card-title">Avslut och kvalitetsfeedback</div>
-          <p class="screenshot-card-desc">Mötet avslutas med ett tryck. Systemet loggar händelsen och samlar in kvalitetsdata.</p>
+      <div class="phone-card" onclick="openLightbox('images/quick-feedback.png','Quick — Avslut')">
+        <div class="phone-frame"><img src="images/quick-feedback.png" alt="Quick avslut" loading="lazy"></div>
+        <div class="phone-card-body">
+          <div class="phone-card-label">Steg 4</div>
+          <div class="phone-card-title">Avslut & feedback</div>
         </div>
       </div>
     </div>
@@ -323,61 +333,57 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <h2 class="g-h2">Strukturerade möten med dokumentation</h2>
     <p class="g-lead">Tvåvägskommunikation med automatisk transkription och arkivering. Juridiskt hållbar dokumentation — sammanfattning kan skickas till deltagarna.</p>
 
-    <div class="screenshot-grid">
-      <div class="screenshot-card" onclick="openLightbox('images/journal-step1.png','Journal — Steg 1: Lägg till deltagare')">
-        <img src="images/journal-step1.png" alt="Tolkster Journal — lägg till deltagare" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Journal</div>
-          <div class="screenshot-card-title">Steg 1 — Registrera deltagare</div>
-          <p class="screenshot-card-desc">Namn, språk och roll registreras inför mötet. Kan sparas för återkommande kontakter.</p>
+    <div class="device-badge">📱 Mobilapp — iPhone</div>
+    <div class="phone-grid">
+      <div class="phone-card" onclick="openLightbox('images/journal-step1.png','Journal — Steg 1: Lägg till deltagare')">
+        <div class="phone-frame"><img src="images/journal-step1.png" alt="Journal steg 1" loading="lazy"></div>
+        <div class="phone-card-body">
+          <div class="phone-card-label">Steg 1</div>
+          <div class="phone-card-title">Registrera deltagare</div>
         </div>
       </div>
-
-      <div class="screenshot-card" onclick="openLightbox('images/journal-step2.png','Journal — Steg 2: Välj ämne')">
-        <img src="images/journal-step2.png" alt="Tolkster Journal — välj ämne" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Journal</div>
-          <div class="screenshot-card-title">Steg 2 — Mötesinställningar</div>
-          <p class="screenshot-card-desc">Välj mötestyp och ämnesområde. Systemet anpassar ordförråd och transkription.</p>
+      <div class="phone-card" onclick="openLightbox('images/journal-step2.png','Journal — Steg 2: Mötesinställningar')">
+        <div class="phone-frame"><img src="images/journal-step2.png" alt="Journal steg 2" loading="lazy"></div>
+        <div class="phone-card-body">
+          <div class="phone-card-label">Steg 2</div>
+          <div class="phone-card-title">Mötesinställningar</div>
         </div>
       </div>
-
-      <div class="screenshot-card" onclick="openLightbox('images/journal-active.png','Journal — Aktivt möte med transkription')">
-        <img src="images/journal-active.png" alt="Tolkster Journal — aktivt möte" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Journal</div>
-          <div class="screenshot-card-title">Aktivt möte — realtidstranskription</div>
-          <p class="screenshot-card-desc">Båda deltagarna ser sin text i realtid. Varje replik transkriberas och sparas automatiskt.</p>
+      <div class="phone-card" onclick="openLightbox('images/journal-active.png','Journal — Aktivt möte med transkription')">
+        <div class="phone-frame"><img src="images/journal-active.png" alt="Journal aktivt möte" loading="lazy"></div>
+        <div class="phone-card-body">
+          <div class="phone-card-label">Steg 3</div>
+          <div class="phone-card-title">Aktivt möte</div>
         </div>
       </div>
-
-      <div class="screenshot-card" onclick="openLightbox('images/journal-summary.png','Journal — Mötessammanfattning')">
-        <img src="images/journal-summary.png" alt="Tolkster Journal — sammanfattning" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Journal</div>
-          <div class="screenshot-card-title">Mötessammanfattning</div>
-          <p class="screenshot-card-desc">Automatisk sammanfattning efter mötet. Kan skickas till deltagarna och arkiveras i ärendesystemet.</p>
+      <div class="phone-card" onclick="openLightbox('images/journal-summary.png','Journal — Mötessammanfattning')">
+        <div class="phone-frame"><img src="images/journal-summary.png" alt="Journal sammanfattning" loading="lazy"></div>
+        <div class="phone-card-body">
+          <div class="phone-card-label">Steg 4</div>
+          <div class="phone-card-title">Mötessammanfattning</div>
         </div>
       </div>
     </div>
 
     <!-- iPad views -->
-    <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div class="screenshot-card" onclick="openLightbox('images/journal-ipad-step1.png','Journal på iPad — Förberedelse')">
-        <img src="images/journal-ipad-step1.png" alt="Tolkster Journal iPad — förberedelse" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Journal · iPad</div>
-          <div class="screenshot-card-title">Surfplattevyn — förberedelse</div>
-          <p class="screenshot-card-desc">Optimerad vy för surfplatta. Bordsläge med delat gränssnitt för möten ansikte mot ansikte.</p>
+    <div style="margin-top:28px;">
+      <div class="device-badge">🖥 Surfplatta — iPad</div>
+      <div class="screenshot-grid">
+        <div class="screenshot-card" onclick="openLightbox('images/journal-ipad-step1.png','Journal på iPad — Förberedelse')">
+          <img src="images/journal-ipad-step1.png" alt="Tolkster Journal iPad — förberedelse" loading="lazy">
+          <div class="screenshot-card-body">
+            <div class="screenshot-card-label">Journal · iPad</div>
+            <div class="screenshot-card-title">Surfplattevyn — förberedelse</div>
+            <p class="screenshot-card-desc">Bordsläge med delat gränssnitt — optimerat för möten ansikte mot ansikte.</p>
+          </div>
         </div>
-      </div>
-
-      <div class="screenshot-card" onclick="openLightbox('images/journal-ipad-active.png','Journal på iPad — Aktivt möte')">
-        <img src="images/journal-ipad-active.png" alt="Tolkster Journal iPad — aktivt möte" loading="lazy">
-        <div class="screenshot-card-body">
-          <div class="screenshot-card-label">Journal · iPad</div>
-          <div class="screenshot-card-title">Surfplattevyn — aktivt möte</div>
-          <p class="screenshot-card-desc">Texten vänds automatiskt så att varje part läser sin sida rätt — inget som behöver förklaras.</p>
+        <div class="screenshot-card" onclick="openLightbox('images/journal-ipad-active.png','Journal på iPad — Aktivt möte')">
+          <img src="images/journal-ipad-active.png" alt="Tolkster Journal iPad — aktivt möte" loading="lazy">
+          <div class="screenshot-card-body">
+            <div class="screenshot-card-label">Journal · iPad</div>
+            <div class="screenshot-card-title">Surfplattevyn — aktivt möte</div>
+            <p class="screenshot-card-desc">Texten vänds automatiskt så att varje part läser sin sida rätt vänd.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -389,7 +395,8 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <h2 class="g-h2">Mänsklig tolk — inbyggd bokningsportal</h2>
     <p class="g-lead">När certifierad tolk krävs bokar handläggaren direkt i Tolkster. En kanal för alla tolkbehov — oavsett om det är AI eller människa som tolkar.</p>
 
-    <div style="max-width:560px;">
+    <div class="device-badge">💻 Webbportal</div>
+    <div style="max-width:640px;">
       <div class="screenshot-card" onclick="openLightbox('images/human-booking.png','Human — Bokningsportal för certifierade tolkar')">
         <img src="images/human-booking.png" alt="Tolkster Human — bokningsportal" loading="lazy">
         <div class="screenshot-card-body">
