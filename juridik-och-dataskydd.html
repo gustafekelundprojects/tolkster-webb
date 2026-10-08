@@ -504,81 +504,177 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-tag">Juridik &amp; Dataskydd</div>
-    <h1>Är Google Translate<br><em>lagligt</em> i er verksamhet?</h1>
-    <p class="hero-hook">De flesta kommuner, regioner och myndigheter använder konsumentverktyg för översättning i känsliga samtal varje dag — utan att inse den juridiska exponeringen det innebär.</p>
+    <h1>Vilket ansvar tar ni<br><em>när tolken är AI?</em></h1>
+    <p class="hero-hook">Offentlig sektor hanterar dagligen sekretessbelagd information i möten med personer som inte talar svenska. Den frågan är inte teknisk — den är juridisk, etisk och organisatorisk. Den här sidan är vår genomlysning av vad lagen faktiskt kräver, varför dagens lösningar ofta brister, och hur vi tänker.</p>
   </div>
 </div>
 <div class="main">
+
+  <!-- ── INGRESS ─────────────────────────────────────────────── -->
   <div class="intro-block">
-    <p>Google Translate skickar text till Googles servrar i USA för bearbetning. Det innebär att känsliga personuppgifter lämnar myndighetens kontroll och överförs till en tredjepartsaktör utan adekvat skyddsgaranti. IMY underkände 2022–2023 svenska kommuners Google-integrationer på exakt denna grund — samma logik gäller varje gång en handläggare klistrar in ett ärende i Google Translate.</p>
+    <p>Det händer varje dag i Sveriges kommuner, regioner och myndigheter: en handläggare möter en person som inte talar svenska. Boka tolk? Det tar tid. Ringa en tvåspråkig kollega? Kanske inte tillgänglig. Öppna Google Translate? Det går på fem sekunder.</p>
+    <p style="margin-top:16px;">Vi förstår det. Och vi ska inte moralisera. Men vi vill vara tydliga med vad det innebär juridiskt — och vad som krävs av en lösning för att hålla.</p>
   </div>
+
+  <!-- ── VAD LAGEN KRÄVER ────────────────────────────────────── -->
   <div class="section">
-    <div class="section-label">Juridisk analys</div>
-    <h2>Fyra anledningar varför det inte håller</h2>
-    <div class="modes">
-      <div class="mode-card"><h3>1 — GDPR</h3><p>Google Translate skickar text till servrar i USA utan adekvat skyddsgaranti. IMY underkände 2022–2023 svenska kommuners Google-integrationer på exakt denna grund.</p></div>
-      <div class="mode-card"><h3>2 — OSL</h3><p>Uppgifter inom socialtjänst (26 kap.), hälso- och sjukvård (25 kap.) och rättsväsende är sekretessbelagda. Att föra in sådana uppgifter i ett konsumentverktyg utan personuppgiftsbiträdesavtal är sannolikt ett brott mot sekretesskyldigheten.</p></div>
-      <div class="mode-card"><h3>3 — Patientdatalagen (PDL)</h3><p>Google och Apple är inte personuppgiftsbiträden anpassade för svensk vård. Att skriva in patientinformation i Google Translate är hantering som vid tillsyn sannolikt bedöms som ett dataskyddsbrott.</p></div>
-      <div class="mode-card"><h3>4 — Ingen dokumentation</h3><p>Varken Google Translate eller Apple Translate loggar vad som sades eller om budskapet förstods. Vid JO-anmälan, IVO-tillsyn eller överklagande finns ingenting att visa.</p></div>
+    <div class="section-label">Det juridiska ramverket</div>
+    <h2>Vad lagen faktiskt kräver</h2>
+
+    <p style="font-size:16px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:24px;">Det finns inte ett enda lagrum som reglerar AI-tolkning i offentlig sektor — det finns flera, och de interagerar. En verksamhet som vill använda teknik för språkstöd behöver förhålla sig till åtminstone tre parallella regelverk.</p>
+
+    <div class="integration-box">
+      <p style="font-size:15px;color:#1B3A6B;line-height:1.8;margin:0;"><strong>GDPR (EU 2016/679)</strong> kräver att all behandling av personuppgifter sker med ett lagligt stöd, att den registrerade har insyn, och — avgörande — att om en extern aktör behandlar uppgifterna å myndighetens vägnar, så krävs ett personuppgiftsbiträdesavtal (PuB-avtal) som reglerar ändamål, instruktionsbundenhet och vad som händer med datan. Utan PuB-avtal är behandlingen olovlig, oavsett teknik.</p>
     </div>
-  </div>
-  <div class="section">
-    <div class="section-label">Risknivå per sektor</div>
-    <h2>Bedömning per verksamhet</h2>
-    <div class="risk-grid">
-      <div class="risk-row"><div><h3>Socialtjänst / IFO</h3><p>OSL 26 kap. + GDPR — känsliga uppgifter om barn och familjer</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
-      <div class="risk-row"><div><h3>Hälso- och sjukvård</h3><p>PDL + OSL 25 kap. — patientdata är strikt skyddad</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
-      <div class="risk-row"><div><h3>Polis och rättsväsende</h3><p>OSL flera kapitel — förundersökningssekretess</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
-      <div class="risk-row"><div><h3>Migrationsverket</h3><p>OSL 37 kap. + GDPR — asylskäl och utlänningsuppgifter</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
-      <div class="risk-row"><div><h3>Skola (elever under 18)</h3><p>GDPR + Skollag — IMY specifikt om barn och Google-tjänster</p></div><span class="badge badge-red">Sannolikt olagligt</span></div>
-      <div class="risk-row"><div><h3>Medborgarkontor / SFI / Förskola</h3><p>GDPR + Förvaltningslag — lägre känslighetsnivå men GDPR gäller</p></div><span class="badge badge-amber">Juridisk gråzon</span></div>
-    </div>
-  </div>
-  <div class="section">
-    <div class="section-label">Jämförelse</div>
-    <h2>Google Translate vs Tolkster</h2>
-    <div class="compare-grid">
-      <div class="compare-card compare-bad">
-        <h3>✗ Google Translate</h3>
-        <div class="compare-item"><span>✗</span> Data skickas till Google i USA</div>
-        <div class="compare-item"><span>✗</span> Inget personuppgiftsbiträdesavtal</div>
-        <div class="compare-item"><span>✗</span> Ingen logg eller dokumentation</div>
-        <div class="compare-item"><span>✗</span> Ingen domänanpassning</div>
-        <div class="compare-item"><span>✗</span> Felöversättningar syns inte</div>
-        <div class="compare-item"><span>✗</span> Håller inte vid tillsyn</div>
-      </div>
-      <div class="compare-card compare-good">
-        <h3>✓ Tolkster</h3>
-        <div class="compare-item"><span>✓</span> GDPR-compliant infrastruktur inom EU</div>
-        <div class="compare-item"><span>✓</span> Sekretessanpassad hantering</div>
-        <div class="compare-item"><span>✓</span> Automatisk logg och arkivering</div>
-        <div class="compare-item"><span>✓</span> Domänlexikon per verksamhet</div>
-        <div class="compare-item"><span>✓</span> Journal flaggar felöversättningar</div>
-        <div class="compare-item"><span>✓</span> Dokumentation som håller vid tillsyn</div>
-      </div>
-    </div>
-  </div>
-  <div class="section">
-    <div class="section-label">Säkerhet &amp; kvalitet</div>
-    <h2>Kontinuerligt arbete mot högsta säkerhetsnivå</h2>
-    <p>Tolkster är inte en färdig produkt — det är ett system vi aktivt förbättrar och härdrar. Nedan är hur vi arbetar med säkerhet, kryptering och språkkvalitet i praktiken.</p>
-    <div class="modes">
-      <div class="mode-card"><h3>Plattformssäkerhet</h3><p>All infrastruktur körs inom EU. Vi följer OWASP Top 10, genomför regelbundna sårbarhetsskanningar och penetrationstester vid varje större release. Åtkomst till produktionsmiljön är strikt rollbaserad med MFA och loggad.</p></div>
-      <div class="mode-card"><h3>Kryptering i vila och i transit</h3><p>All data krypteras med AES-256 i vila och TLS 1.3 i transit. Krypteringsnycklar hanteras separat från applikationslagret och roteras regelbundet. Inga personuppgifter behandlas i klartext utanför krypterade kanaler.</p></div>
-      <div class="mode-card"><h3>Juridiskt dataskyddsskikt</h3><p>Tolkster tecknar personuppgiftsbiträdesavtal (PuB-avtal) med varje kund. Databehandling sker uteslutande inom EU i enlighet med GDPR artikel 28. Inga uppgifter delar vi med tredje part utan instruktion från den personuppgiftsansvariga myndigheten.</p></div>
-      <div class="mode-card"><h3>Kontinuerlig kvalitetstestning av språk</h3><p>Vi testar löpande tolknoggrannheten på de 15 mest frekventa språken i svensk offentlig sektor med hjälp av referensöversättningar granskade av certifierade tolkar. Avvikelser triggar en kvalitetsflagga och prioriteras i nästa modelluppdatering.</p></div>
-      <div class="mode-card"><h3>Felrapportering och spårbarhet</h3><p>Varje session loggas med tidsstämpel, språkpar och session-ID. Handläggare kan flagga en tolkning direkt i gränssnittet. Flaggade sessioner granskas manuellt och används för att träna och förbättra modellen.</p></div>
-      <div class="mode-card"><h3>Certifieringar och revision</h3><p>Vi arbetar mot ISO 27001-certifiering och genomgår regelbunden extern revision. Vår säkerhetsdokumentation är tillgänglig för upphandlande myndigheter vid förfrågan, liksom en fullständig lista över underbiträden och dataflöden.</p></div>
-    </div>
+
     <div class="integration-box" style="margin-top:16px;">
-      <p>Har ni specifika säkerhetskrav, penetrationstestrapporter att ta del av eller vill granska vår GDPR-dokumentation inför upphandling? <a href="mailto:info@tolkster.ai?subject=S%C3%A4kerhetsdokumentation%20Tolkster" style="color:var(--blue);font-weight:500;">Kontakta oss direkt →</a></p>
+      <p style="font-size:15px;color:#1B3A6B;line-height:1.8;margin:0;"><strong>Offentlighets- och sekretesslagen (OSL)</strong> skyddar en lång rad uppgifter i offentlig verksamhet. Socialtjänstens ärenden (26 kap.), hälso- och sjukvårdens patientuppgifter (25 kap.), polis och förundersökning, migrationsärenden (37 kap.) — allt detta är sekretessbelagd information. Att föra in sådana uppgifter i ett system som inte är bundet av sekretesskyldighet på samma sätt innebär ett röjande av uppgifter. Det spelar ingen roll att handläggaren inte hade för avsikt att röja.</p>
+    </div>
+
+    <div class="integration-box" style="margin-top:16px;">
+      <p style="font-size:15px;color:#1B3A6B;line-height:1.8;margin:0;"><strong>Patientdatalagen (PDL)</strong> lägger ytterligare krav specifikt för hälso- och sjukvård. Att använda en tjänst som Google Translate för att kommunicera om en patients tillstånd, diagnos eller behandling innebär hantering av patientdata utanför godkänd infrastruktur — med eller utan avsikt.</p>
+    </div>
+
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-top:28px;">Till dessa lagar adderas <strong>EU:s AI-förordning (AI Act, 2024/1689)</strong>, som träder i kraft gradvis från 2025 och framåt. Den ställer krav på att AI-system som används i känsliga sammanhang är transparenta, dokumenterade, föremål för mänsklig tillsyn och kontinuerligt kvalitetssäkrade. Det är inte ett krav som träffar framtida system — det gäller det ni använder i dag.</p>
+  </div>
+
+  <!-- ── GOOGLE TRANSLATE-PROBLEMET ────────────────────────── -->
+  <div class="section">
+    <div class="section-label">Vad som faktiskt händer i dag</div>
+    <h2>Varför Google Translate är ett juridiskt problem</h2>
+
+    <p style="font-size:16px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">Google Translate är ett bra verktyg för det det är byggt för: att hjälpa privatpersoner förstå texter på ett annat språk. Det är <em>inte</em> byggt för att hantera sekretessbelagd information i offentlig förvaltning. Skillnaden är inte subtil.</p>
+
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:20px;">När en handläggare skriver in text i Google Translate skickas den till Googles servrar — juridiskt sett hos Google LLC i USA. Ingen myndighet har tecknat ett PuB-avtal med Google för den behandling som sker. Det finns ingen instruktionsbundenhet, inget sätt att verifiera vad som sker med texten, och inget sätt att begära att den raderas. Google kan och har rätt att använda inmatad text för att förbättra sina modeller — det framgår av användarvillkoren.</p>
+
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">IMY (Integritetsskyddsmyndigheten) underkände 2022–2023 ett flertal svenska kommuners Google-integrationer på exakt denna grund. Beslutet handlade om Google Workspace — men den principiella logiken är identisk: en konsumenttjänst utan PuB-avtal kan inte användas för myndighetens personuppgiftsbehandling.</p>
+
+    <div class="integration-box" style="border-left:3px solid #C0392B;background:#FFF5F5;">
+      <p style="font-size:14px;color:#7B1E1E;line-height:1.75;margin:0;"><strong>Utöver GDPR finns ett rättsäkerhetsproblem som sällan diskuteras:</strong> Google Translate loggar ingenting. Varken vad som skrevs, hur det översattes, eller om motparten förstod. Vid ett överklagande, en JO-anmälan eller en IVO-tillsyn finns inget att redovisa. I ärenden om barn, asyl eller medicinsk behandling — där ett missförstånd kan ha avgörande konsekvenser — är avsaknaden av spårbarhet ett fundamentalt rättssäkerhetsproblem.</p>
+    </div>
+  </div>
+
+  <!-- ── RISKTABELL ──────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">Konkret riskbild</div>
+    <h2>Vad gäller i er verksamhet om ni använder konsumentverktyg?</h2>
+    <p style="font-size:15px;color:#374868;line-height:1.75;margin-bottom:20px;max-width:640px;">Tabellen nedan är inte ett juridiskt utlåtande. Den är vår bedömning av exponeringen baserat på IMY:s praxis, lagtext och rättsliga analogier. Siffrorna är inte Tolksters — de är konsekvenserna av att använda Google Translate, Apple Translate eller liknande utan avtal i dessa sammanhang.</p>
+    <div class="risk-grid">
+      <div class="risk-row"><div><h3>Socialtjänst / IFO</h3><p>OSL 26 kap. + GDPR — uppgifter om barn, familjer och individer i utsatta situationer. Högt skyddsvärde, hög frekvens av känsliga uppgifter i varje möte.</p></div><span class="badge badge-red">Hög juridisk risk</span></div>
+      <div class="risk-row"><div><h3>Hälso- och sjukvård</h3><p>PDL + OSL 25 kap. — patientdata med strikt skydd och uttryckliga krav på godkänt personuppgiftsbiträde. IVO-tillsyn kan utlösas.</p></div><span class="badge badge-red">Hög juridisk risk</span></div>
+      <div class="risk-row"><div><h3>Polis och rättsväsende</h3><p>OSL flera kapitel + Brottsdatalagen — förundersökningssekretess. Felaktig hantering kan skada pågående ärenden.</p></div><span class="badge badge-red">Hög juridisk risk</span></div>
+      <div class="risk-row"><div><h3>Migration</h3><p>OSL 37 kap. + GDPR — asylskäl och uppgifter av synnerlig känslighet. Felöversättning kan också påverka bedömningen direkt.</p></div><span class="badge badge-red">Hög juridisk risk</span></div>
+      <div class="risk-row"><div><h3>Skola (elever under 18)</h3><p>GDPR + Skollag — IMY har specifikt prövat och underkänt Google-tjänster för barn i svenska kommuner.</p></div><span class="badge badge-red">Hög juridisk risk</span></div>
+      <div class="risk-row"><div><h3>Medborgarkontor / SFI / Försörjningsstöd</h3><p>GDPR + Förvaltningslag — lägre känslighetsnivå men GDPR gäller fullt ut. Avsaknad av PuB-avtal är fortfarande en brist.</p></div><span class="badge badge-amber">Juridisk gråzon</span></div>
+    </div>
+  </div>
+
+  <!-- ── VAD EN BRA LÖSNING KRÄVER ─────────────────────────── -->
+  <div class="section">
+    <div class="section-label">Kravbilden</div>
+    <h2>Vad en juridiskt hållbar lösning faktiskt behöver uppfylla</h2>
+
+    <p style="font-size:16px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">Innan vi beskriver hur Tolkster är byggt vill vi vara tydliga med vad kravbilden ser ut. Det är inte Tolkster som sätter dessa krav — det är lagen. En lösning för AI-stödd kommunikation i offentlig sektor behöver klara av följande, oberoende av vilket system ni väljer.</p>
+
+    <div class="modes">
+      <div class="mode-card">
+        <h3>1. Personuppgiftsbiträdesavtal på plats</h3>
+        <p>GDPR artikel 28 kräver ett skriftligt avtal som specificerar ändamål, behandlingens art, typ av personuppgifter, kategori av registrerade, och era instruktioner som personuppgiftsansvarig. Utan detta avtal är behandlingen rättsstridig — oavsett hur säker tekniken i övrigt är.</p>
+      </div>
+      <div class="mode-card">
+        <h3>2. Databehandling inom EU/EES</h3>
+        <p>Överföring av personuppgifter till ett tredjeland kräver en giltig rättslig grund — standardavtalsklausuler, adekvansbeslutar eller liknande. I praktiken: om er data behandlas av ett bolag med servrar i USA, och ni inte har utrett tredjelandsöverföringen, är det en brist som IMY kan agera på.</p>
+      </div>
+      <div class="mode-card">
+        <h3>3. Nollretention eller avtalssäkrad lagring</h3>
+        <p>Om konversationer sparas — av er leverantör eller i leverantörskedjan — måste ni veta var, hur länge och med vilket syfte. Standardlösningen för känsliga ärenden är att ingenting sparas utan att det är ett aktivt val från er sida.</p>
+      </div>
+      <div class="mode-card">
+        <h3>4. Spårbarhet och dokumentation</h3>
+        <p>Förvaltningslagen och principen om god förvaltning kräver att ni kan redovisa hur ett ärende handlades. Det innefattar hur kommunikation skedde och om det finns anledning att ifrågasätta att ett budskap förmedlades korrekt. En nollspårningslösning är inte ett alternativ.</p>
+      </div>
+      <div class="mode-card">
+        <h3>5. Mänsklig tillsyn och tydlig rollfördelning</h3>
+        <p>EU:s AI-förordning ställer explicit krav på att AI-system i känsliga sammanhang inte fattar autonoma beslut. Det räcker inte att det tekniskt är möjligt att köra automatiserat — det måste finnas en människa i beslutskedjan, och den måste ha verktyg för att förstå och ifrågasätta AI:ns output.</p>
+      </div>
+      <div class="mode-card">
+        <h3>6. Kontinuerlig kvalitetssäkring</h3>
+        <p>AI är inte statisk. En modell som presterar väl i dag kan göra fel i morgon — eller i en ny domän ni börjar använda den i. En ansvarsfull leverantör har processer för att mäta, verifiera och korrigera. Det är också ett krav under AI-förordningen för system som klassas som hög risk.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HUR TOLKSTER ÄR BYGGT ─────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">Tolksters arkitektur</div>
+    <h2>Hur vi har byggt för att möta dessa krav</h2>
+
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">Vi tecknar PuB-avtal med varje kund, baserat på SKR:s standardmall — den mall kommuner och regioner redan känner igen. All databehandling sker hos <strong>AWS EMEA SARL (Luxemburg)</strong> — EU-juridisk entitet, ingen data lämnar EU. Nollretention är standardinställning och avtalat i varje led av leverantörskedjan, inte bara en knapp ni kan trycka på. Inga kunddata används för att träna modeller — det är ett avtalsvillkor, inte en produktinställning. Tekniska driftloggar separeras strikt från innehållsdata; det som loggas för driftsändamål kan aldrig kopplas till vad som sades i ett samtal. Underbiträden är namngivna, dokumenterade och förändringar meddelas er i förväg.</p>
+
+    <div class="integration-box" style="border-left:3px solid #E8A930;background:#FFFBF0;">
+      <p style="font-size:14px;color:#5C4A00;line-height:1.75;margin:0;"><strong>En fråga vi inte undviker: US CLOUD Act.</strong> Flera av de AI-komponenter som driver talteknologi globalt ägs av amerikanska bolag. CLOUD Act innebär att ett amerikanskt moderbolag, vid en officiell begäran från amerikanska myndigheter, kan tvingas lämna ut data — även data lagrad i EU. Tolksters nollretention innebär att det i normalfallet inte finns något att lämna ut. Men vi påstår inte att risken är noll. För verksamheter med de allra högsta konfidentialitetskraven — polis, domstol, säkerhetskänslig verksamhet — bör ni ställa frågan om ägarkedjan direkt till oss. Vi kan redovisa vår underleverantörskedja och ägarstruktur. Vi är transparenta om vad vi kan garantera och vad vi inte kan.</p>
+    </div>
+  </div>
+
+  <!-- ── AI:S BEGRÄNSNINGAR OCH KONTINUITET ────────────────── -->
+  <div class="section">
+    <div class="section-label">Ansvarsfull AI-användning</div>
+    <h2>AI i kontinuerlig utveckling kräver ett system — inte bara ett verktyg</h2>
+
+    <p style="font-size:16px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:24px;">Det finns en missuppfattning om AI som vi vill nämna: att ett AI-system antingen är "klart" och kan litas på, eller inte. Verkligheten är mer komplex — och det gör att kraven på organisation och process är minst lika viktiga som kraven på teknik.</p>
+
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:24px;">AI-modeller förbättras kontinuerligt. Det är en styrka. Men det innebär också att en modells beteende kan förändras — i nya domäner, i ovanliga dialekter, i sammanhang med hög emotionell komplexitet. Det är därför vi arbetar med löpande verifiering, mäter tolkningskvalitet och justerar där vi ser avvikelser. Det är också därför vi kommunicerar öppet med våra kunder om modellers begränsningar.</p>
+
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">EU:s AI-förordning adresserar just detta. Den kräver mänsklig tillsyn, transparens om hur systemet fungerar och tydlig dokumentation av begränsningar. Tolkster är ett kommunikationsverktyg — handläggaren lyssnar, bedömer och fattar beslut. AI:n förmedlar. Det är en fundamental skillnad mot system där algoritmen avgör.</p>
+
+    <div class="integration-box" style="border-left:3px solid #2B5BA8;background:#EBF2FF;">
+      <p style="font-size:14px;color:#1B3A6B;line-height:1.75;margin:0;"><strong>Vår grundprincip:</strong> AI ersätter inte ansvar — den fördelar det annorlunda. Ansvaret ligger fortfarande hos er verksamhet. Tolkster ger er bättre förutsättningar att bära det ansvaret: rättsligt grundad infrastruktur, spårbar kommunikation och ett inbyggt system för att koppla in en certifierad mänsklig tolk när AI inte räcker.</p>
+    </div>
+  </div>
+
+  <!-- ── NÄR MÄNSKLIG TOLK KRÄVS ────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">Gränsdragningen</div>
+    <h2>När AI-tolkning inte är rätt val</h2>
+
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;">Vi är tydliga med var gränsen går — och vi tycker det är viktigt att vi säger det själva, inte att ni ska behöva fråga. I situationer där en felaktig tolkning kan ha avgörande rättsliga konsekvenser för en enskild person ska en auktoriserad eller rättstolkutbildad tolk anlitas:</p>
+
+    <div class="risk-grid" style="margin-top:20px;">
+      <div class="risk-row"><div><h3>Domstolsförhandlingar</h3><p>Rättsliga förhandlingar kräver per lag auktoriserad tolk. AI-tolkning är inte ett alternativ.</p></div><span class="badge" style="background:#E8E8E8;color:#444;white-space:nowrap;">Mänsklig tolk</span></div>
+      <div class="risk-row"><div><h3>Asylutredning</h3><p>Uppgifter om förföljelse, skyddsskäl och hemlandsförhållanden. Missförstånd kan ha livsavgörande konsekvenser.</p></div><span class="badge" style="background:#E8E8E8;color:#444;white-space:nowrap;">Mänsklig tolk</span></div>
+      <div class="risk-row"><div><h3>LVU / LVM-utredningar</h3><p>Tvångsvård av barn och unga. Hög rättslig komplexitet, hög konsekvens av fel.</p></div><span class="badge" style="background:#E8E8E8;color:#444;white-space:nowrap;">Mänsklig tolk</span></div>
+      <div class="risk-row"><div><h3>Suicidriskbedömning</h3><p>Klinisk bedömning med direkt konsekvens för patientens säkerhet. Kan inte bygga på osäker kommunikation.</p></div><span class="badge" style="background:#E8E8E8;color:#444;white-space:nowrap;">Mänsklig tolk</span></div>
+    </div>
+
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-top:24px;">Tolksters Human-läge ger er en inbyggd bokningsportal för certifierade tolkar — direkt i samma system. AI-tolkning och mänsklig tolkning är inte motpoler. De är delar av ett genomtänkt system för hela er verksamhet.</p>
+  </div>
+
+  <!-- ── DOKUMENTATION ───────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">För upphandling och tillsyn</div>
+    <h2>Dokumentation vi tillhandahåller</h2>
+    <div class="compare-grid">
+      <div class="compare-card compare-good" style="border-top:3px solid #2B5BA8;">
+        <h3>Avtals- och juridisk dokumentation</h3>
+        <div class="compare-item"><span>✓</span> PuB-avtal baserat på SKR:s standardmall</div>
+        <div class="compare-item"><span>✓</span> Underbiträdesförteckning med ägarland och region</div>
+        <div class="compare-item"><span>✓</span> Dataflödesbeskrivning — vart data rör sig och varför</div>
+        <div class="compare-item"><span>✓</span> Svar på upphandlingsfrågor (dataskydd, säkerhet, AI)</div>
+      </div>
+      <div class="compare-card compare-good" style="border-top:3px solid #2B5BA8;">
+        <h3>Teknisk och AI-relaterad dokumentation</h3>
+        <div class="compare-item"><span>✓</span> Teknisk arkitekturöversikt — infrastruktur och kryptering</div>
+        <div class="compare-item"><span>✓</span> AI-systemets begränsningar och kvalitetssäkringsprocess</div>
+        <div class="compare-item"><span>✓</span> Beskrivning av mänsklig tillsyn i systemdesignen</div>
+        <div class="compare-item"><span>✓</span> Uppdateras löpande i takt med AI-förordningens ikraftträdande</div>
+      </div>
     </div>
   </div>
 
   <div class="cta-section">
-    <h2>Byt till ett juridiskt hållbart alternativ</h2>
-    <p>Levereras som surfplatta med SIM-kort från dag ett. Ingen IT-installation. Under direktupphandlingsgränsen.</p>
-    <a href="mailto:info@tolkster.ai?subject=Jag%20vill%20veta%20mer%20om%20Tolkster%20f%C3%B6r%20Juridik%20och%20dataskydd" class="cta-btn">Kontakta oss</a>
+    <h2>Vill ni granska vår dokumentation?</h2>
+    <p>Vi tillhandahåller samtliga underlag inför avtal eller upphandling. Skicka ett mail så återkommer vi med det ni behöver — utan att ni behöver begära det i ett akut skede.</p>
+    <a href="mailto:info@tolkster.ai?subject=Juridisk%20dokumentation%20Tolkster" class="cta-btn">Begär dokumentation →</a>
   </div>
 </div>
 <footer>
