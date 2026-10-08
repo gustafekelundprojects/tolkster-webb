@@ -161,11 +161,13 @@ p:last-child{margin-bottom:0;}
 .mode-card{
   background:#fff;border:1px solid var(--gray-200);border-radius:8px;
   padding:18px 22px;border-left:4px solid var(--blue);
-  display:grid;grid-template-columns:100px 1fr;gap:0 16px;align-items:start;
+  display:flex;align-items:flex-start;gap:16px;
   transition:border-color .15s,box-shadow .15s;
 }
+.mode-card-icon{width:44px;height:44px;flex-shrink:0;margin-top:2px;}
+.mode-card-text{flex:1;min-width:0;}
 .mode-card:hover{border-left-color:var(--blue-mid);box-shadow:0 2px 10px rgba(43,91,168,.08);}
-.mode-card h3{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;padding-top:2px;}
+.mode-card h3{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;padding-top:2px;margin:0 0 4px;}
 .mode-card p{font-size:14px;color:var(--text-body);margin:0;line-height:1.65;}
 
 /* ── LAW BOX ─────────────────────────────────────────────────── */
@@ -277,7 +279,7 @@ footer a:hover{color:#6EC6FF;}
   .breadcrumb{padding:8px 20px;}
   .main{padding:36px 20px 80px;}
   .benefits-grid{grid-template-columns:1fr;}
-  .mode-card{grid-template-columns:1fr;gap:3px;}
+  .mode-card{flex-direction:column;gap:8px;}
   .compare-grid{grid-template-columns:1fr;}
   .hero-stats{grid-template-columns:1fr;}
   .cta-section{padding:32px 20px;}
@@ -355,7 +357,7 @@ ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js');
 <style>
 nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:9999;box-shadow:0 2px 16px rgba(0,0,0,.25);}
 .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
-.nav-logo-img{height:36px;width:auto;display:block;filter:brightness(0) invert(1);}
+.nav-logo-img{height:36px;width:auto;display:block;}
 .nav-center{display:flex;align-items:center;gap:2px;}
 .nav-dd{position:relative;}
 .nav-dd-btn{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.8);font-size:13px;font-family:'DM Sans',sans-serif;padding:8px 12px;border-radius:4px;display:flex;align-items:center;gap:5px;transition:background .15s,color .15s;white-space:nowrap;}
@@ -415,7 +417,7 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
   <a href="utmaningen.html" class="nav-link">Utmaningen</a>
     <div class="nav-dd">
   <button class="nav-dd-btn" id="ndb-l" onclick="_navToggle('l')">Lösningen <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-  <div class="nav-dd-menu" id="ndm-l"><a href="produkt-core.html">Tolkster Core</a><a href="produkt-kommun.html">Tolkster Kommun</a><a href="produkt-vard.html">Tolkster Vård</a><a href="produkt-myndighet.html">Tolkster Myndighet</a><a href="produkt-rattsvasendet.html">Tolkster Rättsväsende</a><a href="produkt-juridik.html">Tolkster Juridik</a></div>
+  <div class="nav-dd-menu" id="ndm-l"><a href="produkt-core.html">Tolkster Core</a><a href="produkt-kommun.html">Tolkster Kommun</a><a href="produkt-vard.html">Tolkster Vård</a><a href="produkt-myndighet.html">Tolkster Myndighet</a><a href="produkt-rattsvasendet.html">Tolkster Rättsväsende</a></div>
 </div>
     <div class="nav-dd">
   <button class="nav-dd-btn" id="ndb-k" onclick="_navToggle('k')">Kommun <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
@@ -454,7 +456,6 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
 <a href="produkt-kommun.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Kommun</a>
 <a href="produkt-vard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Vård</a>
 <a href="produkt-myndighet.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Myndighet</a>
-<a href="produkt-juridik.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Juridik</a>
 <a href="socialtjanst.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Kommun</a>
 <a href="socialtjanst.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Socialtjänst</a>
 <a href="skola.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Skola</a>
@@ -551,9 +552,9 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <div class="section-label">Produkt</div>
     <h2>Tolksters stöd i familjerätt</h2>
     <div class="modes">
-      <div class="mode-card"><h3>Quick-läget</h3><p>för den inledande kontakten och kortare informationsmöten.</p></div>
-<div class="mode-card"><h3>Journal-läget</h3><p>för strukturerade samarbetssamtal. Dokumentation med sammanfattning.</p></div>
-<div class="mode-card"><h3>Journal-läget</h3><p>för alla samtal med inbokad tolk. Tolkster transkriberar och flaggar avvikelser i realtid. I familjerätten är det nödvändigt.</p></div>
+      <div class="mode-card"><img src="images/icon-quick.png" alt="Quick" class="mode-card-icon"><div class="mode-card-text"><h3>Quick-läget</h3><p>för den inledande kontakten och kortare informationsmöten.</p></div></div>
+<div class="mode-card"><img src="images/icon-journal.png" alt="Journal" class="mode-card-icon"><div class="mode-card-text"><h3>Journal-läget</h3><p>för strukturerade samarbetssamtal. Dokumentation med sammanfattning.</p></div></div>
+<div class="mode-card"><img src="images/icon-journal.png" alt="Journal" class="mode-card-icon"><div class="mode-card-text"><h3>Journal-läget</h3><p>för alla samtal med inbokad tolk. Tolkster transkriberar och flaggar avvikelser i realtid. I familjerätten är det nödvändigt.</p></div></div>
     </div>
   </div>
 
