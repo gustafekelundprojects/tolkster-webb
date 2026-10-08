@@ -512,7 +512,7 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
 
   <!-- ── INGRESS ─────────────────────────────────────────────── -->
   <div class="intro-block">
-    <p>Det händer varje dag i Sveriges kommuner, regioner och myndigheter: en handläggare möter en person som inte talar svenska. Boka tolk? Det tar tid. Ringa en tvåspråkig kollega? Kanske inte tillgänglig. Öppna Google Translate? Det går på fem sekunder.</p>
+    <p>Det händer varje dag i Sveriges kommuner, regioner och myndigheter: en handläggare möter en person som inte talar svenska. Boka tolk? Det tar tid. Ringa en tvåspråkig kollega? Kanske inte tillgänglig. Öppna en app på telefonen? Det går på fem sekunder.</p>
     <p style="margin-top:16px;">Vi förstår det. Och vi ska inte moralisera. Men vi vill vara tydliga med vad det innebär juridiskt — och vad som krävs av en lösning för att hålla.</p>
   </div>
 
@@ -532,25 +532,23 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     </div>
 
     <div class="integration-box" style="margin-top:16px;">
-      <p style="font-size:15px;color:#1B3A6B;line-height:1.8;margin:0;"><strong>Patientdatalagen (PDL)</strong> lägger ytterligare krav specifikt för hälso- och sjukvård. Att använda en tjänst som Google Translate för att kommunicera om en patients tillstånd, diagnos eller behandling innebär hantering av patientdata utanför godkänd infrastruktur — med eller utan avsikt.</p>
+      <p style="font-size:15px;color:#1B3A6B;line-height:1.8;margin:0;"><strong>Patientdatalagen (PDL)</strong> lägger ytterligare krav specifikt för hälso- och sjukvård. Att använda ett konsumentverktyg för att kommunicera om en patients tillstånd, diagnos eller behandling innebär hantering av patientdata utanför godkänd infrastruktur — med eller utan avsikt.</p>
     </div>
 
     <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-top:28px;">Till dessa lagar adderas <strong>EU:s AI-förordning (AI Act, 2024/1689)</strong>, som träder i kraft gradvis från 2025 och framåt. Den ställer krav på att AI-system som används i känsliga sammanhang är transparenta, dokumenterade, föremål för mänsklig tillsyn och kontinuerligt kvalitetssäkrade. Det är inte ett krav som träffar framtida system — det gäller det ni använder i dag.</p>
   </div>
 
-  <!-- ── GOOGLE TRANSLATE-PROBLEMET ────────────────────────── -->
+  <!-- ── PROBLEMET MED GENERISKA VERKTYG ───────────────────── -->
   <div class="section">
     <div class="section-label">Vad som faktiskt händer i dag</div>
-    <h2>Varför Google Translate är ett juridiskt problem</h2>
+    <h2>Varför generiska översättningsappar inte räcker</h2>
 
-    <p style="font-size:16px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">Google Translate är ett bra verktyg för det det är byggt för: att hjälpa privatpersoner förstå texter på ett annat språk. Det är <em>inte</em> byggt för att hantera sekretessbelagd information i offentlig förvaltning. Skillnaden är inte subtil.</p>
+    <p style="font-size:16px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">Konsumentverktyg för översättning är byggda för privatpersoner — inte för myndighetsutövning. De är snabba, tillgängliga och ofta imponerande tekniskt. Men de är inte designade för att hantera sekretessbelagd information i offentlig förvaltning, och de uppfyller inte de krav som lagen ställer. Det är inte en fråga om teknikens kvalitet — det är en fråga om juridisk infrastruktur.</p>
 
-    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:20px;">När en handläggare skriver in text i Google Translate skickas den till Googles servrar — juridiskt sett hos Google LLC i USA. Ingen myndighet har tecknat ett PuB-avtal med Google för den behandling som sker. Det finns ingen instruktionsbundenhet, inget sätt att verifiera vad som sker med texten, och inget sätt att begära att den raderas. Google kan och har rätt att använda inmatad text för att förbättra sina modeller — det framgår av användarvillkoren.</p>
-
-    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">IMY (Integritetsskyddsmyndigheten) underkände 2022–2023 ett flertal svenska kommuners Google-integrationer på exakt denna grund. Beslutet handlade om Google Workspace — men den principiella logiken är identisk: en konsumenttjänst utan PuB-avtal kan inte användas för myndighetens personuppgiftsbehandling.</p>
+    <p style="font-size:15px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:20px;">Problemet är strukturellt: inmatad text skickas till servrar som myndigheten inte kontrollerar, utan PuB-avtal, utan instruktionsbundenhet och utan möjlighet att verifiera vad som sker med datan. IMY:s beslut 2022–2023 mot svenska kommuners Google-integrationer visar att den principiella logiken håller — en konsumenttjänst utan avtal kan inte användas för myndighetens personuppgiftsbehandling, oavsett hur tekniken i övrigt presterar.</p>
 
     <div class="integration-box" style="border-left:3px solid #C0392B;background:#FFF5F5;">
-      <p style="font-size:14px;color:#7B1E1E;line-height:1.75;margin:0;"><strong>Utöver GDPR finns ett rättsäkerhetsproblem som sällan diskuteras:</strong> Google Translate loggar ingenting. Varken vad som skrevs, hur det översattes, eller om motparten förstod. Vid ett överklagande, en JO-anmälan eller en IVO-tillsyn finns inget att redovisa. I ärenden om barn, asyl eller medicinsk behandling — där ett missförstånd kan ha avgörande konsekvenser — är avsaknaden av spårbarhet ett fundamentalt rättssäkerhetsproblem.</p>
+      <p style="font-size:14px;color:#7B1E1E;line-height:1.75;margin:0;"><strong>Utöver GDPR finns ett rättssäkerhetsproblem som sällan diskuteras:</strong> generiska appar loggar ingenting om vad som sades, hur det översattes eller om budskapet förstods. Vid ett överklagande, en JO-anmälan eller en IVO-tillsyn finns inget att redovisa. I ärenden om barn, asyl eller medicinsk behandling — där ett missförstånd kan ha avgörande konsekvenser — är avsaknaden av spårbarhet ett fundamentalt problem oberoende av GDPR.</p>
     </div>
   </div>
 
@@ -558,7 +556,7 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
   <div class="section">
     <div class="section-label">Konkret riskbild</div>
     <h2>Vad gäller i er verksamhet om ni använder konsumentverktyg?</h2>
-    <p style="font-size:15px;color:#374868;line-height:1.75;margin-bottom:20px;max-width:640px;">Tabellen nedan är inte ett juridiskt utlåtande. Den är vår bedömning av exponeringen baserat på IMY:s praxis, lagtext och rättsliga analogier. Siffrorna är inte Tolksters — de är konsekvenserna av att använda Google Translate, Apple Translate eller liknande utan avtal i dessa sammanhang.</p>
+    <p style="font-size:15px;color:#374868;line-height:1.75;margin-bottom:20px;max-width:640px;">Tabellen nedan är inte ett juridiskt utlåtande. Den är vår bedömning av exponeringen baserat på IMY:s praxis, lagtext och rättsliga analogier — konsekvenserna av att använda generiska konsumentverktyg utan avtal i dessa sammanhang.</p>
     <div class="risk-grid">
       <div class="risk-row"><div><h3>Socialtjänst / IFO</h3><p>OSL 26 kap. + GDPR — uppgifter om barn, familjer och individer i utsatta situationer. Högt skyddsvärde, hög frekvens av känsliga uppgifter i varje möte.</p></div><span class="badge badge-red">Hög juridisk risk</span></div>
       <div class="risk-row"><div><h3>Hälso- och sjukvård</h3><p>PDL + OSL 25 kap. — patientdata med strikt skydd och uttryckliga krav på godkänt personuppgiftsbiträde. IVO-tillsyn kan utlösas.</p></div><span class="badge badge-red">Hög juridisk risk</span></div>
@@ -574,32 +572,32 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <div class="section-label">Kravbilden</div>
     <h2>Vad en juridiskt hållbar lösning faktiskt behöver uppfylla</h2>
 
-    <p style="font-size:16px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">Innan vi beskriver hur Tolkster är byggt vill vi vara tydliga med vad kravbilden ser ut. Det är inte Tolkster som sätter dessa krav — det är lagen. En lösning för AI-stödd kommunikation i offentlig sektor behöver klara av följande, oberoende av vilket system ni väljer.</p>
+    <p style="font-size:16px;color:#374868;line-height:1.8;max-width:700px;margin-bottom:28px;">Det är inte Tolkster som sätter dessa krav — det är lagen. En lösning för AI-stödd kommunikation i offentlig sektor behöver klara av följande, oberoende av vilket system ni väljer.</p>
 
     <div class="modes">
       <div class="mode-card">
-        <h3>1. Personuppgiftsbiträdesavtal på plats</h3>
-        <p>GDPR artikel 28 kräver ett skriftligt avtal som specificerar ändamål, behandlingens art, typ av personuppgifter, kategori av registrerade, och era instruktioner som personuppgiftsansvarig. Utan detta avtal är behandlingen rättsstridig — oavsett hur säker tekniken i övrigt är.</p>
+        <h3>PuB-avtal på plats</h3>
+        <p>GDPR artikel 28 kräver ett skriftligt avtal som specificerar ändamål, behandlingens art och era instruktioner som personuppgiftsansvarig. Utan detta avtal är behandlingen rättsstridig — oavsett hur säker tekniken i övrigt är.</p>
       </div>
       <div class="mode-card">
-        <h3>2. Databehandling inom EU/EES</h3>
-        <p>Överföring av personuppgifter till ett tredjeland kräver en giltig rättslig grund — standardavtalsklausuler, adekvansbeslutar eller liknande. I praktiken: om er data behandlas av ett bolag med servrar i USA, och ni inte har utrett tredjelandsöverföringen, är det en brist som IMY kan agera på.</p>
+        <h3>Databehandling inom EU</h3>
+        <p>Överföring av personuppgifter till ett tredjeland kräver giltig rättslig grund. Om er data behandlas av ett bolag med servrar utanför EU, och ni inte har utrett tredjelandsöverföringen, är det en brist IMY kan agera på.</p>
       </div>
       <div class="mode-card">
-        <h3>3. Nollretention eller avtalssäkrad lagring</h3>
-        <p>Om konversationer sparas — av er leverantör eller i leverantörskedjan — måste ni veta var, hur länge och med vilket syfte. Standardlösningen för känsliga ärenden är att ingenting sparas utan att det är ett aktivt val från er sida.</p>
+        <h3>Kontroll över lagring</h3>
+        <p>Om konversationer sparas — av er leverantör eller i leverantörskedjan — måste ni veta var, hur länge och med vilket syfte. Standardlösningen för känsliga ärenden är att ingenting sparas utan ett aktivt val från er sida.</p>
       </div>
       <div class="mode-card">
-        <h3>4. Spårbarhet och dokumentation</h3>
-        <p>Förvaltningslagen och principen om god förvaltning kräver att ni kan redovisa hur ett ärende handlades. Det innefattar hur kommunikation skedde och om det finns anledning att ifrågasätta att ett budskap förmedlades korrekt. En nollspårningslösning är inte ett alternativ.</p>
+        <h3>Spårbarhet</h3>
+        <p>Förvaltningslagen kräver att ni kan redovisa hur ett ärende handlades — inklusive hur kommunikation skedde. I ärenden med rättsliga konsekvenser är ett verktyg som inte loggar något inte ett alternativ.</p>
       </div>
       <div class="mode-card">
-        <h3>5. Mänsklig tillsyn och tydlig rollfördelning</h3>
-        <p>EU:s AI-förordning ställer explicit krav på att AI-system i känsliga sammanhang inte fattar autonoma beslut. Det räcker inte att det tekniskt är möjligt att köra automatiserat — det måste finnas en människa i beslutskedjan, och den måste ha verktyg för att förstå och ifrågasätta AI:ns output.</p>
+        <h3>Människa i beslutskedjan</h3>
+        <p>EU:s AI-förordning kräver att AI-system i känsliga sammanhang inte fattar autonoma beslut. Det måste finnas en människa som förstår, bedömer och kan ifrågasätta AI:ns output — inte bara en som godkänner den.</p>
       </div>
       <div class="mode-card">
-        <h3>6. Kontinuerlig kvalitetssäkring</h3>
-        <p>AI är inte statisk. En modell som presterar väl i dag kan göra fel i morgon — eller i en ny domän ni börjar använda den i. En ansvarsfull leverantör har processer för att mäta, verifiera och korrigera. Det är också ett krav under AI-förordningen för system som klassas som hög risk.</p>
+        <h3>Löpande kvalitetssäkring</h3>
+        <p>AI är inte statisk. En modell kan göra fel i nya domäner eller dialekter. En ansvarsfull leverantör mäter, verifierar och justerar kontinuerligt — och kommunicerar öppet om begränsningar.</p>
       </div>
     </div>
   </div>
