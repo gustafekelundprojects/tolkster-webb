@@ -337,16 +337,6 @@ footer a:hover{color:#6EC6FF;}
 }
 </style>
 <style>@media(max-width:800px){#mob-btn{display:flex!important;}.nav-center{display:none!important;}.nav-back{display:none!important;}}</style><style>@media(min-width:801px){#mob-btn{display:none!important;}.nav-cta{display:inline-block!important;}}</style>
-<script>
-(function(ss,ex){
-window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));};
-(function(d,s){
-fs=d.getElementsByTagName(s)[0];
-function ce(src){var cs=d.createElement(s);cs.src=src;cs.async=1;fs.parentNode.insertBefore(cs,fs);};
-ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js');
-})(document,'script');
-})('Xbp1oaE5PzvaEdVj');
-</script>
 </head>
 <body>
 
@@ -412,11 +402,10 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <img src="images/logo-tolkster.png" alt="Tolkster" class="nav-logo-img">
   </a>
   <div class="nav-center">
-  <a href="utmaningen.html" class="nav-link">Utmaningen</a>
-    <div class="nav-dd">
-  <button class="nav-dd-btn" id="ndb-l" onclick="_navToggle('l')">Lösningen <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-  <div class="nav-dd-menu" id="ndm-l"><a href="produkt-core.html">Tolkster Core</a><a href="produkt-kommun.html">Tolkster Kommun</a><a href="produkt-vard.html">Tolkster Vård</a><a href="produkt-myndighet.html">Tolkster Myndighet</a><a href="produkt-rattsvasendet.html">Tolkster Rättsväsende</a><a href="produkt-juridik.html">Tolkster Juridik</a></div>
-</div>
+    
+  <a href="index.html#utmaningen" class="nav-link">Utmaningen</a>
+  <a href="index.html#losningen" class="nav-link">Lösningen</a>
+
     <div class="nav-dd">
   <button class="nav-dd-btn" id="ndb-k" onclick="_navToggle('k')">Kommun <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
   <div class="nav-dd-menu" id="ndm-k"><a href="socialtjanst.html">Socialtjänst</a><a href="skola.html">Skola</a><a href="sfi.html">SFI</a><a href="forskola.html">Förskola</a><a href="medborgarkontor.html">Medborgarkontor</a><a href="flyktingmottagning.html">Flyktingmottagning</a><a href="lss.html">LSS</a><a href="hemtjanst.html">Hemtjänst</a><a href="ekonomiskt-bistand.html">Ekonomiskt bistånd</a><a href="familjeratt.html">Familjerätt</a></div>
@@ -429,14 +418,9 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
   <button class="nav-dd-btn" id="ndb-m" onclick="_navToggle('m')">Myndigheter <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
   <div class="nav-dd-menu" id="ndm-m"><a href="migrationsverket.html">Migrationsverket</a><a href="polis.html">Polis</a><a href="domstol.html">Domstol</a><a href="kriminalvard.html">Kriminalvård</a><a href="arbetsformedlingen.html">Arbetsförmedlingen</a><a href="tullverket.html">Tullverket</a><a href="kronofogden.html">Kronofogden</a><a href="aklagarmyndigheten.html">Åklagarmyndigheten</a></div>
 </div>
-    <div class="nav-dd">
-  <button class="nav-dd-btn" id="ndb-pv" onclick="_navToggle('pv')">Privata <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-  <div class="nav-dd-menu" id="ndm-pv"><a href="produkt-juridik.html">Advokatbyrå / Juridik</a><a href="produkt-vard.html">Privat sjukvård</a><a href="produkt-turism.html">Turism &amp; Upplevelser</a></div>
-</div>
     <a href="galleri.html" class="nav-link">Galleri</a>
     <a href="juridik-och-dataskydd.html" class="nav-link">Juridik</a>
     <a href="besparing.html" class="nav-link">Besparing</a>
-  
   </div>
   <div class="nav-right">
     <button id="mob-btn" style="display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px;" aria-label="Meny">
@@ -448,46 +432,8 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
 </nav>
 <div id="mob-menu" style="display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:#1B3A6B;z-index:8888;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px 0 48px;">
-<a href="utmaningen.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Utmaningen</a>
-<a href="produkt-core.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Lösningen</a>
-<a href="produkt-core.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Core</a>
-<a href="produkt-kommun.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Kommun</a>
-<a href="produkt-vard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Vård</a>
-<a href="produkt-myndighet.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Myndighet</a>
-<a href="produkt-juridik.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tolkster Juridik</a>
-<a href="socialtjanst.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Kommun</a>
-<a href="socialtjanst.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Socialtjänst</a>
-<a href="skola.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Skola</a>
-<a href="sfi.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">SFI</a>
-<a href="forskola.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Förskola</a>
-<a href="medborgarkontor.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Medborgarkontor</a>
-<a href="flyktingmottagning.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Flyktingmottagning</a>
-<a href="lss.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">LSS</a>
-<a href="hemtjanst.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Hemtjänst</a>
-<a href="ekonomiskt-bistand.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Ekonomiskt bistånd</a>
-<a href="familjeratt.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Familjerätt</a>
-<a href="vardcentral.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Region</a>
-<a href="vardcentral.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Vårdcentral</a>
-<a href="akutmottagning.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Akutmottagning</a>
-<a href="psykiatri.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Psykiatri</a>
-<a href="folktandvarden.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Folktandvården</a>
-<a href="bvc.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">BVC</a>
-<a href="mvc.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">MVC</a>
-<a href="beroendevard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Beroendevård</a>
-<a href="migrationsverket.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Myndigheter</a>
-<a href="migrationsverket.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Migrationsverket</a>
-<a href="polis.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Polis</a>
-<a href="domstol.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Domstol</a>
-<a href="kriminalvard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Kriminalvård</a>
-<a href="arbetsformedlingen.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Arbetsförmedlingen</a>
-<a href="tullverket.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Tullverket</a>
-<a href="kronofogden.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Kronofogden</a>
-<a href="aklagarmyndigheten.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Åklagarmyndigheten</a>
-<a href="produkt-juridik.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600;background:rgba(255,255,255,.05);">Privata</a>
-<a href="produkt-juridik.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Advokatbyrå / Juridik</a>
-<a href="produkt-vard.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.04);">Privat sjukvård</a>
-<a href="produkt-turism.html" style="display:block;padding:10px 24px 10px 36px;color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Turism &amp; Upplevelser</a>
-<a href="mailto:info@tolkster.ai" style="display:block;margin:16px 16px 0;padding:14px;color:#fff;font-weight:600;text-align:center;background:#0D7377;border-radius:6px;text-decoration:none;font-family:\'DM Sans\',sans-serif;">Kontakta oss</a></div>
+  <a href="galleri.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Galleri &amp; Demo</a><a href="juridik-och-dataskydd.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Juridik &amp; Dataskydd</a><a href="besparing.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Besparing</a><div style="padding:16px 24px 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);font-family:'DM Sans',sans-serif;">Kommun</div><a href="socialtjanst.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Socialtjänst</a><a href="skola.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Skola</a><a href="sfi.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">SFI</a><a href="forskola.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Förskola</a><a href="medborgarkontor.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Medborgarkontor</a><a href="flyktingmottagning.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Flyktingmottagning</a><a href="lss.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">LSS</a><a href="hemtjanst.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Hemtjänst</a><a href="ekonomiskt-bistand.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Ekonomiskt bistånd</a><a href="familjeratt.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Familjerätt</a><div style="padding:16px 24px 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);font-family:'DM Sans',sans-serif;">Region</div><a href="vardcentral.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Vårdcentral</a><a href="akutmottagning.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Akutmottagning</a><a href="psykiatri.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Psykiatri</a><a href="folktandvarden.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Folktandvården</a><a href="bvc.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">BVC</a><a href="mvc.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">MVC</a><a href="beroendevard.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Beroendevård</a><div style="padding:16px 24px 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);font-family:'DM Sans',sans-serif;">Myndigheter</div><a href="migrationsverket.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Migrationsverket</a><a href="polis.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Polis</a><a href="domstol.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Domstol</a><a href="kriminalvard.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Kriminalvård</a><a href="arbetsformedlingen.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Arbetsförmedlingen</a><a href="tullverket.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Tullverket</a><a href="kronofogden.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Kronofogden</a><a href="aklagarmyndigheten.html" style="display:block;padding:13px 24px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(255,255,255,.08);">Åklagarmyndigheten</a>
+  <div style="padding:20px 24px 0;"><a href="mailto:info@tolkster.ai?subject=Jag%20vill%20veta%20mer%20om%20Tolkster%20f%C3%B6r%20%C3%85klagarmyndigheten" style="display:block;background:#fff;color:#1B3A6B;font-weight:700;font-size:15px;text-align:center;padding:14px;border-radius:6px;text-decoration:none;font-family:'DM Sans',sans-serif;">Kontakta oss</a></div>
 </div>
 <script>
 (function(){
@@ -526,7 +472,7 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
   <div class="divider"></div>
 
   <div class="section">
-    <div class="section-label">Fördelar med språkstöd för offentlig verksamhet</div>
+    <div class="section-label">Fördelar med AI-assisterat språkstöd</div>
     <h2>Varför Tolkster — och varför nu</h2>
     <div class="benefits-grid">
       <div class="benefit-card"><h3>Alltid redo — ingen bokning</h3><p>Ingen tolkbokning, ingen väntetid, ingen tolkbrist. Tolkster finns på plattan dygnet runt oavsett om behovet uppstår planerat eller helt oväntat.</p></div>
@@ -534,7 +480,7 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
 <div class="benefit-card"><h3>Inga improviserade lösningar</h3><p>Tolkbrist löses idag med släktingar, kollegor eller äldre syskon. Det är varken etiskt, juridiskt hållbart eller säkert. Tolkster eliminerar behovet av sådana lösningar.</p></div>
 <div class="benefit-card"><h3>Spårbarhet och dokumentation</h3><p>Varje samtal kan loggas, transkriberas och arkiveras. Dokumentation på att kommunikationen skedde — vad, när och hur. Håller vid tillsyn, överklaganden och JO-granskning.</p></div>
 <div class="benefit-card"><h3>Skalbart till alla möten</h3><p>Tolkster gör det möjligt att tolka samtal som idag inte tolkas alls — för korta, för frekventa eller för oförutsägbara. Kvalitetskommunikation blir normen, inte undantaget.</p></div>
-<div class="benefit-card specific"><h3>Stärker förundersökningens bevisning</h3><p>Listen In:s transkription kan utgöra del av förundersökningsprotokollet och visa att det protokollförda stämmer med vad som faktiskt sades — vilket stärker bevisningens trovärdighet.</p></div>
+<div class="benefit-card specific"><h3>Stärker förundersökningens bevisning</h3><p>Journal:s transkription kan utgöra del av förundersökningsprotokollet och visa att det protokollförda stämmer med vad som faktiskt sades — vilket stärker bevisningens trovärdighet.</p></div>
     </div>
   </div>
 
@@ -553,14 +499,14 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <div class="modes">
       <div class="mode-card"><h3>Quick-läget</h3><p>för orienterande informationskontakter.</p></div>
 <div class="mode-card"><h3>Journal-läget</h3><p>för strukturerat informationsmöte inför åtal. Dokumenterat.</p></div>
-<div class="mode-card"><h3>Listen In-läget</h3><p>för förundersökningssamtal med inbokad tolk. Oberoende transkription i realtid.</p></div>
+<div class="mode-card"><h3>Journal-läget</h3><p>för förundersökningssamtal med inbokad tolk. Oberoende transkription i realtid.</p></div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-label">Integration</div>
     <h2>Fungerar med er befintliga tolkresurs</h2>
-    <div class="integration-box"><p>Listen In lägger ett oberoende kvalitetsskikt ovanpå befintliga tolkavtal — utan att förändra processordningen.</p></div>
+    <div class="integration-box"><p>Journal lägger ett oberoende kvalitetsskikt ovanpå befintliga tolkavtal — utan att förändra processordningen.</p></div>
   </div>
 
   <div class="section">
@@ -584,16 +530,6 @@ nav{background:#1B3A6B;padding:0 40px;display:flex;align-items:center;justify-co
     <a href="index.html" class="cta-btn-outline">Se alla verksamheter</a>
   </div>
 
-</div>
-
-
-<div style="background:#F3EEF9;border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:28px 32px;margin:0 0 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-  <div>
-    <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5B2D8E;opacity:.7;margin-bottom:6px;">Myndighet</div>
-    <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#5B2D8E;margin-bottom:4px;">Vill ni ha en komplett lösning?</div>
-    <div style="font-size:14px;color:#5B2D8E;opacity:.8;line-height:1.6;">Se hur <strong>Tolkster Myndighet</strong> samlar hela er verksamhet i ett system.</div>
-  </div>
-  <a href="produkt-myndighet.html" style="background:#5B2D8E;color:#fff;padding:12px 24px;border-radius:5px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;">Se Tolkster Myndighet →</a>
 </div>
 
 <footer>
