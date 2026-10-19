@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /google-translate.html
+Disallow: /ktr.html
+Disallow: /skola-behovsanalys.html
+
+Sitemap: https://tolkster.ai/sitemap.xml
