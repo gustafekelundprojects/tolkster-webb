@@ -23,7 +23,7 @@ Ladda upp filerna **direkt i repots rot** via GitHub. Du behöver inte välja ka
 
 En PDF utan prefix hamnar under Whitepapers. Använd prefixet `presentation-` för presentations-PDF. Filnamnet används som titel. PDF, bilder och MP4/WebM visas i sidan; PPT/PPTX, DOCX och MOV öppnas som filer. Undvik mycket stora videofiler i repot och använd i stället en godkänd videoplattform när det blir aktuellt.
 
-`build_site.py` skapar den publicerade sidan och `content-manifest.json` automatiskt vid varje GitHub Pages-bygge. Den medföljande tomma manifestfilen gör att `index.html` också fungerar som lokal skiss. Chatten söker i 73 inbyggda kunskapsposter och kan visa fördjupningar. Ingen extern språkmodell är ansluten. Produkttestet är fortfarande simulerat. Resursfilerna är verkliga först när ni laddat upp dem.
+`build_site.py` skapar den publicerade sidan och `content-manifest.json` automatiskt vid varje GitHub Pages-bygge. Den medföljande tomma manifestfilen gör att `index.html` också fungerar som lokal skiss. Chatten söker i 73 inbyggda kunskapsposter, kan visa fördjupningar och har ett förberett småpratsläge märkt som svar utanför kunskapsbanken. Ingen extern språkmodell är ansluten. Produkttestet är fortfarande simulerat. Resursfilerna är verkliga först när ni laddat upp dem.
 
 ## Åtkomst
 

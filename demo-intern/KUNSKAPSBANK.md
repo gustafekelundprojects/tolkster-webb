@@ -21,3 +21,9 @@ Originalens interna källregister, policy, råa leverantörsavtal och testfall i
 - Det innebär inte att alla 174 beteendetester har körts eller att svarens sakuppgifter är verifierade.
 
 GitHub Pages kan göra hela den inbyggda kunskapen tillgänglig för besökaren. Publicera endast där åtkomsten är avsedd för den här interna testversionen.
+
+## Småprat i webbversion 27
+
+Chatten har förberedda svar för hälsningar, vänliga komplimanger, harmlös lokal humor, skämt, några enkla allmänkunskapsfrågor och enkel huvudräkning. Svaren märks **Allmänt svar · utanför Tolksters kunskapsbank**. Inga påhittade fakta om produkten tillåts i det läget. Frågor om aktuellt väder och nyheter besvaras med att liveinformation saknas. Det finns fortfarande ingen extern språkmodell ansluten.
+
+14 kontroller av frågeroutningen samt kontroller av huvudräkning och avgränsning mot produktfrågor har passerat.
