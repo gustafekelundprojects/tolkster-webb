@@ -1,0 +1,359 @@
+[
+  {
+    "faq": 1,
+    "question": "Hur vet vi att AI:n översätter rätt, särskilt i vård, myndighetsbeslut och barnärenden?",
+    "kb": [
+      "KB-011",
+      "KB-012",
+      "KB-014"
+    ]
+  },
+  {
+    "faq": 2,
+    "question": "Vilka språk och dialekter fungerar bra, och vilka sämre?",
+    "kb": [
+      "KB-008",
+      "KB-009",
+      "KB-010"
+    ]
+  },
+  {
+    "faq": 3,
+    "question": "Hur hanteras fackord, förkortningar och förvaltningsjargong som LSS, SoL, försörjningsstöd och LVU?",
+    "kb": [
+      "KB-028"
+    ]
+  },
+  {
+    "faq": 4,
+    "question": "Vad händer om AI:n missförstår, och hur märker personalen det mitt i samtalet?",
+    "kb": [
+      "KB-012",
+      "KB-013"
+    ]
+  },
+  {
+    "faq": 5,
+    "question": "Klarar den brytningar, sluddrigt tal, bakgrundsljud, flera talare och känslomässigt laddade samtal?",
+    "kb": [
+      "FAQ-005"
+    ]
+  },
+  {
+    "faq": 6,
+    "question": "När ska vi använda AI och när måste vi använda mänsklig tolk?",
+    "kb": [
+      "KB-014",
+      "KB-042"
+    ]
+  },
+  {
+    "faq": 7,
+    "question": "Hur snabbt kan vi få en mänsklig tolk via er om AI:n inte räcker?",
+    "kb": [
+      "KB-041"
+    ]
+  },
+  {
+    "faq": 8,
+    "question": "Var behandlas datan, och vilka underleverantörer ingår?",
+    "kb": [
+      "KB-016",
+      "KB-017"
+    ]
+  },
+  {
+    "faq": 9,
+    "question": "Sparas ljud, text eller transkript, och i så fall hur länge?",
+    "kb": [
+      "KB-015",
+      "KB-023"
+    ]
+  },
+  {
+    "faq": 10,
+    "question": "Används våra samtal för att träna AI-modeller?",
+    "kb": [
+      "KB-018"
+    ]
+  },
+  {
+    "faq": 11,
+    "question": "Hur förhåller ni er till CLOUD Act när amerikanskägda leverantörer ingår?",
+    "kb": [
+      "KB-020"
+    ]
+  },
+  {
+    "faq": 12,
+    "question": "Kan vi använda Tolkster för sekretessbelagda samtal enligt OSL? Var går gränsen?",
+    "kb": [
+      "KB-031"
+    ]
+  },
+  {
+    "faq": 13,
+    "question": "Finns det en lösning helt utan moln, alltså på enheten eller offline?",
+    "kb": [
+      "KB-054"
+    ]
+  },
+  {
+    "faq": 14,
+    "question": "Kan vi få personuppgiftsbiträdesavtal, underbiträdeslista och underlag till vår DPIA?",
+    "kb": [
+      "KB-030",
+      "KB-017"
+    ]
+  },
+  {
+    "faq": 15,
+    "question": "Hur sker inloggning och behörighetsstyrning? Stöds SITHS, BankID och SSO?",
+    "kb": [
+      "KB-007",
+      "KB-040"
+    ]
+  },
+  {
+    "faq": 16,
+    "question": "Vem bär ansvaret om en felöversättning leder till fel beslut eller skada?",
+    "kb": [
+      "KB-013"
+    ]
+  },
+  {
+    "faq": 17,
+    "question": "Uppfyller det förvaltningslagens krav på tolkning och patientlagens krav på anpassad information?",
+    "kb": [
+      "FAQ-017"
+    ]
+  },
+  {
+    "faq": 18,
+    "question": "Kan vi köpa er via direktupphandling, och finns ni på något ramavtal?",
+    "kb": [
+      "KB-037"
+    ]
+  },
+  {
+    "faq": 19,
+    "question": "Är det här en tolktjänst eller ett IT-system? Krockar det med vårt befintliga tolkavtal?",
+    "kb": [
+      "FAQ-019"
+    ]
+  },
+  {
+    "faq": 20,
+    "question": "Hur hanteras dokumentationen? Kan samtalet journalföras eller diarieföras?",
+    "kb": [
+      "KB-015",
+      "KB-062"
+    ]
+  },
+  {
+    "faq": 21,
+    "question": "Hur lång tid tar det att komma igång, och hur mycket utbildning behövs?",
+    "kb": [
+      "KB-038"
+    ]
+  },
+  {
+    "faq": 22,
+    "question": "Vilken hårdvara behövs, och fungerar det på våra befintliga enheter?",
+    "kb": [
+      "KB-005"
+    ]
+  },
+  {
+    "faq": 23,
+    "question": "Fungerar det för ovan personal och för äldre eller stressade brukare?",
+    "kb": [
+      "KB-058",
+      "KB-059",
+      "KB-061"
+    ]
+  },
+  {
+    "faq": 24,
+    "question": "Fungerar det vid hembesök, i fält och med dålig täckning?",
+    "kb": [
+      "KB-006",
+      "KB-054"
+    ]
+  },
+  {
+    "faq": 25,
+    "question": "Kan det integreras med journal-, ärende- eller bokningssystem?",
+    "kb": [
+      "KB-039"
+    ]
+  },
+  {
+    "faq": 26,
+    "question": "Hur upplever klienten det? Litar de på en maskin?",
+    "kb": [
+      "FAQ-026"
+    ]
+  },
+  {
+    "faq": 27,
+    "question": "Vad kostar det, och hur ser prismodellen ut?",
+    "kb": [
+      "KB-035"
+    ]
+  },
+  {
+    "faq": 28,
+    "question": "Hur mycket kan vi spara jämfört med i dag, och kan ni visa beräkningen?",
+    "kb": [
+      "KB-036"
+    ]
+  },
+  {
+    "faq": 29,
+    "question": "Vilka andra kommuner, regioner eller myndigheter använder det, och med vilka resultat?",
+    "kb": [
+      "KB-043",
+      "KB-044"
+    ]
+  },
+  {
+    "faq": 30,
+    "question": "Vad händer med vår data och våra arbetssätt om vi avslutar avtalet eller om ni slutar existera?",
+    "kb": [
+      "KB-062",
+      "KB-060"
+    ]
+  },
+  {
+    "faq": 31,
+    "question": "Varför ska vi välja er, när en konkurrent redan fungerar i stor skala?",
+    "kb": [
+      "KB-045",
+      "KB-046"
+    ]
+  },
+  {
+    "faq": 32,
+    "question": "Klarar ni långa samtal på arabiska i socialtjänsten?",
+    "kb": [
+      "FAQ-032"
+    ]
+  },
+  {
+    "faq": 33,
+    "question": "Kan personuppgifter maskeras i realtid i transkriptet?",
+    "kb": [
+      "FAQ-033"
+    ]
+  },
+  {
+    "faq": 34,
+    "question": "Kan handläggaren granska texten innan den läses upp för klienten?",
+    "kb": [
+      "FAQ-034"
+    ]
+  },
+  {
+    "faq": 35,
+    "question": "Fungerar det på tjänstetelefonen, inte bara på surfplattan?",
+    "kb": [
+      "KB-005"
+    ]
+  },
+  {
+    "faq": 36,
+    "question": "Har ni färdiga fraser och bildstöd?",
+    "kb": [
+      "FAQ-036"
+    ]
+  },
+  {
+    "faq": 37,
+    "question": "Kan en talare tolkas till en hel grupp, till exempel på ett föräldramöte?",
+    "kb": [
+      "KB-055"
+    ]
+  },
+  {
+    "faq": 38,
+    "question": "Kan vi se en live-demo i ett webbmöte?",
+    "kb": [
+      "KB-051",
+      "KB-056"
+    ]
+  },
+  {
+    "faq": 39,
+    "question": "Kan vi testa innan vi köper?",
+    "kb": [
+      "KB-051",
+      "KB-038"
+    ]
+  },
+  {
+    "faq": 40,
+    "question": "Kan rösten låta som en riktig person, eller som handläggaren själv?",
+    "kb": [
+      "KB-061",
+      "KB-057"
+    ]
+  },
+  {
+    "faq": 41,
+    "question": "Hur fungerar det för en tolkförmedling som vill erbjuda Tolkster?",
+    "kb": [
+      "KB-047"
+    ]
+  },
+  {
+    "faq": 42,
+    "question": "Tar AI jobben från tolkarna?",
+    "kb": [
+      "KB-042",
+      "KB-045"
+    ]
+  },
+  {
+    "faq": 43,
+    "question": "Klarar ni dialekter, till exempel arabiskans många varianter?",
+    "kb": [
+      "KB-010"
+    ]
+  },
+  {
+    "faq": 44,
+    "question": "Fungerar det för personer med lindriga talsvårigheter?",
+    "kb": [
+      "FAQ-044"
+    ]
+  },
+  {
+    "faq": 45,
+    "question": "Känner systemet själv igen klientens språk? Kan det tolka automatiskt utan knapptryck?",
+    "kb": [
+      "FAQ-045"
+    ]
+  },
+  {
+    "faq": 46,
+    "question": "Hur lång är fördröjningen?",
+    "kb": [
+      "KB-026"
+    ]
+  },
+  {
+    "faq": 47,
+    "question": "Vad händer om Microsoft eller ElevenLabs ligger nere?",
+    "kb": [
+      "KB-024"
+    ]
+  },
+  {
+    "faq": 48,
+    "question": "Finns det någon nationell vägledning för AI-tolkning?",
+    "kb": [
+      "FAQ-048"
+    ]
+  }
+]
