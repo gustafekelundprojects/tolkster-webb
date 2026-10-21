@@ -25,6 +25,15 @@ if out.exists():
     shutil.rmtree(out)
 out.mkdir()
 shutil.copy2(root / 'index.html', out / 'index.html')
+if (root / '01index.html').exists():
+    shutil.copy2(root / '01index.html', out / '01index.html')
+# Motor is a separate internal prototype under /motor/.
+motor_index = root / 'motor' / 'index.html'
+if motor_index.exists():
+    (out / 'motor').mkdir()
+    shutil.copy2(motor_index, out / 'motor' / 'index.html')
+    if (root / 'motor' / '01index.html').exists():
+        shutil.copy2(root / 'motor' / '01index.html', out / 'motor' / '01index.html')
 items = []
 for path in sorted(root.iterdir(), key=lambda p: p.name.casefold()):
     if not path.is_file() or path.suffix.casefold() not in media_types:

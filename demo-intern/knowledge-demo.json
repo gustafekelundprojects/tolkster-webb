@@ -1,0 +1,3464 @@
+[
+  {
+    "id": "KB-001",
+    "category": "om_tolkster",
+    "question": "Vad är Tolkster?",
+    "aliases": [
+      "Vad gör Tolkster?",
+      "Är Tolkster en tolkförmedling?",
+      "Beskriv er tjänst kort"
+    ],
+    "short": "Tolkster är ett språkstöd med AI för offentlig sektor. Två personer talar var sitt språk. Appen gör om talet till text, översätter och läser upp översättningen. Tolkster är ingen tolkförmedling och ersätter inte auktoriserad tolk där det krävs. När ett samtal behöver en människa finns läget Human.",
+    "detail": "Varje språk har en kedja i tre steg: taligenkänning, översättning och röst. Kedjorna byggs av tjänster från flera AI-leverantörer, och Tolkster styr dem. Tjänsten säljs som programvara till kommuner, regioner och myndigheter och är tänkt som komplement till befintliga tolkavtal. Den passar för kortare och vardagliga samtal. Samtal som kräver auktoriserad tolk ska gå till en mänsklig tolk.",
+    "reserve": "Tolkster är ett AI-baserat språkstöd för offentlig sektor och fungerar som komplement till mänskliga tolkar. Vill du veta mer kan du prata direkt med Henrik på Tolkster.",
+    "draft": true,
+    "unknown": [
+      "Hur Human-kopplingen fungerar hos er (se KB-041)"
+    ],
+    "customer": [
+      "Vilka verksamheter och språk som passar hos er"
+    ],
+    "follow": [
+      "KB-002",
+      "KB-014",
+      "KB-042"
+    ],
+    "sources": [
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Affärsplan 2026",
+        "date": "mars 2026"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-002",
+    "category": "produkt_lagen",
+    "question": "Vilka lägen finns i Tolkster?",
+    "aliases": [
+      "Vad är Quick, Journal och Human?",
+      "Vad är skillnaden mellan Quick och Journal?",
+      "Vad hände med Duo?"
+    ],
+    "short": "Det finns tre lägen. Quick är för korta samtal, och samtalets innehåll ska inte sparas. Journal sparar och sammanfattar samtalet, om er organisation har valt det. Human kopplar in en mänsklig tolk. Journal hette tidigare Duo.",
+    "detail": "Efter samtal i Quick och Journal betygsätter personalen översättningen och rösten. Betyget sparas tillsammans med språkpar och samtalets längd, men inte innehållet. I Journal fylls deltagarnas uppgifter i före samtalet. Det som sparas syns sedan i arkivet. Exakt vad som lagras, var och hur länge ska kontrolleras för er konfiguration. Se KB-015.",
+    "reserve": "Tolkster har tre lägen: Quick för korta samtal, Journal för samtal som ska dokumenteras och Human för mänsklig tolk. Exakt vad som sparas beror på er inställning. Det går Henrik igenom med er.",
+    "draft": true,
+    "unknown": [
+      "Om distansdeltagare via länk finns i produktion (C01)",
+      "Om fler än två deltagare stöds i dag (C19)"
+    ],
+    "customer": [
+      "Om Journal-lagring är påslaget",
+      "Vilken förmedling Human kopplar till"
+    ],
+    "follow": [
+      "KB-004",
+      "KB-015",
+      "KB-041",
+      "KB-055"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "App UX-granskning Quick och Journal",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Huvudmenyer och flöden, startskärm v2",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "Videomanus Quick och Duo",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-004",
+    "category": "produkt_lagen",
+    "question": "Finns Listen In, där AI kontrollerar en mänsklig tolk?",
+    "aliases": [
+      "Kan Tolkster granska våra tolkar?",
+      "Finns Multi för flerpartssamtal?",
+      "Vad är Listen In?"
+    ],
+    "short": "Nej, inte i dag. Listen In, där AI körs parallellt med en mänsklig tolk, är pausat. Frågorna om samtycke och dataskydd är inte lösta. Funktionen finns inte i produktionen. Multi för flerpartssamtal är inte heller ett eget läge.",
+    "detail": "Äldre material, bland annat ett RFI-svar från maj 2026, beskrev Listen In som en funktion i drift. Den uppgiften stämmer inte med nuvarande underlag. Vi lovar inget datum för funktionen.",
+    "reserve": "Det läget finns inte i produkten i dag. Henrik kan berätta om planerna och ta emot ert behov.",
+    "draft": true,
+    "unknown": [
+      "Om och när Listen In återupptas"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-011",
+      "KB-041"
+    ],
+    "sources": [
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Huvudmenyer och flöden, startskärm v2",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-005",
+    "category": "plattform",
+    "question": "Vilka enheter och plattformar fungerar Tolkster på?",
+    "aliases": [
+      "Fungerar det i iPhone?",
+      "Finns det en webbversion?",
+      "Måste vi köpa surfplattor?",
+      "Funkar det på Android?",
+      "Vilken hårdvara behövs, och fungerar det på våra befintliga enheter?",
+      "Fungerar det på tjänstetelefonen, inte bara på surfplattan?",
+      "Kan vi använda våra egna mobiltelefoner?",
+      "Går det att använda en iphone?",
+      "Måste vi köpa era plattor?",
+      "Funkar det på datorn?"
+    ],
+    "short": "Tolkster levereras på en förkonfigurerad surfplatta i kioskläge med eget SIM-kort. En app för tjänstemobil och iOS testas. Om det finns en webbversion i produktion och vilka plattformar ni kan använda i dag behöver vi kontrollera för er.",
+    "detail": "I offerter och RFI-svar från 2025 och maj 2026 beskrivs en Android-platta (Lenovo M11) med SIM och kioskläge. Under hösten 2026 har appen testats på iOS-platta och mobil. Ett filmmanus nämner tjänstemobil. Status för webbläsare är inte dokumenterad.",
+    "reserve": "Tolkster levereras på förkonfigurerade surfplattor. Vilka andra plattformar ni kan använda behöver vi kontrollera för er miljö. Henrik kan svara på det.",
+    "draft": false,
+    "unknown": [
+      "Status för iOS-app, mobil och webbversion i produktion (C08)"
+    ],
+    "customer": [
+      "Om ni kan använda egna enheter och er MDM"
+    ],
+    "follow": [
+      "KB-006",
+      "KB-007",
+      "KB-040"
+    ],
+    "sources": [
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "App UX-granskning Quick och Journal",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      22,
+      35
+    ]
+  },
+  {
+    "id": "KB-006",
+    "category": "plattform",
+    "question": "Behöver vi WiFi eller öppningar i vårt nätverk?",
+    "aliases": [
+      "Fungerar det utan internet?",
+      "Vilka portar behöver vi öppna?",
+      "Går trafiken via vårt nät?",
+      "Fungerar det vid hembesök, i fält och med dålig täckning?"
+    ],
+    "short": "Surfplattorna har ett eget SIM-kort och använder inte ert nätverk. Tjänsten kräver uppkoppling, eftersom tolkningen görs i molnet. Används egna enheter i ert nät behövs nätverksuppgifter, till exempel tillåtna adresser. En sådan guide finns inte ännu.",
+    "detail": "Att plattorna har SIM gör att man slipper installation i kundens IT-miljö. Det betyder också att trafiken inte går genom era brandväggar. Det kan vara en fördel eller en fråga för er IT-säkerhet. Utan nät fungerar tolkningen inte. En lokal variant utan moln finns bara som skiss.",
+    "reserve": "Plattorna har eget SIM-kort, och tjänsten kräver uppkoppling. Nätverkskrav för era egna enheter behöver vi gå igenom med er IT. Henrik kan ordna det.",
+    "draft": true,
+    "unknown": [
+      "Domäner, portar och protokoll (ej dokumenterade)"
+    ],
+    "customer": [
+      "Krav från er IT-säkerhet, SSL-inspektion, proxy"
+    ],
+    "follow": [
+      "KB-054",
+      "KB-005"
+    ],
+    "sources": [
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Quick lokalt – skiss",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      24
+    ]
+  },
+  {
+    "id": "KB-007",
+    "category": "plattform",
+    "question": "Behöver personalen logga in?",
+    "aliases": [
+      "Krävs konto?",
+      "Kan vi använda vår vanliga inloggning?",
+      "Finns BankID eller SITHS?",
+      "Hur sker inloggning och behörighetsstyrning? Stöds SITHS, BankID och SSO?"
+    ],
+    "short": "Quick är tänkt att användas utan inloggning på en förkonfigurerad platta. Hur inloggning fungerar för Journal och för administration behöver vi bekräfta. Inloggning via er egen identitetstjänst (SSO, till exempel Entra ID) finns inte i dag.",
+    "detail": "Uppgifterna i äldre material skiljer sig. En offert från 2025 säger att inga inloggningar krävs, medan användare i en utvärdering samma år beskrev inloggningen som enkel. Adminpanel finns. Vi har inget underlag om BankID eller SITHS.",
+    "reserve": "Inloggning via er egen identitetstjänst finns inte i dag. Hur inloggningen fungerar i övrigt behöver vi bekräfta. Henrik kan svara på det.",
+    "draft": false,
+    "unknown": [
+      "Inloggning för Journal och admin i nuvarande version (C20)",
+      "BankID/SITHS"
+    ],
+    "customer": [
+      "Krav på inloggning per verksamhet"
+    ],
+    "follow": [
+      "KB-040"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "Utvärdering av appen Tolkster maj 2025",
+        "date": "April–maj 2025"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "Helsingfors T014-25 – gapanalys och go/no-go",
+        "date": "2026-09-15/22"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      15
+    ]
+  },
+  {
+    "id": "KB-008",
+    "category": "sprak_kvalitet",
+    "question": "Hur många och vilka språk stöds?",
+    "aliases": [
+      "Vilka språk finns?",
+      "Har ni 50 språk?",
+      "Finns finska, ukrainska, persiska?",
+      "Vilka språk och dialekter fungerar bra, och vilka sämre?"
+    ],
+    "short": "Svaret beror på vilken säkerhetsnivå ni väljer och vilken kvalitet ni kräver. På högre nivåer minskar antalet språk med röst. Äldre material anger olika antal, och vi ger inte en siffra innan vi har kontrollerat listan för er konfiguration. Europeiska språk och de stora språken har bäst stöd.",
+    "detail": "Appens språklista hade 56 rader i oktober 2026. Planeringen omfattar fler språk, men alla har inte fullt stöd. Vissa språk har status Test, vissa visas bara som text och vissa döljs tills de håller måttet. Ett exempel från en äldre version av konfiguratorn visade att en strängare säkerhetsnivå gav färre språk med röst. Den aktuella listan för er tas fram i Tolkster Plan.",
+    "reserve": "Det beror på vilken säkerhetsnivå ni väljer, och vi vill inte ge en siffra som inte gäller för er. Ange vilka språk ni behöver mest, så tar Henrik fram aktuell status.",
+    "draft": false,
+    "unknown": [
+      "Exakt antal språk med godkänd kvalitet i dag (C09)"
+    ],
+    "customer": [
+      "Språklista per säkerhetsnivå och verksamhet"
+    ],
+    "follow": [
+      "KB-009",
+      "KB-010",
+      "KB-011",
+      "KB-053"
+    ],
+    "sources": [
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Språkstrategi, flaggor och prioritering",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Videomanus Quick och Duo",
+        "date": "2026-08-19"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller. Topp 20-språk per land enligt konfiguratorn.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      2
+    ]
+  },
+  {
+    "id": "KB-009",
+    "category": "sprak_kvalitet",
+    "question": "Fungerar somaliska, tigrinja, dari och kurdiska?",
+    "aliases": [
+      "Hur bra är somaliska?",
+      "Funkar tigrinja nu?",
+      "Kurmanji eller sorani?",
+      "Våra vanligaste språk är somaliska och tigrinja",
+      "Vilka språk och dialekter fungerar bra, och vilka sämre?"
+    ],
+    "short": "Det är de svåraste språken. I en kundutvärdering våren 2025 fungerade somaliska och tigrinja inte. Sedan dess har nya kedjor planerats, men vi har inga publicerade testresultat för dem. För de här språken rekommenderar vi mänsklig tolk tills ett test med era egna scenarier visar något annat.",
+    "detail": "Enligt planeringen i oktober 2026 hade somaliska och sorani status Test. Kurmanji och tigrinja visas bara som text eller går till Human-knappen. Dari testas med persisk röst tills dari-talare har godkänt den. Det beror på att taligenkänning och röst för språken är svaga hos alla leverantörer vi har utrett. Vi föreslår ett test med inspelade scenarier från er verksamhet, bedömt av tolkar.",
+    "reserve": "De här språken är svåra för AI-tolkning, och vi har inga aktuella testresultat att visa. Vi rekommenderar mänsklig tolk tills ett test på era scenarier visar något annat. Henrik kan ordna ett sådant test.",
+    "draft": true,
+    "unknown": [
+      "Nuvarande kvalitet i produktion (inga testresultat i underlaget)"
+    ],
+    "customer": [
+      "Resultat på era scenarier och dialekter"
+    ],
+    "follow": [
+      "KB-011",
+      "KB-041",
+      "KB-051"
+    ],
+    "sources": [
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Language Routing v1 – granskning",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Språkstrategi, flaggor och prioritering",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Utvärdering av appen Tolkster maj 2025",
+        "date": "April–maj 2025"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      2
+    ]
+  },
+  {
+    "id": "KB-010",
+    "category": "sprak_kvalitet",
+    "question": "Klarar Tolkster arabiska dialekter?",
+    "aliases": [
+      "Fungerar irakisk arabiska?",
+      "Förstår den syrisk dialekt?",
+      "Kan man välja dialekt?",
+      "Vilka språk och dialekter fungerar bra, och vilka sämre?",
+      "Klarar ni dialekter, till exempel arabiskans många varianter?",
+      "Vi behöver arabiska från Irak, klarar ni det?",
+      "Hur fungerar syrisk arabiska?",
+      "Spelar arabisk dialekt någon roll?"
+    ],
+    "short": "Man kan välja dialekt i appen, men kvaliteten per dialekt är inte mätt. I en kundutvärdering 2025 fungerade arabiska bra när talaren använde standardspråk, men vardaglig dialekt gav problem. Alla arabiska dialekter har status Test i nuvarande planering.",
+    "detail": "Dialekt påverkar framför allt taligenkänningen. Översättningen kan styras mot dialekt med instruktioner, och rösten väljs efter dialekt. Planen är att testa levantinsk, irakisk, egyptisk, gulf- och maghrebarabiska samt sudanesisk arabiska separat. Sudanesisk arabiska saknar egen språkinställning hos den leverantör som täcker flest dialekter.",
+    "reserve": "Dialekt går att välja, men kvaliteten per dialekt är inte mätt. Bästa sättet att veta är ett test på era vanligaste dialekter.",
+    "draft": true,
+    "unknown": [
+      "Mätt kvalitet per dialekt (C27)"
+    ],
+    "customer": [
+      "Vilka dialekter era invånare talar"
+    ],
+    "follow": [
+      "KB-009",
+      "KB-011"
+    ],
+    "sources": [
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "Språkstrategi, flaggor och prioritering",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Utvärdering av appen Tolkster maj 2025",
+        "date": "April–maj 2025"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      2,
+      43
+    ]
+  },
+  {
+    "id": "KB-011",
+    "category": "sprak_kvalitet",
+    "question": "Hur mäter och säkrar ni kvaliteten?",
+    "aliases": [
+      "Hur vet ni att översättningen blir rätt?",
+      "Har ni kvalitetsrapporter?",
+      "Vad är kvalitetsindex?",
+      "Granskar tolkar resultaten?",
+      "Hur vet vi att AI:n översätter rätt, särskilt i vård, myndighetsbeslut och barnärenden?",
+      "Hur bra blir översättningen egentligen?",
+      "Kan man lita på det ni översätter?"
+    ],
+    "short": "Kvaliteten mäts på två sätt. Personalen betygsätter översättning och röst efter varje samtal. Dessutom testas kedjorna i ett automatiskt testverktyg mot inspelat tal med facit, aldrig med era samtal. Resultatet ska redovisas som ett kvalitetsindex 0–100 per språk. Publicerade värden finns inte ännu.",
+    "detail": "Kvalitetsindex ger extra avdrag för fel i siffror, datum, namn och negationer. Målet är att varje språk ska ha två godkännanden innan det används: ett för säkerhet och ett för kvalitet. Kvalitetsgodkännandet sker efter automatiskt test och granskning av tvåspråkiga granskare. Det är målbild, inte nuläge. Detsamma gäller månatliga kvalitetsrapporter per kund. Hittills finns bara en exempelrapport med fiktiva data.",
+    "reserve": "Personalen betygsätter varje samtal, och kedjorna testas mot inspelat tal med facit. Vi har ännu inga publicerade kvalitetsvärden per språk. Henrik kan berätta vad som finns för just era språk.",
+    "draft": true,
+    "unknown": [
+      "Faktiska indexvärden per språk",
+      "Om mänsklig granskning med tolkar har genomförts"
+    ],
+    "customer": [
+      "Vilka språk och scenarier som testas för er"
+    ],
+    "follow": [
+      "KB-012",
+      "KB-051",
+      "KB-009"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Film med speaker: Bakom samtalet",
+        "date": "2026-10-19"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "Helsingfors T014-25 – gapanalys och go/no-go",
+        "date": "2026-09-15/22"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      1
+    ]
+  },
+  {
+    "id": "KB-012",
+    "category": "sprak_kvalitet",
+    "question": "Varnar appen om en översättning kan vara fel?",
+    "aliases": [
+      "Flaggar ni osäkra översättningar?",
+      "Rättar appen namn automatiskt?",
+      "Ser personalen om AI:n är osäker?",
+      "Kan man rätta en replik?",
+      "Hur vet vi att AI:n översätter rätt, särskilt i vård, myndighetsbeslut och barnärenden?",
+      "Vad händer om AI:n missförstår, och hur märker personalen det mitt i samtalet?"
+    ],
+    "short": "Enligt nuvarande beslut föreslår eller rättar Tolkster ingenting automatiskt under samtalet. Äldre material beskriver automatisk flaggning och rättelse av namn. Det stämmer inte med nuvarande beslut, och vi kontrollerar vad som gäller i appen i dag.",
+    "detail": "Personalen ser texten på båda språken och kan be om upprepning. En funktion där personalen själv kan rätta en replik, säga om den eller spela upp den igen finns i åtgärdslistan. Om den är byggd är okänt. Vi har inte belägg för någon automatisk kvalitetsflaggning i produktion.",
+    "reserve": "Det behöver vi bekräfta för den aktuella versionen. Personalen ser alltid texten på båda språken. Henrik kan visa hur det fungerar.",
+    "draft": false,
+    "unknown": [
+      "Vad appen gör i dag (C28)"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-011",
+      "KB-013"
+    ],
+    "sources": [
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "App UX-granskning Quick och Journal",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      1,
+      4
+    ]
+  },
+  {
+    "id": "KB-013",
+    "category": "sprak_kvalitet",
+    "question": "Vad händer om AI:n översätter fel, och vem ansvarar?",
+    "aliases": [
+      "Vem bär ansvaret för en felöversättning?",
+      "Hur rapporterar vi fel?",
+      "Finns en felhanteringsrutin?",
+      "Vad händer om AI:n missförstår, och hur märker personalen det mitt i samtalet?",
+      "Vem bär ansvaret om en felöversättning leder till fel beslut eller skada?"
+    ],
+    "short": "Tolkster ansvarar för den tekniska funktionen och för dataskyddet enligt avtalet. Er verksamhet fattar besluten och bedömer när en mänsklig tolk behövs. Exakt hur ansvaret fördelas avgörs av avtalet och PUB-avtalet. En dokumenterad rutin för felhantering och incidenter saknas i dag.",
+    "detail": "Personalen rapporterar kvaliteten genom betyget efter samtalet. En fritextrapport för fel finns inte beskriven. En rutin med modellregister, versionslogg, regressionstest vid modellbyte och process för avvikelser är planerad men inte på plats. Det är just det Integritetsskyddsmyndigheten granskar hos Region Gävleborg. Vi ger ingen juridisk bedömning av ansvar i enskilda fall.",
+    "reserve": "Ansvarsfördelningen regleras i avtalet. Tolkster ansvarar för tekniken och dataskyddet, och er verksamhet fattar besluten. Henrik kan visa avtalsunderlaget.",
+    "draft": true,
+    "unknown": [
+      "Gällande avtalsvillkor (M08)"
+    ],
+    "customer": [
+      "Avtalets ansvarsklausuler"
+    ],
+    "follow": [
+      "KB-014",
+      "KB-034",
+      "KB-030"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller. Ingen juridisk bedömning.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      4,
+      16
+    ]
+  },
+  {
+    "id": "KB-014",
+    "category": "anvandning",
+    "question": "När ska man inte använda AI-tolkning?",
+    "aliases": [
+      "Kan vi använda det i LVU-ärenden?",
+      "Får vi använda det i förhör?",
+      "Asylutredning?",
+      "Vilka samtal passar inte?",
+      "Hur vet vi att AI:n översätter rätt, särskilt i vård, myndighetsbeslut och barnärenden?",
+      "När ska vi använda AI och när måste vi använda mänsklig tolk?"
+    ],
+    "short": "Använd inte AI-tolkning som enda tolk i rättsliga förhandlingar, förhör, asylutredningar, LVU- och LVM-ärenden eller suicidriskbedömningar. Där behövs mänsklig tolk, ofta auktoriserad. Tolkster är ett kommunikationsstöd, inte ett beslutsstöd. En teknisk spärr per ärendetyp finns inte ännu, så gränsen styrs av era egna rutiner.",
+    "detail": "Planen är att administratören ska kunna styra vilka ärendetyper som är tillåtna. Spärrade typer ska då öppna Human i stället för AI-tolkning, och samtalet ska stoppas om det övergår i till exempel en anmälan. Det är inte byggt. Asyl och rättskipning ligger också nära AI-förordningens högriskområden.",
+    "reserve": "AI-tolkning ska inte vara enda tolk i rättsliga förhandlingar, förhör, asylutredningar, LVU- och LVM-ärenden eller suicidriskbedömningar. Där behövs mänsklig tolk.",
+    "draft": true,
+    "unknown": [],
+    "customer": [
+      "Era rutiner och ärendetyper"
+    ],
+    "follow": [
+      "KB-042",
+      "KB-041",
+      "KB-059"
+    ],
+    "sources": [
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Film med speaker: Bakom samtalet",
+        "date": "2026-10-19"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Polisen fas 1 – strategi och granskning",
+        "date": "2026-09-04"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller som vägledning. Ingen juridisk bedömning.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      1,
+      6
+    ]
+  },
+  {
+    "id": "KB-015",
+    "category": "sakerhet_data",
+    "question": "Sparas samtalen?",
+    "aliases": [
+      "Sparar ni ljud?",
+      "Lagras transkriptionen?",
+      "Vad finns kvar efter samtalet?",
+      "Spelas samtalen in?",
+      "Sparas ljud, text eller transkript, och i så fall hur länge?",
+      "Hur hanteras dokumentationen? Kan samtalet journalföras eller diarieföras?",
+      "Kan ni försäkra att ingen inspelning blir kvar?",
+      "Finns ljudet kvar efter mötet?",
+      "När raderas inspelningen?",
+      "Behåller ni det som sades?"
+    ],
+    "short": "Quick är byggt för att varken ljud eller text ska sparas hos Tolkster. Det är inte bevisat med test. Det som sparas är betyget, språkparet och samtalets längd. Journal sparar transkript och sammanfattning när er organisation har valt det. Om leverantörerna i kedjan sparar något är bara delvis verifierat.",
+    "detail": "Formuleringen vi står för är att ni styr vad som sparas, inte att inget sparas. Nollagring är avtalad med röstleverantören. För andra leverantörer i kedjan är det inte skriftligt verifierat. Att innehåll inte hamnar i loggar, felrapporter eller supportärenden är inte verifierat. Gallring, radering på begäran och raderingsintyg för Journal är inte testade.",
+    "reserve": "Quick är byggt för att inte spara samtalsinnehåll, och i Journal styr ni vad som sparas. Exakt vad som lagras och var behöver vi bekräfta skriftligt för er. Henrik kan ordna underlaget.",
+    "draft": false,
+    "unknown": [
+      "Bevis för nollagring på enhet och server",
+      "Nollagring hos alla leverantörer",
+      "Innehåll i loggar (C05)"
+    ],
+    "customer": [
+      "Om Journal används och gallringsregler"
+    ],
+    "follow": [
+      "KB-016",
+      "KB-023",
+      "KB-062"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Polisen fas 1 – strategi och granskning",
+        "date": "2026-09-04"
+      },
+      {
+        "title": "Huvudmenyer och flöden, startskärm v2",
+        "date": "2026-08-19"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      9,
+      20
+    ]
+  },
+  {
+    "id": "KB-016",
+    "category": "sakerhet_data",
+    "question": "Behandlas all data inom EU?",
+    "aliases": [
+      "Lämnar data EU?",
+      "Var står servrarna?",
+      "Används amerikanska molntjänster?",
+      "Vilken region?",
+      "Var behandlas datan, och vilka underleverantörer ingår?",
+      "Var ligger data när vi pratar?",
+      "Går trafiken utanför Europa?",
+      "Vilket datacenter kör tjänsten i?"
+    ],
+    "short": "Målet är att all behandling ska ske inom EU/EES. Röstleverantören kör i sin EU-miljö enligt avtal. Hela kedjan är dock inte låst eller skriftligt belagd steg för steg, och uppgifterna om molnleverantör skiljer sig i våra underlag. Därför ger vi ingen fullständig EU-garanti förrän det är dokumenterat för er.",
+    "detail": "Varje steg i kedjan ska behandla data i EU: Tolksters server, taligenkänning, översättning, röst, loggar och säkerhetskopior. Det gäller även leverantörernas support och missbruksövervakning. Underlaget visar att låsning per region inte är införd, att support utanför EU inte är utredd och att en leverantörs underbiträde behandlar i USA. Underbiträdeslista med region per steg tas fram.",
+    "reserve": "Behandling inom EU/EES är kravet, men dokumentationen per steg är inte färdig. Vi ger hellre ett skriftligt och kontrollerat svar än ett snabbt ja. Henrik kan ordna det.",
+    "draft": false,
+    "unknown": [
+      "Molnleverantör och region för backend (C03)",
+      "Region per steg för övriga leverantörer (C06)"
+    ],
+    "customer": [
+      "Krav på region och ägarland"
+    ],
+    "follow": [
+      "KB-017",
+      "KB-020",
+      "KB-053"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Leverantörsavtal, DPA och underbiträden",
+        "date": "2026-10-18"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      8
+    ]
+  },
+  {
+    "id": "KB-017",
+    "category": "sakerhet_data",
+    "question": "Vilka underbiträden och AI-leverantörer använder ni?",
+    "aliases": [
+      "Vilka leverantörer finns i kedjan?",
+      "Får vi en underbiträdeslista?",
+      "Använder ni OpenAI?",
+      "Använder ni ElevenLabs?",
+      "Var behandlas datan, och vilka underleverantörer ingår?",
+      "Kan vi få personuppgiftsbiträdesavtal, underbiträdeslista och underlag till vår DPIA?"
+    ],
+    "short": "Kedjan består av leverantörer för molndrift, taligenkänning, översättning och röst. En fullständig underbiträdeslista med land, ägare och region per steg är under framtagning och lämnas som bilaga till PUB-avtalet. Vi namnger inte leverantörer i chatten förrän listan är fastställd.",
+    "detail": "Listan behövs för er konsekvensbedömning (DPIA). PUB-avtal enligt SKR-mallen erbjuds, men underbiträdesbilaga med förhandsbesked och vetorätt vid byte är inte klar. Bara ett leverantörsavtal är signerat i förhandlad form. Övriga bygger på leverantörernas standardvillkor och DPA.",
+    "reserve": "Underbiträdeslistan lämnas skriftligt som bilaga till PUB-avtalet. Henrik kan ta fram den åt er när den är fastställd.",
+    "draft": false,
+    "unknown": [
+      "Vilka leverantörer som används i produktion i dag (C04)"
+    ],
+    "customer": [
+      "Lista för er säkerhetsnivå"
+    ],
+    "follow": [
+      "KB-016",
+      "KB-020",
+      "KB-027"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Leverantörsavtal, DPA och underbiträden",
+        "date": "2026-10-18"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      8,
+      14
+    ]
+  },
+  {
+    "id": "KB-018",
+    "category": "sakerhet_data",
+    "question": "Används våra samtal för att träna AI-modeller?",
+    "aliases": [
+      "Tränar ni på vår data?",
+      "Kan samtalen hamna i ChatGPT?",
+      "Används data för produktutveckling?"
+    ],
+    "short": "Nej, Tolkster använder inte samtalen för träning. Hos röstleverantören är träningsförbud avtalat. För två av språkmodellsleverantörerna bygger det på deras standardvillkor, där API-data inte används för träning. Ett förhandlat åtagande saknas. Vi arbetar för att få träningsförbudet skriftligt hos varje leverantör.",
+    "detail": "Ändamålet är begränsat till tolkningen i PUB-avtalet. Motsvarande åtagande hos varje leverantör är inte genomgånget. Äldre material säger dels att data inte används ’utan uttryckligt samtycke’, dels ’utan undantag’. Det som gäller är att ingen träning sker och att ändring skulle kräva skriftligt beslut av kunden.",
+    "reserve": "Tolkster använder inte samtalen för träning. Hur det regleras hos varje leverantör i kedjan kan Henrik visa skriftligt.",
+    "draft": true,
+    "unknown": [
+      "Förhandlade åtaganden hos övriga leverantörer (C23)"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-019",
+      "KB-017"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      10
+    ]
+  },
+  {
+    "id": "KB-019",
+    "category": "sakerhet_data",
+    "question": "Kan personal hos AI-leverantörerna läsa eller lyssna på samtalen?",
+    "aliases": [
+      "Gör leverantören manuell granskning?",
+      "Missbruksövervakning?",
+      "Abuse monitoring?",
+      "Vem får se det vi säger?",
+      "Kan någon hos leverantören höra vad vi pratar om?",
+      "Har anställda åtkomst till vårt samtal?"
+    ],
+    "short": "Det har vi inte kunnat utesluta ännu. Flera stora AI-leverantörer har personal som kan granska innehåll som flaggats för missbruk. Vi har inte fått skriftliga besked från alla leverantörer om att det är avstängt för Tolksters trafik. Ansökningar och frågor till leverantörerna pågår.",
+    "detail": "Det gäller samtal som innehåller hot eller våld, vilket kan förekomma i till exempel socialtjänsten. För sekretessbelagda samtal behöver funktionen vara avstängd eller avtalsmässigt utesluten. Frågan om support och moderering hos röstleverantören sker utanför EU är obesvarad.",
+    "reserve": "Den frågan kan vi inte besvara fullt ut i dag. Vi väntar på skriftliga besked från leverantörerna. Henrik kan återkomma med status.",
+    "draft": true,
+    "unknown": [
+      "Svar från leverantörerna"
+    ],
+    "customer": [
+      "Krav vid sekretessbelagda samtal"
+    ],
+    "follow": [
+      "KB-016",
+      "KB-018"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-020",
+    "category": "sakerhet_data",
+    "question": "Hur hanterar ni CLOUD Act och amerikanskt ägda leverantörer?",
+    "aliases": [
+      "Är ni CLOUD Act-säkra?",
+      "Kan amerikanska myndigheter komma åt data?",
+      "Använder ni bara europeiska leverantörer?",
+      "Hur förhåller ni er till CLOUD Act när amerikanskägda leverantörer ingår?"
+    ],
+    "short": "Tolkster är inte skyddat mot CLOUD Act i dag. Kedjan innehåller amerikanskt ägda leverantörer som behandlar data i EU. Lagringen begränsas, men det tar inte bort exponeringen. En nivå med enbart EU-ägda leverantörer är planerad men inte byggd. Hur ni bedömer risken för er information är ert beslut.",
+    "detail": "Hosting hos en amerikanskt ägd molnleverantör innebär att hela kedjan omfattas, även om AI-stegen vore EU-ägda. Ett juridiskt PM om offentlighets- och sekretesslagen och CLOUD Act saknas. För information med högsta konfidentialitet behöver kunden göra en egen bedömning. Vi ger underlaget men inget juridiskt besked.",
+    "reserve": "Vi använder i dag även amerikanskt ägda leverantörer med behandling i EU, och vi påstår inte att det skyddar mot CLOUD Act. Henrik kan ge er underlag för er egen bedömning.",
+    "draft": true,
+    "unknown": [
+      "Molnleverantör (C03)"
+    ],
+    "customer": [
+      "Er riskbedömning per informationsklass"
+    ],
+    "follow": [
+      "KB-053",
+      "KB-031",
+      "KB-054"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Leverantörsavtal, DPA och underbiträden",
+        "date": "2026-10-18"
+      },
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller. Sekretessbedömningen enligt OSL görs av kunden.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      11
+    ]
+  },
+  {
+    "id": "KB-021",
+    "category": "sakerhet_data",
+    "question": "Är trafiken och lagrad data krypterad?",
+    "aliases": [
+      "Har ni TLS 1.3?",
+      "Är det end-to-end-krypterat?",
+      "AES-256?"
+    ],
+    "short": "Ja, enligt designen. Trafiken använder krypterade anslutningar, och det som lagras krypteras med molnleverantörens standardkryptering. Bevis i form av SSL-rapporter och dokumenterad konfiguration är inte framtagna ännu. Vi kallar det inte end-to-end-kryptering, eftersom AI-tjänsterna måste läsa innehållet för att kunna tolka.",
+    "detail": "Kraven är minst TLS 1.2 och helst TLS 1.3, samt AES-256 eller motsvarande i vila med separat nyckelhantering. Nyckelvalv och nyckelpolicy är inte dokumenterade. Kryptering löser inte sekretessfrågan vid live-tolkning, eftersom leverantören behandlar klartext.",
+    "reserve": "Trafiken är krypterad enligt designen, men den tekniska dokumentationen är inte färdig. Henrik kan koppla er till en tekniker.",
+    "draft": true,
+    "unknown": [
+      "TLS-version per domän",
+      "Nyckelhantering"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-022",
+      "KB-015"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-022",
+    "category": "sakerhet_data",
+    "question": "Är Tolkster ISO 27001-certifierat eller penetrationstestat?",
+    "aliases": [
+      "Har ni SOC 2?",
+      "Har ni gjort pentest?",
+      "Vilka certifieringar har ni?"
+    ],
+    "short": "Nej. Tolkster har varken ISO 27001, SOC 2 eller ett externt penetrationstest i dag. Molnleverantörerna och de stora AI-leverantörerna har egna certifieringar, men de gäller inte Tolkster. Ett penetrationstest och en gapanalys mot ISO 27001 är planerade. Vi har inget fastställt datum.",
+    "detail": "Äldre material nämner att molnleverantörerna är ISO 27001-certifierade. Det säger inget om Tolksters egen säkerhet. Vill ni ställa krav på extern granskning i en upphandling behöver Tolkster planera den särskilt.",
+    "reserve": "Tolkster har ingen egen certifiering eller externt penetrationstest i dag. Henrik kan berätta om planerna.",
+    "draft": true,
+    "unknown": [
+      "Datum för pentest"
+    ],
+    "customer": [
+      "Krav i er upphandling"
+    ],
+    "follow": [
+      "KB-021",
+      "KB-017"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-023",
+    "category": "sakerhet_data",
+    "question": "Vad loggas, och kan vi få en revisionslogg?",
+    "aliases": [
+      "Loggar ni samtalsinnehåll?",
+      "Finns spårbarhet?",
+      "Audit trail?",
+      "Kan vi se vem som använt tjänsten?",
+      "Sparas ljud, text eller transkript, och i så fall hur länge?"
+    ],
+    "short": "Tanken är att loggar bara ska innehålla teknisk information som tid, modell och felkod, aldrig samtalets innehåll. Det är inte verifierat ännu. Adminvyn visar vilken leverantör som använts i varje steg. En fullständig revisionslogg med modellversion, region och användare finns inte än.",
+    "detail": "De logg-, felrapporterings- och övervakningsverktyg som används är inte dokumenterade i dataflödet. En komponentlista för appen saknas, och det finns ingen rutin som garanterar att supportärenden inte innehåller samtalsinnehåll. Revisionslogg och modellregister är planerade tillsammans.",
+    "reserve": "Principen är att samtalsinnehåll inte ska loggas, men vi har inte verifierat det fullt ut. Henrik kan koppla er till en tekniker.",
+    "draft": false,
+    "unknown": [
+      "Om innehåll förekommer i loggar (C05)"
+    ],
+    "customer": [
+      "Krav på loggexport till er SOC"
+    ],
+    "follow": [
+      "KB-015",
+      "KB-024"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      9
+    ]
+  },
+  {
+    "id": "KB-024",
+    "category": "drift",
+    "question": "Vad händer om en AI-leverantör går ner?",
+    "aliases": [
+      "Har ni reserv?",
+      "Failover?",
+      "Hur hanteras avbrott?",
+      "Byter ni leverantör automatiskt?",
+      "Vad händer om Microsoft eller ElevenLabs ligger nere?",
+      "Vad gör vi om molntjänsten kraschar?",
+      "Vad händer när systemet ligger nere?"
+    ],
+    "short": "Varje steg ska ha en reserv hos en annan godkänd leverantör, men automatisk växling inom den godkända kedjan är inte på plats. Vid avbrott kan personalen gå över till mänsklig tolk via Human-knappen. Någon tillgänglighetsgaranti (SLA) finns inte avtalad med leverantörerna ännu.",
+    "detail": "Kravet är att systemet hellre stoppar än skickar data till en leverantör eller region som ni inte har godkänt. Den stopplogiken är inte byggd. Äldre material beskriver växling mellan leverantörer som en styrka, men den skedde inte inom en låst kedja. Ingenting byts under ett pågående samtal enligt designprincipen.",
+    "reserve": "Vid avbrott kan personalen alltid gå över till mänsklig tolk. Hur reserv och tillgänglighet är ordnade i dag behöver vi bekräfta. Henrik kan svara.",
+    "draft": false,
+    "unknown": [
+      "Hur växling sker i dag (C21)"
+    ],
+    "customer": [
+      "Krav på tillgänglighet"
+    ],
+    "follow": [
+      "KB-025",
+      "KB-041"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Film med speaker: Bakom samtalet",
+        "date": "2026-10-19"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      47
+    ]
+  },
+  {
+    "id": "KB-025",
+    "category": "drift",
+    "question": "Vilken support och vilka svarstider gäller?",
+    "aliases": [
+      "Finns SLA?",
+      "Vem ringer vi när det inte funkar?",
+      "Supporttider?"
+    ],
+    "short": "Support ges via telefon och e-post, och fjärrstyrning av plattorna är möjlig. Det har erbjudits i piloter. Avtalade svarstider och tillgänglighetsnivå (SLA) finns inte beskrivna i våra underlag, och därför lovar vi inga siffror här.",
+    "detail": "En offert från 2025 utlovade ’garanterade svarstider’ men angav inga tider. Exakt vad som gäller ska stå i ert avtal.",
+    "reserve": "Support finns via telefon och e-post. Avtalade svarstider bekräftar Henrik för er.",
+    "draft": false,
+    "unknown": [
+      "Supporttider och SLA (C24)"
+    ],
+    "customer": [
+      "Avtalade tider"
+    ],
+    "follow": [
+      "KB-024",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-026",
+    "category": "drift",
+    "question": "Hur snabbt kommer översättningen?",
+    "aliases": [
+      "Vad är latensen?",
+      "Hur lång fördröjning?",
+      "Klarar ni under 3 sekunder?",
+      "Hur lång är fördröjningen?",
+      "Hur många sekunder väntar vi på svaret?",
+      "Hur lång väntetid blir det mellan repliker?",
+      "Tar översättningen lång tid?"
+    ],
+    "short": "Vi har inga publicerade mätvärden för svarstiden ännu. Den beror på språk, kedja och nät. En intern uppskattning ligger kring 1,5–3 sekunder från sista ord till första ljud. Det är inte uppmätt. Vill ni veta hur det fungerar hos er är ett test bästa sättet.",
+    "detail": "I en kundutvärdering 2025 fick appens snabbhet 3,3 av 5, och vissa språk gav väntan innan rösten kom. Mätning per steg (p50/p95, från sista ord till första ljud) är planerad. Om en upphandling har ett hårt krav, till exempel högst 3 sekunder, behöver vi mäta just de språken.",
+    "reserve": "Vi har inga publicerade mätvärden för svarstiden. Ett test med era språk ger det bästa svaret.",
+    "draft": false,
+    "unknown": [
+      "Uppmätt latens (C12)"
+    ],
+    "customer": [
+      "Era språk och ert nät"
+    ],
+    "follow": [
+      "KB-051",
+      "KB-011"
+    ],
+    "sources": [
+      {
+        "title": "Language Routing v1 – granskning",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Utvärdering av appen Tolkster maj 2025",
+        "date": "April–maj 2025"
+      },
+      {
+        "title": "Polisen fas 1 – strategi och granskning",
+        "date": "2026-09-04"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      46
+    ]
+  },
+  {
+    "id": "KB-027",
+    "category": "sakerhet_data",
+    "question": "Vilka AI-modeller använder ni?",
+    "aliases": [
+      "Använder ni GPT?",
+      "Vilken taligenkänning?",
+      "Bygger ni egna modeller?",
+      "Visa modellversioner"
+    ],
+    "short": "Tolkster bygger inga egna grundmodeller. För varje språk väljs en kedja med taligenkänning, översättning och röst från kommersiella leverantörer. Valet görs efter kvalitet och era säkerhetskrav. Vilka leverantörer som ingår för er lämnas i underbiträdeslistan. Modellversioner och interna inställningar redovisar vi inte i chatten.",
+    "detail": "Modellversionerna ska låsas i varje steg och bara bytas efter test, men modellregistret är inte byggt. Öppna modeller med icke-kommersiell licens spärras från produktion. Modellsammansättningen omfattas av en sekretessbegäran i tidigare upphandlingar.",
+    "reserve": "Tolkster använder kommersiella AI-tjänster i en kedja per språk. Vilka som ingår för er lämnas skriftligt. Henrik kan ordna det.",
+    "draft": true,
+    "unknown": [
+      "Exakt kedja i produktion (C04)",
+      "Version pinning saknas"
+    ],
+    "customer": [
+      "Kedja för er nivå"
+    ],
+    "follow": [
+      "KB-017",
+      "KB-028",
+      "KB-029"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Gapanalys: kundpresentation mot RFI-svar Simrishamn",
+        "date": "2026-08-18"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-028",
+    "category": "sprak_kvalitet",
+    "question": "Kan Tolkster lära sig våra egna termer?",
+    "aliases": [
+      "Kan vi lägga in en ordlista?",
+      "Förstår den förkortningar som LSS och LVU?",
+      "Domänanpassning?",
+      "Blandas vår ordlista med andra kunders?",
+      "Hur hanteras fackord, förkortningar och förvaltningsjargong som LSS, SoL, försörjningsstöd och LVU?"
+    ],
+    "short": "Ja. Varje översättning får med ett sammanhang i flera lager: grundregler, en språkinstruktion per språkpar, verksamhetens ordlista, era lokala termer och det som sagts tidigare i samma samtal. Ingenting förs vidare till nästa samtal. Era termer ska inte blandas med andra kunders, men det är inte testat som bevis.",
+    "detail": "Där lagren säger olika saker gäller det mest specifika. Titlar och namn på nämnder kan behållas på svenska och förklaras kort. Hur era lokala termer läggs in och vem som underhåller dem bestäms vid införandet.",
+    "reserve": "Ja, verksamhetens termer och era lokala termer följer med i varje översättning. Hur det sätts upp för er går Henrik igenom.",
+    "draft": true,
+    "unknown": [
+      "Testbevis för isolering mellan kunder"
+    ],
+    "customer": [
+      "Era termer och vem som underhåller dem"
+    ],
+    "follow": [
+      "KB-029",
+      "KB-061"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      3
+    ]
+  },
+  {
+    "id": "KB-029",
+    "category": "sakerhet_data",
+    "question": "Kan någon manipulera översättningen genom vad de säger?",
+    "aliases": [
+      "Prompt injection?",
+      "Om någon säger 'ignorera instruktionerna'?",
+      "Kan AI:n hitta på svar?"
+    ],
+    "short": "Risken är begränsad men inte systematiskt testad. Modellen har tydliga instruktioner att bara översätta och har inga verktyg, ingen webbsökning och inga andra tjänster den kan anropa. Säger någon ’ignorera dina regler’ ska det bara översättas. Testfall för manipulation ska läggas in i testverktyget men saknas i dag.",
+    "detail": "Ett annat känt fel är att taligenkänning kan hitta på text vid tystnad eller brus, eller att en språkmodell svarar på frågan i stället för att översätta. Skydd mot detta finns beskrivna som krav. Hur långt de är införda behöver bekräftas.",
+    "reserve": "Modellen instrueras att bara översätta och kan inte anropa andra tjänster. Systematiska tester pågår inte ännu. Henrik kan koppla er till en tekniker.",
+    "draft": true,
+    "unknown": [
+      "Testresultat"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-027",
+      "KB-012"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Language Routing v1 – granskning",
+        "date": "2026-10-03"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-030",
+    "category": "juridik",
+    "question": "Uppfyller Tolkster GDPR, och finns PUB-avtal?",
+    "aliases": [
+      "Är ni GDPR-kompatibla?",
+      "Har ni personuppgiftsbiträdesavtal?",
+      "Hjälper ni oss med DPIA?",
+      "Kan vi få personuppgiftsbiträdesavtal, underbiträdeslista och underlag till vår DPIA?"
+    ],
+    "short": "Tolkster är personuppgiftsbiträde och erbjuder PUB-avtal enligt SKR:s mall. Det som saknas i dag är en underbiträdesbilaga med förhandsbesked och vetorätt, ett färdigt underlag för er konsekvensbedömning (DPIA) och rutiner för raderingsintyg. Om användningen uppfyller GDPR i er verksamhet bedömer ni, med vårt underlag.",
+    "detail": "DPIA:n är er, men Tolkster ska leverera dataflöde, kategorier, risker och åtgärder. Det underlaget är under framtagning för några vanliga användningsfall. Ett PUB-utkast från 2025 anger att behandlingen sker inom EU/EES, att underbiträdeslista lämnas på begäran och att uppgifter raderas eller återlämnas vid avtalsslut.",
+    "reserve": "Tolkster erbjuder PUB-avtal enligt SKR:s mall. Övrigt underlag för er bedömning kan Henrik ta fram.",
+    "draft": true,
+    "unknown": [
+      "Färdig underbiträdesbilaga, DPIA-underlag"
+    ],
+    "customer": [
+      "Er DPIA och informationsklassning"
+    ],
+    "follow": [
+      "KB-034",
+      "KB-017",
+      "KB-031"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller svenska kunder. SKR-mallen är svensk.",
+      "FI": "Underlag saknas för finska avtalsmallar och finsk tillämpning.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      14
+    ]
+  },
+  {
+    "id": "KB-031",
+    "category": "juridik",
+    "question": "Får vi använda Tolkster i samtal med sekretessbelagda uppgifter?",
+    "aliases": [
+      "Är det OK enligt OSL?",
+      "Röjs sekretessen om AI-leverantören ser uppgifterna?",
+      "Socialtjänstsekretess?",
+      "Byggt för sekretess?",
+      "Kan vi använda Tolkster för sekretessbelagda samtal enligt OSL? Var går gränsen?",
+      "Vi har känsliga ärenden, kan vi använda det?",
+      "Kan vi prata om sekretessbelagda personuppgifter?"
+    ],
+    "short": "Det kan vi inte ge ett generellt ja på. Om användningen är förenlig med offentlighets- och sekretesslagen beror på er information, era rutiner och kedjan av leverantörer. Den bedömningen görs av er. Vi har underlag för den, men ett juridiskt utlåtande från Tolkster saknas än så länge.",
+    "detail": "Vår analys: undantaget i OSL 10 kap. 2 a § om teknisk bearbetning och lagring passar dåligt på live-tolkning, eftersom tjänsterna behandlar innehållets betydelse. Kryptering löser inte frågan vid tolkning. Relevanta faktorer är att inget lagras, att kedjan är namngiven och sluten, att träning är förbjuden i avtal och att den enskilde informeras. Den enskilde kan också helt eller delvis häva sekretess som skyddar hen (12 kap. 2 §).",
+    "reserve": "Om användningen är förenlig med sekretessreglerna beror på er verksamhet, och den bedömningen gör ni. Henrik kan ge er det underlag vi har.",
+    "draft": true,
+    "unknown": [
+      "Juridiskt PM (M10)"
+    ],
+    "customer": [
+      "Er informationsklassning och bedömning"
+    ],
+    "follow": [
+      "KB-020",
+      "KB-032",
+      "KB-015"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller svensk OSL. Ingen juridisk bedömning.",
+      "FI": "Finsk lagstiftning om offentlighet och sekretess är inte analyserad.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      12
+    ]
+  },
+  {
+    "id": "KB-032",
+    "category": "juridik",
+    "question": "Kan Tolkster användas i vården med patientuppgifter?",
+    "aliases": [
+      "Patientdatalagen?",
+      "Fungerar det på vårdcentral?",
+      "KTR 3?",
+      "Vilken informationsklass klarar ni?"
+    ],
+    "short": "Det beror på hur er region eller kommun klassar informationen. Nuvarande nivå är utformad för information med normal till förhöjd konfidentialitet. För högsta nivån, till exempel känsliga patient- eller socialtjänstuppgifter, krävs antingen ert eget beslut om att godta kedjan eller en nivå med enbart EU-ägda leverantörer, som inte är byggd.",
+    "detail": "Enligt KLASSA och KTR betyder hög riktighet att kvaliteten per språk är mätt, att ärendetyper kan spärras och att modellversionen är låst. Hög tillgänglighet kräver reserv i varje steg och SLA. De delarna är inte på plats. Vi har inte analyserat patientdatalagen särskilt.",
+    "reserve": "Det beror på hur ni klassar informationen. Henrik kan gå igenom vilka nivåer som finns och vad de innebär för er.",
+    "draft": true,
+    "unknown": [
+      "Analys av patientdatalagen"
+    ],
+    "customer": [
+      "Er KTR-klassning"
+    ],
+    "follow": [
+      "KB-031",
+      "KB-053",
+      "KB-014"
+    ],
+    "sources": [
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller svensk KLASSA/KTR. Ingen juridisk bedömning.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-033",
+    "category": "juridik",
+    "question": "Hur förhåller sig Tolkster till AI-förordningen?",
+    "aliases": [
+      "Är det ett högrisksystem?",
+      "Artikel 50?",
+      "Måste invånaren få veta att det är AI?",
+      "AI Act"
+    ],
+    "short": "Enligt vår analys blir Tolkster inte automatiskt ett högrisksystem, men användning i till exempel asyl eller rättskipning kan ändra det. Artikel 50 kräver att människor informeras om att de talar med AI och att syntetiskt tal märks. Informationen finns delvis. Märkningen saknas och ska vara på plats senast 2 december 2026.",
+    "detail": "Skyldigheterna för högrisksystem enligt bilaga III har skjutits upp till 2 december 2027. Tolksters egen klassning och en bruksanvisning med kända begränsningar per språk är inte klara. Kunden kan också ha egna skyldigheter, till exempel att främja AI-kunnighet hos personalen. Det här är vår analys och inget juridiskt utlåtande.",
+    "reserve": "Vi har en intern analys av AI-förordningen men inget juridiskt utlåtande. Henrik kan dela det underlag som finns.",
+    "draft": true,
+    "unknown": [
+      "Egen klassnings-PM",
+      "Plan för märkning (C17)"
+    ],
+    "customer": [
+      "Er användning och klassning"
+    ],
+    "follow": [
+      "KB-057",
+      "KB-014"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      }
+    ],
+    "markets": {
+      "SE": "EU-förordning, gäller i hela EU. Nationell tillämpning är inte analyserad.",
+      "FI": "Förordningen gäller även i Finland. Nationell tillsyn är inte analyserad.",
+      "DK": "Förordningen gäller även i Danmark. Nationell tillsyn är inte analyserad.",
+      "UK": "Gäller inte i Storbritannien. Underlag saknas.",
+      "US": "Gäller inte i USA. Underlag saknas."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-034",
+    "category": "juridik",
+    "question": "Vem är personuppgiftsansvarig?",
+    "aliases": [
+      "Är ni ansvariga för personuppgifterna?",
+      "Rollfördelning GDPR?"
+    ],
+    "short": "Er organisation är personuppgiftsansvarig, och Tolkster är personuppgiftsbiträde. Det regleras i PUB-avtalet. Tolkster behandlar uppgifterna bara enligt era instruktioner och för att utföra tolkningen.",
+    "detail": "De registrerade är invånare, vårdnadshavare och anställda. Uppgifterna är röstdata, transkriptioner, språkinställningar och tekniska metadata.",
+    "reserve": "Er organisation är personuppgiftsansvarig och Tolkster är personuppgiftsbiträde enligt PUB-avtalet.",
+    "draft": true,
+    "unknown": [],
+    "customer": [],
+    "follow": [
+      "KB-030",
+      "KB-013"
+    ],
+    "sources": [
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-035",
+    "category": "pris",
+    "question": "Vad kostar Tolkster?",
+    "aliases": [
+      "Pris?",
+      "Prislista?",
+      "Kostar det per minut?",
+      "Vad kostar en licens?",
+      "Vad kostar det, och hur ser prismodellen ut?",
+      "Vad får kommunen betala i månaden?",
+      "Hur stor blir månadsavgiften?",
+      "Har ni abonnemang eller minutpris?",
+      "Vad blir notan för vår förvaltning?"
+    ],
+    "short": "Priset sätts per kund. Det beror på antal enheter och användare, vilka språk ni behöver och vilken säkerhetsnivå ni väljer. För stora kommuner, regioner och myndigheter görs en offert. Vi har ingen publicerad prislista att visa här. Äldre offerter ska inte läsas som dagens pris.",
+    "detail": "Ni kan ta fram ett prisförslag i Tolkster Plan eller via Henrik. För ett förslag behövs antal enheter, antal användare, språk, ungefärlig samtalsvolym och säkerhetskrav.",
+    "reserve": "Priset sätts utifrån antal enheter, användare, språk och säkerhetsnivå. Henrik tar fram ett förslag för er.",
+    "draft": false,
+    "unknown": [
+      "Gällande prismodell och nivå (C14)"
+    ],
+    "customer": [
+      "Allt"
+    ],
+    "follow": [
+      "KB-036",
+      "KB-037",
+      "KB-052"
+    ],
+    "sources": [
+      {
+        "title": "Prisutvärdering mot tolkbehov",
+        "date": "2026-10-18"
+      },
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "Affärsplan 2026",
+        "date": "mars 2026"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Prismodell för Sverige ej fastställd.",
+      "FI": "Underlag saknas.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      27
+    ]
+  },
+  {
+    "id": "KB-036",
+    "category": "pris",
+    "question": "Hur mycket kan vi spara?",
+    "aliases": [
+      "Vad blir besparingen?",
+      "Lönar det sig?",
+      "Hur mycket billigare än tolk?",
+      "Kan ni garantera besparing?",
+      "Hur mycket kan vi spara jämfört med i dag, och kan ni visa beräkningen?"
+    ],
+    "short": "Det kan vi inte lova i förväg. Besparingen beror på hur många av era samtal som passar för AI-tolkning och vad ni betalar för tolk i dag. För en uppskattning behövs er tolkkostnad per år, antal uppdrag och deras längd, vanligaste språk och andelen samtal som kräver auktoriserad tolk.",
+    "detail": "AI-tolkning ersätter inte tolk i samtal som kräver auktoriserad tolk. Störst effekt väntas i korta och vardagliga samtal, inklusive samtal som i dag inte får något tolkstöd alls. Vi visar inga procentsatser för hur stor andel som kan tas av AI, eftersom de inte är belagda.",
+    "reserve": "Vi lovar ingen besparing i förväg. Med era siffror kan Henrik göra en uppskattning tillsammans med er.",
+    "draft": true,
+    "unknown": [
+      "Belagd andel samtal som AI kan ta (V12)"
+    ],
+    "customer": [
+      "Er tolkkostnad, volym och språk"
+    ],
+    "follow": [
+      "KB-035",
+      "KB-014"
+    ],
+    "sources": [
+      {
+        "title": "Prisutvärdering mot tolkbehov",
+        "date": "2026-10-18"
+      },
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      28
+    ]
+  },
+  {
+    "id": "KB-037",
+    "category": "upphandling",
+    "question": "Hur kan vi köpa Tolkster – direktupphandling eller upphandling?",
+    "aliases": [
+      "Ligger det under direktupphandlingsgränsen?",
+      "Vilken CPV-kod?",
+      "Finns ni på ramavtal?",
+      "Kan vi köpa er via direktupphandling, och finns ni på något ramavtal?"
+    ],
+    "short": "Tolkster säljs som programvara. Mindre köp kan ofta göras som direktupphandling, beroende på ert värde och era regler. Kontrollera aktuell beloppsgräns med er upphandlare. Större köp eller köp som tolktjänst kan kräva upphandling, ibland tillsammans med en tolkförmedling. Vi finns inte på något ramavtal enligt våra underlag.",
+    "detail": "Tolkster passar under programvara (CPV 48000000). Upphandlingar av tolktjänster (79540000) kräver ofta auktoriserade tolkar, och där kan Tolkster delta via en partnerförmedling. Om ett köp är tillåtet som direktupphandling avgör ni. Vi gör ingen juridisk bedömning.",
+    "reserve": "Tolkster säljs som programvara. Vilken köpväg som passar avgör ni med er upphandlare. Henrik kan beskriva hur andra har gått tillväga.",
+    "draft": true,
+    "unknown": [
+      "Aktuell direktupphandlingsgräns (V10)"
+    ],
+    "customer": [
+      "Ert upphandlingsvärde och era regler"
+    ],
+    "follow": [
+      "KB-035",
+      "KB-038"
+    ],
+    "sources": [
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Affärsplan 2026",
+        "date": "mars 2026"
+      },
+      {
+        "title": "Polisen fas 1 – strategi och granskning",
+        "date": "2026-09-04"
+      }
+    ],
+    "markets": {
+      "SE": "Svensk LOU.",
+      "FI": "Finsk upphandlingslag är inte analyserad.",
+      "DK": "Dansk upphandlingslag är inte analyserad.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      18
+    ]
+  },
+  {
+    "id": "KB-038",
+    "category": "inforande",
+    "question": "Hur går ett införande eller en pilot till?",
+    "aliases": [
+      "Hur lång tid tar det att komma igång?",
+      "Erbjuder ni pilot?",
+      "Utbildning?",
+      "Vad krävs av vår IT?",
+      "Hur lång tid tar det att komma igång, och hur mycket utbildning behövs?",
+      "Kan vi testa innan vi köper?",
+      "Hur kommer vi igång?",
+      "Hur mycket arbete krävs av oss för att starta?"
+    ],
+    "short": "Med förkonfigurerade plattor behövs ingen installation i er IT-miljö. Ett införande omfattar val av språk och säkerhetsnivå, uppsättning av era termer, utbildning och uppföljning. Exakt pilotupplägg och pris bekräftar Henrik, eftersom tidigare erbjudanden kan ha ändrats.",
+    "detail": "Tidigare har piloter erbjudits med 5–10 plattor under cirka tre månader, med support och utvärdering. Utbildning har erbjudits digitalt eller på plats, tillsammans med användarmanualer. En presentation från oktober 2026 beskriver införande på 90 dagar.",
+    "reserve": "Plattorna kräver ingen installation i er IT-miljö. Upplägg och tidplan för en pilot går Henrik igenom med er.",
+    "draft": false,
+    "unknown": [
+      "Gällande pilotupplägg (V05)"
+    ],
+    "customer": [
+      "Omfattning och tidplan"
+    ],
+    "follow": [
+      "KB-051",
+      "KB-052",
+      "KB-035"
+    ],
+    "sources": [
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      21,
+      39
+    ]
+  },
+  {
+    "id": "KB-039",
+    "category": "integration",
+    "question": "Kan Tolkster integreras med våra system?",
+    "aliases": [
+      "Integration med Treserva, Lifecare, Combine?",
+      "Finns API?",
+      "Teams-integration?",
+      "Kan transkript föras över till journalsystemet?",
+      "Kan det integreras med journal-, ärende- eller bokningssystem?"
+    ],
+    "short": "Nej, inte i dag. Tolkster används fristående och har inga integrationer mot verksamhets- eller journalsystem. Det finns inte heller något öppet API. En generell export av transkript till kundens egen miljö har diskuterats, men vi lovar inget datum.",
+    "detail": "Att tjänsten är fristående gör att införandet inte kräver något av er IT. Behöver ni få in dokumentation i ett ärendesystem är det något att ta upp med Henrik som krav.",
+    "reserve": "Tolkster har inga integrationer mot verksamhetssystem i dag. Henrik tar gärna emot era krav.",
+    "draft": true,
+    "unknown": [],
+    "customer": [
+      "Era system"
+    ],
+    "follow": [
+      "KB-040",
+      "KB-015"
+    ],
+    "sources": [
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Helsingfors T014-25 – gapanalys och go/no-go",
+        "date": "2026-09-15/22"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      25
+    ]
+  },
+  {
+    "id": "KB-040",
+    "category": "integration",
+    "question": "Stöder ni SSO med Entra ID?",
+    "aliases": [
+      "Azure AD?",
+      "SAML/OIDC?",
+      "SCIM-provisionering?",
+      "Kan vi styra behörigheter via våra grupper?",
+      "Hur sker inloggning och behörighetsstyrning? Stöds SITHS, BankID och SSO?"
+    ],
+    "short": "Nej, inte i dag. Inloggning via er identitetstjänst, till exempel Entra ID med SAML eller OIDC, finns inte, och inte heller provisionering eller rollstyrning via era grupper. Det är ett känt krav från större kunder, men vi lovar inget datum.",
+    "detail": "Tvåfaktorsinloggning och spårbar åtkomst för Tolksters egen driftpersonal är inte dokumenterade heller. Behörighetspolicy saknas.",
+    "reserve": "SSO finns inte i dag. Henrik kan ta emot ert krav.",
+    "draft": true,
+    "unknown": [],
+    "customer": [],
+    "follow": [
+      "KB-007",
+      "KB-039"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Helsingfors T014-25 – gapanalys och go/no-go",
+        "date": "2026-09-15/22"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      15
+    ]
+  },
+  {
+    "id": "KB-041",
+    "category": "mansklig_tolk",
+    "question": "Hur fungerar det när vi behöver en mänsklig tolk?",
+    "aliases": [
+      "Vad är Human-läget?",
+      "Kan man koppla in en tolk mitt i samtalet?",
+      "Vilken tolkförmedling används?",
+      "Kan vi använda vår befintliga förmedling?",
+      "Hur snabbt kan vi få en mänsklig tolk via er om AI:n inte räcker?"
+    ],
+    "short": "Human-läget är vägen till mänsklig tolk. Det kan väljas direkt eller användas när AI-tolkningen inte räcker. Tanken är att tolken bokas via er avtalade förmedling. Hur kopplingen fungerar och vilka förmedlingar som är anslutna i dag behöver vi bekräfta för er.",
+    "detail": "Planen är att man ska kunna koppla in en tolk direkt eller boka en i förväg. Bokningsflödet är inte färdigdesignat. Tolkster förmedlar inte själv tolkar. Mänsklig tolkning levereras av förmedlingar enligt era avtal. Tolkster kan beskriva hur Human sätts upp hos er, men lovar inte automatisk inkoppling innan det är bekräftat.",
+    "reserve": "Human-läget är vägen till mänsklig tolk via er förmedling. Hur det kopplas hos er bekräftar Henrik.",
+    "draft": false,
+    "unknown": [
+      "Hur Human fungerar i produktion (C10)"
+    ],
+    "customer": [
+      "Er förmedling och ert avtal"
+    ],
+    "follow": [
+      "KB-014",
+      "KB-042",
+      "KB-047"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "App UX-granskning Quick och Journal",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Huvudmenyer och flöden, startskärm v2",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      7
+    ]
+  },
+  {
+    "id": "KB-042",
+    "category": "mansklig_tolk",
+    "question": "Kan AI-tolkning ersätta en auktoriserad tolk?",
+    "aliases": [
+      "Uppfyller ni tolkplikten?",
+      "Räknas AI som tolk enligt förvaltningslagen?",
+      "Behöver vi fortfarande tolkar?",
+      "När ska vi använda AI och när måste vi använda mänsklig tolk?",
+      "Tar AI jobben från tolkarna?"
+    ],
+    "short": "Nej. Tolkster är ett komplement till mänskliga tolkar. Vi påstår inte att AI uppfyller skyldigheten att använda tolk enligt förvaltningslagen. Där tolk behövs för att den enskilde ska kunna ta tillvara sin rätt, och där auktoriserad tolk krävs, ska en mänsklig tolk användas. Bedömningen görs av er.",
+    "detail": "AI-tolkning passar bäst i samtal där tolk i dag sällan eller aldrig används, till exempel korta servicesamtal, reception och vägledning. Kraven på auktoriserad tolk och rättstolk i brottmål ska kontrolleras mot exakt lagrum. Vi ger ingen juridisk bedömning.",
+    "reserve": "Nej, Tolkster är ett komplement till mänskliga tolkar och ersätter inte auktoriserad tolk.",
+    "draft": true,
+    "unknown": [],
+    "customer": [
+      "Era ärendetyper"
+    ],
+    "follow": [
+      "KB-014",
+      "KB-041"
+    ],
+    "sources": [
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Polisen fas 1 – strategi och granskning",
+        "date": "2026-09-04"
+      },
+      {
+        "title": "Nulägesanalys design, webb och app",
+        "date": "2026-08-19"
+      }
+    ],
+    "markets": {
+      "SE": "Svensk förvaltningslag. Ingen juridisk bedömning.",
+      "FI": "Finsk förvaltningslag är inte analyserad.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      6,
+      42
+    ]
+  },
+  {
+    "id": "KB-043",
+    "category": "referenser",
+    "question": "Vilka kunder använder Tolkster?",
+    "aliases": [
+      "Har ni referenser?",
+      "Vilka kommuner har ni?",
+      "Kan vi prata med en kund?",
+      "Hur många kunder har ni?",
+      "Vilka andra kommuner, regioner eller myndigheter använder det, och med vilka resultat?"
+    ],
+    "short": "Vi nämner bara kunder som har godkänt att bli referens, och den listan är inte fastställd ännu. Henrik kan berätta vilka referenser som finns och förmedla kontakt när kunden har sagt ja.",
+    "detail": "När referenslistan är godkänd anges här vilka kunder, verksamheter och användningsfall som får nämnas. Kommuner och organisationer som Tolkster bara för dialog med ska aldrig nämnas som kunder.",
+    "reserve": "Referenser lämnar vi efter kundens godkännande. Henrik kan berätta vilka som finns.",
+    "draft": false,
+    "unknown": [
+      "Referensmedgivande (C13)",
+      "Antal kunder i drift"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-044",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Affärsplan 2026",
+        "date": "mars 2026"
+      },
+      {
+        "title": "Helsingfors T014-25 – gapanalys och go/no-go",
+        "date": "2026-09-15/22"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      29
+    ]
+  },
+  {
+    "id": "KB-044",
+    "category": "referenser",
+    "question": "Vilka resultat har ni från kunder och utvärderingar?",
+    "aliases": [
+      "Har ni en extern utvärdering?",
+      "Vad tyckte användarna?",
+      "Finns det oberoende kvalitetsutlåtande?",
+      "Vilka andra kommuner, regioner eller myndigheter använder det, och med vilka resultat?"
+    ],
+    "short": "Vi har inget oberoende kvalitetsutlåtande. Det som finns är en användarenkät från en tidig version våren 2025. Den visade ett medelbetyg och tydliga problem med vissa språk. Den gäller en äldre version, och vi har inga senare publicerade resultat.",
+    "detail": "När kunden godkänt det kan sammanfattningen visas: sex användare under två veckor, användarvänlighet 3 av 5, översättning 3 av 5, svarstid 3,3 av 5, hälften skulle rekommendera appen. Europeiska språk och arabiska på standardspråk fungerade väl. Somaliska, tigrinja och albanska fungerade inte. Enkäten ska inte beskrivas som extern kvalitetsutvärdering.",
+    "reserve": "Vi har inget oberoende kvalitetsutlåtande. Det bästa underlaget för er är ett test med era egna scenarier.",
+    "draft": false,
+    "unknown": [
+      "Kundens medgivande att visa enkäten",
+      "Nyare resultat"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-009",
+      "KB-011"
+    ],
+    "sources": [
+      {
+        "title": "Utvärdering av appen Tolkster maj 2025",
+        "date": "April–maj 2025"
+      },
+      {
+        "title": "Affärsplan 2026",
+        "date": "mars 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      29
+    ]
+  },
+  {
+    "id": "KB-045",
+    "category": "konkurrens",
+    "question": "Hur skiljer sig Tolkster från andra AI-tolkar?",
+    "aliases": [
+      "Vad är skillnaden mot DigitalTolk PretPal?",
+      "Varför inte Språkservice app?",
+      "Mabel AI?",
+      "Är ni bättre än konkurrenterna?",
+      "Varför ska vi välja er, när en konkurrent redan fungerar i stor skala?",
+      "Tar AI jobben från tolkarna?"
+    ],
+    "short": "Flera aktörer erbjuder AI-tolkning, bland annat tolkförmedlingar med egna appar och förmedlingar som samarbetar med AI-bolag. Tolkster är ingen tolkförmedling och säljer inte mänsklig tolkning. Vi jämför gärna på samma scenarier. Det säger mer än våra påståenden.",
+    "detail": "Enligt offentliga källor (augusti 2026) har DigitalTolk sin AI-tolk PretPal och Språkservice en egen AI-tolkapp. Tolkförmedling Väst erbjuder TFV AI-Tolk tillsammans med Mabel AI, och TransPerfect, som äger Semantix, har GlobalLink Live för event. Tolksters egenskaper är att varje språk får en egen kedja, att säkerhetsnivån väljs per kund och att leverantörskedjan redovisas. Begränsningarna finns beskrivna i andra svar, till exempel svaga språk, att SSO saknas och att certifiering saknas.",
+    "reserve": "Vi gör inga påståenden om andra leverantörers kvalitet. Ett test med samma scenarier ger en rättvis jämförelse. Henrik kan ordna det.",
+    "draft": true,
+    "unknown": [
+      "Konkurrenternas kvalitet, pris och säkerhetsupplägg"
+    ],
+    "customer": [
+      "Vilka scenarier som jämförs"
+    ],
+    "follow": [
+      "KB-046",
+      "KB-051"
+    ],
+    "sources": [
+      {
+        "title": "Konkurrentanalys – svenska tolkförmedlingar",
+        "date": "2026-08-20"
+      },
+      {
+        "title": "Affärsplan 2026",
+        "date": "mars 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Svensk marknad per aug 2026.",
+      "FI": "Finsk konkurrensbild är bara antagen och inte verifierad.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      31,
+      42
+    ]
+  },
+  {
+    "id": "KB-046",
+    "category": "konkurrens",
+    "question": "Varför inte bara använda Google Translate eller en gratisapp?",
+    "aliases": [
+      "Vi använder redan Google Översätt",
+      "ChatGPT kan ju översätta",
+      "Microsoft Translator?",
+      "Varför ska vi välja er, när en konkurrent redan fungerar i stor skala?"
+    ],
+    "short": "En gratisapp har oftast inget personuppgiftsbiträdesavtal med er, ingen styrning av var data behandlas och inget sammanhang från er verksamhet. Med Tolkster får ni PUB-avtal, en redovisad leverantörskedja, val av säkerhetsnivå, era termer i översättningen och en väg till mänsklig tolk. Om en viss app lagrar data eller saknar avtal kontrollerar ni med dess villkor.",
+    "detail": "Vi gör inga påståenden om hur enskilda tjänster hanterar data, eftersom det kan ändras och vi inte har granskat det. Jämför gärna villkoren direkt.",
+    "reserve": "Tolkster har PUB-avtal, en redovisad leverantörskedja och era termer i översättningen. Andra tjänsters villkor bör ni kontrollera direkt.",
+    "draft": true,
+    "unknown": [
+      "Andra tjänsters villkor (ej granskade)"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-030",
+      "KB-015",
+      "KB-028"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      31
+    ]
+  },
+  {
+    "id": "KB-047",
+    "category": "partner",
+    "question": "Kan en tolkförmedling samarbeta med Tolkster?",
+    "aliases": [
+      "Vi är en tolkförmedling – kan vi erbjuda er AI?",
+      "White label?",
+      "Partnerprogram?",
+      "Vad tjänar förmedlingen?",
+      "Hur fungerar det för en tolkförmedling som vill erbjuda Tolkster?"
+    ],
+    "short": "Ja. Tolkster samarbetar med tolkförmedlingar på två sätt. Förmedlingen kan erbjuda Tolksters AI-tolkning till sina kunder, och den kan leverera mänsklig tolk när Human-läget används. Villkor och upplägg går vi igenom direkt med er.",
+    "detail": "En tjänst under förmedlingens eget varumärke har utretts. Kommersiella villkor lämnas inte i chatten.",
+    "reserve": "Ja, Tolkster samarbetar med tolkförmedlingar. Henrik eller Gustaf går igenom upplägget med er.",
+    "draft": true,
+    "unknown": [
+      "Vilka partneravtal som är tecknade"
+    ],
+    "customer": [
+      "Villkor"
+    ],
+    "follow": [
+      "KB-041",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      41
+    ]
+  },
+  {
+    "id": "KB-048",
+    "category": "marknad_land",
+    "question": "Fungerar Tolkster i Finland och med finska?",
+    "aliases": [
+      "Finns finskt gränssnitt?",
+      "Finska som källspråk?",
+      "Uppfyller ni finska krav?"
+    ],
+    "short": "Finska finns som språk i tolkningen. Finska som utgångsspråk, det vill säga att personalen talar finska, är inte validerat, och appen har inget finskt gränssnitt enligt senaste underlag. Vi har inget granskat underlag om finsk lagstiftning eller finska upphandlingsregler. Henrik kan koppla er vidare.",
+    "detail": "Svenska regler om sekretess, upphandling och PUB-avtal gäller inte i Finland. Vi svarar därför inte på finska rättsfrågor med svenska förhållanden.",
+    "reserve": "Vi har inget granskat underlag för Finland. Henrik kan koppla er vidare.",
+    "draft": true,
+    "unknown": [
+      "Finsk rätt",
+      "Status för finskt UI efter september"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-049",
+      "KB-008"
+    ],
+    "sources": [
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Helsingfors T014-25 – gapanalys och go/no-go",
+        "date": "2026-09-15/22"
+      }
+    ],
+    "markets": {
+      "SE": "Svensk version.",
+      "FI": "Ingen granskad finsk rätt eller upphandling. Inga löften om finskt UI.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-049",
+    "category": "marknad_land",
+    "question": "Kan Tolkster användas i Danmark, Norge, Storbritannien eller USA?",
+    "aliases": [
+      "Finns ni i Norge?",
+      "UK GDPR?",
+      "HIPAA?",
+      "Danska regler?"
+    ],
+    "short": "Vi har inget granskat underlag om lagstiftning eller upphandling i de länderna, så vi svarar inte på hur Tolkster förhåller sig till deras regler. Svenska regler gäller inte där. Henrik kan berätta om planerna.",
+    "detail": "Danska och norska finns som språk i tolkningen enligt språkmatrisen. Det säger inget om regelefterlevnad i Danmark eller Norge.",
+    "reserve": "Vi har inget underlag om regler i det landet. Henrik kan berätta mer.",
+    "draft": true,
+    "unknown": [
+      "Allt landspecifikt"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-048"
+    ],
+    "sources": [
+      {
+        "title": "Language Routing v2 – vitlista och språkmatris",
+        "date": "2026-10-03"
+      }
+    ],
+    "markets": {
+      "SE": "–",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas.",
+      "UK": "Underlag saknas.",
+      "US": "Underlag saknas."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-050",
+    "category": "kontakt",
+    "question": "Kan jag prata med en människa?",
+    "aliases": [
+      "Kontakta Henrik",
+      "Jag vill prata med en säljare",
+      "Ring mig",
+      "Hur når jag er?",
+      "Jag vill inte prata med en AI",
+      "Kan någon ringa mig?",
+      "Jag vill prata med säljaren",
+      "Jag föredrar en riktig person"
+    ],
+    "short": "Absolut. Du når Henrik på Tolkster direkt: henrik@tolkster.ai eller 073-659 87 70. Du behöver inte svara på fler frågor först.",
+    "detail": "Allmänna frågor kan också skickas till info@tolkster.ai.",
+    "reserve": "Du når Tolkster på info@tolkster.ai.",
+    "draft": true,
+    "unknown": [
+      "Henriks godkännande av öppen visning (V01)",
+      "Bokningslänk"
+    ],
+    "customer": [],
+    "follow": [],
+    "sources": [
+      {
+        "title": "Nulägesanalys design, webb och app",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-051",
+    "category": "process",
+    "question": "Kan vi testa Tolkster innan vi bestämmer oss?",
+    "aliases": [
+      "Finns det en testversion?",
+      "Kan vi prova med våra språk?",
+      "Kan vi testa med riktiga samtal?",
+      "Kan vi se en live-demo i ett webbmöte?",
+      "Kan vi testa innan vi köper?"
+    ],
+    "short": "Ja. Ni kan be om en testkörning på de språk och scenarier ni behöver. Testet görs med inspelade eller påhittade samtal, aldrig med riktiga klientsamtal eller personuppgifter. Hur testet beställs och vad det kostar bekräftar Henrik.",
+    "detail": "En bra testuppsättning är ett fåtal vardagliga scenarier per språk, inlästa av modersmålstalare, med facit. Siffror, datum, namn och negationer bör finnas med. Bedömningen blir bäst om en tolk eller tvåspråkig medarbetare deltar. Skriv inte in verkliga uppgifter om klienter i den här chatten.",
+    "reserve": "Ja, ett test på era språk är möjligt, alltid utan riktiga klientuppgifter. Henrik bokar det.",
+    "draft": true,
+    "unknown": [
+      "Testprocess och kostnad (V04)"
+    ],
+    "customer": [
+      "Scenarier och språk"
+    ],
+    "follow": [
+      "KB-038",
+      "KB-052",
+      "KB-011"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Language Routing v1 – granskning",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Film med speaker: Bakom samtalet",
+        "date": "2026-10-19"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      38,
+      39
+    ]
+  },
+  {
+    "id": "KB-052",
+    "category": "process",
+    "question": "Vad är Tolkster Plan?",
+    "aliases": [
+      "Vad är kundkonfiguratorn?",
+      "Hur sätter ni ihop vår lösning?",
+      "Vad är 38 säkerhetskrav?"
+    ],
+    "short": "Tolkster Plan är vårt verktyg för att sätta ihop en lösning per kund. Ni väljer land och språk och får bästa kedjan per språk. Sedan väljer ni säkerhetsnivå och ser vilka leverantörer och språk som återstår efter 38 krav. Till sist ser ni förväntad kvalitet och pris och kan beställa test eller underlag.",
+    "detail": "De 38 kraven gäller data, teknik, kedjan och avtal, till exempel nollagring, träningsförbud, EU-behandling och ägarland. Ett krav som inte går att belägga räknas som ej uppfyllt. Om kundversionen är publicerad behöver vi bekräfta. Visa inga siffror ur konfiguratorn innan de är stämda mot aktuella värden.",
+    "reserve": "Tolkster Plan är verktyget där vi sätter ihop språk, säkerhetsnivå och pris för er. Henrik kan visa det.",
+    "draft": true,
+    "unknown": [
+      "Om kundversionen är publicerad (V03)"
+    ],
+    "customer": [
+      "Resultatet för er"
+    ],
+    "follow": [
+      "KB-053",
+      "KB-035",
+      "KB-051"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-053",
+    "category": "sakerhet_data",
+    "question": "Vilka säkerhetsnivåer kan vi välja?",
+    "aliases": [
+      "Har ni en suverän variant?",
+      "Bara EU-ägda leverantörer?",
+      "Vilken nivå körs i dag?"
+    ],
+    "short": "I dag körs Tolkster med behandling inom EU, där även amerikanskt ägda leverantörer ingår under EU-avtal. Strängare nivåer har planerats: en med enbart EU-ägda leverantörer och en som körs lokalt på enheten. De är inte byggda. Ju strängare nivå, desto färre språk får röst.",
+    "detail": "Skärmen ska alltid visa vilken nivå samtalet körs på, och ett samtal byter aldrig nivå av sig självt. Administratören väljer tillåtna nivåer per verksamhet. Detta är designregler. Hur långt de är införda behöver bekräftas. Nivåernas namn är inte fastställda för extern användning.",
+    "reserve": "I dag sker behandlingen inom EU med både europeiska och amerikanskt ägda leverantörer. Strängare nivåer är inte tillgängliga ännu. Henrik kan berätta mer.",
+    "draft": false,
+    "unknown": [
+      "Externa nivånamn (C16)"
+    ],
+    "customer": [
+      "Nivå per verksamhet"
+    ],
+    "follow": [
+      "KB-020",
+      "KB-054",
+      "KB-008"
+    ],
+    "sources": [
+      {
+        "title": "Baspresentation och kundrapport – beslut och struktur",
+        "date": "2026-10-14/15"
+      },
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "KB-054",
+    "category": "sakerhet_data",
+    "question": "Kan Tolkster köras lokalt, on-prem eller utan internet?",
+    "aliases": [
+      "On-premises?",
+      "Air-gap?",
+      "Offline?",
+      "No phone home?",
+      "Finns det en lösning helt utan moln, alltså på enheten eller offline?",
+      "Fungerar det vid hembesök, i fält och med dålig täckning?",
+      "Vi har ingen täckning på hembesöket",
+      "Går det att köra utan uppkoppling?"
+    ],
+    "short": "Nej, inte i dag. Tolkster körs i molnet. En lokal variant, där samtalet stannar på enheten eller i en låda hos er, finns som skiss med några få språk. Vi lovar ingen tidpunkt. On-prem erbjuds inte som paket.",
+    "detail": "Utan moln skulle i första hand ett tiotal stora språk kunna få röst. Svåra språk som tigrinja och arabiska dialekter skulle fortfarande behöva moln eller mänsklig tolk. Kvalitet och licenser för de lokala modellerna är inte utredda.",
+    "reserve": "Tolkster körs i molnet. En lokal variant utreds men finns inte i dag.",
+    "draft": true,
+    "unknown": [
+      "Om och när"
+    ],
+    "customer": [
+      "Era krav"
+    ],
+    "follow": [
+      "KB-053",
+      "KB-020"
+    ],
+    "sources": [
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Quick lokalt – skiss",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Gustafs beslutslogg i projektanteckningarna (TolksterCRM-projektets minne)",
+        "date": "sept–okt 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      13,
+      24
+    ]
+  },
+  {
+    "id": "KB-055",
+    "category": "produkt_lagen",
+    "question": "Fungerar det i samtal med fler än två personer eller språk?",
+    "aliases": [
+      "Gruppsamtal?",
+      "Föräldramöte med tre språk?",
+      "Flera deltagare?",
+      "Kan en talare tolkas till en hel grupp, till exempel på ett föräldramöte?"
+    ],
+    "short": "Tolkster är byggt för samtal mellan två parter. Om fler deltagare eller fler språk i samma samtal fungerar i dag behöver vi bekräfta. Underlagen säger olika saker.",
+    "detail": "Den nya designen beskriver Quick och Journal med en eller flera deltagare. Flerpartsläget Multi var däremot lågt prioriterat.",
+    "reserve": "Tolkster är byggt för tvåpartssamtal. Stöd för fler deltagare bekräftar Henrik.",
+    "draft": false,
+    "unknown": [
+      "Stöd för fler än två (C19)"
+    ],
+    "customer": [
+      "Era mötestyper"
+    ],
+    "follow": [
+      "KB-002",
+      "KB-056"
+    ],
+    "sources": [
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "Affärsplan 2026",
+        "date": "mars 2026"
+      },
+      {
+        "title": "Huvudmenyer och flöden, startskärm v2",
+        "date": "2026-08-19"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      37
+    ]
+  },
+  {
+    "id": "KB-056",
+    "category": "produkt_lagen",
+    "question": "Kan klienten delta på distans, via telefon eller video?",
+    "aliases": [
+      "Kan vi skicka en länk till klienten?",
+      "Fungerar det i videosamtal?",
+      "Telefontolkning?",
+      "Kan vi se en live-demo i ett webbmöte?"
+    ],
+    "short": "Det behöver vi bekräfta. Inbjudan av en distansdeltagare via länk finns beskriven i designförslag och filmmanus, men vi har inte belägg för att funktionen finns i produktion. Integration med Teams eller andra mötesverktyg finns inte.",
+    "detail": "Tolkster är i första hand byggt för samtal där båda parter är på plats vid samma enhet.",
+    "reserve": "Tolkster är byggt för samtal på plats. Distansdeltagande bekräftar Henrik.",
+    "draft": false,
+    "unknown": [
+      "Distansdeltagare i produktion (C01)"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-055",
+      "KB-039"
+    ],
+    "sources": [
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Huvudmenyer och flöden, startskärm v2",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "Videomanus Quick och Duo",
+        "date": "2026-08-19"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      38
+    ]
+  },
+  {
+    "id": "KB-057",
+    "category": "juridik",
+    "question": "Får invånaren veta att det är en AI som tolkar?",
+    "aliases": [
+      "Informeras klienten?",
+      "Samtycke från klienten?",
+      "Visas en text om AI?",
+      "Kan rösten låta som en riktig person, eller som handläggaren själv?"
+    ],
+    "short": "Ja, det är målet, och AI-förordningen kräver det. En förhandsinformation till invånaren finns delvis. Om den visas på invånarens språk i alla lägen, och om den både visas och läses upp, behöver vi bekräfta. Märkning av själva AI-rösten saknas ännu.",
+    "detail": "Förhandsinformationen är också en del av argumentet kring sekretess, eftersom den enskilde kan välja att häva sekretess som skyddar hen. Vad som behöver informeras i er verksamhet bedömer ni.",
+    "reserve": "Invånaren ska informeras om att AI används. Exakt hur det ser ut i appen visar Henrik.",
+    "draft": false,
+    "unknown": [
+      "Hur förhandsinformationen ser ut i dag (V07)"
+    ],
+    "customer": [
+      "Era rutiner för samtycke"
+    ],
+    "follow": [
+      "KB-033",
+      "KB-031"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Framväxande krav från offentliga Sverige – nuläge, gap och åtgärder",
+        "date": "2026-09-24"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      40
+    ]
+  },
+  {
+    "id": "KB-058",
+    "category": "plattform",
+    "question": "Är Tolkster tillgängligt enligt WCAG?",
+    "aliases": [
+      "Tillgänglighetsanpassat?",
+      "Fungerar för synskadade?",
+      "Textstorlek?",
+      "Fungerar det för ovan personal och för äldre eller stressade brukare?"
+    ],
+    "short": "Det är inte granskat. Vi har ingen genomförd granskning mot WCAG 2.1 AA. Tillgänglighet finns som ett åtgärdsområde i appens utveckling.",
+    "detail": "Appen visar text och läser upp den, vilket hjälper många. En formell granskning saknas dock.",
+    "reserve": "Någon WCAG-granskning är inte gjord ännu.",
+    "draft": true,
+    "unknown": [
+      "Resultat av granskning (V16)"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-005"
+    ],
+    "sources": [
+      {
+        "title": "App UX-granskning Quick och Journal",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Helsingfors T014-25 – gapanalys och go/no-go",
+        "date": "2026-09-15/22"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      23
+    ]
+  },
+  {
+    "id": "KB-059",
+    "category": "anvandning",
+    "question": "I vilka verksamheter passar Tolkster?",
+    "aliases": [
+      "Passar det skolan?",
+      "Reception?",
+      "Socialtjänst?",
+      "SFI?",
+      "Fungerar det för ovan personal och för äldre eller stressade brukare?"
+    ],
+    "short": "Bäst passar korta och vardagliga samtal där tolk sällan bokas i dag, till exempel reception, medborgarkontor, skola och förskola, SFI, vägledning, etablering och enklare vårdkontakter. Vid känsligare samtal, som inom socialtjänst och vård, beror det på ärendet och på hur ni klassar informationen.",
+    "detail": "Samtal som kräver auktoriserad tolk, eller där beslut om den enskildes rättigheter fattas, ska ha mänsklig tolk. Se också svaret om när AI-tolkning inte ska användas.",
+    "reserve": "Tolkster passar bäst för korta och vardagliga samtal. Känsliga ärenden kräver bedömning från fall till fall.",
+    "draft": true,
+    "unknown": [],
+    "customer": [
+      "Era verksamheter"
+    ],
+    "follow": [
+      "KB-014",
+      "KB-032"
+    ],
+    "sources": [
+      {
+        "title": "Tre nivåer mot kund och byggplan",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      23
+    ]
+  },
+  {
+    "id": "KB-060",
+    "category": "om_tolkster",
+    "question": "Vem står bakom Tolkster?",
+    "aliases": [
+      "Vilket bolag?",
+      "Organisationsnummer?",
+      "Vilka är grundarna?",
+      "Vad händer med vår data och våra arbetssätt om vi avslutar avtalet eller om ni slutar existera?"
+    ],
+    "short": "Tolkster drivs av Global Instant Translations AB, org.nr 559505-7307. Bolaget grundades av Gustaf Ekelund, Andreas Massarsch och Ralf Engqvist.",
+    "detail": "Vilket bolag som är avtalspart i ert fall framgår av avtalet.",
+    "reserve": "Tolkster drivs av ett svenskt aktiebolag. Henrik kan ge er bolagsuppgifterna.",
+    "draft": true,
+    "unknown": [
+      "'Tolkster AB' i andra dokument (C15)"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      },
+      {
+        "title": "RFI-svar Simrishamn",
+        "date": "maj 2026"
+      },
+      {
+        "title": "Affärsplan 2026",
+        "date": "mars 2026"
+      },
+      {
+        "title": "Nulägesanalys design, webb och app",
+        "date": "2026-08-19"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      30
+    ]
+  },
+  {
+    "id": "KB-061",
+    "category": "sprak_kvalitet",
+    "question": "Kan man välja röst, kön och talhastighet?",
+    "aliases": [
+      "Manlig eller kvinnlig röst?",
+      "Kan rösten prata långsammare?",
+      "Grammatiskt genus?",
+      "Fungerar det för ovan personal och för äldre eller stressade brukare?",
+      "Kan rösten låta som en riktig person, eller som handläggaren själv?"
+    ],
+    "short": "Röst kan väljas för motpartens språk. I Journal kan deltagarens kön anges. Om talhastigheten går att justera är inte bekräftat. I en granskning hösten 2026 saknades den funktionen.",
+    "detail": "Valet av röst påverkar också hur dialekter låter, eftersom samma röstmotor ofta används för flera varieteter.",
+    "reserve": "Röst kan väljas. Övriga inställningar bekräftar Henrik.",
+    "draft": true,
+    "unknown": [
+      "Talhastighet (V15)"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-028"
+    ],
+    "sources": [
+      {
+        "title": "App UX-granskning Quick och Journal",
+        "date": "2026-10-03"
+      },
+      {
+        "title": "Film med speaker",
+        "date": "2026-10-07"
+      },
+      {
+        "title": "Helsingfors T014-25 – gapanalys och go/no-go",
+        "date": "2026-09-15/22"
+      },
+      {
+        "title": "Nulägesanalys design, webb och app",
+        "date": "2026-08-19"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      23,
+      40
+    ]
+  },
+  {
+    "id": "KB-062",
+    "category": "sakerhet_data",
+    "question": "Vad händer med vår data när avtalet slutar?",
+    "aliases": [
+      "Raderingsintyg?",
+      "Exit?",
+      "Kan vi få ut våra Journal-transkript?",
+      "Hur hanteras dokumentationen? Kan samtalet journalföras eller diarieföras?",
+      "Vad händer med vår data och våra arbetssätt om vi avslutar avtalet eller om ni slutar existera?",
+      "Vad händer om företaget läggs ner?",
+      "Vad händer vid konkurs?",
+      "Hur får vi ut våra uppgifter när vi slutar?",
+      "Hur undviker vi inlåsning?"
+    ],
+    "short": "Enligt PUB-avtalet raderas eller återlämnas personuppgifterna efter era instruktioner när avtalet slutar. Rutin och mall för raderingsintyg finns inte ännu, och export av Journal-data i strukturerat format är inte dokumenterad.",
+    "detail": "Quick sparar inget samtalsinnehåll enligt designen. Därför gäller frågan främst Journal och eventuell metadata.",
+    "reserve": "Uppgifterna raderas eller återlämnas enligt PUB-avtalet. Detaljerna går Henrik igenom.",
+    "draft": true,
+    "unknown": [
+      "Raderingsrutin (V08)"
+    ],
+    "customer": [
+      "Era instruktioner"
+    ],
+    "follow": [
+      "KB-015",
+      "KB-030"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      },
+      {
+        "title": "Offert till Växjö, Dnr 2025-00101, inklusive PUB-utkast",
+        "date": "2025 (giltig t.o.m. 2025-08-30)"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": [
+      20,
+      30
+    ]
+  },
+  {
+    "id": "KB-063",
+    "category": "process",
+    "question": "Får jag skriva in ett riktigt ärende här i chatten för att testa?",
+    "aliases": [
+      "Kan jag klistra in ett samtal?",
+      "Kan ni översätta det här brevet till en klient?",
+      "Här är personnumret …"
+    ],
+    "short": "Nej, skriv inte in personuppgifter eller verkligt samtalsinnehåll här. Den här chatten är en demo och inte avsedd för sådana uppgifter. Vill ni testa på riktigt görs det i en ordnad testprocess med påhittade eller inspelade scenarier. Henrik kan ordna det.",
+    "detail": "Har du redan skrivit in sådana uppgifter, nämn det för Henrik. Fråga också vad som gäller för radering av chattloggen. Den gallringsrutinen beskrivs inte i våra underlag.",
+    "reserve": "Skriv inte in personuppgifter eller verkligt samtalsinnehåll här. Henrik kan ordna ett test på rätt sätt.",
+    "draft": true,
+    "unknown": [
+      "Hur demo-chattens loggar lagras och gallras (måste beslutas före lansering)"
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051"
+    ],
+    "sources": [
+      {
+        "title": "Kravkatalog för AI-kedjan: 38 krav och nuläge",
+        "date": "2026-10-14"
+      }
+    ],
+    "markets": {
+      "SE": "Gäller.",
+      "FI": "Underlag saknas för Finland. Svara inte med svenska förhållanden som om de gällde i Finland.",
+      "DK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "UK": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik.",
+      "US": "Underlag saknas. Svara inte landspecifikt; hänvisa till Henrik."
+    },
+    "faq48": []
+  },
+  {
+    "id": "FAQ-005",
+    "category": "sprak_kvalitet",
+    "question": "Klarar den brytningar, sluddrigt tal, bakgrundsljud, flera talare och känslomässigt laddade samtal?",
+    "aliases": [],
+    "short": "Det behöver provas med era användare och i den miljö där tjänsten ska användas. Vi har inget samlat testunderlag här som visar kvalitet för brytningar, sluddrigt tal, störande ljud eller starka känslouttryck.",
+    "detail": "Ta med lugnt och stökigt rum, olika mikrofoner och realistiska talare i testet. Pröva även att personer avbryter varandra. Bestäm på förhand när personalen ska ta om en replik eller välja mänsklig tolk. En produktbeskrivning ersätter inte sådana tester.",
+    "reserve": "Det behöver provas med era användare och i den miljö där tjänsten ska användas. Vi har inget samlat testunderlag här som visar kvalitet för brytningar, sluddrigt tal, störande ljud eller starka känslouttryck.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      5
+    ]
+  },
+  {
+    "id": "FAQ-017",
+    "category": "juridik",
+    "question": "Uppfyller det förvaltningslagens krav på tolkning och patientlagens krav på anpassad information?",
+    "aliases": [],
+    "short": "Vi kan hjälpa er med underlag om tjänsten, men vi kan inte ge ett generellt ja på att den uppfyller era lagkrav i ett visst ärende. Er bedömning behöver utgå från situationen, kommunikationen och konsekvenserna om något blir fel.",
+    "detail": "Ta med er jurist, informationssäkerhetsansvarig och verksamhet. Granska vilka typer av samtal ni vill tillåta, hur förståelse kontrolleras och när mänsklig tolk krävs. Detta underlag innehåller inget verifierat juridiskt utlåtande om den enskilda användningen.",
+    "reserve": "Vi kan hjälpa er med underlag om tjänsten, men vi kan inte ge ett generellt ja på att den uppfyller era lagkrav i ett visst ärende. Er bedömning behöver utgå från situationen, kommunikationen och konsekvenserna om något blir fel.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      17
+    ]
+  },
+  {
+    "id": "FAQ-019",
+    "category": "upphandling",
+    "question": "Är det här en tolktjänst eller ett IT-system? Krockar det med vårt befintliga tolkavtal?",
+    "aliases": [],
+    "short": "Ni behöver kontrollera hur ert befintliga tolkavtal definierar tjänsten och om det finns exklusivitetsvillkor. Vi kan beskriva Tolksters funktion och avtalsupplägg, men er inköpsfunktion eller jurist behöver bedöma om ett nytt köp ryms.",
+    "detail": "Utgå från avtalets ordalydelse, omfattning och eventuella bestämmelser om programvara eller AI. Att en lösning levereras som IT-tjänst avgör inte ensamt om den berör ett befintligt avtal. Henrik kan ordna ett underlag för er avtalsgranskning.",
+    "reserve": "Ni behöver kontrollera hur ert befintliga tolkavtal definierar tjänsten och om det finns exklusivitetsvillkor. Vi kan beskriva Tolksters funktion och avtalsupplägg, men er inköpsfunktion eller jurist behöver bedöma om ett nytt köp ryms.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      19
+    ]
+  },
+  {
+    "id": "FAQ-026",
+    "category": "anvandning",
+    "question": "Hur upplever klienten det? Litar de på en maskin?",
+    "aliases": [],
+    "short": "Vi har inget verifierat, samlat mått här på hur klienter upplever Tolkster. Det är därför viktigt att även fråga klienterna i piloten: förstod de samtalet, kände de sig trygga och vill de använda tjänsten igen?",
+    "detail": "Informera begripligt om hur samtalet genomförs och ge utrymme att välja ett annat arbetssätt. Mät både personalens och klientens upplevelse. Att personalen gillar ett verktyg visar inte i sig att klienten förstod innehållet.",
+    "reserve": "Vi har inget verifierat, samlat mått här på hur klienter upplever Tolkster. Det är därför viktigt att även fråga klienterna i piloten: förstod de samtalet, kände de sig trygga och vill de använda tjänsten igen?",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      26
+    ]
+  },
+  {
+    "id": "FAQ-032",
+    "category": "sprak_kvalitet",
+    "question": "Klarar ni långa samtal på arabiska i socialtjänsten?",
+    "aliases": [],
+    "short": "Det behöver testas med era egna socialsekreterare, språkvarianter och realistiska samtalslängder. Vi vill inte lova kvaliteten i långa arabiska samtal utan att ha resultat för just det användningsfallet.",
+    "detail": "Välj relevanta dialekter och ett antal fiktiva ärenden med förvaltningstermer, negationer, datum och belopp. Låt tvåspråkiga granskare bedöma innehållet. Bestäm hur ett fel ska upptäckas och när mänsklig tolk tar över. Blanda inte ihop att arabiska stöds med att varje dialekt och samtalstyp är verifierad.",
+    "reserve": "Det behöver testas med era egna socialsekreterare, språkvarianter och realistiska samtalslängder. Vi vill inte lova kvaliteten i långa arabiska samtal utan att ha resultat för just det användningsfallet.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      32
+    ]
+  },
+  {
+    "id": "FAQ-033",
+    "category": "sakerhet_data",
+    "question": "Kan personuppgifter maskeras i realtid i transkriptet?",
+    "aliases": [
+      "Går det att dölja namn och personnummer?",
+      "Kan ni anonymisera texten?",
+      "Tas personuppgifter bort innan texten når modellen?"
+    ],
+    "short": "Status för maskering av personuppgifter i realtid behöver bekräftas. Vi lovar inte att en maskering sker före lagring eller före överföring till en AI-leverantör utan ett granskat dataflöde och testresultat.",
+    "detail": "Skilj mellan maskering på skärmen, i en sparad kopia och innan data lämnar enheten. Kontrollera vilka uppgifter som identifieras, missade träffar och felaktiga maskeringar. Maskering gör inte automatiskt återstående material anonymt. Ta frågan vidare i Plan och en teknisk genomgång.",
+    "reserve": "Status för maskering av personuppgifter i realtid behöver bekräftas. Vi lovar inte att en maskering sker före lagring eller före överföring till en AI-leverantör utan ett granskat dataflöde och testresultat.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      33
+    ]
+  },
+  {
+    "id": "FAQ-034",
+    "category": "produkt_lagen",
+    "question": "Kan handläggaren granska texten innan den läses upp för klienten?",
+    "aliases": [
+      "Kan handläggaren stoppa uppläsningen och rätta först?",
+      "Får jag godkänna texten innan den spelas upp?",
+      "Kan jag kontrollera översättningen innan kunden hör den?"
+    ],
+    "short": "Vi behöver bekräfta om handläggaren kan granska och aktivt godkänna översättningen innan den läses upp. Att text visas på skärmen betyder inte i sig att det finns ett sådant godkännandesteg.",
+    "detail": "Be om en demonstration av just arbetsflödet: tal, text, granskning, eventuell rättning och uppläsning. Ta med behovet i Plan och mät i Test hur det påverkar kvalitet och samtalets tempo.",
+    "reserve": "Vi behöver bekräfta om handläggaren kan granska och aktivt godkänna översättningen innan den läses upp. Att text visas på skärmen betyder inte i sig att det finns ett sådant godkännandesteg.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      34
+    ]
+  },
+  {
+    "id": "FAQ-036",
+    "category": "produkt_lagen",
+    "question": "Har ni färdiga fraser och bildstöd?",
+    "aliases": [],
+    "short": "Vi behöver bekräfta vilka färdiga fraser och vilket bildstöd som faktiskt finns i den aktuella versionen. Ange gärna vilka situationer ni vill stödja, så kan Henrik ta fram rätt besked.",
+    "detail": "Fraser bör vara språkligt granskade och kopplade till verksamhet och användningssituation. Bildstöd behöver prövas med målgruppen. Vi beskriver inte dessa funktioner som färdiga utan en verifierad produktdemonstration.",
+    "reserve": "Vi behöver bekräfta vilka färdiga fraser och vilket bildstöd som faktiskt finns i den aktuella versionen. Ange gärna vilka situationer ni vill stödja, så kan Henrik ta fram rätt besked.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      36
+    ]
+  },
+  {
+    "id": "FAQ-044",
+    "category": "sprak_kvalitet",
+    "question": "Fungerar det för personer med lindriga talsvårigheter?",
+    "aliases": [],
+    "short": "Underlaget räcker inte för att lova stöd vid lindriga talsvårigheter. Det behöver provas systematiskt och med lämpliga deltagare innan ni väljer det för sådana samtal.",
+    "detail": "Ett test bör skilja mellan olika typer av talsvårigheter och kontrollera om missförstånd upptäcks, inte bara om systemet ger ett svar. Ta fram ett alternativt kommunikationssätt och möjlighet till mänsklig hjälp. Använd fiktivt innehåll och en godkänd testprocess.",
+    "reserve": "Underlaget räcker inte för att lova stöd vid lindriga talsvårigheter. Det behöver provas systematiskt och med lämpliga deltagare innan ni väljer det för sådana samtal.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      44
+    ]
+  },
+  {
+    "id": "FAQ-045",
+    "category": "produkt_lagen",
+    "question": "Känner systemet själv igen klientens språk? Kan det tolka automatiskt utan knapptryck?",
+    "aliases": [],
+    "short": "Vi behöver bekräfta stöd för automatisk språkidentifiering och för tolkning utan knapptryck i den version ni ska använda. De är två olika funktioner och ska inte antas finnas för att tjänsten kan tolka tal.",
+    "detail": "Pröva språkidentifiering för närliggande språk och dialekter. Vid automatisk turväxling bör även pauser, avbrott och flera talare testas. Ange behovet i Plan; ett planerat införande är inte en funktion i produktion.",
+    "reserve": "Vi behöver bekräfta stöd för automatisk språkidentifiering och för tolkning utan knapptryck i den version ni ska använda. De är två olika funktioner och ska inte antas finnas för att tjänsten kan tolka tal.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      45
+    ]
+  },
+  {
+    "id": "FAQ-048",
+    "category": "marknad_land",
+    "question": "Finns det någon nationell vägledning för AI-tolkning?",
+    "aliases": [],
+    "short": "Det behöver kontrolleras mot aktuella officiella källor för ert land. Den här kunskapsbanken ger inget verifierat besked om att det finns eller saknas nationell vägledning.",
+    "detail": "Skilj på nationell vägledning, ett finansierat projekt, en leverantörs rekommendation och organisationens egna regler. Ett initiativ i ett annat land innebär inte att samma regler gäller för er. Henrik kan hjälpa er att hitta rätt underlag.",
+    "reserve": "Det behöver kontrolleras mot aktuella officiella källor för ert land. Den här kunskapsbanken ger inget verifierat besked om att det finns eller saknas nationell vägledning.",
+    "draft": false,
+    "unknown": [
+      "Produktstatus och underlag behöver granskas."
+    ],
+    "customer": [],
+    "follow": [
+      "KB-051",
+      "KB-050"
+    ],
+    "sources": [
+      {
+        "title": "Frågor och svar för kundmöten – användarens underlag",
+        "date": "2026-10-20"
+      }
+    ],
+    "markets": {},
+    "faq48": [
+      48
+    ]
+  }
+]

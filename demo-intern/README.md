@@ -28,3 +28,17 @@ En PDF utan prefix hamnar under Whitepapers. Använd prefixet `presentation-` f�
 ## Åtkomst
 
 GitHub Pages är normalt offentligt även om källrepot är privat. Publicera därför inte interna underlag, personuppgifter eller kundspecifika dokument där. För att begränsa själva webbsidan till kollegor krävs en separat åtkomstlösning eller GitHub Enterprise Cloud med privat Pages-publicering. En lösenordsruta i statisk HTML ger inget faktiskt skydd.
+
+## Intern Motor
+
+Kontrollpanelen för steg 01–04 finns i `motor/index.html` och publiceras på `/motor/`. Kunddemon ligger kvar som `index.html` i roten. Länken från Motor tillbaka till 05 Demo går till roten.
+
+## Tydliga testfiler
+
+- `01index.html`: Motor 01–04, märkt **01 MOTOR – intern testversion**.
+- `index.html`: kunddemon 05.
+- `motor/01index.html`: samma Motor-test under katalogen `motor/`.
+
+Motor startar i **Marknadstäckning**, med en svensk grundlista och gap mot ett inläst Attio-utdrag. Där bedöms intäktspotential och strategisk vikt och prioriterade exempeluppdrag kan startas. **Kontakter** följer person, arbetsmejl, organisation och steg. **Behöver ditt OK** samlar godkännanden. Alla mejl kräver uttryckligt godkännande och skickas endast som simulering. Se `motor/SALES-MOTOR.md` för källor, import, lagring och kvarvarande kopplingar till skarp drift.
+
+Ladda upp `01index.html` i roten om du vill testa Motor utan att ersätta kunddemons `index.html`.
